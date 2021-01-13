@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url('comingSoonAssets/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <link  rel="icon"   href="{{ url('comingSoonAssets/img/favicon.png') }}" type="image/png" />
+    <link  rel="icon" type="image/png" href="{{ url('comingSoonAssets/img/favicon.png') }}" />
     <title>Wikipbl</title>
 </head>
 
