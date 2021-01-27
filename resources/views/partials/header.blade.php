@@ -487,7 +487,7 @@
                                     $('body').css('padding-right', '0px');
                                     $('.modal-backdrop').remove();
 
-                                    $('.mensaje').modal()
+                                    $('#mensaje').modal('show')
 
                                 })
 
