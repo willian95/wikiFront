@@ -69,7 +69,7 @@ class RegisterController extends Controller
 
         $to_name = $user->name;
         $to_email = $user->email;
-        $data = ["messageMail" => "Hello ".$user->name.", click the button to verify your account", "registerHash" => $user->registerHash];
+        $data = ["user" => $user, "registerHash" => $user->registerHash];
 
         \Mail::send("emails.register", $data, function($message) use ($to_name, $to_email) {
 
