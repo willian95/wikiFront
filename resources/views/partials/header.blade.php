@@ -1,3 +1,5 @@
+<div id="auth">
+
 <header>
     <nav class='navbar navbar-expand-md navbar-fixed-js'>
         <div class='flex-custom'>
@@ -231,8 +233,7 @@
     2nd Institution Register Layout <strong>AQUI ES DONDE ESTA EL PUTO STEP</strong>
 
 </button>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
 
@@ -240,7 +241,7 @@
                 <form id="regForm">
 
                     <!-- One "tab" for each step in the form: -->
-                    <div class="tab">
+                    <div class="tab" v-if="step == 1">
                         <div class="content-titulo">
                             <p class="titulo"> Welcome back John! <span>Step 1/2</span></p>
                             <div class="info-regrister">
@@ -294,7 +295,7 @@
                         <!-----------------------selct--------------------------------->
                     </div>
                     <!----------------STEP 2-------------------->
-                    <div class="tab">
+                    <div class="tab" v-if="step == 2">
                         <div class="content-titulo">
                             <p class="titulo"> Welcome back John! <span>Step 2/2</span></p>
                         </div>
@@ -339,10 +340,10 @@
                     </div>
                     <div style="overflow:auto;">
                         <div style="float:right;">
-                            <button class="btn btn-custom" type="button" id="prevBtn"
-                                onclick="nextPrev(-1)">Previous</button>
-                            <button class="btn btn-custom" type="button" id="nextBtn"
-                                onclick="nextPrev(1)">Continue</button>
+                            <button class="btn btn-custom" type="button"
+                                @click="previous()">Previous</button>
+                            <button class="btn btn-custom" type="button"
+                                @click="next()">Continue</button>
                         </div>
                     </div>
                     <!-- Circles which indicates the steps of the form: -->
@@ -357,10 +358,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
 <!-- Button trigger modal -->
@@ -397,3 +394,35 @@
 </div>
 
 <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
+
+
+</div>
+
+@push("script")
+
+    <script>
+        const app = new Vue({
+            el: '#auth',
+            data(){
+                return{
+                    step:1
+                }
+            },
+            methods:{
+
+                next(){
+                    if(this.step + 1 < 3){
+                        this.step++
+                    }
+                },
+                previous(){
+                    if(this.step - 1 > 0){
+                        this.step--
+                    }
+                }
+
+            }
+        })
+    </script>
+
+@endpush
