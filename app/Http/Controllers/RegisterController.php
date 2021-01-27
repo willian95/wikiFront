@@ -39,7 +39,7 @@ class RegisterController extends Controller
 
             $user->save();
 
-            if(env("SEND_EMAIL") == true){
+            if(env("SEND_EMAIL") == "true"){
                 $this->sendEmail($user);
             }
             
