@@ -84,8 +84,8 @@ class RegisterController extends Controller
 
         $user = User::find($request->id);
 
-        if($user->registerHash){
-            $this->sendEmail();
+        if($user->register_hash){
+            $this->sendEmail($user);
             return response()->json(["success" => "true", "msg" => "Email sended"]);
         }else{
             return response()->json(["success" => "false", "msg" => "Register code already used"]);

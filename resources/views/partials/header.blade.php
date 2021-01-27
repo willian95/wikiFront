@@ -476,6 +476,7 @@
 
                             if(res.data.success == true){
 
+                                this.resetRegistrationForm()
                                 this.user = res.data.user
 
                                 swal({
@@ -483,7 +484,7 @@
                                     icon: "success"
                                 }).then(res => {
 
-                                    this.resetRegistrationForm()
+                                    
                                     $(".modalClose").click();
                                     $('body').removeClass('modal-open');
                                     $('body').css('padding-right', '0px');
