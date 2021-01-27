@@ -416,7 +416,8 @@
                     step:1,
                     topStep:4,
                     errors:[],
-                    loading:false
+                    loading:false,
+                    user:null
                 }
             },
             methods:{
@@ -475,7 +476,8 @@
 
                             if(res.data.success == true){
 
-                                
+                                this.user = res.data.user
+
                                 swal({
                                     text:res.data.msg,
                                     icon: "success"
