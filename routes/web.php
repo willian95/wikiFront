@@ -25,3 +25,9 @@ Route::get('/front-test', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get("/institutions/fetchAll", "InstitutionController@fetchAllInstitutions");
+
+Route::post("/register", "RegisterController@teacherRegister");
+Route::get("/register/validate/{registerHash}", "RegisterController@verify")->middleware("guest");
+Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
