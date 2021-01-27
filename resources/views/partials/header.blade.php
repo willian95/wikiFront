@@ -66,6 +66,7 @@
                                             <option value="">Choose your institution </option>
                                             <option :value="institution" v-for="institution in institutions">@{{ institution.name }}</option>
                                         </select>
+                                        <small style="color:red" v-if="errors.hasOwnProperty('institution')">@{{ errors['institution'][0] }}</small>
                                     </div>
                                     <div class="">
                                         <!---check--->
@@ -104,20 +105,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Name" v-model="name">
+                                                <small style="color:red" v-if="errors.hasOwnProperty('name')">@{{ errors['name'][0] }}</small>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Last name " v-model="lastname">
+                                                <small style="color:red" v-if="errors.hasOwnProperty('lastname')">@{{ errors['lastname'][0] }}</small>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Institutional Email" v-model="institution_email">
+                                                <small style="color:red" v-if="errors.hasOwnProperty('institution_email')">@{{ errors['institution_email'][0] }}</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Personal Email" v-model="email">
+                                                <small style="color:red" v-if="errors.hasOwnProperty('email')">@{{ errors['email'][0] }}</small>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control" placeholder="Password" v-model="password">
+                                                <small style="color:red" v-if="errors.hasOwnProperty('password')">@{{ errors['password'][0] }}</small>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control" placeholder="Repeat Password" v-model="password_confirmation">
@@ -605,9 +611,9 @@
 
                 },
                 resendEmail(){
-
+                    this.loading = true
                     axios.post("{{ url('/resend-email') }}", {id: this.user.id}).then(res => {
-                        
+                        this.loading = false
                         if(res.data.success == true){
 
                             swal({
@@ -624,6 +630,9 @@
 
                         }
 
+                    }).catch(err => {
+
+                        this.loading = false
                     })
 
                 }

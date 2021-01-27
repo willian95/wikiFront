@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\PendingInstitution;
 use Illuminate\Support\Str;
 use App\User;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -86,9 +87,9 @@ class RegisterController extends Controller
 
         if($user->register_hash){
             $this->sendEmail($user);
-            return response()->json(["success" => "true", "msg" => "Email sended"]);
+            return response()->json(["success" => true, "msg" => "Email sended"]);
         }else{
-            return response()->json(["success" => "false", "msg" => "Register code already used"]);
+            return response()->json(["success" => false, "msg" => "Register code already used"]);
         }
 
         
