@@ -101,7 +101,7 @@ class RegisterController extends Controller
         try{
 
             $user = User::where("register_hash", $registerHash)->firstOrFail();
-            $user->register_code = null;
+            $user->register_hash = null;
             $user->email_verified_at = Carbon::now();
             $user->update();
             
