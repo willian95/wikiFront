@@ -1,0 +1,433 @@
+* {
+    box-sizing: inherit;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    background-color: #fff !important;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #9e9e9e;
+}
+
+
+
+body :focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+body {
+    scroll-behavior: smooth !important;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/*---------------
+Nav
+---------------*/
+
+@media (max-width: 767px) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 56px;
+        /* Height of navbar */
+        bottom: 0;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: hidden;
+        background-color: #f9f8f2;
+        transition: -webkit-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out,
+            -webkit-transform 0.3s ease-in-out;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    /**navbaar */
+    body.offcanvas-expanded {
+        overflow: auto !important;
+    }
+
+    .navbar {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background: transparent;
+        transition: .6s;
+    }
+
+    .hamburger:hover {
+        opacity: 0.7;
+    }
+
+    .hamburger:focus {
+        outline: 0px auto -webkit-focus-ring-color;
+    }
+
+    .hamburger-box {
+        width: 40px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        width: 35px;
+        height: 3px;
+        background-color: #000;
+        border-radius: 3px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
+
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+
+    .hamburger-inner::before {
+        top: -10px;
+    }
+
+    .hamburger-inner::after {
+        bottom: -10px;
+    }
+
+    .hamburger--elastic .hamburger-inner {
+        top: 5px;
+        transition-duration: 0.275s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        right: 5px;
+    }
+
+    .hamburger--elastic .hamburger-inner::before {
+        top: 10px;
+        transition: opacity 0.125s 0.275s ease;
+    }
+
+    .hamburger--elastic .hamburger-inner::after {
+        top: 20px;
+        transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .hamburger--elastic.is-active .hamburger-inner {
+        transform: translate3d(0, 10px, 0) rotate(135deg);
+        transition-delay: 0.075s;
+    }
+
+    .hamburger--elastic.is-active .hamburger-inner::before {
+        transition-delay: 0s;
+        opacity: 0;
+    }
+
+    .hamburger--elastic.is-active .hamburger-inner::after {
+        transform: translate3d(0, -20px, 0) rotate(-270deg);
+        transition-delay: 0.075s;
+    }
+}
+
+@media (max-width: 767px) {
+    .offcanvas-collapse.open {
+        -webkit-transform: translateX(0rem);
+
+        text-align: center;
+        /* Account for horizontal padding on navbar */
+    }
+}
+
+/****** */
+.brand img {
+    width: 150px;
+}
+
+.border-nav {
+    border-right: 1px solid #0c0c0c26;
+}
+
+.nav-item {
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+}
+
+.flex-custom {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    color: #000;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.w-nav {
+    width: 100px;
+}
+
+/**********modaaal******************** */
+.titulo {
+    font-family: 'Inconsolata';
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.content-titulo {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-regrister {
+    display: grid;
+    grid-template-columns: 15% 85%;
+
+    text-align: start;
+    width: 65%;
+}
+
+.info-regrister img {
+    width: 30px;
+}
+
+.info-regrister {
+    font-size: 12px;
+}
+
+.main-modal .form-check-label {
+    font-size: 15px;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-custom {
+    border: 1px solid #0e0e0e;
+}
+
+/***********check******* */
+.check-inst {
+    display: flex;
+}
+
+.check-inst label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+/*
+@keyframes click-wave {
+    0% {
+      height: 20px;
+      width: 20px;
+      opacity: 0.35;
+      position: relative;
+    }
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }*/
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: transparent;
+    border: 1px solid #000;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.option-input:hover {
+    background: #9faab7;
+}
+
+.option-input:checked {
+    background: transparent;
+    border: 1px solid #000;
+}
+
+.option-input:checked::before {
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    line-height: 17px;
+    color: black;
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-input.radio {}
+
+.option-input.radio::after {}
+
+
+/*****estep form** */
+/* Style the form */
+
+
+/* Style the input fields */
+.check-inst input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.check-inst input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}
+
+
+
+.info-regrister--inst p {
+    font-weight: 600;
+    font-family: 'Inconsolata';
+    font-size: 15px;
+}
+
+.info-regrister img {
+    width: 23px;
+}
+
+.modal-footers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #00000033;
+}
+
+.modal-footers .btn {
+    border-right: 1px solid #00000033;
+    border-radius: 0;
+}
+
+.contenido-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 13px;
+}
+
+.contenido-select-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.info-regrister-2 {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
