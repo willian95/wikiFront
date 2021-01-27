@@ -66,7 +66,7 @@
                                             <option value="">Choose your institution </option>
                                             <option :value="institution" v-for="institution in institutions">@{{ institution.name }}</option>
                                         </select>
-                                        <small style="color:red" v-if="errors.hasOwnProperty('institution')">@{{ errors['institution'][0] }}</small>
+                                       
                                     </div>
                                     <div class="">
                                         <!---check--->
@@ -234,10 +234,7 @@
 
 
     <!------------------------------MODAL ESTEP DE instituto DEPUES DE REGISTRO------------------------------------------->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        2nd Institution Register Layout <strong>AQUI ES DONDE ESTA EL PUTO STEP</strong>
 
-    </button>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -365,10 +362,7 @@
     </div>
 
     <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mensaje">
-        Institution Register Confirmation Pop Ups
-    </button>
+
     <!-- Modal -->
     <div class="modal fade" id="mensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
