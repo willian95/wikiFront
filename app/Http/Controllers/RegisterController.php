@@ -14,7 +14,7 @@ class RegisterController extends Controller
     function teacherRegister(RegisterRequest $request){
 
         try{
-            return response()->json(env("SEND_EMAIL"));
+           
             $user = new User;
             $user->name = $request->name;
             $user->lastname = $request->lastname;
