@@ -33,9 +33,15 @@ Route::get('/InstitutionProfile', function () {
 
 Route::get("/institutions/fetchAll", "InstitutionController@fetchAllInstitutions");
 
+Route::get("/countries/fetch", "CountryController@fetch");
+
+Route::get("/states/fetch/{country_id}", "StateController@fetch");
+
 Route::post("/register", "RegisterController@teacherRegister");
 Route::post("/login", "AuthController@login");
 Route::post("/institution-register", "RegisterController@institutionRegister");
 Route::get("/register/validate/{registerHash}", "RegisterController@verify")->middleware("guest");
 Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
 Route::get("/logout", "AuthController@logout");
+
+Route::post("/institution/first-update", "InstitutionController@firstUpdate");

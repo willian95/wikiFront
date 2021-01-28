@@ -66,8 +66,10 @@
     @include("partials.authModals.institutionRegistrationModal")
 
 
-    <!------------------------------MODAL ESTEP DE instituto DEPUES DE REGISTRO------------------------------------------->
-    @include("partials.authModals.institutionStepForm")
+    @if(\Auth::check() && \Auth::user()->role_id == 3)
+        <!------------------------------MODAL ESTEP DE instituto DEPUES DE REGISTRO------------------------------------------->
+        @include("partials.authModals.institutionStepForm")
+    @endif
     
 
     <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
@@ -100,7 +102,6 @@
                     password:"",
                     password_confirmation:"",
                     step:1,
-                    topStep:4,
                     errors:[],
                     loading:false,
                     admin_institution_name:"",
@@ -116,21 +117,66 @@
                     user:null,
                     login_email:"",
                     login_password:"",
-                    showInstitutionStepForm:"{{ $showModal }}"
+                    showInstitutionStepForm:"{{ $showModal }}",
+                    stepForm:1,
+                    countries:[],
+                    selectedCountry:"",
+                    states:[],
+                    selectedState:"",
+                    gender_institution_type:"",
+                    lowest_age:"",
+                    highest_age:"",
+                    part_of_network_institution:'true',
+                    institution_public_or_private:"public",
+                    students_enrolled:"0-100",
+                    faculty_members:"0-50",
+                    which_network:""
+
                 }
             },
             methods:{
 
-                next(){
+                next(form = "teacher"){
                     
-                    if(this.step + 1 < this.topStep){
+                    if(form == "institution"){
+                        if(this.validateNextStepInstitution()){
+                            this.stepForm++
+                        }
+                        
+                    }else{
                         this.step++
                     }
+                    
                 },
-                previous(){
-                    if(this.step - 1 > 0){
-                        this.step--
+                previous(form = "teacher"){
+                    
+                    if(form == "institution"){
+                        if(this.stepForm - 1 > 0){
+                            this.stepForm--
+                        }
+                    }else{
+                        if(this.step - 1 > 0){
+                            this.step--
+                        }
                     }
+                },
+                fetchCountries(){
+
+                    axios.get("{{ url('/countries/fetch') }}").then(res => {
+
+                        this.countries = res.data.countries
+
+                    })
+
+                },
+                fetchStates(){
+
+                    axios.get("{{ url('/states/fetch/') }}"+"/"+this.selectedCountry).then(res => {
+
+                        this.states = res.data.states
+
+                    })
+
                 },
                 fetchAllInstitutions(){
 
@@ -598,12 +644,117 @@
                     } else {
                         return true;
                     }
+                },
+                validateNextStepInstitution(){
+
+                    if(this.institution_type == "school" || this.institution_type == "university"){
+
+                        if(this.selectedCountry == "" || this.selectedState == "" || this.gender_institution_type == "" || this.lowest_age == "" || this.highest_age == ""){
+                            return false
+                        }
+
+                    }else if(this.institution_type == "organization"){
+
+                        if(this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" || this.highest_age == ""){
+                            return false
+                        }
+
+                    }
+
+                    return true
+
+                },
+                validateFirstUpdateInstitution(){
+
+                    if(this.institution_type == "school" || this.institution_type == "university"){
+
+                        if((this.part_of_network_institution == "true" && this.which_network == "") || this.institution_public_or_private == "" || this.students_enrolled == "" || this.faculty_members == ""){
+                            return false
+                        }
+
+                        }else if(this.institution_type == "organization"){
+
+                        if(this.institution_public_or_private == ""){
+                            return false
+                        }
+
+                    }
+
+                    return true
+
+                },
+                institutionFirstUpdate(){
+
+                    if(this.validateFirstUpdateInstitution()){
+
+                        this.loading = true
+
+                        let form = new FormData;
+                        form.append("country_id", this.selectedCountry)
+                        form.append("state_id", this.selectedState)
+                        form.append("gender_institution_type", this.gender_institution_type)
+                        form.append("lowest_age", this.lowest_age)
+                        form.append("highest_age", this.highest_age)
+                        form.append("part_of_network_institution", this.part_of_network_institution)
+                        form.append("which_network", this.which_network)
+                        form.append("institution_public_or_private", this.institution_public_or_private)
+                        form.append("students_enrolled", this.students_enrolled)
+                        form.append("faculty_members", this.faculty_members)
+                       
+                        axios.post("{{ url('/institution/first-update') }}", form).then(res => {
+
+                            this.loading = false
+
+                            if(res.data.success == true){
+
+                                swal({
+                                    text:res.data.msg,
+                                    icon:"success"
+                                }).then(res => {
+
+                                    $(".modalClose").click();
+                                    $('body').removeClass('modal-open');
+                                    $('body').css('padding-right', '0px');
+                                    $('.modal-backdrop').remove();
+
+                                })
+
+                            }else{
+
+                                swal({
+                                    text:res.data.msg,
+                                    icon:"error"
+                                })
+
+                            }
+
+                        }).catch(err => {
+
+                            this.loading = false
+
+                        })
+
+                    }
+
                 }
 
             },
             mounted(){
                 this.fetchAllInstitutions()
-                $(".stepFormModal").modal('show')
+                
+                if(this.showInstitutionStepForm == 1){
+                    $(".stepFormModal").modal('show')
+                    this.fetchCountries()
+                }
+                
+                @if(\Auth::check())
+
+                    this.institution_type = "{{ \Auth::user()->institution->type ? \Auth::user()->institution->type : ''  }}"
+
+                @endif
+
+                
+
             }
         })
     </script>

@@ -15,14 +15,16 @@ class HomeController extends Controller
     public function index()
     {   
         $showModal = false;
-        if(\Auth::user()->role_id == 3){
+        if(\Auth::check()){
+            if(\Auth::user()->role_id == 3){
 
-            $isProfileComplete = Institution::where("id", \Auth::user()->institution_id)->first()->is_profile_complete;
-
-            if($isProfileComplete == 0){
-                $showModal = true;
+                $isProfileComplete = Institution::where("id", \Auth::user()->institution_id)->first()->is_profile_complete;
+    
+                if($isProfileComplete == 0){
+                    $showModal = true;
+                }
+    
             }
-
         }
 
         return view('welcome', ["showModal" => $showModal]);
