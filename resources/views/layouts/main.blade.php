@@ -51,18 +51,14 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <main>
             @include("partials.header")
 
             @yield("content")
-
-
-
-
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p>All Rights Reserved @ 2020 </p>
+                    <p> <a href="#">Privacy Policy </a> - <a href="#">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021 Copyrights - Contact us! </p>
                 </div>
             </footer>
         </main>

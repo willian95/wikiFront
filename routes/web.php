@@ -22,6 +22,13 @@ Route::get('/front-test', function () {
     return view('welcome');
 });
 
+Route::get('/CategoriesLayout', function () {
+    return view('CategoriesLayout');
+});
+Route::get('/InstitutionProfile', function () {
+    return view('InstitutionProfile');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
