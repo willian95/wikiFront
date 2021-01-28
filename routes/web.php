@@ -18,16 +18,16 @@ Route::get('/', function () {
 });
 
 
-Route::get('/front-test', function () {
-    return view('welcome');
-});
+Route::get('/front-test', "HomeController@index")->name("home");
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/institutions/fetchAll", "InstitutionController@fetchAllInstitutions");
 
 Route::post("/register", "RegisterController@teacherRegister");
+Route::post("/login", "AuthController@login");
+Route::post("/institution-register", "RegisterController@institutionRegister");
 Route::get("/register/validate/{registerHash}", "RegisterController@verify")->middleware("guest");
 Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
+Route::get("/logout", "AuthController@logout");

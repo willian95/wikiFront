@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\InstitutionRegisterRequest;
 use App\PendingInstitution;
 use Illuminate\Support\Str;
 use App\User;
+use App\Institution;
 use Carbon\Carbon;
 
 class RegisterController extends Controller
@@ -24,7 +26,7 @@ class RegisterController extends Controller
             $user->role_id = 2;
             $user->register_hash = Str::random(40);
             
-            if(!$request->pendingInstitution){
+            if(!$request->institution_not_registered){
 
                 $user->institution_email = $request->institution_email;
                 $user->institution_id = $request->institution_id;
@@ -34,7 +36,7 @@ class RegisterController extends Controller
                 $pendingInstitution = $this->storePendingInstitution($request);
 
                 $user->pending_institution_name = $request->institution_name;
-                $user->pending_insitution_id = $pendingInstitution->id;
+                $user->pending_institution_id = $pendingInstitution->id;
 
             }
 
@@ -57,9 +59,9 @@ class RegisterController extends Controller
     function storePendingInstitution($request){
 
         $pendingInstitution = new PendingInstitution;
-        $pendingInstitution->name = $request->pending_institution_name;
-        $pendingInstitution->website = $request->pending_institution_website;
-        $pendingInstitution->email = $request->pending_institution_email;
+        $pendingInstitution->name = $request->institution_name;
+        $pendingInstitution->website = $request->institution_website;
+        $pendingInstitution->email = $request->institution_contact_email;
         $pendingInstitution->save();
 
         return $pendingInstitution;
@@ -111,6 +113,50 @@ class RegisterController extends Controller
             
             abort(403);
         }
+
+    }
+
+    function institutionRegister(InstitutionRegisterRequest $request){
+
+        try{
+
+            $institution = $this->storeInstitution($request);
+
+            $user = new User;
+            $user->name = $request->admin_institution_name;
+            $user->lastname = $request->admin_institution_lastname;
+            $user->email = $request->admin_institution_email;
+            $user->password = bcrypt($request->admin_institution_password);
+            $user->role_id = 3;
+            $user->phone = $request->admin_institution_phone;
+            $user->register_hash = Str::random(40);
+            $user->institution_email = $request->admin_institution_email;
+            $user->institution_id = $institution->id;
+            $user->save();
+
+            if(env("SEND_EMAIL") == true){
+                $this->sendEmail($user);
+            }
+            
+            return response()->json(["success" => true, "msg" => "Successfully registered", "user" => $user]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function storeInstitution($request){
+
+        $institution = new Institution;
+        $institution->name = $request->institution_name;
+        $institution->type = $request->institution_type;
+        $institution->website = $request->institution_website;
+        $institution->save();
+
+        return $institution;
 
     }
 
