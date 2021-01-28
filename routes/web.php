@@ -20,6 +20,14 @@ Route::get('/', function () {
 
 Route::get('/front-test', "HomeController@index")->name("home");
 
+Route::get('/CategoriesLayout', function () {
+    return view('CategoriesLayout');
+});
+Route::get('/InstitutionProfile', function () {
+    return view('InstitutionProfile');
+});
+
+//Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
