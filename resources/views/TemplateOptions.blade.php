@@ -76,6 +76,14 @@
                         <div class="row">
                             <div class="col-md-12  mt-3">
                                 <div class="menu-flex">
+
+                                    <!----------------------------------->
+                                    <li class='nav-item  border-nav'>
+
+                                    </li>
+
+
+
                                     <li class='nav-item  border-nav'>
                                         <a class='nav-link'>{{ \Auth::user()->name }}
                                             {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
@@ -113,55 +121,7 @@
     </header>
     <div class="container">
 
-        <div class="main-profile">
-            <div class="main-profile_content">
-                <h1 class="text-center">Institution profile</h1>
-                <p>Stats</p>
-            </div>
 
-            <div class="row main-dates">
-                <div class="col-md-4">
-                    <p>Registered Educators:</p>
-                    <span>32</span>
-
-                </div>
-                <div class="col-md-4">
-                    <p>WikiPBL Pages (public):</p>
-                    <span>32</span>
-                </div>
-                <div class="col-md-4">
-                    <p> Private wikiPBL Pages:</p>
-                    <span>32</span>
-                </div>
-            </div>
-
-            <div class="main-profile_dates">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
-                            <p><strong> Name:</strong>Harvard University</p>
-                            <p><strong>Member since:</strong> 22/NOV/2020</p>
-                            <p><strong> Country:</strong> United States of America +</p>
-                            <p><strong>City:</strong> Cambridge, MA</p>
-                            <p><strong>Lowest Age:</strong>4</p>
-                            <p><strong>Highest Age:</strong>18</p>
-                            <p><strong> Type:</strong> Mixed</p>
-                            <p><strong>Type:</strong>Private</p>
-                            <p><strong>PBL Network:</strong> The PBL Network</p>
-                            <p><strong> # students enrolled:</strong>100 - 500</p>
-                            <p><strong> # faculty members:</strong> 0 - 50</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3> Created by</h3>
-                        <p><strong> Name:</strong>Frank Locker</p>
-                        <p><strong> Email:</strong>fl@harvard.com</p>
-
-                        <button class="btn btn-custom">Update profile!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
 

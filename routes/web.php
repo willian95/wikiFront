@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('comingSoon');
 });
 
+Route::get('/Institution Profile', function () {
+    return view('/Institution Profile');
+});
+Route::get('/TeacherProfile', function () {
+    return view('/TeacherProfile');
+});
+Route::get('/TemplateOptions', function () {
+    return view('/TemplateOptions');
+});
 
 Route::get('/front-test', "HomeController@index")->name("home");
 
