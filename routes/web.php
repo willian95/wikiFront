@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('comingSoon');
 });
-
-Route::get('/Institution Profile', function () {
-    return view('/Institution Profile');
+/******************views********************** */
+Route::get('/InstitutionProfile', function () {
+    return view('/InstitutionProfile');
 });
 Route::get('/TeacherProfile', function () {
     return view('/TeacherProfile');
@@ -26,16 +26,15 @@ Route::get('/TeacherProfile', function () {
 Route::get('/TemplateOptions', function () {
     return view('/TemplateOptions');
 });
-
-Route::get('/front-test', "HomeController@index")->name("home");
-
+Route::get('/SearchResults', function () {
+    return view('/SearchResults');
+});
 Route::get('/CategoriesLayout', function () {
     return view('CategoriesLayout');
 });
-Route::get('/InstitutionProfile', function () {
-    return view('InstitutionProfile');
-});
+/**************************************** */
 
+Route::get('/front-test', "HomeController@index")->name("home");
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

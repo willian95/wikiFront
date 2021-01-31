@@ -53,12 +53,12 @@
 <body>
     <div class="container">
         <main>
-            @include("partials.header")
+            @include("partials.header", ["showModal" => false])
 
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p> <a href="#">Privacy Policy </a> - <a href="#">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021 Copyrights - Contact us! </p>
+                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021 Copyrights - Contact us! </p>
                 </div>
             </footer>
         </main>
