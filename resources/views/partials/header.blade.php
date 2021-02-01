@@ -16,7 +16,7 @@
                             </div>
                             <ul id="ul">
                                 <li>
-                                    <div class="dropdown">
+                                    <a class="dropdown">
                                         <div class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Institutions &
@@ -27,7 +27,7 @@
                                             <a class="dropdown-item" href="#">Universities</a>
                                             <a class="dropdown-item" href="#">Organizations</a>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
 
                                 <li class="messages"><a href="#">
