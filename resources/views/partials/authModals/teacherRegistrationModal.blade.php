@@ -1,6 +1,6 @@
 <!-- registro modal -->
 <div class="modal fade register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="content-modal_register main-modal container">
                 <button type="button" class="modalClose" data-dismiss="modal" style="display:none">cerrar</button>
@@ -16,7 +16,7 @@
                     </div>
                     <div action="">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-6 offset-2">
                                 <div class="form-group">
                                     <label for="inputinstitutioe"></label>
                                     <select id="inputinstitutio" class="form-control" v-model="selected_institution">
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 center-flex">
+                            <div class="col-md-3 center-flex">
                                 <!--bnt--->
                                 <button type="button" class="btn btn-custom" @click="next()" :disabled="selected_institution == '' && institution_not_registered == false">Continue</button>
                             </div>
