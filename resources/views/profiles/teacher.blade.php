@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container" id="teacherProfile">
+
+    @include("profiles.modals.teacherProfileModal")
 
     <div class="main-profile">
         <div class="main-profile_content">
@@ -12,31 +14,29 @@
             <div class="row">
                 <div class="col-md-6">
                     <div>
-                        <p><strong> Name:</strong>Harvard University</p>
+                        <p><strong> Name:</strong> @{{ name }}</p>
                         <p>
-                            <strong>Email:</strong> 22/NOV/2020
+                            <strong>Email:</strong> @{{ email }}
                             <!-- Rounded switch -->
                             <label class="switch">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                         </p>
-                        <p><strong>Institution:</strong> Stanford</p>
-                        <p><strong>Member since: </strong> 11/22/202</p>
-                        <p><strong>Country:</strong> United States of America</p>
-                        <p><strong>City: </strong>Cambridge, MA</p>
-                        <p><strong>CV/Resume:</strong> Https://www.myresume/cv/linkdln.com</p>
-                        <p><strong>Portfolio:</strong>Https://www.myportafolio</p>
+                        <p><strong>Institution:</strong> @{{ institutionName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('institution')"></i></p>
+                        <p><strong>Member since: </strong> @{{ memberSince }}</p>
+                        <p><strong>Country:</strong> @{{ countryName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('country')"></i></p>
+                        <p><strong>City: </strong>@{{ stateName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('state')"></i></p>
+                        <p><strong>CV/Resume:</strong> @{{ cvResume }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('cvResume')"></i></p>
+                        <p><strong>Portfolio:</strong>@{{ portfolio }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('portfolio')"></i></p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h3> “ Why do you educate? ”</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est nesciunt sunt ratione
-                        recusandae, nisi reiciendis, rerum pariatur, voluptates consectetur modi eveniet vitae ex
-                        natus. Atque quia dolor repudiandae veritatis cupiditate.</p>
+                    <h3> “Why do you educate?”</h3>
+                    <textarea class="form-control" v-model="description"></textarea>
 
                     <div class="text-right">
-                        <button class="btn btn-custom">Update</button>
+                        <button class="btn btn-custom" @click="update()">Update</button>
                     </div>
                 </div>
             </div>
@@ -174,16 +174,124 @@
         </div>
     </div>
 
-
-
-
-
-
-    <footer class="footer-estyle">
-        <div class="footer container mt-5 text-center">
-            <p> <a href="#">Privacy Policy </a> - <a href="#">Terms & Conditions</a> - <a href="#">About WikiPBL</a>
-                - 2021 Copyrights - Contact us! </p>
-        </div>
-    </footer>
 </div>
 @endsection
+
+@push("script")
+
+    <script>
+        const teacherProfile = new Vue({
+            el: '#teacherProfile',
+            data() {
+                return{
+
+                    institution:"{{ \Auth::user()->institution_id }}",
+                    institutionName:"{{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pending_institution_name }}",
+                    name:"{{ \Auth::user()->name }}",
+                    email:"{{ \Auth::user()->email }}",
+                    memberSince:"{{ \Auth::user()->created_at->format('m/d/Y') }}",
+                    description:"{{ strip_tags(\Auth::user()->why_do_you_educate) }}",
+                    modalField:"",
+                    countries:[],
+                    countryName:"",
+                    country:"",
+                    states:[],
+                    state:"",
+                    stateName:"",
+                    cvResume:"",
+                    portfolio:"",
+                    errors:[]
+
+                }
+            },
+            methods:{
+
+                setModalField(field){
+                    this.modalField = field
+
+                    if(field == "state"){
+                        this.fetchStates()
+                    }
+
+                },
+                fetchCountries() {
+
+                    axios.get("{{ url('/countries/fetch') }}").then(res => {
+
+                        this.countries = res.data.countries
+
+                    })
+
+                },
+                fetchStates() {
+
+                    axios.get("{{ url('/states/fetch/') }}" + "/" + this.country).then(res => {
+
+                        this.states = res.data.states
+
+                    })
+
+                },
+                onChangeCountry(){
+
+                   this.countries.forEach((data) => {
+                        
+                        if(data.id == this.country){
+                            this.countryName = data.name
+                        }
+                    })
+
+                },
+                onChangeState(){
+
+                    this.states.forEach((data) => {
+                        
+                        if(data.id == this.state){
+                           
+                            this.stateName = data.name
+                        }
+                    })
+
+                },
+                update(){
+
+                    this.loading = true
+
+                    let formData = new FormData()
+                    formData.append("country", this.country)
+                    formData.append("state", this.state)
+                    formData.append("cv_resume", this.cvResume)
+                    formData.append("portfolio", this.portfolio)
+                    formData.append("institution", this.institution)
+                    formData.append("why_do_you_educate", this.why_do_you_educate)
+
+                    axios.post("{{ url('/teacher/profile/update') }}", formData).then(res => {
+
+                        this.loading = false
+
+                        if(res.data.success == true){
+
+                            
+
+                        }else{
+
+                        }
+
+                    }).catch(err => {
+
+                        this.loading = false
+                        this.errors = err.response.data.errors
+
+                    })
+
+                }
+            },
+            mounted(){
+
+                this.fetchCountries()
+
+            }
+        })
+    </script>
+
+@endpush

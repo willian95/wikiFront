@@ -26,8 +26,8 @@ class RegisterController extends Controller
             $user->role_id = 2;
             $user->register_hash = Str::random(40);
             
-            if(!$request->institution_not_registered){
-
+            if($request->institution_not_registered == "false" || $request->institution_not_registered == "false"){
+                
                 $user->institution_email = $request->institution_email;
                 $user->institution_id = $request->institution_id;
 
@@ -58,13 +58,20 @@ class RegisterController extends Controller
 
     function storePendingInstitution($request){
 
-        $pendingInstitution = new PendingInstitution;
-        $pendingInstitution->name = $request->institution_name;
-        $pendingInstitution->website = $request->institution_website;
-        $pendingInstitution->email = $request->institution_contact_email;
-        $pendingInstitution->save();
+        $institution = PendingInstitution::where("name", strtolower($request->institution_name))->first();
+        if($institution == null){
 
-        return $pendingInstitution;
+            $pendingInstitution = new PendingInstitution;
+            $pendingInstitution->name = strtolower($request->institution_name);
+            $pendingInstitution->website = $request->institution_website;
+            $pendingInstitution->email = $request->institution_contact_email;
+            $pendingInstitution->save();
+
+            return $pendingInstitution;
+
+        }else{
+            return $institution;
+        }
 
     }
 

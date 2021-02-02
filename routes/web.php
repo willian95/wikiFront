@@ -17,13 +17,11 @@ Route::get('/', function () {
     return view('comingSoon');
 });
 /******************views********************** */
-Route::get('/InstitutionProfile', function () {
-    return view('/InstitutionProfile');
-});
-Route::get('/TeacherProfile', function () {
+
+Route::get('/teacherProfile', function () {
     return view('/TeacherProfile');
 });
-Route::get('/TemplateOptions', function () {
+Route::get('/templateOptions', function () {
     return view('/TemplateOptions');
 });
 Route::get('/SearchResults', function () {
@@ -52,4 +50,16 @@ Route::get("/register/validate/{registerHash}", "RegisterController@verify")->mi
 Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
 Route::get("/logout", "AuthController@logout");
 
-Route::post("/institution/first-update", "InstitutionController@firstUpdate");
+Route::get("/institution/profile", "InstitutionController@institutionProfile")->middleware("auth");
+Route::post("/institution/first-update", "InstitutionController@firstUpdate")->middleware("auth");
+Route::post("/institution/profile/update", "InstitutionController@updateInstitutionProfile")->middleware("auth");
+Route::post("/institution/profile/add-user", "InstitutionController@addUser")->middleware("auth");
+Route::get("/institution/get-teachers", "InstitutionController@getInstitutionTeachers")->middleware("auth");
+Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers")->middleware("auth");
+
+Route::get("teacher/profile", "TeacherController@profile")->middleware("auth");
+Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
+
+Route::get("institution/show/{id}", "InstitutionController@show");
+Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getInstitutionTeachers");
+Route::get("/institution/public/get-users/{id}", "InstitutionController@getPublicInstitutionUsers");
