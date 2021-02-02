@@ -14,9 +14,13 @@
                                         aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <ul id="ul">
+                            <ul id="ul" class="nav-fixed">
                                 <li>
-                                    <a class="dropdown">
+                                    <p class="menu-titulo">MENÚ</p>
+                                </li>
+                                <li class="nav-box_li">
+                                        <div class="blue-box"></div>
+                                    <div class="dropdown">
                                         <div class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Institutions &
@@ -27,19 +31,19 @@
                                             <a class="dropdown-item" href="#">Universities</a>
                                             <a class="dropdown-item" href="#">Organizations</a>
                                         </div>
-                                    </a>
+                                    </div>
                                 </li>
 
-                                <li class="messages"><a href="#">
+                                <li class="nav-box_li"><a href="#">
                                         <div class="blue-box"></div>Subjects
                                     </a></li>
-                                <li class="settings"><a href="#">
+                                <li class="nav-box_li"><a href="#">
                                         <div class="blue-box"></div>Educators
                                     </a></li>
-                                <li class="settings"><a href="#">
+                                <li class="nav-box_li"><a href="#">
                                         <div class="blue-box"></div>About wikiPBL
                                     </a></li>
-                                <li class="settings"><a href="#">
+                                <li class="nav-box_li"><a href="#">
                                         <div class="blue-box"></div>FAQ'S
                                     </a></li>
                             </ul>
