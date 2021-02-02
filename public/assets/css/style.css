@@ -923,3 +923,34 @@ input:checked+.slider:before {
     padding: 0 50px;
     text-align: justify;
 }
+
+.menu-template {
+    margin-top: 20px;
+    left: 100px;
+    position: fixed;
+    border: 1px solid #f000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0006;
+    padding: 11px;
+    background: #fff;
+    width: 250px;
+    overflow: hidden;
+}
+
+.menu-template_option ul {
+    padding: 0;
+    margin: 0;
+}
+
+.menu-template_option p {
+    border-top: 1px solid #0000000d;
+    border-bottom: 1px solid #0000000d;
+    padding: 10px;
+    font-weight: 700;
+    font-family: 'Inconsolata';
+}
+
+.menu-template_option li {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
