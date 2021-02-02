@@ -19,29 +19,21 @@
                 <div class="col-md-6">
                     <div>
                         <p><strong> Name:</strong> @{{ name }}</p>
-                        <p>
+                        <p v-if="showMyEmail">
                             <strong>Email:</strong> @{{ email }}
-                            <!-- Rounded switch -->
-                            <label class="switch">
-                                <input type="checkbox" v-model="showMyEmail">
-                                <span class="slider round"></span>
-                            </label>
                         </p>
-                        <p><strong>Institution:</strong> @{{ institutionName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('institution')"></i></p>
+                        <p><strong>Institution:</strong> @{{ institutionName }}</p>
                         <p><strong>Member since: </strong> @{{ memberSince }}</p>
-                        <p><strong>Country:</strong> @{{ countryName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('country')"></i></p>
-                        <p><strong>City: </strong>@{{ stateName }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('state')"></i></p>
-                        <p><strong>CV/Resume:</strong> @{{ cvResume }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('cvResume')"></i></p>
-                        <p><strong>Portfolio:</strong>@{{ portfolio }} <i class="fa fa-edit" data-toggle="modal" data-target="#teacherProfileModal" @click="setModalField('portfolio')"></i></p>
+                        <p><strong>Country:</strong> @{{ countryName }}</p>
+                        <p><strong>City: </strong>@{{ stateName }}</p>
+                        <p><strong>CV/Resume:</strong> @{{ cvResume }}</p>
+                        <p><strong>Portfolio:</strong>@{{ portfolio }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <h3> “Why do you educate?”</h3>
-                    <textarea class="form-control" v-model="description"></textarea>
+                    <p>@{{ description }}</p>
 
-                    <div class="text-right">
-                        <button class="btn btn-custom" @click="update()">Update</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -190,22 +182,17 @@
                 return{
 
                     institutions:[],
-                    institution:"{{ \Auth::user()->institution_id }}",
-                    institutionName:"{{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pending_institution_name }}",
-                    name:"{{ \Auth::user()->name }}",
-                    email:"{{ \Auth::user()->email }}",
-                    memberSince:"{{ \Auth::user()->created_at->format('m/d/Y') }}",
-                    description:"{{ strip_tags(\Auth::user()->why_do_you_educate) }}",
-                    modalField:"",
-                    countries:[],
-                    countryName:"{{ strip_tags(\Auth::user()->country->name) }}",
-                    country:"{{ strip_tags(\Auth::user()->country->id) }}",
-                    states:[],
-                    state:"{{ strip_tags(\Auth::user()->state->id) }}",
-                    stateName:"{{ strip_tags(\Auth::user()->state->name) }}",
-                    cvResume:"{{ strip_tags(\Auth::user()->cv_resume) }}",
-                    portfolio:"{{ strip_tags(\Auth::user()->portfolio) }}",
-                    showMyEmail:JSON.parse('{!! \Auth::user()->show_my_email !!}'),
+                    institution:"{{ $user->institution_id }}",
+                    institutionName:"{{ $user->institution ? $user->institution->name : $user->pending_institution_name }}",
+                    name:"{{ $user->name }}",
+                    email:"{{ $user->email }}",
+                    memberSince:"{{ $user->created_at->format('m/d/Y') }}",
+                    description:"{{ strip_tags($user->why_do_you_educate) }}",
+                    countryName:"{{ strip_tags($user->country->name) }}",
+                    stateName:"{{ strip_tags($user->state->name) }}",
+                    cvResume:"{{ strip_tags($user->cv_resume) }}",
+                    portfolio:"{{ strip_tags($user->portfolio) }}",
+                    showMyEmail:JSON.parse('{!! $user->show_my_email !!}'),
                     loading:false,
                     errors:[]
 
@@ -213,115 +200,10 @@
             },
             methods:{
 
-                fetchAllInstitutions() {
-
-                    axios.get("{{ url('/institutions/fetchAll') }}").then(res => {
-
-                        this.institutions = res.data.institutions;
-
-                    })
-
-                },
-                setModalField(field){
-                    this.modalField = field
-
-                    if(field == "state"){
-                        this.fetchStates()
-                    }
-
-                },
-                fetchCountries() {
-
-                    axios.get("{{ url('/countries/fetch') }}").then(res => {
-
-                        this.countries = res.data.countries
-
-                    })
-
-                },
-                fetchStates() {
-
-                    axios.get("{{ url('/states/fetch/') }}" + "/" + this.country).then(res => {
-
-                        this.states = res.data.states
-
-                    })
-
-                },
-                onChangeCountry(){
-
-                    this.state = ""
-                    this.stateName = ""
-
-                    this.countries.forEach((data) => {
-                        
-                        if(data.id == this.country){
-                            this.countryName = data.name
-                        }
-                    })
-
-                },
-                onChangeState(){
-
-                    this.states.forEach((data) => {
-                        
-                        if(data.id == this.state){
-                           
-                            this.stateName = data.name
-                        }
-                    })
-
-                },
-                onChangeInstitution(){
-                    this.institutions.forEach((data) => {
-                        
-                        if(data.id == this.institution){
-                           
-                            this.institutionName = data.name
-                        }
-                    })
-                },
-                update(){
-
-                    this.loading = true
-
-                    let formData = new FormData()
-                    formData.append("country", this.country)
-                    formData.append("state", this.state)
-                    formData.append("cv_resume", this.cvResume)
-                    formData.append("portfolio", this.portfolio)
-                    formData.append("institution", this.institution)
-                    formData.append("why_do_you_educate", this.description)
-                    formData.append("show_my_email", this.showMyEmail)
-
-                    axios.post("{{ url('/teacher/profile/update') }}", formData).then(res => {
-
-                        this.loading = false
-
-                        if(res.data.success == true){
-
-                            swal({
-                                text:res.data.msg,
-                                icon:"success"
-                            })
-
-                        }else{
-
-                        }
-
-                    }).catch(err => {
-
-                        this.loading = false
-                        this.errors = err.response.data.errors
-
-                    })
-
-                }
+                
             },
             mounted(){
 
-                this.fetchCountries()
-                this.fetchAllInstitutions()
 
             }
         })

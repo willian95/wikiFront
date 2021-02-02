@@ -59,6 +59,7 @@ Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers"
 
 Route::get("teacher/profile", "TeacherController@profile")->middleware("auth");
 Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
+Route::get("teacher/show/{id}", "TeacherController@show");
 
 Route::get("institution/show/{id}", "InstitutionController@show");
 Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getInstitutionTeachers");

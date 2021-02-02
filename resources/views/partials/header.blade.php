@@ -779,8 +779,7 @@
 
             @if(\Auth::check())
 
-            this.institution_type =
-                "{{ \Auth::user()->institution->type ? \Auth::user()->institution->type : ''  }}"
+                this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
 
             @endif
 

@@ -32,6 +32,13 @@
                     <label >Portfolio</label>
                     <input type="text" class="form-control" placeholder="https://www.myportafolio" v-model="portfolio">
                 </div>
+
+                <div class="form-group" v-if="modalField == 'institution'">
+                    <label for="">Institutions:</label>
+                    <select id="" class="form-control" v-model="institution" @change="onChangeInstitution()">
+                        <option :value="institution.id" v-for="institution in institutions">@{{ institution.name }}</option>
+                    </select>
+                </div>
                 
 
             </div>
