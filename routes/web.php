@@ -30,6 +30,9 @@ Route::get('/SearchResults', function () {
 Route::get('/CategoriesLayout', function () {
     return view('CategoriesLayout');
 });
+Route::get('/ProjectCreation', function () {
+    return view('ProjectCreation');
+});
 /**************************************** */
 
 Route::get('/front-test', "HomeController@index")->name("home");
