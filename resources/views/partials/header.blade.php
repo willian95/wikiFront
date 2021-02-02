@@ -3,8 +3,8 @@
     <div class="loader-cover-custom" v-if="loading == true">
         <div class="loader-custom"></div>
     </div>
-    <header>
-        <nav class='navbar navbar-expand-md navbar-fixed-js'>
+    <header class="header-shadow">
+        <nav class='navbar navbar-expand-md navbar-fixed-js container'>
             <div class='flex-custom'>
                 <div class="nav">
                     <ul>
@@ -19,7 +19,7 @@
                                     <p class="menu-titulo">MENÚ</p>
                                 </li>
                                 <li class="nav-box_li">
-                                        <div class="blue-box"></div>
+                                    <div class="blue-box"></div>
                                     <div class="dropdown">
                                         <div class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -779,7 +779,7 @@
 
             @if(\Auth::check())
 
-                this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+            this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
 
             @endif
 

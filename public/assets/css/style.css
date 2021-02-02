@@ -56,6 +56,9 @@ body {
 /*---------------
 Nav
 ---------------*/
+.header-shadow {
+    box-shadow: 0px 0px 20px #00000008;
+}
 
 @media (max-width: 767px) {
     .offcanvas-collapse {
@@ -262,7 +265,10 @@ Nav
 }
 
 .btn-custom {
-    border: 1px solid #0e0e0e;
+    border: 1px solid #4674b8;
+    background: #4674b8;
+    color: #fff;
+    padding: 6px 30px;
 }
 
 /***********check******* */
@@ -652,25 +658,25 @@ input:checked+.slider:before {
 
 .nav ul li ul {
     display: none;
-   margin-top: 20px;
-left: 100px;
-position: fixed;
-border: 1px solid #f000;
-border-radius: 10px;
-box-shadow: 0px 0px 10px #0006;
-padding: 11px;
-background: #fff;
-z-index: 99999;
-width: 200px;
-overflow: hidden;
+    margin-top: 20px;
+    left: 100px;
+    position: fixed;
+    border: 1px solid #f000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0006;
+    padding: 11px;
+    background: #fff;
+    z-index: 99999;
+    width: 200px;
+    overflow: hidden;
 }
 
 .nav ul li ul li {
     display: block;
 }
-.menu-titulo{
 
-}
+.menu-titulo {}
+
 .nav ul li ul li:hover {
     background-color: #F4F4F4;
     position: relative;
@@ -682,24 +688,26 @@ overflow: hidden;
 }
 
 .nav li li {
-   /* background-color: #FEFEFE;*/
+    /* background-color: #FEFEFE;*/
 }
-.nav-fixed ul{
+
+.nav-fixed ul {
     display: block;
-background: white;
-width: 100%;
-border: 1px solid #0000;
-border-radius: 10px;
-box-shadow: 0px 0px 10px #0000003d;
+    background: white;
+    width: 100%;
+    border: 1px solid #0000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0000003d;
 }
-.nav-fixed .dropdown-toggle{
-      font-size: 16px;
-font-family: 'Inconsolata';
-font-weight: 500;
-  border-bottom: 1px #d7d9dd solid;
-  white-space: initial;
-  line-height: 1.5;
-padding-bottom: 10px;
+
+.nav-fixed .dropdown-toggle {
+    font-size: 16px;
+    font-family: 'Inconsolata';
+    font-weight: 500;
+    border-bottom: 1px #d7d9dd solid;
+    white-space: initial;
+    line-height: 1.5;
+    padding-bottom: 10px;
 }
 
 .nav ul {
@@ -707,10 +715,11 @@ padding-bottom: 10px;
     list-style: none;
     margin: 0;
 }
+
 .nav a {
     font-size: 16px;
-font-family: 'Inconsolata';
-font-weight: 500;
+    font-family: 'Inconsolata';
+    font-weight: 500;
 }
 
 .home {
@@ -727,7 +736,7 @@ font-weight: 500;
     top: 4px;
 }
 
-.home:hover a {
+.home a:hover {
     color: #6d6c6c;
 }
 
@@ -790,9 +799,11 @@ font-weight: 500;
     height: 100%;
     width: 4px;
 }
-.nav-box_li{
-     border-bottom: 1px #d7d9dd solid;
+
+.nav-box_li {
+    border-bottom: 1px #d7d9dd solid;
 }
+
 .messages:hover #mail {
     fill: #6d6c6c;
 }

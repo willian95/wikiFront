@@ -17,10 +17,9 @@
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
 
     <style>
-
-        .loader-cover-custom{
+        .loader-cover-custom {
             position: fixed;
-            left:0;
+            left: 0;
             right: 0;
             z-index: 99999999;
             background-color: rgba(0, 0, 0, 0.6);
@@ -29,19 +28,26 @@
         }
 
         .loader-custom {
-            margin-top:45vh;
+            margin-top: 45vh;
             margin-left: 45%;
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
             border-radius: 50%;
             width: 120px;
             height: 120px;
             animation: spin 2s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
     </style>
@@ -51,19 +57,22 @@
 </head>
 
 <body>
-    <div class="container">
-        <main>
-            @include("partials.header", ["showModal" => false])
 
+    <main>
+        @include("partials.header", ["showModal" => false])
+        <div class="container">
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021 Copyrights - Contact us! </p>
+                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
+                            data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                        Copyrights - Contact us! </p>
                 </div>
             </footer>
-        </main>
+        </div>
+    </main>
 
-    </div>
+
     <!-- partial -->
     <script src="{{ url('assets/js/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
