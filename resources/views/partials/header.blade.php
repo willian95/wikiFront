@@ -67,10 +67,48 @@
                         <div class="row">
                             <div class="col-md-12  mt-3">
                                 <div class="menu-flex">
-                                    <li class='nav-item  border-nav'>
+                                    <!-- Iconos temlate option-->
+                                    <div class="header-icons">
+                                        <li class="nav-item  flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/eye.svg') }}">
+                                            <!-- Rounded switch -->
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider slider-nav round"></span>
+                                            </label>
+                                        </li>
+                                        <li class="nav-item   flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/group.svg') }}">
+                                            <!-- Rounded switch -->
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider slider-nav round"></span>
+                                            </label>
+                                        </li>
+                                        <li class="nav-item   flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/save.svg') }}">
+                                        </li>
+
+                                        <li class="nav-item  flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/edit.svg') }}">
+                                        </li>
+                                    </div>
+                                    <!-- Iconos temlate option-->
+                                    <li class='nav-item  flex-main'>
+                                        <img alt='icon' class="teacher-icon "
+                                            src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                         <a class='nav-link'>{{ \Auth::user()->name }}
                                             {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
                                     </li>
+                                    <li class="nav-item   flex-main">
+                                        <img alt='icon' class="login_icon "
+                                            src="{{ url('assets/img/iconos/logout.svg') }}">
+                                    </li>
+
                                 </div>
                             </div>
                         </div>

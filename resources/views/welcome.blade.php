@@ -100,7 +100,7 @@
     </div>
 
     <div class="feactured-home">
-        <h3 class="ml-3 mb-4 font-titulos ">Today’s featured wikiPBL!</h3>
+        <h3 class="ml-3 mb-4 font-titulos text-center pt-4">Today’s featured wikiPBL!</h3>
         <div class="feactured-one">
             <p class="titulo">What ever title <br> <span>by Alicia Suarez</span> </p>
             <div class="row">
@@ -123,9 +123,15 @@
                     <p> Driving question</p>
                 </div>
                 <div class="col-md-3">
-                    #Hashtag#Hashtag #Hashtag
-                    #Hashtag
-                    #Hashtag #Hashtag
+                    <div class="hashtag-home mt-0 mb-5 pb-5">
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                    </div>
                     <button class="btn btn-custom">View complete PBL</button>
                 </div>
 
