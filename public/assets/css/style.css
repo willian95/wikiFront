@@ -652,15 +652,28 @@ input:checked+.slider:before {
 
 .nav ul li ul {
     display: none;
-    margin-top: 150px;
+   margin-top: 20px;
+left: 100px;
+position: fixed;
+border: 1px solid #f000;
+border-radius: 10px;
+box-shadow: 0px 0px 10px #0006;
+padding: 11px;
+background: #fff;
+z-index: 99999;
+width: 200px;
+overflow: hidden;
 }
 
 .nav ul li ul li {
     display: block;
 }
+.menu-titulo{
 
+}
 .nav ul li ul li:hover {
     background-color: #F4F4F4;
+    position: relative;
 }
 
 .nav ul li ul li svg {
@@ -669,13 +682,35 @@ input:checked+.slider:before {
 }
 
 .nav li li {
-    background-color: #FEFEFE;
+   /* background-color: #FEFEFE;*/
+}
+.nav-fixed ul{
+    display: block;
+background: white;
+width: 100%;
+border: 1px solid #0000;
+border-radius: 10px;
+box-shadow: 0px 0px 10px #0000003d;
+}
+.nav-fixed .dropdown-toggle{
+      font-size: 16px;
+font-family: 'Inconsolata';
+font-weight: 500;
+  border-bottom: 1px #d7d9dd solid;
+  white-space: initial;
+  line-height: 1.5;
+padding-bottom: 10px;
 }
 
 .nav ul {
     padding: 0;
     list-style: none;
     margin: 0;
+}
+.nav a {
+    font-size: 16px;
+font-family: 'Inconsolata';
+font-weight: 500;
 }
 
 .home {
@@ -748,14 +783,16 @@ input:checked+.slider:before {
     color: #6d6c6c;
 }
 
-.messages:hover .blue-box {
-    background-color: #3FA6FD;
+.nav-box_li:hover .blue-box {
+    background-color: #9EC54C;
     position: absolute;
     margin-left: 0;
     height: 100%;
     width: 4px;
 }
-
+.nav-box_li{
+     border-bottom: 1px #d7d9dd solid;
+}
 .messages:hover #mail {
     fill: #6d6c6c;
 }
@@ -783,10 +820,6 @@ input:checked+.slider:before {
 .marked {
     background-color: transparent;
     border-radius: 2px;
-}
-
-.marked1 {
-    color: #ffffff;
 }
 
 .rotate {
