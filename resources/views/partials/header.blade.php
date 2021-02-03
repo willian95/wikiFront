@@ -101,7 +101,7 @@
                                     <li class='nav-item  flex-main'>
                                         <img alt='icon' class="teacher-icon "
                                             src="{{ url('assets/img/iconos/user-teacher.png') }}">
-                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/institution/profile') }}" @else href="{{ url('/institution/profile') }} @endif class='nav-link'>{{ \Auth::user()->name }}
+                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/institution/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link'>{{ \Auth::user()->name }}
                                             {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
                                     </li>
                                     <li class="nav-item   flex-main">
