@@ -50,4 +50,30 @@ class TeacherController extends Controller
 
     }
 
+    function showAll(){
+
+        return view("categoriesEducatorsInstitutions", ["type" => "teacher","title" => "Educators", "subtitle" => "Educators", "count" => User::where("role_id", 2)->count()]);
+
+    }
+
+    function fetchAll(){
+
+        $letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        $results = [];
+        
+        foreach($letters as $letter){
+
+            $elements = User::where("name", "like", "{$letter}%")->where("role_id", 2)->limit(5)->get();
+            $results[] = [
+                "letter" => $letter,
+                "elements" => $elements
+
+            ];
+
+        }
+
+        return response()->json(["elements" => $results]);
+
+    }
+
 }

@@ -27,17 +27,17 @@
                                             Organizations
                                         </div>
                                         <div class="dropdown-menu down-header" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Schools</a>
-                                            <a class="dropdown-item" href="#">Universities</a>
-                                            <a class="dropdown-item" href="#">Organizations</a>
+                                            <a class="dropdown-item" href="{{ url('/school/all') }}">Schools</a>
+                                            <a class="dropdown-item" href="{{ url('/university/all') }}">Universities</a>
+                                            <a class="dropdown-item" href="{{ url('/organization/all') }}">Organizations</a>
                                         </div>
                                     </div>
                                 </li>
 
-                                <li class="nav-box_li"><a href="#">
+                                <li class="nav-box_li"><a href="{{ url('/subjects/all') }}">
                                         <div class="blue-box"></div>Subjects
                                     </a></li>
-                                <li class="nav-box_li"><a href="#">
+                                <li class="nav-box_li"><a href="{{ url('/teacher/all') }}">
                                         <div class="blue-box"></div>Educators
                                     </a></li>
                                 <li class="nav-box_li"><a href="#">

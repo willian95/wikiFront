@@ -18,9 +18,7 @@ Route::get('/', function () {
 });
 /******************views********************** */
 
-Route::get('/teacherProfile', function () {
-    return view('/TeacherProfile');
-});
+
 Route::get('/templateOptions', function () {
     return view('/TemplateOptions');
 });
@@ -33,6 +31,7 @@ Route::get('/CategoriesLayout', function () {
 /**************************************** */
 
 Route::get('/front-test', "HomeController@index")->name("home");
+Route::post("/home/get-subjects", "HomeController@getSubjects");
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -60,7 +59,19 @@ Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers"
 Route::get("teacher/profile", "TeacherController@profile")->middleware("auth");
 Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
 Route::get("teacher/show/{id}", "TeacherController@show");
+Route::get("teacher/all", "TeacherController@showAll");
+Route::get("teacher/fetch-all", "TeacherController@fetchAll");
+
+Route::get("organization/all", "InstitutionController@organizationAll");
+Route::get("organization/fetch-all", "InstitutionController@fetchOrganizationAll");
+Route::get("university/all", "InstitutionController@showAll");
+Route::get("university/fetch-all", "InstitutionController@fetchAll");
+Route::get("school/all", "InstitutionController@schoolAll");
+Route::get("school/fetch-all", "InstitutionController@fetchSchoolAll");
 
 Route::get("institution/show/{id}", "InstitutionController@show");
 Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getInstitutionTeachers");
 Route::get("/institution/public/get-users/{id}", "InstitutionController@getPublicInstitutionUsers");
+
+Route::get("subjects/all", "SubjectController@showAll");
+Route::get("subjects/fetch-all", "SubjectController@fetchAll");

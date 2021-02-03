@@ -159,4 +159,82 @@ class InstitutionController extends Controller
 
     }
 
+    function showAll(){
+
+        return view("categoriesEducatorsInstitutions", ["type" => "university","title" => "Universities", "subtitle" => "Universities", "count" => Institution::where("type", "university")->count()]);
+
+    }
+
+    function fetchAll(){
+
+        $letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        $results = [];
+        
+        foreach($letters as $letter){
+
+            $elements = Institution::where("name", "like", "{$letter}%")->where("type", "university")->limit(5)->get();
+            $results[] = [
+                "letter" => $letter,
+                "elements" => $elements
+
+            ];
+
+        }
+
+        return response()->json(["elements" => $results]);
+
+    }
+
+    function schoolAll(){
+
+        return view("categoriesEducatorsInstitutions", ["type" => "school","title" => "Schools", "subtitle" => "Schools", "count" => Institution::where("type", "school")->count()]);
+
+    }
+
+    function fetchSchoolAll(){
+
+        $letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        $results = [];
+        
+        foreach($letters as $letter){
+
+            $elements = Institution::where("name", "like", "{$letter}%")->where("type", "school")->limit(5)->get();
+            $results[] = [
+                "letter" => $letter,
+                "elements" => $elements
+
+            ];
+
+        }
+
+        return response()->json(["elements" => $results]);
+
+    }
+
+    function organizationAll(){
+        
+        return view("categoriesEducatorsInstitutions", ["type" => "organization","title" => "Organizations", "subtitle" => "organizations", "count" => Institution::where("type", "organization")->count()]);
+
+    }
+
+    function fetchOrganizationAll(){
+
+        $letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        $results = [];
+        
+        foreach($letters as $letter){
+
+            $elements = Institution::where("name", "like", "{$letter}%")->where("type", "organization")->limit(5)->get();
+            $results[] = [
+                "letter" => $letter,
+                "elements" => $elements
+
+            ];
+
+        }
+
+        return response()->json(["elements" => $results]);
+
+    }
+
 }
