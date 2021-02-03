@@ -4,7 +4,7 @@
 
 <div class="container  main-template mt-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="menu-template">
                 <p>Edit mode </p>
                 <div class="menu-template_option">
@@ -33,7 +33,7 @@
 
         </div>
         <!----------------info----------------->
-        <div class="col-md-8">
+        <div class="col-md-9 info-template">
             <ul>
                 <li>
                     <h3>wikiPBL Title</h3>
