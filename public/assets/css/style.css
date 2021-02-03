@@ -960,3 +960,25 @@ input:checked+.slider:before {
     padding: 0;
     margin: 0;
 }
+
+.content_template textarea {
+    width: 100%;
+}
+
+.titulo-templates {
+    text-transform: capitalize;
+    padding-bottom: 20px;
+}
+
+.txt-edit {
+    font-size: 12px;
+    color: #000000a1;
+}
+
+.icnon-edit {
+    width: 22px;
+}
+
+.content_template-general-item {
+    margin-bottom: 50px;
+}
