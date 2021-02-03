@@ -752,15 +752,52 @@
 
                 if (this.institution_type == "school" || this.institution_type == "university") {
 
-                    if ((this.part_of_network_institution == "true" && this.which_network == "") || this
-                        .institution_public_or_private == "" || this.students_enrolled == "" || this
-                        .faculty_members == "") {
+                    if (this.part_of_network_institution == "true" && this.which_network == ""){
+                        swal({
+                            text:"Institution network is required",
+                            icon: "error"
+                        })
+
+                        return false
+                    }
+                    
+                    else if(this.institution_public_or_private == ""){
+                        
+                        swal({
+                            text:"Public or private institution?",
+                            icon: "error"
+                        })
+
+                        return false
+
+                    }else if(this.students_enrolled == ""){
+
+                        swal({
+                            text:"Stundents enrolled is required",
+                            icon: "error"
+                        })
+
+                        return false
+
+                    }else if(this.faculty_members == ""){
+
+                        swal({
+                            text:"Faculty members is required",
+                            icon: "error"
+                        })
+
                         return false
                     }
 
                 } else if (this.institution_type == "organization") {
 
                     if (this.institution_public_or_private == "") {
+
+                        swal({
+                            text:"Public or private institution?",
+                            icon: "error"
+                        })
+
                         return false
                     }
 
