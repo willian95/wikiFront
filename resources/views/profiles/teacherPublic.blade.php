@@ -7,8 +7,6 @@
             <div class="loader-custom"></div>
         </div>
 
-    @include("profiles.modals.teacherProfileModal")
-
     <div class="main-profile">
         <div class="main-profile_content">
             <h1 class="text-center">Educator profile</h1>

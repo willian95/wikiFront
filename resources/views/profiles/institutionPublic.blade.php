@@ -8,9 +8,6 @@
             <div class="loader-custom"></div>
         </div>
 
-        @include("profiles.modals.institutionProfileModal")
-        @include("profiles.modals.addUserModal")
-
         <div class="main-profile">
             <div class="main-profile_content">
                 <h1 class="text-center">Institution profile</h1><a href="#" @click="copyLink()">Share this profile</a>
@@ -59,9 +56,6 @@
 
                         </div>
                         
-                        <p>
-                            <button class="btn btn-custom" v-if="users.length == 1" data-toggle="modal" data-target="#addUserModal">Add second user</button>
-                        </p>
 
                     </div>
                 </div>
