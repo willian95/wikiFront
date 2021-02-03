@@ -59,7 +59,7 @@
 <body>
 
     <main>
-        @include("partials.header", ["showModal" => false])
+        @include("partials.header")
         <div class="container">
             @yield("content")
             <footer class="footer-estyle">

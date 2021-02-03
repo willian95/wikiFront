@@ -1,5 +1,22 @@
 <div id="auth">
 
+    @php
+
+        $showModal = false;
+        if(\Auth::check()){
+            if(\Auth::user()->role_id == 3){
+
+                $isProfileComplete = Institution::where("id", \Auth::user()->institution_id)->first()->is_profile_complete;
+    
+                if($isProfileComplete == 0){
+                    $showModal = true;
+                }
+    
+            }
+        }
+
+    @endphp
+
     <div class="loader-cover-custom" v-if="loading == true">
         <div class="loader-custom"></div>
     </div>
@@ -818,7 +835,7 @@
 
             @if(\Auth::check())
 
-            this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+                this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
 
             @endif
 
