@@ -46,6 +46,7 @@ body {
 .font-titulos {
     font-family: 'Inconsolata',
         monospace;
+    font-weight: 600;
 }
 
 .font-parraf {
@@ -56,6 +57,29 @@ body {
 /*---------------
 Nav
 ---------------*/
+.flex-main {
+    display: flex;
+}
+
+.teacher-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.login_icon {
+    width: 30px;
+
+}
+
+.header-icons {
+    display: flex;
+    margin-right: 10rem;
+}
+
+.header-shadow {
+    box-shadow: 0px 0px 20px #00000008;
+}
 
 @media (max-width: 767px) {
     .offcanvas-collapse {
@@ -262,7 +286,10 @@ Nav
 }
 
 .btn-custom {
-    border: 1px solid #0e0e0e;
+    border: 1px solid #4674b8;
+    background: #4674b8;
+    color: #fff;
+    padding: 6px 30px;
 }
 
 /***********check******* */
@@ -632,6 +659,21 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+
+.slider-nav {
+    height: 25px;
+    top: 8px;
+}
+
+.slider-nav::before {
+    height: 18px;
+    width: 18px;
+}
+
+.header-icons .flex-main {
+    margin-right: 40px;
+}
+
 .wiki-accordion .card {
     border: 0;
 }
@@ -652,25 +694,25 @@ input:checked+.slider:before {
 
 .nav ul li ul {
     display: none;
-   margin-top: 20px;
-left: 100px;
-position: fixed;
-border: 1px solid #f000;
-border-radius: 10px;
-box-shadow: 0px 0px 10px #0006;
-padding: 11px;
-background: #fff;
-z-index: 99999;
-width: 200px;
-overflow: hidden;
+    margin-top: 20px;
+    left: 100px;
+    position: fixed;
+    border: 1px solid #f000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0006;
+    padding: 11px;
+    background: #fff;
+    z-index: 99999;
+    width: 200px;
+    overflow: hidden;
 }
 
 .nav ul li ul li {
     display: block;
 }
-.menu-titulo{
 
-}
+.menu-titulo {}
+
 .nav ul li ul li:hover {
     background-color: #F4F4F4;
     position: relative;
@@ -682,24 +724,26 @@ overflow: hidden;
 }
 
 .nav li li {
-   /* background-color: #FEFEFE;*/
+    /* background-color: #FEFEFE;*/
 }
-.nav-fixed ul{
+
+.nav-fixed ul {
     display: block;
-background: white;
-width: 100%;
-border: 1px solid #0000;
-border-radius: 10px;
-box-shadow: 0px 0px 10px #0000003d;
+    background: white;
+    width: 100%;
+    border: 1px solid #0000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0000003d;
 }
-.nav-fixed .dropdown-toggle{
-      font-size: 16px;
-font-family: 'Inconsolata';
-font-weight: 500;
-  border-bottom: 1px #d7d9dd solid;
-  white-space: initial;
-  line-height: 1.5;
-padding-bottom: 10px;
+
+.nav-fixed .dropdown-toggle {
+    font-size: 16px;
+    font-family: 'Inconsolata';
+    font-weight: 500;
+    border-bottom: 1px #d7d9dd solid;
+    white-space: initial;
+    line-height: 1.5;
+    padding-bottom: 10px;
 }
 
 .nav ul {
@@ -707,16 +751,17 @@ padding-bottom: 10px;
     list-style: none;
     margin: 0;
 }
+
 .nav a {
     font-size: 16px;
-font-family: 'Inconsolata';
-font-weight: 500;
+    font-family: 'Inconsolata';
+    font-weight: 500;
 }
 
 .home {
     border-top-left-radius: 1px;
     border-top-right-radius: 1px;
-    border-bottom: 1px #d7d9dd solid;
+    /* border-bottom: 1px #d7d9dd solid;*/
     position: relative;
 }
 
@@ -727,7 +772,7 @@ font-weight: 500;
     top: 4px;
 }
 
-.home:hover a {
+.home a:hover {
     color: #6d6c6c;
 }
 
@@ -790,9 +835,11 @@ font-weight: 500;
     height: 100%;
     width: 4px;
 }
-.nav-box_li{
-     border-bottom: 1px #d7d9dd solid;
+
+.nav-box_li {
+    border-bottom: 1px #d7d9dd solid;
 }
+
 .messages:hover #mail {
     fill: #6d6c6c;
 }
@@ -853,4 +900,85 @@ font-weight: 500;
     background-clip: padding-box;
     border: 0;
     border-radius: initial;
+}
+
+.main-creation img {
+    width: 90px;
+}
+
+.flex-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-creation {
+    height: 74vh;
+    display: flex;
+}
+
+.main-creation p {
+    font-size: 16px;
+    padding: 0 50px;
+    text-align: justify;
+}
+
+.menu-template {
+    margin-top: 20px;
+    left: 100px;
+    position: fixed;
+    border: 1px solid #f000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0006;
+    padding: 11px;
+    background: #fff;
+    width: 250px;
+    overflow: hidden;
+}
+
+.menu-template_option ul {
+    padding: 0;
+    margin: 0;
+}
+
+.menu-template_option p {
+    border-top: 1px solid #0000000d;
+    border-bottom: 1px solid #0000000d;
+    padding: 10px;
+    font-weight: 700;
+    font-family: 'Inconsolata';
+}
+
+.menu-template_option li {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.info-template ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content_template textarea {
+    width: 100%;
+}
+
+.titulo-templates {
+    text-transform: capitalize;
+    padding-bottom: 20px;
+}
+
+.txt-edit {
+    font-size: 12px;
+    color: #000000a1;
+}
+
+.icnon-edit {
+    width: 22px;
+}
+
+.content_template-general-item {
+    margin-bottom: 50px;
 }

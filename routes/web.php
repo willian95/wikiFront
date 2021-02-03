@@ -19,14 +19,13 @@ Route::get('/', function () {
 /******************views********************** */
 
 
-Route::get('/templateOptions', function () {
-    return view('/TemplateOptions');
-});
+
 Route::get('/SearchResults', function () {
     return view('/SearchResults');
 });
-Route::get('/CategoriesLayout', function () {
-    return view('CategoriesLayout');
+
+Route::get('/ProjectCreation', function () {
+    return view('ProjectCreation');
 });
 /**************************************** */
 
@@ -53,7 +52,7 @@ Route::get("/institution/profile", "InstitutionController@institutionProfile")->
 Route::post("/institution/first-update", "InstitutionController@firstUpdate")->middleware("auth");
 Route::post("/institution/profile/update", "InstitutionController@updateInstitutionProfile")->middleware("auth");
 Route::post("/institution/profile/add-user", "InstitutionController@addUser")->middleware("auth");
-Route::get("/institution/get-teachers", "InstitutionController@getInstitutionTeachers")->middleware("auth");
+Route::get("/institution/get-teachers", "InstitutionController@getPublicInstitutionUsers")->middleware("auth");
 Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers")->middleware("auth");
 
 Route::get("teacher/profile", "TeacherController@profile")->middleware("auth");
@@ -70,8 +69,12 @@ Route::get("school/all", "InstitutionController@schoolAll");
 Route::get("school/fetch-all", "InstitutionController@fetchSchoolAll");
 
 Route::get("institution/show/{id}", "InstitutionController@show");
-Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getInstitutionTeachers");
+Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getPublicInstitutionTeachers");
 Route::get("/institution/public/get-users/{id}", "InstitutionController@getPublicInstitutionUsers");
 
 Route::get("subjects/all", "SubjectController@showAll");
 Route::get("subjects/fetch-all", "SubjectController@fetchAll");
+
+Route::get("project/choose-template", "ProjectController@chooseTemplate");
+Route::get("project/own-template/create", "ProjectController@createOwnTemplate");
+Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate");

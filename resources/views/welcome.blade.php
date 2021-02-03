@@ -62,7 +62,7 @@
                         <label for=""></label>
                         <select id="" class="form-control" v-model="level" @change="getSubjects()">
                             <option v-if="categoryType == 'school'" value="nursery">Nursery 0 - 3 </option>
-                            <option v-if="categoryType == 'school'" value="early childhood">Early childhood 4 - 6</option>
+                            <option v-if="categoryType == 'school'" value="early">Early childhood 4 - 6</option>
                             <option v-if="categoryType == 'school'" value="primary">Primary/Elementary 7 - 10</option>
                             <option v-if="categoryType == 'school'" value="middle">Middle School 11 - 13</option>
                             <option v-if="categoryType == 'school'" value="high">Highe School 14 - 18</option>
@@ -111,6 +111,43 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="feactured-home">
+        <h3 class="ml-3 mb-4 font-titulos text-center pt-4">Today’s featured wikiPBL!</h3>
+        <div class="feactured-one">
+            <p class="titulo">What ever title <br> <span>by Alicia Suarez</span> </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit dignissimos praesentium
+                        fuga
+                        eveniet labore neque quos officiis earum eaque unde minima corporis voluptatum voluptatem
+                        molestiae,
+                        voluptatibus consequatur tenetur impedit?Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Ipsum fugit dignissimos praesentium
+                        fuga
+                        eveniet labore neque quos officiis earum eaque unde minima corporis voluptatum voluptatem
+                        molestiae,
+                        voluptatibus consequatur tenetur impedit?</p>
+                </div>
+                <div class="col-md-3">
+                    <p>Level & Age</p>
+                    <p> Subject Name</p>
+                    <p>Skills</p>
+                    <p> Driving question</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="hashtag-home mt-0 mb-5 pb-5">
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                        <a href="#"> <span>#Hashtag</span></a>
+                    </div>
+                    <button class="btn btn-custom">View complete PBL</button>
+                </div>
 
     </section>
 

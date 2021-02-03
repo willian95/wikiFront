@@ -3,8 +3,8 @@
     <div class="loader-cover-custom" v-if="loading == true">
         <div class="loader-custom"></div>
     </div>
-    <header>
-        <nav class='navbar navbar-expand-md navbar-fixed-js'>
+    <header class="header-shadow">
+        <nav class='navbar navbar-expand-md navbar-fixed-js container'>
             <div class='flex-custom'>
                 <div class="nav">
                     <ul>
@@ -19,7 +19,7 @@
                                     <p class="menu-titulo">MENÚ</p>
                                 </li>
                                 <li class="nav-box_li">
-                                        <div class="blue-box"></div>
+                                    <div class="blue-box"></div>
                                     <div class="dropdown">
                                         <div class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,10 +67,49 @@
                         <div class="row">
                             <div class="col-md-12  mt-3">
                                 <div class="menu-flex">
-                                    <li class='nav-item  border-nav'>
-                                        <a class='nav-link'>{{ \Auth::user()->name }}
+                                    <!-- Iconos temlate option-->
+                                    <div class="header-icons">
+                                        <li class="nav-item  flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/eye.svg') }}">
+                                            <!-- Rounded switch -->
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider slider-nav round"></span>
+                                            </label>
+                                        </li>
+                                        <li class="nav-item   flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/group.svg') }}">
+                                            <!-- Rounded switch -->
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider slider-nav round"></span>
+                                            </label>
+                                        </li>
+                                        <li class="nav-item   flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/save.svg') }}">
+                                        </li>
+
+                                        <li class="nav-item  flex-main">
+                                            <img alt='icon' class="login_icon "
+                                                src="{{ url('assets/img/iconos/edit.svg') }}">
+                                        </li>
+                                    </div>
+                                    <!-- Iconos temlate option-->
+                                    <li class='nav-item  flex-main'>
+                                        <img alt='icon' class="teacher-icon "
+                                            src="{{ url('assets/img/iconos/user-teacher.png') }}">
+                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/institution/profile') }}" @else href="{{ url('/institution/profile') }} @endif class='nav-link'>{{ \Auth::user()->name }}
                                             {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
                                     </li>
+                                    <li class="nav-item   flex-main">
+                                        <a href="{{ url('logout') }}">
+                                            <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
+                                        </a>
+                                    </li>
+
                                 </div>
                             </div>
                         </div>
@@ -779,7 +818,7 @@
 
             @if(\Auth::check())
 
-                this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+            this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
 
             @endif
 
