@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PDF;
 
 class ProjectController extends Controller
 {
@@ -33,6 +34,13 @@ class ProjectController extends Controller
 
     function publicWikiPblTemplate(){
         return view("projects.wikiPBLTemplatePublic");
+    }
+
+    function pdfTemplate(){
+
+        $pdf = PDF::loadView('pdfs.project');
+        return $pdf->stream();
+
     }
 
 

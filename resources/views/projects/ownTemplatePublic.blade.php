@@ -51,7 +51,7 @@
                 <li class="content_template-general-item">
                     <h3 class="titulo-templates">
                         
-                        <span v-if="editSection != 'title'">WikiPBL Title</span> 
+                        <span>WikiPBL Title</span> 
                     </h3>
 
                 </li>
@@ -99,7 +99,7 @@
                 </li>
 
                 <li class="content_template-general-item">
-                    <h3 class="titulo-templates" >@{{ levelTitle }}</h3>
+                    <h3 class="titulo-templates" >Level</h3>
                     <div class="row">
                         <div class="col-md-4">
                             
@@ -178,8 +178,7 @@
 
 @push("script")
 
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script src="https://www.jsdelivr.com/package/npm/chart.js?path=dist"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
     <script>
         const public = new Vue({
@@ -228,11 +227,10 @@
 
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'radar',
                     data: {
                         labels: ['Sustained Inquiry', 'Authenticity', 'Student voice & choice', 'Reflection', 'Critique & Revision', 'Public product', 'Challenging problem or question'],
                         datasets: [{
-                            label: '# of Votes',
                             data: [12, 19, 3, 5, 2, 3, 2],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -256,12 +254,11 @@
                         }]
                     },
                     options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
+                        legend: {
+                            display: false,
+                            labels: {
+                                fontColor: 'rgb(255, 99, 132)'
+                            }
                         }
                     }
                 });

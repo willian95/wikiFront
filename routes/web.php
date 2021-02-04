@@ -81,3 +81,4 @@ Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate
 
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");
+Route::get("project/pdf", "ProjectController@pdfTemplate");
