@@ -115,9 +115,9 @@
                                         </li>
 
                                           <li class="nav-item  flex-main mr-0">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/add-file.svg') }}">
-                                                   <a class='nav-link  '>New wikiPBL</a>
+                                          
+                                            <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">
+                                                   <a class='nav-link  ' href="{{ url('/project/choose-template') }}">New wikiPBL</a>
                                         </li>
                                     </div>
                                     <!-- Iconos temlate option-->
