@@ -532,13 +532,18 @@ h3 {
 }
 
 .abc-home .abc-content {
-    width: 32%;
+    width: 24%;
     position: relative;
     margin-bottom: 1.5rem;
+    margin-bottom: 40px;
 }
 
 .abc-content p {
     margin: 0;
+}
+
+.abc-content strong {
+    text-transform: uppercase;
 }
 
 .abc-home strong {
