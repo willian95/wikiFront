@@ -78,3 +78,6 @@ Route::get("subjects/fetch-all", "SubjectController@fetchAll");
 Route::get("project/choose-template", "ProjectController@chooseTemplate");
 Route::get("project/own-template/create", "ProjectController@createOwnTemplate");
 Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate");
+
+Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
+Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");

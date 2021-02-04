@@ -25,5 +25,15 @@ class ProjectController extends Controller
 
     }
 
+    function publicOwnTemplate(){
+
+        return view("projects.ownTemplatePublic");
+
+    }
+
+    function publicWikiPblTemplate(){
+        return view("projects.wikiPBLTemplatePublic");
+    }
+
 
 }

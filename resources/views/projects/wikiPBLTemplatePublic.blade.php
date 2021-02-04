@@ -118,6 +118,43 @@
                     <p>#hashtags   #hashtags     #hashtags</p>
                 </li>
 
+                <li class="content_template-general-item">
+                    <h3 class="titulo-templates">Tools/Software/Skills required</h3>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Excel
+                            </div>
+                            <div class="col-md-2">
+                                Mac OS
+                            </div>
+
+                            <div class="col-md-2">
+                                Programming
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="content_template-general-item">
+                    <h3 class="titulo-templates">Learning Goals</h3>
+                    <p>Objective 1</p>
+                    <p>
+                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                    </p>
+                    <p>Objective 2</p>
+                    <p>
+                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                    </p>
+                </li>
+
+                <li class="content_template-general-item">
+                    <h3 class="titulo-templates">Resources</h3>
+                    <p>
+                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                    </p>
+                </li>
+
             </ul>
             <!-----------------------END general------------------------>
 
