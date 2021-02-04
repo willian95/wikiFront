@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('comingSoon');
-});
+});*/
 /******************views********************** */
 
 
@@ -29,7 +29,7 @@ Route::get('/ProjectCreation', function () {
 });
 /**************************************** */
 
-Route::get('/front-test', "HomeController@index")->name("home");
+Route::get('/', "HomeController@index")->name("home");
 Route::post("/home/get-subjects", "HomeController@getSubjects");
 //Auth::routes();
 
