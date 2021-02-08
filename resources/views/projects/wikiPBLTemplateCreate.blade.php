@@ -56,7 +56,7 @@
         <!----------------info----------------->
         <div class="col-md-9 info-template">
             <!--------------------general--------------------------->
-            <ul class="content_template content_template-general">
+            <ul style="list-style:none" class="content_template content_template-general">
                 <li class="content_template-general-item">
                     <h3 class="titulo-templates">
                         

@@ -90,7 +90,7 @@
 
                             <li class="content_template-general-item">
                                 <h3 class="titulo-templates">Project summary</h3>
-                               
+                                {!! $projectSumary !!}
                             </li>
 
                             <li class="content_template-general-item">
