@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Institution;
 use App\Subject;
+use App\Hashtag;
 
 class HomeController extends Controller
 {
@@ -44,6 +45,13 @@ class HomeController extends Controller
             return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
 
         }
+
+    }
+
+    public function getHashtags(){
+
+        $hashtags = Hashtag::inRandomOrder()->take(10)->get();
+        return response()->json(["hashtags" => $hashtags]);
 
     }
 

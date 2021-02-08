@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -41,12 +43,20 @@ class User extends Authenticatable
         return $this->belongsTo(Institution::class);
     }
 
+    public function pendingInstituion(){
+        return $this->belongsTo(PendingInstitution::class);
+    }
+
     public function country(){
         return $this->belongsTo(Country::class);
     }
 
     public function state(){
         return $this->belongsTo(State::class);
+    }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
     }
 
 }
