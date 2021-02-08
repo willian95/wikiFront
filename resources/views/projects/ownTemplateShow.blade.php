@@ -3,7 +3,7 @@
 @section("content")
 
     <div id="own-template">
-        @include("partials.projectHeader")
+        @include("partials.projectShowHeader")
         <div class="container">
             <div class="container  main-template mt-5">
 

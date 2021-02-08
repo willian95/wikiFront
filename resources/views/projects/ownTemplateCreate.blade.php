@@ -173,8 +173,9 @@
                                                 <option value="middle">Middle School</option>
                                                 <option value="high">High School</option>
                                                 <option value="undergraduate">Undergraduate</option>
-                                                <option value="masters">Masters</option>
-                                                <option value="phd">PhD</option>
+                                                <option :value="ulevel" v-for="ulevel in 18">university @{{ ulevel }} month</option>
+                                                <option value="18">Masters</option>
+                                                <option value="18">PhD</option>
                                                 <option value="no-apply">Doesn’t Apply
                                                 </option>
                                             </select>

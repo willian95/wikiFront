@@ -139,7 +139,7 @@
 
                             <li class="content_template-general-item">
                                 <h3 class="titulo-templates">Project summary</h3>
-                                <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
+                                <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! $projectSumary !!}</textarea>
                             </li>
 
                             <li class="content_template-general-item">
@@ -171,14 +171,15 @@
                                             <label for="inp"></label>
                                             <select id="inpt" class="form-control" v-model="level">
                                                 <option value="">Choose your level </option>
-                                                <option value="nursery">Nursery </option>
+                                                <oaption value="nursery">Nursery </oaption>
                                                 <option value="early">Early Childhood </option>
                                                 <option value="primary">Primary/Elementary School</option>
                                                 <option value="middle">Middle School</option>
                                                 <option value="high">High School</option>
                                                 <option value="undergraduate">Undergraduate</option>
-                                                <option value="masters">Masters</option>
-                                                <option value="phd">PhD</option>
+                                                <option :value="ulevel" v-for="ulevel in 18">university @{{ ulevel }} month</option>
+                                                <option value="18">Masters</option>
+                                                <option value="18">PhD</option>
                                                 <option value="no-apply">Doesn’t Apply
                                                 </option>
                                             </select>
@@ -345,8 +346,8 @@
                                             <i class="{{ $point->icon }}"></i>
                                             <div class="form-check">
                                                 
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"  @click="addOrPopUpVoteSystems('{{ $point->id }}')">
-                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}"  @click="addOrPopUpVoteSystems('{{ $point->id }}')">
+                                                <label class="form-check-label" for="index-{{ $loop->index }}">
                                                     {{ $point->name }}
                                                 </label>
                                             </div>
@@ -790,6 +791,14 @@
 
                     })
 
+                },
+                setCheckedUpvoteSystems(){
+
+                    this.upvoteSystems.forEach((data) => {
+                        console.log("data", data)
+                        document.getElementById("index-"+data).checked = true;
+                    })
+
                 }
                 
 
@@ -815,7 +824,7 @@
 
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
-
+                this.setCheckedUpvoteSystems()
             }
 
         })
