@@ -18,7 +18,9 @@ Route::get('/', function () {
 });
 /******************views********************** */
 
-
+Route::get('/about', function () {
+    return view('/about');
+});
 
 Route::get('/SearchResults', function () {
     return view('/SearchResults');
