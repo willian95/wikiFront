@@ -778,6 +778,8 @@
                 CKEDITOR.replace("bibliographyEditor", options)
                 CKEDITOR.replace("mainEditor", options)
 
+                this.saveProject()
+
             }
 
         })

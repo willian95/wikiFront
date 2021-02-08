@@ -27,9 +27,13 @@ class ProjectController extends Controller
     function createOwnTemplate(){
 
         $project = $this->createProject("own-template");
+        return redirect()->to(url('project/create/'.$project->id));
+    }
 
+    function showCreateOwnTemplate($id){
+
+        $project = Project::find($id);
         return view("projects.ownTemplateCreate", ["project" => $project]);
-
     }
 
     function wikiPBLTemplate(){
