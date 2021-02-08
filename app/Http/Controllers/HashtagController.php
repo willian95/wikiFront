@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Project;
+use App\Hashtag;
+use App\HashtagProject;
+
+class HashtagController extends Controller
+{
+    function index($hashtag){
+
+        $count = HashtagProject::whereHas("hashtag", function($q) use($hashtag){
+            $q->where("name", $hashtag);
+        })->count();
+
+
+        return view("hashtag.projects", ["hashtag" => $hashtag, "count" => $count]);
+
+    }
+
+
+    function projects($hashtag){
+
+        $projects = Project::with("titles")->with("user")->with("user.institution")->with("user.pendingInstituion")->where("status", "launched")->whereHas("hashtagProject", function($hashtagProjectQuery) use($hashtag){
+
+            $hashtagProjectQuery->whereHas("hashtag", function($hashtagQuery) use($hashtag){
+
+                $hashtagQuery->where("name", $hashtag);
+
+            });
+
+        })->get();
+
+        return response()->json(["projects" => $projects]);
+
+    }
+
+}

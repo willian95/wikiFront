@@ -86,39 +86,16 @@
                                 <div class="menu-flex">
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons">
-                                        <li class="nav-item  flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/eye.svg') }}">
-                                            <!-- Rounded switch -->
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider slider-nav round"></span>
-                                            </label>
-                                        </li>
-                                        <li class="nav-item   flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/group.svg') }}">
-                                            <!-- Rounded switch -->
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider slider-nav round"></span>
-                                            </label>
-                                        </li>
-                                        <li class="nav-item   flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/save.svg') }}">
-                                        </li>
-
-                                        <li class="nav-item  flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/edit.svg') }}">
-                                        </li>
-
-                                          <li class="nav-item  flex-main mr-0">
-                                          
+                                        
+                                        
+                                        <li class="nav-item  flex-main mr-0">
+                                        
                                             <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">
-                                                   <a class='nav-link  ' href="{{ url('/project/choose-template') }}">New wikiPBL</a>
+                                            <a class='nav-link  ' href="{{ url('/project/choose-template') }}">New wikiPBL</a>
                                         </li>
+                                        
+
+                                          
                                     </div>
                                     <!-- Iconos temlate option-->
                                     <li class='nav-item  flex-main'>
@@ -365,6 +342,9 @@
                     this.loading = false
                     this.errors = err.response.data.errors
                 })
+            },
+            saveProject(){
+                alert("hey")
             },
             teacherRegister() {
 

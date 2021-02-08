@@ -110,69 +110,34 @@
                 </div>
                 <div class="col-md-8">
 
-                    <div id="accordion" class="wiki-accordion">
+                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id">
+                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                        <p v-else>Pending for title</p>
+                    </a>
+
+                    {{--<div :id="'accordion'+index" class="wiki-accordion" v-for="(project,index) in projects">
                         <div class="card">
-                            <div class="" id="wikigOne">
+                            <div class="" :id="'wiki'+index">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#wikiOne"
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#'wiki'+index"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        <p>1. PBL Title, Name of the educator, Name of the institution</p>
+                                        <p>@{{ project.titles[0].title }}</p>
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="wikiOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordion">
+                            <div :id="'wiki'+index" class="collapse" aria-labelledby="headingOne"
+                                :data-parent="'#accordion'+index">
                                 <div class="card-body">
                                     <button class="btn btn-custom">ORIGINAL DOCUMENT</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="" id="wikiTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#wikiTwo"
-                                        aria-expanded="false" aria-controls="wikiTwo">
-                                        <p>2. PBL Title, Name of the educator, Name of the institution</p>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="wikiTwo" class="collapse" aria-labelledby="wikiTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                                    you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="" id="wikithree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#wikithree" aria-expanded="false" aria-controls="collapseThree">
-                                        <p>3. PBL Title, Name of the educator, Name of the institution</p>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="wikithree" class="collapse" aria-labelledby="wikithree" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                                    you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    </div>--}}
+
+
+
                 </div>
             </div>
         </div>
@@ -207,6 +172,9 @@
                     portfolio:"{{ strip_tags(\Auth::user()->portfolio) }}",
                     showMyEmail:JSON.parse('{!! \Auth::user()->show_my_email !!}'),
                     loading:false,
+                    page:1,
+                    pages:0,
+                    projects:[],
                     errors:[]
 
                 }
@@ -316,12 +284,25 @@
 
                     })
 
+                },
+                fetchProjects(page  =1 ){
+
+                    this.page
+
+                    axios.get("{{ url('/project/my-projects') }}"+"/"+page).then(res => {
+
+                        this.projects = res.data.projects
+                        this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
+
+                    })
+
                 }
             },
             mounted(){
 
                 this.fetchCountries()
                 this.fetchAllInstitutions()
+                this.fetchProjects()
 
             }
         })

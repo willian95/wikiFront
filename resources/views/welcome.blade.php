@@ -18,13 +18,7 @@
                 <!---------------->
                 <p>9.000+ projects and counting!</p>
                 <div class="hashtag-home">
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
-                    <a href="#"> <span>#Hashtag</span></a>
+                    <a href="#" v-for="hashtag in hashtags"> <span>@{{ hashtag.name }}</span></a>
                 </div>
 
             </div>
@@ -133,6 +127,7 @@
                 return {
                     categoryType:"school",
                     level:"nursery",
+                    hashtags:[],
                     subjects:[]
                 }
             },
@@ -143,6 +138,15 @@
                     axios.post("{{ url('/home/get-subjects') }}", {"institution_type": this.categoryType, "level": this.level}).then(res => {
 
                         this.subjects = res.data.subjects
+
+                    })
+
+                },
+                getHashtags(){
+
+                    axios.get("{{ url('/home/get-hashtags') }}").then(res => {
+
+                        this.hashtags = res.data.hashtags
 
                     })
 
@@ -171,6 +175,7 @@
             mounted(){
 
                 this.getSubjects()
+                this.getHashtags()
 
             }
         })

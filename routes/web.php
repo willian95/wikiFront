@@ -31,9 +31,10 @@ Route::get('/ProjectCreation', function () {
 
 Route::get('/front-test', "HomeController@index")->name("home");
 Route::post("/home/get-subjects", "HomeController@getSubjects");
-//Auth::routes();
+Route::get("/home/get-hashtags", "HomeController@getHashtags");
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/hashtag/{hashtag}", "HashtagController@index");
+Route::get("/hashtag/projects/{hashtag}", "HashtagController@projects");
 
 Route::get("/institutions/fetchAll", "InstitutionController@fetchAllInstitutions");
 
@@ -48,14 +49,14 @@ Route::get("/register/validate/{registerHash}", "RegisterController@verify")->mi
 Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
 Route::get("/logout", "AuthController@logout");
 
-Route::get("/institution/profile", "InstitutionController@institutionProfile")->middleware("auth");
+Route::get("/institution/profile", "InstitutionController@institutionProfile")->middleware("auth")->middleware("institution");
 Route::post("/institution/first-update", "InstitutionController@firstUpdate")->middleware("auth");
 Route::post("/institution/profile/update", "InstitutionController@updateInstitutionProfile")->middleware("auth");
 Route::post("/institution/profile/add-user", "InstitutionController@addUser")->middleware("auth");
 Route::get("/institution/get-teachers", "InstitutionController@getPublicInstitutionUsers")->middleware("auth");
 Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers")->middleware("auth");
 
-Route::get("teacher/profile", "TeacherController@profile")->middleware("auth");
+Route::get("teacher/profile", "TeacherController@profile")->middleware("auth")->middleware("teacher");
 Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
 Route::get("teacher/show/{id}", "TeacherController@show");
 Route::get("teacher/all", "TeacherController@showAll");
@@ -75,10 +76,18 @@ Route::get("/institution/public/get-users/{id}", "InstitutionController@getPubli
 Route::get("subjects/all", "SubjectController@showAll");
 Route::get("subjects/fetch-all", "SubjectController@fetchAll");
 
-Route::get("project/choose-template", "ProjectController@chooseTemplate");
-Route::get("project/own-template/create", "ProjectController@createOwnTemplate");
-Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate");
+Route::get("project/choose-template", "ProjectController@chooseTemplate")->middleware("teacher");
+Route::get("project/own-template/create", "ProjectController@createOwnTemplate")->middleware("auth")->middleware("teacher");
+Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate")->middleware("auth")->middleware("teacher");
+Route::post("project/creation/save", "ProjectController@saveCreation")->middleware("auth")->middleware("teacher");
+Route::post("project/edition/save", "ProjectController@saveEdition")->middleware("auth")->middleware("teacher");
+Route::post("project/creation/launch", "ProjectController@launch");
+Route::get("project/my-projects/{page}", "ProjectController@myProjects")->middleware("auth")->middleware("teacher");
+Route::get("project/edit/{id}", "ProjectController@editProject")->middleware("auth")->middleware("teacher");
+Route::get("project/show/{slug}", "ProjectController@show");
 
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");
 Route::get("project/pdf", "ProjectController@pdfTemplate");
+
+Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");
