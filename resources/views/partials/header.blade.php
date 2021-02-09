@@ -165,9 +165,10 @@
     <!-- Login -->
     @include("partials.authModals.loginModal")
 
+    <!-- forgot Password -->
+    @include("partials.authModals.forgotPasswordModal")
+
     <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
-
-
 </div>
 
 @push("script")
@@ -188,6 +189,7 @@
                 password_confirmation: "",
                 step: 1,
                 errors: [],
+                forgotPasswordErrors:[],
                 loading: false,
                 admin_institution_name: "",
                 admin_institution_lastname: "",
@@ -215,7 +217,8 @@
                 institution_public_or_private: "public",
                 students_enrolled: "0-100",
                 faculty_members: "0-50",
-                which_network: ""
+                which_network: "",
+                forgotPasswordEmail:"",
 
             }
         },
@@ -844,6 +847,47 @@
                     })
 
                 }
+
+            },
+            restorePassword(){
+
+                axios.post("{{ url('/password/send-email') }}", {"email": this.forgotPasswordEmail}).then(res => {
+
+                    if(res.data.success == true){
+                        
+                        $(".modalClose").click();
+                        $('body').removeClass('modal-open');
+                        $('body').css('padding-right', '0px');
+                        $('.modal-backdrop').remove();
+                        
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        });
+
+                    }
+
+                }).catch(err => {
+
+                    swal({
+                        text: "Check some fields, please",
+                        icon: "error"
+                    });
+
+                    this.loading = false
+                    this.forgotPasswordErrors = err.response.data.errors
+
+                })
+
+            },
+            forgotPasswordShowModal(){
+
+                $(".modalClose").click();
+                $('body').removeClass('modal-open');
+                $('body').css('padding-right', '0px');
+                $('.modal-backdrop').remove();
+
+                $(".forgotPassword").modal('show')
 
             }
 

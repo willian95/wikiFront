@@ -32,6 +32,9 @@ Route::get('/ProjectCreation', function () {
 Route::get('/front-test', "HomeController@index")->name("home");
 Route::post("/home/get-subjects", "HomeController@getSubjects");
 Route::get("/home/get-hashtags", "HomeController@getHashtags");
+Route::post("/password/send-email", "RestorePasswordController@sendEmail");
+Route::get("/password/validate/{recovery_hash}", "RestorePasswordController@index");
+Route::post("/password/change", "RestorePasswordController@change");
 
 Route::get("/hashtag/{hashtag}", "HashtagController@index");
 Route::get("/hashtag/projects/{hashtag}", "HashtagController@projects");
