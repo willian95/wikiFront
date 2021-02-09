@@ -23,7 +23,7 @@ class HashtagController extends Controller
 
     function projects($hashtag){
 
-        $projects = Project::with("titles")->with("user")->with("user.institution")->with("user.pendingInstituion")->where("status", "launched")->whereHas("hashtagProject", function($hashtagProjectQuery) use($hashtag){
+        $projects = Project::with("titles")->with("user")->with("user.institution")->with("user.pendingInstitution")->where("status", "launched")->whereHas("hashtagProject", function($hashtagProjectQuery) use($hashtag){
 
             $hashtagProjectQuery->whereHas("hashtag", function($hashtagQuery) use($hashtag){
 
