@@ -530,6 +530,9 @@ h3 {
     flex-wrap: wrap;
     gap: 5px;
 }
+.abc-home a{
+    color: #4674b8;
+}
 
 .abc-home .abc-content {
     width: 24%;
