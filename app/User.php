@@ -43,7 +43,7 @@ class User extends Authenticatable
         return $this->belongsTo(Institution::class);
     }
 
-    public function pendingInstituion(){
+    public function pendingInstitution(){
         return $this->belongsTo(PendingInstitution::class);
     }
 
