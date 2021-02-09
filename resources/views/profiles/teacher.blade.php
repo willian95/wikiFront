@@ -48,7 +48,7 @@
 
         <div class="main-wikis mt-5">
             <div class="text-center">
-                <h3>My projects - Dashboard</h3>
+                <h3>My projects - Dashboard  {{ \Auth::user()->id }} </h3>
             </div>
 
             <div class="row">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    {{ \Auth::user()->pending_institution_id }}
+                   
                     <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id">
                         <p v-if="project.titles[0]">@{{ project.titles[0].title }}</p>
                         <p v-else>Pending for title</p>
