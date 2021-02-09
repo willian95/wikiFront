@@ -397,6 +397,7 @@
                     days:5,
                     weeks:4,
                     calendarDay:"",
+                    lastSave:"",
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",
@@ -572,9 +573,21 @@
 
                     axios.post("{{ url('project/creation/save') }}", formData).then(res => {
 
-                        console.log("response", res.data)
+                        this.saveDate();
 
                     })
+
+                },
+                saveDate(){
+
+                    let today = new Date();
+                    let dd = String(today.getDate()).padStart(2, '0');
+                    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    let yyyy = today.getFullYear();
+                    let hour = today.getHours();
+                    let minutes = today.getMinutes();
+
+                    this.lastSave =  mm + '/' + dd + '/' + yyyy + " " + hour + " : "+minutes;
 
                 },
                 setFormData(){
@@ -779,6 +792,10 @@
                 CKEDITOR.replace("mainEditor", options)
 
                 this.saveProject()
+
+                window.setInterval(() =>{
+                    this.saveProject()
+                }, 120000)
 
             }
 

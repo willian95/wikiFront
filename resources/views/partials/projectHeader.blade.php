@@ -106,6 +106,11 @@
                                                 src="{{ url('assets/img/iconos/save.svg') }}">
                                         </li>
 
+                                        <li class="nav-itm" style="margin-top: -20px; font-size: 9px;" v-if="lastSave != ''">
+                                            <p>@{{ lastSave }}</p>
+                                            <p>Last update</p>
+                                        </li>
+
                                         {{--<li class="nav-item  flex-main">
                                             <img alt='icon' class="login_icon "
                                                 src="{{ url('assets/img/iconos/edit.svg') }}">

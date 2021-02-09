@@ -404,6 +404,7 @@
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",
+                    lastSave:"",
                     loading:false
                 }
             },
@@ -570,26 +571,27 @@
                     }
 
                 }, 
-                saveProject(){
-
-                    let formData = this.setFormData()
-
-                    axios.post("{{ url('project/creation/save') }}", formData).then(res => {
-
-                        console.log("response", res.data)
-
-                    })
-
-                },
                 saveEditionProject(){
 
                     let formData = this.setFormData()
 
                     axios.post("{{ url('project/edition/save') }}", formData).then(res => {
 
-                        console.log("response", res.data)
+                       this.saveDate()
 
                     })
+
+                },
+                saveDate(){
+
+                    let today = new Date();
+                    let dd = String(today.getDate()).padStart(2, '0');
+                    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    let yyyy = today.getFullYear();
+                    let hour = today.getHours();
+                    let minutes = today.getMinutes();
+
+                    this.lastSave =  mm + '/' + dd + '/' + yyyy + " " + hour + " : "+minutes;
 
                 },
                 setFormData(){
@@ -825,6 +827,11 @@
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
                 this.setCheckedUpvoteSystems()
+
+                window.setInterval(() =>{
+                    this.saveEditionProject()
+                }, 120000)
+
             }
 
         })
