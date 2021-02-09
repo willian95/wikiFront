@@ -48,7 +48,7 @@
 
         <div class="main-wikis mt-5">
             <div class="text-center">
-                <h3>My projects - Dashboard  {{ \Auth::user()->id }} </h3>
+                <h3>My projects - Dashboard  {{ \Auth::user()->pending_institution_id }} </h3>
             </div>
 
             <div class="row">
