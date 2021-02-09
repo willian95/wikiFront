@@ -111,7 +111,7 @@
                 <div class="col-md-8">
             
                     <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id">
-                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : App\PendingInsitution::where("id", \Auth::user()->pending_institution_id)->first()->name }}</p>
+                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : App\PendingInstitution::where("id", \Auth::user()->pending_institution_id)->first()->name }}</p>
                         <p v-else>Pending for title</p>
                     </a>
 
