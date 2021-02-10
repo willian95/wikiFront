@@ -236,7 +236,7 @@ Nav
 .navbar-expand-md .navbar-nav .nav-link {
     color: #000;
     font-size: 14px;
-    padding-left: 10px;
+     padding-left: 35px;
 }
 
 .w-nav {
@@ -260,11 +260,12 @@ Nav
 }
 
 .info-regrister {
-    display: grid;
-    grid-template-columns: 15% 85%;
-
-    text-align: start;
     width: 65%;
+    display: flex;
+    margin-bottom: 30px;
+}
+.info-regrister p{
+    margin: 0;
 }
 
 .info-regrister img {
@@ -290,6 +291,10 @@ Nav
     background: #4674b8;
     color: #fff;
     padding: 6px 30px;
+}
+.btn-custom-green {
+    background: #9ec54c;
+    border: 1px solid #9ec54c;
 }
 
 /***********check******* */
@@ -531,7 +536,7 @@ h3 {
     gap: 5px;
 }
 .abc-home a{
-    color: #4674b8;
+       color: #000000;
 }
 
 .abc-home .abc-content {
@@ -989,4 +994,12 @@ input:checked+.slider:before {
 
 .content_template-general-item {
     margin-bottom: 50px;
+}
+.content_template-general-item img{
+    width: 100%!important;
+height: 100%!important;
+}
+.flex-edit{
+    display: flex;
+align-items: baseline;
 }
