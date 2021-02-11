@@ -57,7 +57,7 @@
 
                     </div>
                     <!----------------info----------------->
-                    <div class="col-md-9 info-template">
+                    <div class="col-md-9 info-template" id="title">
                         <!--------------------general--------------------------->
                         <ul class="content_template content_template-general">
                             <li class="content_template-general-item" style="margin-top: 100px;">
@@ -260,7 +260,6 @@
 
                                             </label>
                                         </div>
-
 
                                     </div>
                                 </div>
