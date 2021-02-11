@@ -79,12 +79,12 @@ Nav
 }
 
 .header-shadow {
- box-shadow: 0px 0px 20px #00000008;
- position: fixed;
- width: 100%;
- top: 0;
- background: #fff;
- z-index: 99;
+   box-shadow: 0px 0px 20px #00000008;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   background: #fff;
+   z-index: 99;
 }
 
 @media (max-width: 767px) {
@@ -551,10 +551,10 @@ Nav
         gap: 5px;
     }
     .abc-home a{
-       color: #000000;
-   }
+     color: #000000;
+ }
 
-   .abc-home .abc-content {
+ .abc-home .abc-content {
     width: 24%;
     position: relative;
     margin-bottom: 1.5rem;
@@ -995,12 +995,14 @@ input:checked+.slider:before {
 
 .titulo-templates {
     text-transform: capitalize;
-    padding-bottom: 20px;
+    font-weight: 600;
+
 }
 
 .txt-edit {
     font-size: 12px;
     color: #000000a1;
+    margin-left: 15px;
 }
 
 .icnon-edit {
@@ -1009,6 +1011,8 @@ input:checked+.slider:before {
 
 .content_template-general-item {
     margin-bottom: 50px;
+    border-bottom: 1px solid #00000014;
+    padding-bottom: 30px
 }
 .content_template-general-item img{
     width: 100%!important;
@@ -1044,16 +1048,65 @@ input:checked+.slider:before {
     height: auto;
 }
 .last-style{
- font-size: 9px;
- line-height: 0;
- padding-top: 10px;
+   font-size: 9px;
+   line-height: 0;
+   padding-top: 10px;
 }
 .p5{
     padding-top: 5rem;
 }
+.w29{
+    width: 29px;
+}
 .color-blue_icon{
     fill: #4674b8;
 }
-.color-blue_icon:hover{
+.color-green_icon{
+    fill: #9ec54c;
+}
+.color-blue_icon:hover, .color-green_icon:hover{
     fill: #cccccc;
+}
+.subtitule_txt{
+    color: #ababab;
+    font-size: 12px;
+}
+.close-tab{
+    cursor: pointer;
+    position: absolute;
+    right: 11px;
+}
+.card-sub{
+    border: 0;
+    box-shadow: 0px 0px 9px #0000003d;
+    text-transform: capitalize;
+}
+.card-sub:hover{
+    box-shadow: 0px 0px 9px #0000001f;
+}
+/*.days{
+    box-shadow: 0px 0px 9px #0000001f;
+    border: 0;
+    }*/
+
+    .days-descr{
+       height: 32px;
+       overflow: hidden;
+       padding: 10px 10px 29px;
+   }
+   .desc-days{
+    display: none;
+    /* border: 1px solid red; */
+    font-size: 13px;
+    background: white;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    padding: 20px;
+    border-radius: 10px;
+}
+.card:hover .desc-days{
+  display: block;
+  box-shadow: 0px 0px 9px #0000001f;
+
 }
