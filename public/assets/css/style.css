@@ -1011,8 +1011,8 @@ input:checked+.slider:before {
     margin-bottom: 50px;
 }
 .content_template-general-item img{
-    width: 100%!important;
-    height: 100%!important;
+    width: 4%!important;
+    height: 4%!important;
 }
 .flex-edit{
     display: flex;
