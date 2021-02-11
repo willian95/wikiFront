@@ -3,7 +3,7 @@
 @section("content")
 
     <div id="own-template">
-        @include("partials.projectHeader")
+        @include("partials.projectHeader", ["projectAction" => "edition"])
         <div class="container">
             <div class="container  main-template mt-5">
 
@@ -383,19 +383,19 @@
             data() {
                 return {
                     projectId: "{{ $id }}",
-                    title:"{{ $title }}",
-                    drivingQuestionTitle:"{{ $drivingQuestionTitle }}",
-                    subjectTitle:"{{ $subjectTitle }}",
+                    title:"{!! htmlspecialchars_decode($title) !!}",
+                    drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
+                    subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{{ $subjects }}").split(","),
-                    timeFrameTitle:"{{ $timeFrameTitle }}",
-                    timeFrame:"{{ $timeFrame }}",
-                    publicProductTitle:"{{ $publicProductTitle }}",
+                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
+                    timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
+                    publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
                     levelTitle:"{!! htmlspecialchars_decode($levelTitle) !!}",
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{{ $hashtag }}").split(","),
+                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -405,6 +405,7 @@
                     upvoteSystems:[],
                     editSection:"",
                     lastSave:"",
+                    private:JSON.parse('{!! $project[0]->is_private !!}'),
                     loading:false
                 }
             },
@@ -571,6 +572,17 @@
                     }
 
                 }, 
+                saveProject(){
+
+                    let formData = this.setFormData()
+
+                    axios.post("{{ url('project/creation/save') }}", formData).then(res => {
+
+                        this.saveDate();
+
+                    })
+
+                },
                 saveEditionProject(){
 
                     let formData = this.setFormData()
@@ -626,6 +638,7 @@
                     formData.append("calendarActivities", JSON.stringify(this.calendarActivities))
                     formData.append("upvoteSystemTitle", "upvoteSystem")
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
+                    formData.append("is_private", this.private)
                     
                     return formData
 

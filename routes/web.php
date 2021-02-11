@@ -83,12 +83,13 @@ Route::get("subjects/fetch-all", "SubjectController@fetchAll");
 
 Route::get("project/choose-template", "ProjectController@chooseTemplate")->middleware("teacher");
 Route::get("project/own-template/create", "ProjectController@createOwnTemplate")->middleware("auth")->middleware("teacher");
-Route::get("project/wikiPBL-template/create", "ProjectController@wikiPBLTemplate")->middleware("auth")->middleware("teacher");
+Route::get("project/wikiPBL-template/create", "ProjectController@createWikiTemplate")->middleware("auth")->middleware("teacher");
 Route::post("project/creation/save", "ProjectController@saveCreation")->middleware("auth")->middleware("teacher");
 Route::post("project/edition/save", "ProjectController@saveEdition")->middleware("auth")->middleware("teacher");
 Route::post("project/creation/launch", "ProjectController@launch");
 Route::get("project/my-projects/{page}", "ProjectController@myProjects")->middleware("auth")->middleware("teacher");
 Route::get("project/create/{id}", "ProjectController@showCreateOwnTemplate")->middleware("auth")->middleware("teacher");
+Route::get("project/wiki/create/{id}", "ProjectController@showCreateWikiTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/edit/{id}", "ProjectController@editProject")->middleware("auth")->middleware("teacher");
 Route::get("project/show/{slug}", "ProjectController@show");
 

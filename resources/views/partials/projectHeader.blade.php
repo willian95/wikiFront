@@ -71,32 +71,27 @@
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons">
                                         
-                                        
-                                        <li class="nav-item  flex-main">
+                                        @php
+                                            if($projectAction == 'edition'){
+                                                $project = $project[0];
+                                            }
+                                        @endphp
+
+                                        @if($project->status == 'pending')
+                                        <li class="nav-item  flex-main" >
                                             <img alt='icon' class="login_icon "
                                                 src="{{ url('assets/img/iconos/eye.svg') }}">
                                             <!-- Rounded switch -->
                                             <label class="switch">
-                                                <input type="checkbox">
+                                                <input type="checkbox" v-model="private">
                                                 <span class="slider slider-nav round"></span>
                                             </label>
                                         </li>
-                                        <li class="nav-item   flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/group.svg') }}">
-                                            <!-- Rounded switch -->
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider slider-nav round"></span>
-                                            </label>
-                                        </li>
+
+                                        @endif
                                         <li class="nav-item   flex-main" 
-                                            @if(isset($project[0]))
-                                                @if($project[0]->status == 'pending')
-                                                    @click="saveProject()"
-                                                @else
+                                            @if($projectAction == 'edition')
                                                     @click="saveEditionProject()"
-                                                @endif
                                             @else
                                                 @click="saveProject()"
                                             @endif
@@ -110,11 +105,6 @@
                                             <p>@{{ lastSave }}</p>
                                             <p>Last update</p>
                                         </li>
-
-                                        {{--<li class="nav-item  flex-main">
-                                            <img alt='icon' class="login_icon "
-                                                src="{{ url('assets/img/iconos/edit.svg') }}">
-                                        </li>--}}
 
                                           
                                     </div>

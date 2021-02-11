@@ -220,6 +220,85 @@
 
                             </li>
 
+                            <div class="row" v-if="showTools">
+                                <div class="col-12">
+
+                                    <li class="content_template-general-item">
+
+                                        <h3 class="titulo-templates" >@{{ toolsTitle }}</h3>
+
+                                        <div class="row mt-3">
+                                            <div v-for="(tool, index) in tools" class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-body"> 
+                                                        @{{ tool }}
+
+                                                        <span style="cursor: pointer" @click="popTool(index)">X</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+
+                            <div class="row" v-if="showLearningGoals">
+                                <div class="col-12">
+
+                                    <li class="content_template-general-item">
+
+                                        <h3 class="titulo-templates">@{{ learningGoalsTitle }}</h3>
+
+                                        <div class="row">
+                                            <div class="col-md-4" v-for="(goal, index) in learningGoals">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <strong>@{{ goal.title }}</strong>
+                                                        <div v-html="goal.body"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </div>
+                            </div>
+
+                        <div class="row" v-show="showResources">
+                            <div class="col-12">
+
+                                <li class="content_template-general-item">
+
+                                    <h3 class="titulo-templates">@{{ resourcesTitle }}</h3>
+                                    <div>{!! $resources !!}</div>
+                                </li>
+                            </div>
+                        </div>
+
+                        <div class="row" v-show="showProjectMilestone">
+                            <div class="col-12">
+
+                                <li class="content_template-general-item" >
+
+                                    <h3 class="titulo-templates">@{{ projectMilestoneTitle }}</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-4" v-for="(milestone, index) in projectMilestones">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <strong>@{{ milestone.title }}</strong>
+                                                    <div v-html="milestone.body"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </li>
+                            </div>
+                        </div>
+
+
                         </ul>
                         <!-----------------------END general------------------------>
 
@@ -253,6 +332,41 @@
 
 
                             </div>
+
+                            <div class="row" v-show="showExpert">
+                                <div class="col-12">
+                                
+
+                                    <li class="content_template-general-item" >
+
+                                        <h3 class="titulo-templates">@{{ expertTitle  }}</h3>
+                                        
+                                        <div>{!! $expert !!}</div>
+                                    </li>
+                                </div>
+                            </div>
+                        
+                        <div class="row" v-show="showFieldWork">
+                            <div class="col-12">
+
+                                <li class="content_template-general-item">
+
+                                    <h3 class="titulo-templates">@{{ fieldWorkTitle }}</h3>
+                                    <div>{!! $fieldWork !!}</div>
+                                </li>
+                            </div>
+                        </div>
+
+                        <div class="row" v-show="showGlobalConnections">
+                            <div class="col-12">
+
+                                <li class="content_template-general-item">
+
+                                    <h3 class="titulo-templates">@{{ globalConnectionsTitle }}</h3>
+                                    <div>{!! $globalConnections !!}</div>
+                                </li>
+                            </div>
+                        </div>
 
                             <div class="contente_item">
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
@@ -302,6 +416,23 @@
                     weeks:4,
                     calendarDay:"",
                     calendarWeek:"",
+                    toolsTitle:"{!! htmlspecialchars_decode($toolsTitle) !!}",
+                    showTools:true,
+                    tools:[],
+                    learningGoalsTitle:"{!! htmlspecialchars_decode($learningGoalsTitle) !!}",
+                    showLearningGoals:true,
+                    learningGoals:[],
+                    resourcesTitle:"{!! htmlspecialchars_decode($resourcesTitle) !!}",
+                    showResources:true,
+                    showProjectMilestone:true,
+                    projectMilestoneTitle:"{!! htmlspecialchars_decode($projectMilestonesTitle) !!}",
+                    projectMilestones:[],
+                    expertTitle:"{!! htmlspecialchars_decode($expertTitle) !!}",
+                    showExpert:true,
+                    fieldWorkTitle:"{!! htmlspecialchars_decode($fieldWorkTitle) !!}",
+                    showFieldWork:true,
+                    globalConnectionsTitle:"{!! htmlspecialchars_decode($globalConnectionsTitle) !!}",
+                    showGlobalConnections:true,
                     loading:false
                 }
             },
@@ -367,6 +498,51 @@
 
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+
+                let learningGoals = '{!! $learningGoals !!}'
+                if(learningGoals.length != ''){
+                    this.learningGoals = JSON. parse(learningGoals);
+                }
+                
+
+                let milestone = '{!! $projectMilestones !!}'
+                if(milestone){
+                    this.projectMilestones = JSON.parse(milestone)
+                }
+                
+                this.calendarActivities = JSON.parse('{!! $calendarActivities !!}') 
+                this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}') 
+                //this.setCheckedUpvoteSystems()
+
+                this.tools = ("{!! htmlspecialchars_decode($tools) !!}").split(",")
+
+                if(this.tools == ""){
+                    this.showTools = false
+                }
+
+                if(this.learningGoals.length == 0){
+                    this.showLearningGoals = false
+                }
+
+                if("{{ $resources }}" == ""){
+                    this.showResources = false
+                }
+
+                if(milestone != ''){
+                    this.showProjectMilestone = false
+                }
+
+                if("{{ $expert }}" == ""){
+                    this.showExpert = false
+                }
+
+                if("{{ $fieldWork }}" == ""){
+                    this.showFieldWork = false
+                }
+
+                if("{{ $globalConnections }}" == ""){
+                    this.showGlobalConnections = false
+                }
 
             }
 
