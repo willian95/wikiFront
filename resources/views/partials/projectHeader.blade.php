@@ -76,12 +76,12 @@
                                     <img alt='icon' class="login_icon "
                                     src="{{ url('assets/img/iconos/eye.svg') }}">
                                     <!-- Rounded switch -->
-                                    <label class="switch">
-                                        <input type="checkbox">
+                                    <label class="switch" >
+                                        <input type="checkbox" v-model="private">
                                         <span class="slider slider-nav round"></span>
                                     </label>
                                 </li>
-                                <li class="nav-item   flex-main">
+                                {{--<li class="nav-item   flex-main">
                                     <img alt='icon' class="login_icon "
                                     src="{{ url('assets/img/iconos/group.svg') }}">
                                     <!-- Rounded switch -->
@@ -89,16 +89,14 @@
                                         <input type="checkbox">
                                         <span class="slider slider-nav round"></span>
                                     </label>
-                                </li>
+                                </li>--}}
                                 <li class="nav-item   flex-main" 
-                                @if(isset($project[0]))
-                                @if($project[0]->status == 'pending')
-                                @click="saveProject()"
+                                @if($projectAction == 'creation')
+                                
+                                    @click="saveProject()"
+                                
                                 @else
-                                @click="saveEditionProject()"
-                                @endif
-                                @else
-                                @click="saveProject()"
+                                    @click="saveEditionProject()"
                                 @endif
 
                                 >

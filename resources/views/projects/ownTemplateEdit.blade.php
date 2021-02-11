@@ -65,7 +65,7 @@
                 <div class="col-md-9 info-template">
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" style="margin-top: 100px;">
                             <h3 class="titulo-templates">
                                 
                                 <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -506,9 +506,7 @@
                     this.activityDescription = ""
                     this.weeks = 4
 
-                    $("#modalClose").click();
-                    $('body').removeClass('modal-open');
-                    $('body').css('padding-right', '0px');
+                    $("#calendarDescription").modal('hide')
                     $('.modal-backdrop').remove();
 
                 }

@@ -500,7 +500,7 @@
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
                 let learningGoals = '{!! $learningGoals !!}'
-                if(learningGoals.length != ''){
+                if(learningGoals != ''){
                     this.learningGoals = JSON. parse(learningGoals);
                 }
                 

@@ -71,7 +71,7 @@
                     <div class="col-md-9 info-template">
                         <!--------------------general--------------------------->
                         <ul class="content_template content_template-general">
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" style="margin-top: 100px;">
                                 <h3 class="titulo-templates">
                                     
                                     <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -711,6 +711,55 @@
                     this.hashtags.splice(index, 1)
 
                 },
+                addTool(){
+
+                    if(this.tool != ""){
+                        this.tools.push(this.tool)
+                        this.tool = ""
+                    }
+
+                },
+                popTool(index){
+
+                    this.tools.splice(index, 1)
+
+                },
+                addLearningGoal(){
+
+                    if(this.learningGoalObjectives != "" && CKEDITOR.instances.learningGoalEditor.getData()){
+                        this.learningGoals.push({
+                            "title": this.learningGoalObjectives,
+                            "body": CKEDITOR.instances.learningGoalEditor.getData()
+                        })
+                        this.learningGoalObjectives = ""
+                        CKEDITOR.instances.learningGoalEditor.setData("")
+                    }
+
+
+                },
+                popLearningGoal(index){
+
+                    this.learningGoals.splice(index, 1)
+
+                },
+                addProjectMilestone(){
+
+                    if(this.milestoneTitle != "" && CKEDITOR.instances.learningGoalEditor.getData()){
+                        this.projectMilestones.push({
+                            "title": this.milestoneTitle,
+                            "body": CKEDITOR.instances.projectMilestoneEditor.getData()
+                        })
+                        this.milestoneTitle = ""
+                        CKEDITOR.instances.projectMilestoneEditor.setData("")
+                    }
+
+
+                },
+                popProjectMilestone(index){
+
+                    this.projectMilestones.splice(index, 1)
+
+                },
                 setWeekAndDay(week, day){
 
                     this.activityDescription = ""
@@ -740,9 +789,7 @@
                         this.activityDescription = ""
                         this.weeks = 4
 
-                        $("#modalClose").click();
-                        $('body').removeClass('modal-open');
-                        $('body').css('padding-right', '0px');
+                        $("#calendarDescription").modal('hide')
                         $('.modal-backdrop').remove();
 
                     }
@@ -1279,10 +1326,20 @@
                 this.setCheckedAges()
 
                 let learningGoals = '{!! $learningGoals !!}'
-                this.learningGoals = JSON. parse(learningGoals);
-
-                this.projectMilestones = JSON.parse('{!! $projectMilestones !!}')
-                this.calendarActivities = JSON.parse('{!! $calendarActivities !!}') 
+                if(learningGoals){
+                    this.learningGoals = JSON. parse(learningGoals);
+                }
+                
+                let milestone = '{!! $projectMilestones !!}'
+                if(milestone){
+                    this.projectMilestones = JSON.parse(milestone)
+                }
+                
+                let calendarActivities = '{!! $calendarActivities !!}'
+                if(calendarActivities){
+                    this.calendarActivities = JSON.parse(calendarActivities)
+                }
+                 
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}') 
                 this.setCheckedUpvoteSystems()
 
@@ -1300,7 +1357,7 @@
                     this.showResources = false
                 }
 
-                if(JSON. parse('{!! $projectMilestones !!}')){
+                if(milestone == ''){
                     this.showProjectMilestone = false
                 }
 
