@@ -18,7 +18,7 @@
                 <!---------------->
                 <p>9.000+ projects and counting!</p>
                 <div class="hashtag-home">
-                    <a :href="'{{ url('/hashtag/') }}'+'/'+hashtag.name" v-for="hashtag in hashtags"> <span>#@{{ hashtag.name }}</span></a>
+                    <a :href="'{{ url('/hashtag/') }}'+'/'+hashtag.name" v-for="hashtag in hashtags"> <span>@{{ hashtag.name }}</span></a>
                 </div>
 
             </div>

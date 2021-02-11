@@ -277,6 +277,40 @@
 
 @push("script")
 
+<<<<<<< HEAD
+    <script>
+        const create = new Vue({
+            el: '#own-template',
+            data() {
+                return {
+                    projectId: "{{ $id }}",
+                    title:"{!! htmlspecialchars_decode($title) !!}",
+                    drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
+                    subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
+                    subject:"",
+                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
+                    timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
+                    publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
+                    levelTitle:"{!! htmlspecialchars_decode($levelTitle) !!}",
+                    level:"",
+                    ages:[],
+                    hashtag:"",
+                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    calendarActivities:[],
+                    activityDescription:"",
+                    days:5,
+                    weeks:4,
+                    calendarDay:"",
+                    calendarWeek:"",
+                    loading:false
+                }
+            },
+            methods:{
+
+
+                showActivity(week, day){
+=======
 <script>
     const create = new Vue({
         el: '#own-template',
@@ -306,6 +340,7 @@
             }
         },
         methods:{
+>>>>>>> 0cc5f85ebc85c1614a725bac65633ba8de718fb8
 
 
             showActivity(week, day){
@@ -339,6 +374,19 @@
 
                 })
 
+<<<<<<< HEAD
+                    this.ages.forEach((data) => {
+                 
+                        if(data == "18+"){
+                            document.getElementById("age-18").checked = true;
+                        }else if(data == "all ages"){
+                            document.getElementById("allages").checked = true;
+                        }else{
+                            document.getElementById("age-"+data).checked = true;
+                        }
+                        
+                    })
+=======
             },
             setCheckedAges(){
 
@@ -354,6 +402,7 @@
                     
 
                 })
+>>>>>>> 0cc5f85ebc85c1614a725bac65633ba8de718fb8
 
             }
             

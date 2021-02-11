@@ -2,26 +2,27 @@
 
 @section("content")
 
-<div id="own-template">
-    @include("partials.projectHeader")
-    <div class="container p5">
-        <div class="container  main-template mt-5">
+    <div id="own-template">
+        @include("partials.projectHeader", ["projectAction" => "edition"])
+        <div class="container">
+            <div class="container  main-template mt-5">
 
-            <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Activity description</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" class="form-control" v-model="activityDescription">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
-                            <button type="button" class="btn btn-primary" @click="addCalendarDescription()">Save</button>
+                <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Activity description</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" v-model="activityDescription">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
+                                <button type="button" class="btn btn-primary" @click="addCalendarDescription()">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -375,50 +376,51 @@
 
 @push("script")
 
-<script src="{{ url('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ url('ckeditor/ckeditor.js') }}"></script>
 
-<script>
-    const create = new Vue({
-        el: '#own-template',
-        data() {
-            return {
-                projectId: "{{ $id }}",
-                title:"{{ $title }}",
-                drivingQuestionTitle:"{{ $drivingQuestionTitle }}",
-                subjectTitle:"{{ $subjectTitle }}",
-                subject:"",
-                subjects:("{{ $subjects }}").split(","),
-                timeFrameTitle:"{{ $timeFrameTitle }}",
-                timeFrame:"{{ $timeFrame }}",
-                publicProductTitle:"{{ $publicProductTitle }}",
-                levelTitle:"{!! htmlspecialchars_decode($levelTitle) !!}",
-                level:"",
-                ages:[],
-                hashtag:"",
-                hashtags:("{{ $hashtag }}").split(","),
-                calendarActivities:[],
-                activityDescription:"",
-                days:5,
-                weeks:4,
-                calendarDay:"",
-                calendarWeek:"",
-                upvoteSystems:[],
-                editSection:"",
-                lastSave:"",
-                loading:false
-            }
-        },
-        methods:{
-
-            setEditSection(section){
-
-                if(this.editSection != section){
-                    this.editSection = section
-                }else{
-                    this.editSection = ""
+    <script>
+        const create = new Vue({
+            el: '#own-template',
+            data() {
+                return {
+                    projectId: "{{ $id }}",
+                    title:"{!! htmlspecialchars_decode($title) !!}",
+                    drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
+                    subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
+                    subject:"",
+                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
+                    timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
+                    publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
+                    levelTitle:"{!! htmlspecialchars_decode($levelTitle) !!}",
+                    level:"",
+                    ages:[],
+                    hashtag:"",
+                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    calendarActivities:[],
+                    activityDescription:"",
+                    days:5,
+                    weeks:4,
+                    calendarDay:"",
+                    calendarWeek:"",
+                    upvoteSystems:[],
+                    editSection:"",
+                    lastSave:"",
+                    private:JSON.parse('{!! $project[0]->is_private !!}'),
+                    loading:false
                 }
-
             },
+            methods:{
+
+                setEditSection(section){
+
+                    if(this.editSection != section){
+                        this.editSection = section
+                    }else{
+                        this.editSection = ""
+                    }
+
+                },
             addOrPopAges(age){
                 
                 if(!this.ages.includes(age)){
@@ -626,6 +628,7 @@
                     formData.append("calendarActivities", JSON.stringify(this.calendarActivities))
                     formData.append("upvoteSystemTitle", "upvoteSystem")
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
+                    formData.append("is_private", this.private)
                     
                     return formData
 

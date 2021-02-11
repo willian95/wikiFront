@@ -2,26 +2,27 @@
 
 @section("content")
 
-<div id="own-template">
-    @include("partials.projectHeader")
-    <div class="container p5">
-        <div class="container  main-template mt-5">
+    <div id="own-template">
+        @include("partials.projectHeader", ["projectAction" => "creation"])
+        <div class="container">
+            <div class="container  main-template mt-5">
 
-            <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Activity description</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" class="form-control" v-model="activityDescription">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
-                            <button type="button" class="btn btn-primary" @click="addCalendarDescription()">Save</button>
+                <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Activity description</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" v-model="activityDescription">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
+                                <button type="button" class="btn btn-primary" @click="addCalendarDescription()">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -637,6 +638,7 @@
                     formData.append("calendarActivities", JSON.stringify(this.calendarActivities))
                     formData.append("upvoteSystemTitle", "upvoteSystem")
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
+                    formData.append("is_private", this.private)
                     
                     return formData
 

@@ -18,8 +18,6 @@ class ProjectController extends Controller
     
     function chooseTemplate(){
 
-
-
         return view("projects.templateOptions");
 
     }
@@ -36,13 +34,19 @@ class ProjectController extends Controller
         return view("projects.ownTemplateCreate", ["project" => $project]);
     }
 
-    function wikiPBLTemplate(){
+    function createWikiTemplate(){
 
         $project = $this->createProject("wiki-template");
-
-        return view("projects.wikiPBLTemplateCreate");
+        return redirect()->to(url('project/wiki/create/'.$project->id));
 
     }
+
+    function showCreateWikiTemplate($id){
+
+        $project = Project::find($id);
+        return view("projects.wikiPBLTemplateCreate", ["project" => $project]);
+    }
+
 
     function createProject($type){
 
@@ -68,6 +72,7 @@ class ProjectController extends Controller
 
             $project = Project::find($request->projectId);
             $project->status = "launched";
+            $project->is_private = $request->is_private;
             $project->update();
             
             return response()->json(["success" => true, "msg" => "Project successfully launched"]);
@@ -181,6 +186,10 @@ class ProjectController extends Controller
 
         try{
 
+            $project = Project::find($request->projectId);
+            $project->is_private = boolval($request->is_private);
+            $project->update();
+
             $this->storeTitle($request, "creation");
             $this->secondaryField($request, "creation", "drivingQuestionTitle", "drivingQuestion");
             $this->secondaryField($request, "creation", "timeFrameTitle", "timeFrame");
@@ -193,6 +202,14 @@ class ProjectController extends Controller
             $this->secondaryField($request, "creation", "hashtagTitle", "hashtag");
             $this->secondaryField($request, "creation", "calendarActivitiesTitle", "calendarActivities");
             $this->secondaryField($request, "creation", "upvoteSystemTitle", "upvoteSystem");
+
+            $this->secondaryField($request, "creation", "toolsTitle", "tools");
+            $this->secondaryField($request, "creation", "learningGoalsTitle", "learningGoals");
+            $this->secondaryField($request, "creation", "resourcesTitle", "resources");
+            $this->secondaryField($request, "creation", "projectMilestoneTitle", "projectMilestone");
+            $this->secondaryField($request, "creation", "expertTitle", "expert");
+            $this->secondaryField($request, "creation", "fieldWorkTitle", "fieldWork");
+            $this->secondaryField($request, "creation", "globalConnectionsTitle", "globalConnections");
         
         }catch(\Exception $e){
             
@@ -206,6 +223,10 @@ class ProjectController extends Controller
 
         try{
 
+            $project = Project::find($request->projectId);
+            $project->is_private = boolval($request->is_private);
+            $project->update();
+
             $this->storeTitle($request, "edition");
             $this->secondaryField($request, "edition", "drivingQuestionTitle", "drivingQuestion");
             $this->secondaryField($request, "edition", "timeFrameTitle", "timeFrame");
@@ -217,6 +238,15 @@ class ProjectController extends Controller
             $this->secondaryField($request, "edition", "levelTitle", "level");
             $this->secondaryField($request, "edition", "hashtagTitle", "hashtag");
             $this->secondaryField($request, "edition", "calendarActivitiesTitle", "calendarActivities");
+            
+            $this->secondaryField($request, "creation", "toolsTitle", "tools");
+            $this->secondaryField($request, "creation", "learningGoalsTitle", "learningGoals");
+            $this->secondaryField($request, "creation", "resourcesTitle", "resources");
+            $this->secondaryField($request, "creation", "projectMilestoneTitle", "projectMilestone");
+            $this->secondaryField($request, "creation", "expertTitle", "expert");
+            $this->secondaryField($request, "creation", "fieldWorkTitle", "fieldWork");
+            $this->secondaryField($request, "creation", "globalConnectionsTitle", "globalConnections");
+
             if(Project::find($request->projectId)->status == "pending")
                 $this->secondaryField($request, "edition", "upvoteSystemTitle", "upvoteSystem");
         
@@ -296,8 +326,10 @@ class ProjectController extends Controller
             }else{
                 $secondaryField->is_original = 0;
             }
+            $description = str_replace("\\n", "", $request->input($descriptionField));
+            $description = str_replace("\n", "", $description);
             $secondaryField->project_id = $request->projectId;
-            $secondaryField->description = $request->input($descriptionField);
+            $secondaryField->description = $description;
             $secondaryField->type = $descriptionField;
 
             if(!SecondaryField::where("project_id", $request->projectId)->where("type", $descriptionField)->where("user_id", \Auth::user()->id)->where("status", "pending")->first()){
@@ -378,7 +410,7 @@ class ProjectController extends Controller
         $skip = ($page-1) * $dataAmount;
 
         $projectQuery = Project::where("user_id", \Auth::user()->id)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
-                $q->orderBy("id", "desc")->take(1);
+                $q->orderBy("id", "desc");
             }
         ]);
 
@@ -459,7 +491,7 @@ class ProjectController extends Controller
                     "levelTitle" => $levelTitle,
                     "level" => $level,
                     "hashtag" => $hashtag,
-                    "calendarActivities" => $calendarActivities,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
                     "project" => $project
@@ -467,7 +499,58 @@ class ProjectController extends Controller
                 ]
             );
         }else{
-            return view("projects.wikiTemplateEdit", ["project" => $project]);
+
+            $toolsTitle = $this->projectSection($project[0]->id, "tools")->title;
+            $tools = $this->projectSection($project[0]->id, "tools")->description;
+            $learningGoalsTitle = $this->projectSection($project[0]->id, "learningGoals")->title;
+            $learningGoals = $this->projectSection($project[0]->id, "learningGoals")->description;
+            $resourcesTitle = $this->projectSection($project[0]->id, "resources")->title;
+            $resources = $this->projectSection($project[0]->id, "resources")->description;
+            $projectMilestonesTitle = $this->projectSection($project[0]->id, "projectMilestone")->title;
+            $projectMilestones = $this->projectSection($project[0]->id, "projectMilestone")->description;
+            $expertTitle = $this->projectSection($project[0]->id, "expert")->title;
+            $expert  = $this->projectSection($project[0]->id, "expert")->description;
+            $fieldWorkTitle = $this->projectSection($project[0]->id, "fieldWork")->title;
+            $fieldWork  = $this->projectSection($project[0]->id, "fieldWork")->description;
+            $globalConnectionsTitle = $this->projectSection($project[0]->id, "globalConnections")->title;
+            $globalConnections = $this->projectSection($project[0]->id, "globalConnections")->description;
+
+            return view("projects.wikiPBLTemplateEdit", [
+                    "id" => $project[0]->id, 
+                    "title" => $title, 
+                    "drivingQuestionTitle" => $drivingQuestionTitle,
+                    "drivingQuestion" => $drivingQuestion,
+                    "timeFrameTitle" => $timeFrameTitle,
+                    "timeFrame" => $timeFrame,
+                    "publicProductTitle" => $publicProductTitle,
+                    "publicProduct" => $publicProduct,
+                    "mainInfo" => $mainInfo,
+                    "bibliography" => $bibliography,
+                    "subjectTitle" => $subjectTitle,
+                    "subjects" => $subjects,
+                    "levelTitle" => $levelTitle,
+                    "level" => $level,
+                    "hashtag" => $hashtag,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "upvoteSystem" => $upvoteSystem,
+                    "projectSumary" => $projectSumary,
+                    "project" => $project,
+                    "toolsTitle" => $toolsTitle,
+                    "tools" => $tools,
+                    "learningGoalsTitle" => $learningGoalsTitle,
+                    "learningGoals" => str_replace("'", "\'", $learningGoals),
+                    "resourcesTitle" => $resourcesTitle,
+                    "resources" => $resources,
+                    "projectMilestonesTitle" => $projectMilestonesTitle,
+                    "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                    "expertTitle" => $expertTitle,
+                    "expert" => $expert,
+                    "fieldWorkTitle" => $fieldWorkTitle,
+                    "fieldWork" => $fieldWork,
+                    "globalConnectionsTitle" => $globalConnectionsTitle,
+                    "globalConnections" => $globalConnections
+                ]
+            );
         }
         
     }   
@@ -508,7 +591,9 @@ class ProjectController extends Controller
 
     public function show($slug){
 
-        $projctId = Title::where("slug", $slug)->where("status", "launched")->first()->project_id;
+        //dd($slug);
+
+        $projctId = $slug;
 
         $project = Project::where("id", $projctId)->with(["titles" => function($q){
             $q->orderBy("id", "desc")->where("status", "launched")->take(1);
@@ -572,7 +657,7 @@ class ProjectController extends Controller
                     "levelTitle" => $levelTitle,
                     "level" => $level,
                     "hashtag" => $hashtag,
-                    "calendarActivities" => $calendarActivities,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
                     "project" => $project
@@ -580,7 +665,57 @@ class ProjectController extends Controller
                 ]
             );
         }else{
-            return view("projects.wikiTemplateEdit", ["project" => $project]);
+
+            $toolsTitle = $this->showProjectSection($project[0]->id, "tools")->title;
+            $tools = $this->showProjectSection($project[0]->id, "tools")->description;
+            $learningGoalsTitle = $this->showProjectSection($project[0]->id, "learningGoals")->title;
+            $learningGoals = $this->showProjectSection($project[0]->id, "learningGoals")->description;
+            $resourcesTitle = $this->showProjectSection($project[0]->id, "resources")->title;
+            $resources = $this->showProjectSection($project[0]->id, "resources")->description;
+            $projectMilestonesTitle = $this->showProjectSection($project[0]->id, "projectMilestone")->title;
+            $projectMilestones = $this->showProjectSection($project[0]->id, "projectMilestone")->description;
+            $expertTitle = $this->showProjectSection($project[0]->id, "expert")->title;
+            $expert  = $this->showProjectSection($project[0]->id, "expert")->description;
+            $fieldWorkTitle = $this->showProjectSection($project[0]->id, "fieldWork")->title;
+            $fieldWork  = $this->showProjectSection($project[0]->id, "fieldWork")->description;
+            $globalConnectionsTitle = $this->showProjectSection($project[0]->id, "globalConnections")->title;
+            $globalConnections = $this->showProjectSection($project[0]->id, "globalConnections")->description;
+
+            return view("projects.wikiPBLTemplateShow", [
+                "id" => $project[0]->id, 
+                "title" => $title, 
+                "drivingQuestionTitle" => $drivingQuestionTitle,
+                "drivingQuestion" => $drivingQuestion,
+                "timeFrameTitle" => $timeFrameTitle,
+                "timeFrame" => $timeFrame,
+                "publicProductTitle" => $publicProductTitle,
+                "publicProduct" => $publicProduct,
+                "mainInfo" => $mainInfo,
+                "bibliography" => $bibliography,
+                "subjectTitle" => $subjectTitle,
+                "subjects" => $subjects,
+                "levelTitle" => $levelTitle,
+                "level" => $level,
+                "hashtag" => $hashtag,
+                "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                "upvoteSystem" => $upvoteSystem,
+                "projectSumary" => $projectSumary,
+                "project" => $project,
+                "toolsTitle" => $toolsTitle,
+                "tools" => $tools,
+                "learningGoalsTitle" => $learningGoalsTitle,
+                "learningGoals" => str_replace("'", "\'", $learningGoals),
+                "resourcesTitle" => $resourcesTitle,
+                "resources" => $resources,
+                "projectMilestonesTitle" => $projectMilestonesTitle,
+                "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                "expertTitle" => $expertTitle,
+                "expert" => $expert,
+                "fieldWorkTitle" => $fieldWorkTitle,
+                "fieldWork" => $fieldWork,
+                "globalConnectionsTitle" => $globalConnectionsTitle,
+                "globalConnections" => $globalConnections
+            ]);
         }
 
 

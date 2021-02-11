@@ -11,7 +11,7 @@
     <div class="row word">
         <div class="col-md-12">
             
-            <a :href="'{{ url('project/show/') }}'+'/'+project.titles[0].slug" v-for="project in projects">
+            <a :href="'{{ url('project/show/') }}'+'/'+project.id" v-for="project in projects">
                 <div class="card">
                     <div class="card-body">
                         <p>@{{ project.titles[0].title }} @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution.name }}</p>

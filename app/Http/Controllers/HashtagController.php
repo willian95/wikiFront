@@ -12,7 +12,7 @@ class HashtagController extends Controller
     function index($hashtag){
 
         $count = HashtagProject::whereHas("hashtag", function($q) use($hashtag){
-            $q->where("name", $hashtag);
+            $q->where("id", $hashtag);
         })->count();
 
 
@@ -27,7 +27,7 @@ class HashtagController extends Controller
 
             $hashtagProjectQuery->whereHas("hashtag", function($hashtagQuery) use($hashtag){
 
-                $hashtagQuery->where("name", $hashtag);
+                $hashtagQuery->where("id", $hashtag);
 
             });
 
