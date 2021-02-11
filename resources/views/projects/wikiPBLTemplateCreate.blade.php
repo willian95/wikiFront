@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div class="container  main-template mt-5" id="own-template">
+<div class="container  main-template mt-5 p5" id="own-template">
 
     <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -399,14 +399,14 @@
                     </h1>
                     <div class="col-md-6">
                         @foreach(App\AssestmentPointType::get() as $point)
-                            <i class="{{ $point->icon }}"></i>
-                            <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
-                                
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    {{ $point->name }}
-                                </label>
-                            </div>
+                        <i class="{{ $point->icon }}"></i>
+                        <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
+                            
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                {{ $point->name }}
+                            </label>
+                        </div>
                         @endforeach
                         
 
@@ -422,238 +422,238 @@
 
 @push("script")
 
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
-    <script>
-        const create = new Vue({
-            el: '#own-template',
-            data() {
-                return {
-                    title:"wikiPBL Title",
-                    drivingQuestionTitle:"Driving question",
-                    drivingQuestion:"",
-                    subjectTitle:"Subject (s)",
-                    subject:"",
-                    subjects:[],
-                    timeFrameTitle:"Time Frame",
-                    timeFrame:"",
-                    publicProductTitle:"Public Product (Individual And In Groups)",
-                    publicProduct:"",
-                    levelTitle:"Level & age",
-                    level:"",
-                    ages:[],
-                    hashtag:"",
-                    hashtags:[],
-                    calendarActivities:[],
-                    activityDescription:"",
-                    days:5,
-                    weeks:4,
-                    calendarDay:"",
-                    calendarWeek:"",
-                    upvoteSystems:[],
-                    editSection:"",
-                    toolsTitle:"Tools/Software/Skills required",
-                    showTools:true,
-                    tools:[],
-                    learningGoalsTitle:"Learning Goals",
-                    showLearningGoals:true,
-                    learningGoalObjectives:"",
-                    learningGoals:[],
-                    resourcesTitle:"Resources",
-                    showResources:true,
-                    showProjectMilestone:true,
-                    projectMilestoneTitle:"Project Milestones",
-                    expertTitle:"Expert",
-                    showExpert:true,
-                    fieldWorkTitle:"Field Work",
-                    showFieldWork:true,
-                    globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
-                    showGlobalConnections:true
-
-                }
-            },
-            methods:{
-
-                setEditSection(section){
-
-                    if(this.editSection != section){
-                        this.editSection = section
-                    }else{
-                        this.editSection = ""
-                    }
-
-                },
-                addOrPopAges(age){
-                    
-                    if(!this.ages.includes(age)){
-
-                        this.ages.push(age)
-
-                    }else{
-
-                        let index = this.ages.findIndex(data => data == age)
-                        this.ages.splice(index, 1)
-
-                    }
-
-                },
-                addOrPopUpVoteSystems(upvoteType){
-                    
-                    if(!this.upvoteSystems.includes(upvoteType)){
-
-                        this.upvoteSystems.push(upvoteType)
-
-                    }else{
-
-                        let index = this.upvoteSystems.findIndex(data => data == upvoteType)
-                        this.upvoteSystems.splice(index, 1)
-
-                    }
-
-                },
-                addSubject(){
-
-                    if(this.subject != ""){
-                        this.subjects.push(this.subject)
-                        this.subject = ""
-                    }
-                    
-
-                },
-                popSubject(index){
-
-                    this.subjects.splice(index, 1)
-
-                },
-                addHashtag(){
-
-                    if(this.hashtag != ""){
-                        this.hashtags.push(this.hashtag)
-                        this.hashtag = ""
-                    }
-
-
-                },
-                popHashtag(index){
-
-                    this.hashtags.splice(index, 1)
-
-                },
-                setWeekAndDay(week, day){
-
-                    this.calendarDay = day
-                    this.calendarWeek = week
-
-                },
-                addCalendarDescription(){
-
-                    if(this.activityDescription != ""){
-
-                        let activity = {
-                            "week": this.calendarWeek,
-                            "day": this.calendarDay,
-                            "description": this.activityDescription
-                        }
-
-                        this.calendarActivities.push(activity)
-                        this.activityDescription = ""
-                        this.weeks = 4
-
-                        $("#modalClose").click();
-                        $('body').removeClass('modal-open');
-                        $('body').css('padding-right', '0px');
-                        $('.modal-backdrop').remove();
-
-                    }
-
-                },
-                showActivity(week, day){
-
-                    
-                    var activity = null
-                    this.calendarActivities.forEach((data) => {
-
-                        if(data.week == week && data.day == day){
-                            activity = data
-                        }
-
-                    })
-
-                    if(activity){
-                        return activity.description
-                    }
-
-                },
-                toggleShowSection(section){
-
-                    if(section == "tools"){
-
-                        if(this.showTools == true){
-                            this.showTools = false
-                        }else{
-                            this.showTools = true
-                        }
-
-                    }else if(section == "learningGoals"){
-
-                        if(this.showLearningGoals == true){
-                            this.showLearningGoals = false
-                        }else{
-                            this.showLearningGoals = true
-                        }
-
-                    }else if(section == "resources"){
-
-                        if(this.showResources == true){
-                            this.showResources = false
-                        }else{
-                            this.showResources = true
-                        }
-
-                    }else if(section == "projectMilestone"){
-
-                        if(this.showProjectMilestone == true){
-                            this.showProjectMilestone = false
-                        }else{
-                            this.showProjectMilestone = true
-                        }
-
-                    }else if(section == "expert"){
-
-                        if(this.showExpert == true){
-                            this.showExpert = false
-                        }else{
-                            this.showExpert = true
-                        }
-
-                    }else if(section == "globalConnection"){
-                        
-                        if(this.showGlobalConnections == true){
-                            this.showGlobalConnections = false
-                        }else{
-                            this.showGlobalConnections = true
-                        }
-
-                    }
-                }
-
-            },
-            mounted(){
-
-                CKEDITOR.replace('drivingQuestionEditor');
-                CKEDITOR.replace("projectSummaryEditor")
-                CKEDITOR.replace("publicProductEditor")
-                CKEDITOR.replace("bibliographyEditor")
-                CKEDITOR.replace("mainEditor")
-                CKEDITOR.replace("resourcesEditor")
-                CKEDITOR.replace("expertEditor")
-                CKEDITOR.replace("fieldWorkEditor")
-                CKEDITOR.replace("globalConnectionEditor")
+<script>
+    const create = new Vue({
+        el: '#own-template',
+        data() {
+            return {
+                title:"wikiPBL Title",
+                drivingQuestionTitle:"Driving question",
+                drivingQuestion:"",
+                subjectTitle:"Subject (s)",
+                subject:"",
+                subjects:[],
+                timeFrameTitle:"Time Frame",
+                timeFrame:"",
+                publicProductTitle:"Public Product (Individual And In Groups)",
+                publicProduct:"",
+                levelTitle:"Level & age",
+                level:"",
+                ages:[],
+                hashtag:"",
+                hashtags:[],
+                calendarActivities:[],
+                activityDescription:"",
+                days:5,
+                weeks:4,
+                calendarDay:"",
+                calendarWeek:"",
+                upvoteSystems:[],
+                editSection:"",
+                toolsTitle:"Tools/Software/Skills required",
+                showTools:true,
+                tools:[],
+                learningGoalsTitle:"Learning Goals",
+                showLearningGoals:true,
+                learningGoalObjectives:"",
+                learningGoals:[],
+                resourcesTitle:"Resources",
+                showResources:true,
+                showProjectMilestone:true,
+                projectMilestoneTitle:"Project Milestones",
+                expertTitle:"Expert",
+                showExpert:true,
+                fieldWorkTitle:"Field Work",
+                showFieldWork:true,
+                globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
+                showGlobalConnections:true
 
             }
+        },
+        methods:{
 
-        })
-    
-    </script>
+            setEditSection(section){
+
+                if(this.editSection != section){
+                    this.editSection = section
+                }else{
+                    this.editSection = ""
+                }
+
+            },
+            addOrPopAges(age){
+                
+                if(!this.ages.includes(age)){
+
+                    this.ages.push(age)
+
+                }else{
+
+                    let index = this.ages.findIndex(data => data == age)
+                    this.ages.splice(index, 1)
+
+                }
+
+            },
+            addOrPopUpVoteSystems(upvoteType){
+                
+                if(!this.upvoteSystems.includes(upvoteType)){
+
+                    this.upvoteSystems.push(upvoteType)
+
+                }else{
+
+                    let index = this.upvoteSystems.findIndex(data => data == upvoteType)
+                    this.upvoteSystems.splice(index, 1)
+
+                }
+
+            },
+            addSubject(){
+
+                if(this.subject != ""){
+                    this.subjects.push(this.subject)
+                    this.subject = ""
+                }
+                
+
+            },
+            popSubject(index){
+
+                this.subjects.splice(index, 1)
+
+            },
+            addHashtag(){
+
+                if(this.hashtag != ""){
+                    this.hashtags.push(this.hashtag)
+                    this.hashtag = ""
+                }
+
+
+            },
+            popHashtag(index){
+
+                this.hashtags.splice(index, 1)
+
+            },
+            setWeekAndDay(week, day){
+
+                this.calendarDay = day
+                this.calendarWeek = week
+
+            },
+            addCalendarDescription(){
+
+                if(this.activityDescription != ""){
+
+                    let activity = {
+                        "week": this.calendarWeek,
+                        "day": this.calendarDay,
+                        "description": this.activityDescription
+                    }
+
+                    this.calendarActivities.push(activity)
+                    this.activityDescription = ""
+                    this.weeks = 4
+
+                    $("#modalClose").click();
+                    $('body').removeClass('modal-open');
+                    $('body').css('padding-right', '0px');
+                    $('.modal-backdrop').remove();
+
+                }
+
+            },
+            showActivity(week, day){
+
+                
+                var activity = null
+                this.calendarActivities.forEach((data) => {
+
+                    if(data.week == week && data.day == day){
+                        activity = data
+                    }
+
+                })
+
+                if(activity){
+                    return activity.description
+                }
+
+            },
+            toggleShowSection(section){
+
+                if(section == "tools"){
+
+                    if(this.showTools == true){
+                        this.showTools = false
+                    }else{
+                        this.showTools = true
+                    }
+
+                }else if(section == "learningGoals"){
+
+                    if(this.showLearningGoals == true){
+                        this.showLearningGoals = false
+                    }else{
+                        this.showLearningGoals = true
+                    }
+
+                }else if(section == "resources"){
+
+                    if(this.showResources == true){
+                        this.showResources = false
+                    }else{
+                        this.showResources = true
+                    }
+
+                }else if(section == "projectMilestone"){
+
+                    if(this.showProjectMilestone == true){
+                        this.showProjectMilestone = false
+                    }else{
+                        this.showProjectMilestone = true
+                    }
+
+                }else if(section == "expert"){
+
+                    if(this.showExpert == true){
+                        this.showExpert = false
+                    }else{
+                        this.showExpert = true
+                    }
+
+                }else if(section == "globalConnection"){
+                    
+                    if(this.showGlobalConnections == true){
+                        this.showGlobalConnections = false
+                    }else{
+                        this.showGlobalConnections = true
+                    }
+
+                }
+            }
+
+        },
+        mounted(){
+
+            CKEDITOR.replace('drivingQuestionEditor');
+            CKEDITOR.replace("projectSummaryEditor")
+            CKEDITOR.replace("publicProductEditor")
+            CKEDITOR.replace("bibliographyEditor")
+            CKEDITOR.replace("mainEditor")
+            CKEDITOR.replace("resourcesEditor")
+            CKEDITOR.replace("expertEditor")
+            CKEDITOR.replace("fieldWorkEditor")
+            CKEDITOR.replace("globalConnectionEditor")
+
+        }
+
+    })
+
+</script>
 
 @endpush

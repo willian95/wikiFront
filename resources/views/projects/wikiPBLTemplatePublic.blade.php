@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div class="container  main-template mt-5" id="own-template">
+<div class="container  main-template mt-5 p5" id="own-template">
 
     <div class="row">
         <div class="col-md-3">
@@ -60,11 +60,11 @@
                     <h3 class="titulo-templates">Driving Queston</h3>
                     
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat nunc, semper non odio a, dignissim accumsan turpis. Nunc est dui, viverra at libero nec, congue volutpat leo. Integer eu neque magna. Nulla tristique tellus eget justo pharetra, non iaculis purus aliquam. Vivamus auctor lacinia blandit. Duis porta lobortis nisi id cursus. Phasellus molestie ullamcorper felis. Integer nulla dolor, posuere a purus ac, consequat rutrum elit. Curabitur a eros id tellus laoreet lobortis ut ac ante. Vivamus scelerisque ac dolor ut tempor. Nunc eu suscipit dui. Nam dictum lobortis arcu at scelerisque. Sed congue purus ac interdum aliquet. Proin quis lacus placerat, auctor lectus a, fringilla lacus.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat nunc, semper non odio a, dignissim accumsan turpis. Nunc est dui, viverra at libero nec, congue volutpat leo. Integer eu neque magna. Nulla tristique tellus eget justo pharetra, non iaculis purus aliquam. Vivamus auctor lacinia blandit. Duis porta lobortis nisi id cursus. Phasellus molestie ullamcorper felis. Integer nulla dolor, posuere a purus ac, consequat rutrum elit. Curabitur a eros id tellus laoreet lobortis ut ac ante. Vivamus scelerisque ac dolor ut tempor. Nunc eu suscipit dui. Nam dictum lobortis arcu at scelerisque. Sed congue purus ac interdum aliquet. Proin quis lacus placerat, auctor lectus a, fringilla lacus.
                     </p>
 
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
 
                 </li>
@@ -82,18 +82,18 @@
                 <li class="content_template-general-item">
                     <h3 class="titulo-templates">Project summary</h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat nunc, semper non odio a, dignissim accumsan turpis. Nunc est dui, viverra at libero nec, congue volutpat leo. Integer eu neque magna. Nulla tristique tellus eget justo pharetra, non iaculis purus aliquam. Vivamus auctor lacinia blandit. Duis porta lobortis nisi id cursus. Phasellus molestie ullamcorper felis. Integer nulla dolor, posuere a purus ac, consequat rutrum elit. Curabitur a eros id tellus laoreet lobortis ut ac ante. Vivamus scelerisque ac dolor ut tempor. Nunc eu suscipit dui. Nam dictum lobortis arcu at scelerisque. Sed congue purus ac interdum aliquet. Proin quis lacus placerat, auctor lectus a, fringilla lacus.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat nunc, semper non odio a, dignissim accumsan turpis. Nunc est dui, viverra at libero nec, congue volutpat leo. Integer eu neque magna. Nulla tristique tellus eget justo pharetra, non iaculis purus aliquam. Vivamus auctor lacinia blandit. Duis porta lobortis nisi id cursus. Phasellus molestie ullamcorper felis. Integer nulla dolor, posuere a purus ac, consequat rutrum elit. Curabitur a eros id tellus laoreet lobortis ut ac ante. Vivamus scelerisque ac dolor ut tempor. Nunc eu suscipit dui. Nam dictum lobortis arcu at scelerisque. Sed congue purus ac interdum aliquet. Proin quis lacus placerat, auctor lectus a, fringilla lacus.
                     </p>
 
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
                 </li>
 
                 <li class="content_template-general-item">
                     <h3 class="titulo-templates">Public Product (Individual and in Groups)</h3>
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
                     
                 </li>
@@ -103,7 +103,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             
-                                <p>Middle school</p>
+                            <p>Middle school</p>
 
                         </div>
                         <div class="col-md-4">
@@ -140,18 +140,18 @@
                     <h3 class="titulo-templates">Learning Goals</h3>
                     <p>Objective 1</p>
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
                     <p>Objective 2</p>
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
                 </li>
 
                 <li class="content_template-general-item">
                     <h3 class="titulo-templates">Resources</h3>
                     <p>
-                    Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
+                        Mauris tristique est sed arcu lobortis posuere. Integer dignissim velit vitae metus fermentum aliquet. Ut urna diam, cursus in magna nec, scelerisque congue enim. Praesent sed tortor lectus. Mauris eu mattis risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec mollis placerat mattis. Nulla congue ullamcorper velit, eu volutpat purus eleifend vitae. Phasellus vitae sapien vitae tortor auctor varius id vitae lacus. Fusce eget nibh tempor, mollis felis convallis, scelerisque nisl. Maecenas tempus orci ut ligula commodo, vitae suscipit augue vehicula. Quisque dignissim odio leo, at ultricies libero feugiat ultricies. Pellentesque bibendum ex convallis fringilla sagittis. Praesent auctor fermentum tellus, vitae sagittis ante vehicula ut. Pellentesque non mollis sapien. Nunc sit amet odio iaculis, ullamcorper arcu interdum, blandit sem.
                     </p>
                 </li>
 
@@ -214,95 +214,95 @@
 @endsection
 
 @push("script")
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
-    <script>
-        const public = new Vue({
-            el: '#own-template',
-            data() {
-                return {
-                    calendarActivities:[
-                        {
-                            day:2,
-                            week:1,
-                            description:"activity 1"
-                        },
-                        {
-                            day:4,
-                            week:3,
-                            description:"activity 2"
-                        }
-                    ],
-                    activityDescription:"",
-                    days:5,
-                    weeks:4,
+<script>
+    const public = new Vue({
+        el: '#own-template',
+        data() {
+            return {
+                calendarActivities:[
+                {
+                    day:2,
+                    week:1,
+                    description:"activity 1"
+                },
+                {
+                    day:4,
+                    week:3,
+                    description:"activity 2"
                 }
-            },
-            methods:{
+                ],
+                activityDescription:"",
+                days:5,
+                weeks:4,
+            }
+        },
+        methods:{
 
-                showActivity(week, day){
+            showActivity(week, day){
 
-                    
-                    var activity = null
-                    this.calendarActivities.forEach((data) => {
+                
+                var activity = null
+                this.calendarActivities.forEach((data) => {
 
-                        if(data.week == week && data.day == day){
-                            activity = data
-                        }
-
-                    })
-
-                    if(activity){
-                        return activity.description
+                    if(data.week == week && data.day == day){
+                        activity = data
                     }
 
+                })
+
+                if(activity){
+                    return activity.description
                 }
-
-            },
-            mounted(){
-
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: ['Sustained Inquiry', 'Authenticity', 'Student voice & choice', 'Reflection', 'Critique & Revision', 'Public product', 'Challenging problem or question'],
-                        datasets: [{
-                            data: [12, 19, 3, 5, 2, 3, 2],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)',
-                                'rgba(68, 23, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)',
-                                'rgba(68, 23, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        legend: {
-                            display: false,
-                            labels: {
-                                fontColor: 'rgb(255, 99, 132)'
-                            }
-                        }
-                    }
-                });
 
             }
 
-        })
+        },
+        mounted(){
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Sustained Inquiry', 'Authenticity', 'Student voice & choice', 'Reflection', 'Critique & Revision', 'Public product', 'Challenging problem or question'],
+                    datasets: [{
+                        data: [12, 19, 3, 5, 2, 3, 2],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(68, 23, 64, 0.2)'
+                        ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(68, 23, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            fontColor: 'rgb(255, 99, 132)'
+                        }
+                    }
+                }
+            });
+
+        }
+
+    })
     
-    </script>
+</script>
 
 @endpush
