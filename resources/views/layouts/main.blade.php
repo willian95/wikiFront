@@ -9,8 +9,8 @@
     <title>Wikipbl</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700;900&family=Montserrat:wght@300;400;800&display=swap"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700;900&family=Montserrat:wght@300;400;800&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
@@ -60,13 +60,13 @@
 
     <main>
         @include("partials.header")
-        <div class="container">
+        <div class="container p5">
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
                     <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
-                            data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
-                        Copyrights - Contact us! </p>
+                        data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                    Copyrights - Contact us! </p>
                 </div>
             </footer>
         </div>

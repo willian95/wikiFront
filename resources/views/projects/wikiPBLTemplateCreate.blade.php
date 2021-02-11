@@ -623,212 +623,166 @@
                     private:false,
                     loading:false
 
+                if(this.editSection != section){
+                    this.editSection = section
+                }else{
+                    this.editSection = ""
                 }
+
             },
-            methods:{
+            addOrPopAges(age){
+                
+                if(!this.ages.includes(age)){
 
-                setEditSection(section){
+                    this.ages.push(age)
 
-                    if(this.editSection != section){
-                        this.editSection = section
+                }else{
+
+                    let index = this.ages.findIndex(data => data == age)
+                    this.ages.splice(index, 1)
+
+                }
+
+            },
+            addOrPopUpVoteSystems(upvoteType){
+                
+                if(!this.upvoteSystems.includes(upvoteType)){
+
+                    this.upvoteSystems.push(upvoteType)
+
+                }else{
+
+                    let index = this.upvoteSystems.findIndex(data => data == upvoteType)
+                    this.upvoteSystems.splice(index, 1)
+
+                }
+
+            },
+            addSubject(){
+
+                if(this.subject != ""){
+                    this.subjects.push(this.subject)
+                    this.subject = ""
+                }
+                
+
+            },
+            popSubject(index){
+
+                this.subjects.splice(index, 1)
+
+            },
+            addHashtag(){
+
+                if(this.hashtag != ""){
+                    this.hashtags.push(this.hashtag)
+                    this.hashtag = ""
+                }
+
+
+            },
+            popHashtag(index){
+
+                this.hashtags.splice(index, 1)
+
+            },
+            setWeekAndDay(week, day){
+
+                this.calendarDay = day
+                this.calendarWeek = week
+
+            },
+            addCalendarDescription(){
+
+                if(this.activityDescription != ""){
+
+                    let activity = {
+                        "week": this.calendarWeek,
+                        "day": this.calendarDay,
+                        "description": this.activityDescription
+                    }
+
+                    this.calendarActivities.push(activity)
+                    this.activityDescription = ""
+                    this.weeks = 4
+
+                    $("#modalClose").click();
+                    $('body').removeClass('modal-open');
+                    $('body').css('padding-right', '0px');
+                    $('.modal-backdrop').remove();
+
+                }
+
+            },
+            showActivity(week, day){
+
+                
+                var activity = null
+                this.calendarActivities.forEach((data) => {
+
+                    if(data.week == week && data.day == day){
+                        activity = data
+                    }
+
+                })
+
+                if(activity){
+                    return activity.description
+                }
+
+            },
+            toggleShowSection(section){
+
+                if(section == "tools"){
+
+                    if(this.showTools == true){
+                        this.showTools = false
                     }else{
-                        this.editSection = ""
+                        this.showTools = true
                     }
 
-                },
-                addOrPopAges(age){
-                    
-                    if(!this.ages.includes(age)){
+                }else if(section == "learningGoals"){
 
-                        this.ages.push(age)
-
+                    if(this.showLearningGoals == true){
+                        this.showLearningGoals = false
                     }else{
-
-                        let index = this.ages.findIndex(data => data == age)
-                        this.ages.splice(index, 1)
-
+                        this.showLearningGoals = true
                     }
 
-                },
-                addOrPopUpVoteSystems(upvoteType){
-                    
-                    if(!this.upvoteSystems.includes(upvoteType)){
+                }else if(section == "resources"){
 
-                        this.upvoteSystems.push(upvoteType)
-
+                    if(this.showResources == true){
+                        this.showResources = false
                     }else{
-
-                        let index = this.upvoteSystems.findIndex(data => data == upvoteType)
-                        this.upvoteSystems.splice(index, 1)
-
+                        this.showResources = true
                     }
 
-                },
-                addSubject(){
+                }else if(section == "projectMilestone"){
 
-                    if(this.subject != ""){
-                        this.subjects.push(this.subject)
-                        this.subject = ""
+                    if(this.showProjectMilestone == true){
+                        this.showProjectMilestone = false
+                    }else{
+                        this.showProjectMilestone = true
                     }
+
+                }else if(section == "expert"){
+
+                    if(this.showExpert == true){
+                        this.showExpert = false
+                    }else{
+                        this.showExpert = true
+                    }
+
+                }else if(section == "globalConnection"){
                     
-
-                },
-                popSubject(index){
-
-                    this.subjects.splice(index, 1)
-
-                },
-                addHashtag(){
-
-                    if(this.hashtag != ""){
-                        this.hashtags.push(this.hashtag)
-                        this.hashtag = ""
+                    if(this.showGlobalConnections == true){
+                        this.showGlobalConnections = false
+                    }else{
+                        this.showGlobalConnections = true
                     }
 
-                },
-                popHashtag(index){
-
-                    this.hashtags.splice(index, 1)
-
-                },
-                addTool(){
-
-                    if(this.tool != ""){
-                        this.tools.push(this.tool)
-                        this.tool = ""
-                    }
-
-                },
-                popTool(index){
-
-                    this.tools.splice(index, 1)
-
-                },
-                addLearningGoal(){
-
-                    if(this.learningGoalObjectives && CKEDITOR.instances.learningGoalEditor.getData()){
-
-                        this.learningGoals.push({
-                            "title": this.learningGoalObjectives,
-                            "body": CKEDITOR.instances.learningGoalEditor.getData()
-                        })
-
-                        this.learningGoalObjectives = ""
-                        CKEDITOR.instances.learningGoalEditor.setData("")
-
-                    }
-
-                },
-                popLearningGoal(index){
-
-                    this.learningGoals.splice(index, 1)
-
-                },
-                addProjectMilestone(){
-
-                    if(this.milestoneTitle && CKEDITOR.instances.projectMilestoneEditor.getData()){
-
-                        this.projectMilestones.push({
-                            "title": this.milestoneTitle,
-                            "body": CKEDITOR.instances.projectMilestoneEditor.getData()
-                        })
-
-                        this.milestoneTitle = ""
-                        CKEDITOR.instances.projectMilestoneEditor.setData("")
-
-
-                    }
-
-                },
-                popProjectMilestone(index){
-
-                    this.projectMilestones.splice(index, 1)
-
-                },
-                setWeekAndDay(week, day){
-
-                    this.calendarDay = day
-                    this.calendarWeek = week
-
-                },
-                addCalendarDescription(){
-
-                    if(this.activityDescription != ""){
-
-                        let activity = {
-                            "week": this.calendarWeek,
-                            "day": this.calendarDay,
-                            "description": this.activityDescription
-                        }
-
-                        this.calendarActivities.push(activity)
-                        this.activityDescription = ""
-                        this.weeks = 4
-
-                        $('#calendarDescription').modal('hide')
-                        $('.modal-backdrop').remove()
-
-                    }
-
-                },
-                showActivity(week, day){
-
-                    
-                    var activity = null
-                    this.calendarActivities.forEach((data) => {
-
-                        if(data.week == week && data.day == day){
-                            activity = data
-                        }
-
-                    })
-
-                    if(activity){
-                        return activity.description
-                    }
-
-                },
-                toggleShowSection(section){
-
-                    if(section == "tools"){
-
-                        if(this.showTools == true){
-                            this.showTools = false
-                        }else{
-                            this.showTools = true
-                        }
-
-                    }else if(section == "learningGoals"){
-
-                        if(this.showLearningGoals == true){
-                            this.showLearningGoals = false
-                        }else{
-                            this.showLearningGoals = true
-                        }
-
-                    }else if(section == "resources"){
-
-                        if(this.showResources == true){
-                            this.showResources = false
-                        }else{
-                            this.showResources = true
-                        }
-
-                    }else if(section == "projectMilestone"){
-
-                        if(this.showProjectMilestone == true){
-                            this.showProjectMilestone = false
-                        }else{
-                            this.showProjectMilestone = true
-                        }
-
-                    }else if(section == "expert"){
-
-                        if(this.showExpert == true){
-                            this.showExpert = false
-                        }else{
-                            this.showExpert = true
-                        }
+                }
+            }
 
                     }else if(section == "fieldWork"){
 
@@ -1035,10 +989,8 @@
                     this.saveProject()
                 }, 120000)
 
-            }
+    })
 
-        })
-    
-    </script>
+</script>
 
 @endpush
