@@ -176,7 +176,7 @@
                                     <div class="row" v-show="level == 'high'">
                                         
                                         <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
-                                            <div class="form-check" @click="addOrPopAges(highLevel)">
+                                            <div class="form-check">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel" disabled>
                                                 <label class="form-check-label">
                                                     @{{ highLevel }}
@@ -192,7 +192,7 @@
                                             +18
                                         </label>
                                     </div>
-                                    <div class="form-check" @click="addOrPopAges('all ages')" v-show="level != ''">
+                                    <div class="form-check" v-show="level != ''">
                                         <input class="form-check-input check-age"  type="checkbox" :checked="checkTest('all ages')" value="" id="noapply" disabled>
                                         <label class="form-check-label">
                                             Doesn't apply
@@ -287,7 +287,7 @@
                     drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                     subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    subjects:"",
                     timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                     timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
                     publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -295,7 +295,7 @@
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    hashtags:"",
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -378,6 +378,14 @@
 
             this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+            
+            if("{{ strlen($subjects) }}" > 0){
+                this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+            }
+
+            if(("{{ $hashtag }}").length > 0){
+                this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+            }
 
         }
 

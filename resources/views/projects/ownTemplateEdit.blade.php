@@ -345,7 +345,7 @@
                                     <div class="form-check">
                                         
                                         <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}"  @click="addOrPopUpVoteSystems('{{ $point->id }}')">
-                                        <label class="form-check-label" for="index-{{ $loop->index }}">
+                                        <label class="form-check-label" for="index-{{ $point->id }}">
                                             {{ $point->name }}
                                         </label>
                                     </div>
@@ -385,7 +385,7 @@
                     drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                     subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    subjects:"",
                     timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                     timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
                     publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -393,7 +393,7 @@
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    hashtags:"",
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -779,7 +779,7 @@
                 setCheckedUpvoteSystems(){
 
                     this.upvoteSystems.forEach((data) => {
-                        console.log("data", data)
+                        
                         document.getElementById("index-"+data).checked = true;
                     })
 
@@ -820,11 +820,22 @@
                 let level = JSON.parse('{!! $level !!}')
                 this.level = level.level
                 this.ages = level.ages
-                this.setCheckedAges()
+                //this.setCheckedAges()
 
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
-                this.setCheckedUpvoteSystems()
+                if("{{ $project[0]->status }}" == "pending"){
+                    this.setCheckedUpvoteSystems()
+                }
+                
+                
+                if("{{ strlen($subjects) }}" > 0){
+                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                }
+
+                if(("{{ $hashtag }}").length > 0){
+                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+                }
 
                 window.setInterval(() =>{
                     this.saveEditionProject()

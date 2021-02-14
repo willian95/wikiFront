@@ -541,7 +541,7 @@
 
                             <div class="contente_item">
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
-                                <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
+                                <textarea placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
                             </div>
 
                             @if($project[0]->status == 'pending')
@@ -598,7 +598,7 @@
                     drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                     subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    subjects:"",
                     timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                     timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
                     publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -606,7 +606,7 @@
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    hashtags:"",
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -1141,22 +1141,7 @@
                     return true
 
                 },
-                setCheckedAges(){
 
-                    this.ages.forEach((data) => {
-                 
-                        if(data == "18+"){
-                            document.getElementById("age-18").checked = true;
-                        }else if(data == "all ages"){
-                            document.getElementById("allages").checked = true;
-                        }else{
-                            document.getElementById("age-"+data).checked = true;
-                        }
-                        
-
-                    })
-
-                },
                 setCheckedUpvoteSystems(){
 
                     this.upvoteSystems.forEach((data) => {
@@ -1311,7 +1296,7 @@
                 
 
             },
-            created(){
+            mounted(){
                 
                 let options = {
                     filebrowserUploadUrl:"{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
@@ -1335,7 +1320,6 @@
                 let level = JSON.parse('{!! $level !!}')
                 this.level = level.level
                 this.ages = level.ages
-                this.setCheckedAges()
 
                 let learningGoals = '{!! $learningGoals !!}'
                 if(learningGoals){
@@ -1353,7 +1337,18 @@
                 }
                  
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}') 
-                this.setCheckedUpvoteSystems()
+                if("{{ $project[0]->status }}" == "pending"){
+                    this.setCheckedUpvoteSystems()
+                }
+                
+                
+                if("{{ strlen($subjects) }}" > 0){
+                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                }
+
+                if(("{{ $hashtag }}").length > 0){
+                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+                }
 
                 this.tools = ("{!! htmlspecialchars_decode($tools) !!}").split(",")
 

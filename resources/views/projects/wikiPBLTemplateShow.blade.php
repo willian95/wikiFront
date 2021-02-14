@@ -131,8 +131,8 @@
                                         
                                         <div class="row" v-show="level == 'nursery'">
                                             
-                                            <div class="col-6" v-for="nurseryLevel in 4">
-                                                <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
+                                            <div class="col-6" v-for="nurseryLevel in 4" v-if="checkTest(nurseryLevel-1)">
+                                                <div class="form-check">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)" disabled>
                                                     <label class="form-check-label">
                                                         @{{ nurseryLevel - 1 }}
@@ -144,8 +144,8 @@
 
                                         <div class="row" v-show="level == 'early'">
                                             
-                                            <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
-                                                <div class="form-check" @click="addOrPopAges(earlyLevel)">
+                                            <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3 && checkTest(earlyLevel)">
+                                                <div class="form-check">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel" disabled>
                                                     <label class="form-check-label">
                                                         @{{ earlyLevel }}
@@ -157,7 +157,7 @@
 
                                         <div class="row" v-show="level == 'primary'">
                                             
-                                            <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
+                                            <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6 && checkTest(primaryLevel)">
                                                 <div class="form-check" @click="addOrPopAges(primaryLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel" disabled>
                                                     <label class="form-check-label">
@@ -170,7 +170,7 @@
 
                                         <div class="row" v-show="level == 'middle'">
                                             
-                                            <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
+                                            <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10 && checkTest(middleLevel)">
                                                 <div class="form-check" @click="addOrPopAges(middleLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel" disabled>
                                                     <label class="form-check-label">
@@ -183,7 +183,7 @@
 
                                         <div class="row" v-show="level == 'high'">
                                             
-                                            <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
+                                            <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14 && checkTest(highLevel)">
                                                 <div class="form-check" @click="addOrPopAges(highLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel" disabled>
                                                     <label class="form-check-label">
@@ -194,13 +194,13 @@
 
                                         </div>
 
-                                        <div class="form-check" @click="addOrPopAges('18+')" v-show="level == 18">
+                                        <div class="form-check" @click="addOrPopAges('18+')" v-show="level == 18 && checkTest('18+')">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest('18+')" value="" id="age-18">
                                             <label class="form-check-label">
                                                 +18
                                             </label>
                                         </div>
-                                        <div class="form-check" @click="addOrPopAges('all ages')" v-show="level != ''">
+                                        <div class="form-check" @click="addOrPopAges('all ages')" v-show="level != '' && checkTest('all ages')">
                                             <input class="form-check-input check-age"  type="checkbox" :checked="checkTest('all ages')" value="" id="noapply" disabled>
                                             <label class="form-check-label">
                                                 Doesn't apply
@@ -239,8 +239,6 @@
                                                 <div class="card">
                                                     <div class="card-body"> 
                                                         @{{ tool }}
-
-                                                        <span style="cursor: pointer" @click="popTool(index)">X</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,7 +406,7 @@
                     drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                     subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    subjects:"",
                     timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                     timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
                     publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -416,7 +414,7 @@
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    hashtags:"",
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -511,7 +509,6 @@
                 let level = JSON.parse('{!! $level !!}')
                 this.level = level.level
                 this.ages = level.ages
-                this.setCheckedAges()
 
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
@@ -530,6 +527,14 @@
                 this.calendarActivities = JSON.parse('{!! $calendarActivities !!}') 
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}') 
                 //this.setCheckedUpvoteSystems()
+                
+                if("{{ strlen($subjects) }}" > 0){
+                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                }
+
+                if(("{{ $hashtag }}").length > 0){
+                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+                }
 
                 this.tools = ("{!! htmlspecialchars_decode($tools) !!}").split(",")
 
@@ -545,7 +550,7 @@
                     this.showResources = false
                 }
 
-                if(milestone != ''){
+                if(milestone.length == 0){
                     this.showProjectMilestone = false
                 }
 
@@ -560,6 +565,8 @@
                 if("{{ $globalConnections }}" == ""){
                     this.showGlobalConnections = false
                 }
+
+                
 
             }
 
