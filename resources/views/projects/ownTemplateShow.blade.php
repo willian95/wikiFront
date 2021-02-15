@@ -374,7 +374,7 @@
             let level = JSON.parse('{!! $level !!}')
             this.level = level.level
             this.ages = level.ages
-            this.setCheckedAges()
+            //this.setCheckedAges()
 
             this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
