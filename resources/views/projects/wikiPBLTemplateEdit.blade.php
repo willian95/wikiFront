@@ -183,9 +183,9 @@
                                                 <option value="primary">Primary/Elementary School</option>
                                                 <option value="middle">Middle School</option>
                                                 <option value="high">High School</option>
-                                                <option value="18">Undergraduate</option>
-                                                <option value="18">Masters</option>
-                                                <option value="18">PhD</option>
+                                                <option value="undergraduate">Undergraduate</option>
+                                                <option value="masters">Masters</option>
+                                                <option value="phd">PhD</option>
                                             </select>
 
                                         </div>
@@ -256,7 +256,7 @@
 
                                         </div>
 
-                                        <div class="form-check" @click="addOrPopAges('18+')" v-show="level == 18">
+                                        <div class="form-check" @click="addOrPopAges('18+')" v-show="level == 'undergraduate' || level == 'masters' || level == 'phd'">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest('18+')" value="" id="age-18">
                                             <label class="form-check-label">
                                                 +18
