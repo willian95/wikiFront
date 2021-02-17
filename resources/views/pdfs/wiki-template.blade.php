@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-4">
                 
-                {{ json_decode($level)->level }}
+                <p>{{ json_decode($level)->level }}</p>
         
             </div>
             <div class="col-md-4">
