@@ -180,7 +180,7 @@
         @endif
 
         @if($globalConnections != "")
-            <h3 class="titulo-templates">{!! htmlspecialchars_decode(globalConnectionsTitle) !!}</h3>
+            <h3 class="titulo-templates">{!! htmlspecialchars_decode($globalConnectionsTitle) !!}</h3>
             <div>{!! $globalConnections !!}</div>
         @endif
 
