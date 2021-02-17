@@ -954,7 +954,7 @@ input:checked+.slider:before {
 }
 
 .menu-template {
-    margin-top: 20px;
+    margin-top: 60px;
     left: 100px;
     position: fixed;
     border: 1px solid #f000;
