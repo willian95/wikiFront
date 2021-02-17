@@ -110,7 +110,7 @@
         @endif
 
         @if($resources != "")
-            <h3 class="titulo-templates">{!! htmlspecialchars_decode(resourcesTitle) !!}</h3>
+            <h3 class="titulo-templates">{!! htmlspecialchars_decode($resourcesTitle) !!}</h3>
             <div>{!! $resources !!}</div>
         @endif
 
