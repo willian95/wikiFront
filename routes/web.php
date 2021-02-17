@@ -92,9 +92,10 @@ Route::get("project/create/{id}", "ProjectController@showCreateOwnTemplate")->mi
 Route::get("project/wiki/create/{id}", "ProjectController@showCreateWikiTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/edit/{id}", "ProjectController@editProject")->middleware("auth")->middleware("teacher");
 Route::get("project/show/{slug}", "ProjectController@show");
+Route::get("project/pdf/{id}", "ProjectController@pdfTemplate");
 
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");
-Route::get("project/pdf", "ProjectController@pdfTemplate");
+
 
 Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");

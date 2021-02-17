@@ -12,4 +12,10 @@ class AssestmentPointType extends Model
 
     protected $table = "assestment_point_types";
 
+    public function upvoteSystemProjects(){
+
+        return $this->hasMany(UpvoteSystemProject::class);
+
+    }
+
 }
