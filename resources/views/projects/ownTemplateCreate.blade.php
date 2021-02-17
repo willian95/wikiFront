@@ -69,34 +69,44 @@
                                     <a class="txt-edit" href="#" @click="setEditSection('title')">
                                         <span v-if="editSection != 'title'">Click to edit</span>
                                         <span v-if="editSection == 'title'">Click to finish editing</span>
-                                        <img alt='icon' class="icon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
                                 </h3>
 
                             </li>
 
                             <li class="content_template-general-item">
-                                <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
+                            
+                            <div class="flex-edit">
+                            <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                                 <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                     <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
                                     <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
-                                    <img alt='icon' class="icon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
-                                <p>(you can edit Driving question for whatever Title)</p>
+                            </div>
+                              
+                                <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
                                 
                                 <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
                             </li>
                             <li class="content_template-general-item">
-                                <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
+                            <div class="flex-edit" >
+                            <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                     <span v-if="editSection != 'subjectTitle'">Click to edit</span>
                                     <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
-                                    <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
-                                <p>(you can edit Subject(s) for whatever Title)</p>
+                            </div>
+                            
+                                <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
                                 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -106,11 +116,13 @@
 
                                 <div class="row mt-3">
                                     <div v-for="(subject, index) in subjects" class="col-md-3">
-                                        <div class="card">
+                                        <div class="card card-sub">
                                             <div class="card-body">
                                                 
                                                 @{{ subject }}
-                                                <span class="float: right;" style="cursor: pointer" @click="popSubject(index)">X</span>
+                                               
+                                                <span class=" close-tab"  @click="popSubject(index)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M7.05022 7.05028C6.65969 7.4408 6.65969 8.07397 7.05022 8.46449L10.5858 12L7.05023 15.5356C6.6597 15.9261 6.6597 16.5593 7.05023 16.9498C7.44075 17.3403 8.07392 17.3403 8.46444 16.9498L12 13.4142L15.5355 16.9498C15.926 17.3403 16.5592 17.3403 16.9497 16.9498C17.3402 16.5592 17.3402 15.9261 16.9497 15.5356L13.4142 12L16.9497 8.46449C17.3402 8.07397 17.3402 7.4408 16.9497 7.05028C16.5592 6.65976 15.926 6.65976 15.5355 7.05028L12 10.5858L8.46443 7.05028C8.07391 6.65975 7.44074 6.65975 7.05022 7.05028Z"/></svg></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -118,14 +130,19 @@
                             </li>
 
                             <li class="content_template-general-item">
-                                <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
+                            <div class="flex-edit">
+                            <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                                 <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
                                     <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
                                     <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
-                                    <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
-                                <p>(you can edit Time Frame for whatever Title) </p>
+                            </div>
+                           
+                               
+                                <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" placeholder="3 Week - 5 hours a week" v-model="timeFrame">
@@ -144,22 +161,28 @@
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                     <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
                                     <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
-                                    <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
-                                <p>(you can edit this for whatever Title)
+                                <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
                                 <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                             </li>
 
                             <li class="content_template-general-item">
-                                <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
+                            <div class="flex-edit">
+                            <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                     <span v-if="editSection != 'levelTitle'">Click to edit</span>
                                     <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
-                                    <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
-                                <p>(you can edit this for whatever Title)
+                            </div>
+                         
+                             
+                                <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -274,11 +297,12 @@
 
                                 <div class="row mt-3">
                                     <div v-for="(hashtag, index) in hashtags" class="col-md-3">
-                                        <div class="card">
+                                        <div class="card card-sub">
                                             <div class="card-body"> 
                                                 #@{{ hashtag }}
 
-                                                <span style="pointer" @click="popHashtag(index)">X</span>
+                                                <span class="close-tab" style="pointer" @click="popHashtag(index)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M7.05022 7.05028C6.65969 7.4408 6.65969 8.07397 7.05022 8.46449L10.5858 12L7.05023 15.5356C6.6597 15.9261 6.6597 16.5593 7.05023 16.9498C7.44075 17.3403 8.07392 17.3403 8.46444 16.9498L12 13.4142L15.5355 16.9498C15.926 17.3403 16.5592 17.3403 16.9497 16.9498C17.3402 16.5592 17.3402 15.9261 16.9497 15.5356L13.4142 12L16.9497 8.46449C17.3402 8.07397 17.3402 7.4408 16.9497 7.05028C16.5592 6.65976 15.926 6.65976 15.5355 7.05028L12 10.5858L8.46443 7.05028C8.07391 6.65975 7.44074 6.65975 7.05022 7.05028Z"/></svg></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -293,8 +317,8 @@
 
                             <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10"></textarea>
 
-                            <div class="contente_item">
-                                <h3 class="titulo-templates">Calendar of activities </h3>
+                            <div class="contente_item mt-5 mb-5">
+                                <h3 class="titulo-templates  mt-5 mb-5">Calendar of activities </h3>
                                 
                                 <div class="container-fluid">
                                     <div class="row">
@@ -308,8 +332,8 @@
                                     <div class="row mt-1" v-for="week in weeks">
                                         <div class="col-md-2">Week @{{ week }}</div>
                                         <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
-                                            <div class="card" style="cursor: pointer">
-                                                <div class="card-body">
+                                            <div class="card days">
+                                                <div class="card-body days-descr">
                                                     @{{ showActivity(week, day) }}
                                                 </div>
                                             </div>
@@ -320,12 +344,12 @@
 
                             </div>
 
-                            <div class="contente_item">
+                            <div class="contente_item mt-5 mb-5">
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                                 <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                             </div>
 
-                            <div>
+                            <div class="mt-5 mb-5">
                                 <h1>Which Upvote System
                                     options will your WikiPBL
                                     have?
