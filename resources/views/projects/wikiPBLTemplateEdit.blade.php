@@ -176,100 +176,96 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inp"></label>
-                                            <select id="inpt" class="form-control" v-model="level">
+                                            <select id="inpt" class="form-control" v-model="level" @change="popAllAges()">
                                                 <option value="">Choose your level </option>
-                                                <oaption value="nursery">Nursery </oaption>
+                                                <option value="nursery">Nursery </option>
                                                 <option value="early">Early Childhood </option>
                                                 <option value="primary">Primary/Elementary School</option>
                                                 <option value="middle">Middle School</option>
                                                 <option value="high">High School</option>
                                                 <option value="undergraduate">Undergraduate</option>
-                                                <option :value="ulevel" v-for="ulevel in 18">university @{{ ulevel }} month</option>
-                                                <option value="18">Masters</option>
-                                                <option value="18">PhD</option>
-                                                <option value="no-apply">Doesn’t Apply
-                                                </option>
+                                                <option value="masters">Masters</option>
+                                                <option value="phd">PhD</option>
                                             </select>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(0)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-0">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        0
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(2)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-2">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        2
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(3)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-3">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        3
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(13)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-13">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        13
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(14)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-14">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        14
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(16)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-16">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        16
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-check" @click="addOrPopAges(17)">
-                                                    <input class="form-check-input" type="checkbox" value="" id="age-17">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        17
+                                        <div class="row" v-show="level == 'nursery'">
+                                            
+                                            <div class="col-6" v-for="nurseryLevel in 4">
+                                                <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
+                                                    <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)">
+                                                    <label class="form-check-label">
+                                                        @{{ nurseryLevel - 1 }}
                                                     </label>
                                                 </div>
                                             </div>
 
                                         </div>
-                                        <div class="form-check" @click="addOrPopAges('18+')">
-                                            <input class="form-check-input" type="checkbox" value="" id="age-18">
-                                            <label class="form-check-label" for="flexCheckDefault">
+
+                                        <div class="row" v-show="level == 'early'">
+                                            
+                                            <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
+                                                <div class="form-check" @click="addOrPopAges(earlyLevel)">
+                                                    <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel">
+                                                    <label class="form-check-label">
+                                                        @{{ earlyLevel }}
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" v-show="level == 'primary'">
+                                            
+                                            <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
+                                                <div class="form-check" @click="addOrPopAges(primaryLevel)">
+                                                    <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel">
+                                                    <label class="form-check-label">
+                                                        @{{ primaryLevel }}
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" v-show="level == 'middle'">
+                                            
+                                            <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
+                                                <div class="form-check" @click="addOrPopAges(middleLevel)">
+                                                    <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel">
+                                                    <label class="form-check-label">
+                                                        @{{ middleLevel }}
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" v-show="level == 'high'">
+                                            
+                                            <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
+                                                <div class="form-check" @click="addOrPopAges(highLevel)">
+                                                    <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel">
+                                                    <label class="form-check-label">
+                                                        @{{ highLevel }}
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-check" @click="addOrPopAges('18+')" v-show="level == 'undergraduate' || level == 'masters' || level == 'phd'">
+                                            <input class="form-check-input check-age" type="checkbox" :checked="checkTest('18+')" value="" id="age-18">
+                                            <label class="form-check-label">
                                                 +18
                                             </label>
                                         </div>
-                                        <div class="form-check" @click="addOrPopAges('all ages')">
-                                            <input class="form-check-input"  type="checkbox" value="" id="allages">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                This project is suitable for all age
-
+                                        <div class="form-check" @click="addOrPopAges('all ages')" v-show="level != ''">
+                                            <input class="form-check-input check-age"  type="checkbox" :checked="checkTest('all ages')" value="" id="noapply">
+                                            <label class="form-check-label">
+                                                Doesn't apply
                                             </label>
                                         </div>
 
@@ -545,7 +541,7 @@
 
                             <div class="contente_item">
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
-                                <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
+                                <textarea placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
                             </div>
 
                             @if($project[0]->status == 'pending')
@@ -602,7 +598,7 @@
                     drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                     subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
                     subject:"",
-                    subjects:("{!! htmlspecialchars_decode($subjects) !!}").split(","),
+                    subjects:"",
                     timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                     timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
                     publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -610,7 +606,7 @@
                     level:"",
                     ages:[],
                     hashtag:"",
-                    hashtags:("{!! htmlspecialchars_decode($hashtag) !!}").split(","),
+                    hashtags:"",
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
@@ -854,6 +850,12 @@
                     }
 
                 }, 
+                popAllAges(){
+
+                    this.ages = []
+                    $(".check-age").attr("checked", false)
+
+                },
                 saveProject(){
 
                     let formData = this.setFormData()
@@ -887,6 +889,16 @@
 
                     this.lastSave =  mm + '/' + dd + '/' + yyyy + " " + hour + " : "+minutes;
 
+                },
+                checkTest(age){
+                    var exists = false
+                    this.ages.forEach((data) => {
+                        if(data == age){
+                            exists = true
+                        }
+                    })
+
+                    return exists
                 },
                 setFormData(){
 
@@ -1129,22 +1141,7 @@
                     return true
 
                 },
-                setCheckedAges(){
 
-                    this.ages.forEach((data) => {
-                 
-                        if(data == "18+"){
-                            document.getElementById("age-18").checked = true;
-                        }else if(data == "all ages"){
-                            document.getElementById("allages").checked = true;
-                        }else{
-                            document.getElementById("age-"+data).checked = true;
-                        }
-                        
-
-                    })
-
-                },
                 setCheckedUpvoteSystems(){
 
                     this.upvoteSystems.forEach((data) => {
@@ -1323,7 +1320,6 @@
                 let level = JSON.parse('{!! $level !!}')
                 this.level = level.level
                 this.ages = level.ages
-                this.setCheckedAges()
 
                 let learningGoals = '{!! $learningGoals !!}'
                 if(learningGoals){
@@ -1341,7 +1337,18 @@
                 }
                  
                 this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}') 
-                this.setCheckedUpvoteSystems()
+                if("{{ $project[0]->status }}" == "pending"){
+                    this.setCheckedUpvoteSystems()
+                }
+                
+                
+                if("{{ strlen($subjects) }}" > 0){
+                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                }
+
+                if(("{{ $hashtag }}").length > 0){
+                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+                }
 
                 this.tools = ("{!! htmlspecialchars_decode($tools) !!}").split(",")
 
