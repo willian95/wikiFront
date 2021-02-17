@@ -8,14 +8,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/favicon.png') }}">
     <title>Wikipbl</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700;900&family=Montserrat:wght@300;400;800&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700;900&family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
-
     <style>
         .loader-cover-custom {
             position: fixed;
@@ -51,28 +48,22 @@
         }
 
     </style>
-
     @stack("css")
-
 </head>
 
 <body>
-
     <main>
         @include("partials.header")
         <div class="container p5">
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
-                        data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
                     Copyrights - Contact us! </p>
                 </div>
             </footer>
         </div>
     </main>
-
-
     <!-- partial -->
     <script src="{{ url('assets/js/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
@@ -85,9 +76,70 @@
     <script src="{{ url('assets/js/main.js') }}"></script>
     <script src="{{ url('js/app.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Modal FAQ -->
+    <div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center">
+                        <h3>FAQ’S </h3>
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <p><strong>Question 1</strong></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <p><strong>Question 2</strong></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <p><strong>Question 3</strong></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <p><strong>Question 4</strong></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    @stack("script")
-
+    <!-- Modal -->
+    <div class="modal fade tyc " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="text-center">
+                <h3>Terms & Conditions - Privacy Policy </h3>
+            </div>
+            <div class="mt-5 mb-5">
+                <p><strong>Term 1</strong></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            </div>
+            <div class="mt-5 mb-5">
+                <p><strong>Term 1</strong></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            </div>
+            <div class="mt-5 mb-5">
+                <p><strong>Term 1</strong></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            </div>
+            <div class="mt-5 mb-5">
+                <p><strong>Term 1</strong></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+@stack("script")
 </body>
 
 </html>
