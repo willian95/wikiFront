@@ -30,13 +30,13 @@
         
         <h3 class="titulo-templates" >{!! htmlspecialchars_decode($levelTitle) !!}</h3>
         <div class="row">
-            <div class="col-md-4">
+           
                 
                 <p>{{ json_decode($level)->level }}</p>
         
-            </div>
-            <div class="col-md-4">
-                Ages
+           
+
+                <p>Ages</p>
                 
                 <p>
                     @foreach(json_decode($level)->ages as $age)
@@ -46,7 +46,7 @@
                         @endif
                     @endforeach
                 </p>
-            </div>
+        
         </div>
         
         <h3 class="titulo-templates">#hashtags</h3>
