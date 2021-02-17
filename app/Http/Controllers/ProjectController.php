@@ -10,6 +10,10 @@ use App\Hashtag;
 use App\SubjectProject;
 use App\HashtagProject;
 use App\SecondaryField;
+use App\ProjectShare;
+use App\ProjectReport;
+use App\AdminMail;
+use App\UpvoteSystemProject;
 use DB;
 use PDF;
 
@@ -66,6 +70,7 @@ class ProjectController extends Controller
             $this->saveCreation($request);
             $this->storeSubjects($request);
             $this->storeHashtags($request);
+            $this->storeAssestmentPoints($request);
 
             Title::where("project_id", $request->projectId)->where("user_id", \Auth::user()->id)->update(["status" => "launched"]);
             SecondaryField::where("project_id", $request->projectId)->where("user_id", \Auth::user()->id)->update(["status" => "launched"]);
@@ -180,6 +185,21 @@ class ProjectController extends Controller
 
         return true;
 
+    }
+
+    function storeAssestmentPoints($request){
+
+        $assestmentArray = json_decode($request->upvoteSystem);
+        foreach($assestmentArray as $assestment){
+
+            $upvote = new UpvoteSystemProject;
+            $upvote->assestment_point_type_id = $assestment;
+            $upvote->project_id = $request->projectId;
+            $upvote->save();
+
+        }
+        
+        
     }
 
     function saveCreation(Request $request){
@@ -397,10 +417,131 @@ class ProjectController extends Controller
         return view("projects.wikiPBLTemplatePublic");
     }
 
-    function pdfTemplate(){
+    function pdfTemplate($projectId){ 
 
-        $pdf = PDF::loadView('pdfs.project');
-        return $pdf->stream();
+        $project = Project::find($projectId);
+
+        $title = "";
+        $drivingQuestionTitle = "";
+        $drivingQuestion = "";
+        $timeFrameTitle = "";
+        $timeFrame = "";
+        $publicProductTitle = "";
+        $publicProduct = "";
+        $mainInfo = "";
+        $bibliography="";
+        $subjectTitle = "";
+        $subjects = "";
+        $levelTitle = "";
+        $level = "";
+        $hashtag = "";
+        $calendarActivities = "";
+        $upvoteSystem = "";
+        $projectSumary = "";
+
+        $title = $this->titleSection($project->id)->title;
+        $drivingQuestionTitle = $this->projectSection($project->id, "drivingQuestion")->title;
+        $drivingQuestion = $this->projectSection($project->id, "drivingQuestion")->description;
+        $timeFrameTitle = $this->projectSection($project->id, "timeFrame")->title;
+        $timeFrame = $this->projectSection($project->id, "timeFrame")->description;
+        $publicProductTitle = $this->projectSection($project->id, "publicProduct")->title;
+        $publicProduct = $this->projectSection($project->id, "publicProduct")->description;
+        $mainInfo = $this->projectSection($project->id, "mainInfo")->description;
+        $bibliography = $this->projectSection($project->id, "bibliography")->description;
+        $subjectTitle = $this->projectSection($project->id, "subject")->title;
+        $subjects = $this->projectSection($project->id, "subject")->description;
+        $levelTitle = $this->projectSection($project->id, "level")->title;
+        $level = $this->projectSection($project->id, "level")->description;
+        $hashtag = $this->projectSection($project->id, "hashtag")->description;
+        $calendarActivities = $this->projectSection($project->id, "calendarActivities")->description;
+        $upvoteSystem = $this->projectSection($project->id, "upvoteSystem")->description;
+        $projectSumary = $this->projectSection($project->id, "projectSumary")->description;
+
+        if($project->type == "own-template"){
+            $pdf = PDF::loadView("pdfs.own-template", 
+                [
+                    "id" => $project->id, 
+                    "title" => $title, 
+                    "drivingQuestionTitle" => $drivingQuestionTitle,
+                    "drivingQuestion" => $drivingQuestion,
+                    "timeFrameTitle" => $timeFrameTitle,
+                    "timeFrame" => $timeFrame,
+                    "publicProductTitle" => $publicProductTitle,
+                    "publicProduct" => $publicProduct,
+                    "mainInfo" => $mainInfo,
+                    "bibliography" => $bibliography,
+                    "subjectTitle" => $subjectTitle,
+                    "subjects" => $subjects,
+                    "levelTitle" => $levelTitle,
+                    "level" => $level,
+                    "hashtag" => $hashtag,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "upvoteSystem" => $upvoteSystem,
+                    "projectSumary" => $projectSumary,
+                    "project" => $project
+
+                ]
+            );
+
+            return  $pdf->stream();
+
+        }else{
+
+            $toolsTitle = $this->projectSection($project->id, "tools")->title;
+            $tools = $this->projectSection($project->id, "tools")->description;
+            $learningGoalsTitle = $this->projectSection($project->id, "learningGoals")->title;
+            $learningGoals = $this->projectSection($project->id, "learningGoals")->description;
+            $resourcesTitle = $this->projectSection($project->id, "resources")->title;
+            $resources = $this->projectSection($project->id, "resources")->description;
+            $projectMilestonesTitle = $this->projectSection($project->id, "projectMilestone")->title;
+            $projectMilestones = $this->projectSection($project->id, "projectMilestone")->description;
+            $expertTitle = $this->projectSection($project->id, "expert")->title;
+            $expert  = $this->projectSection($project->id, "expert")->description;
+            $fieldWorkTitle = $this->projectSection($project->id, "fieldWork")->title;
+            $fieldWork  = $this->projectSection($project->id, "fieldWork")->description;
+            $globalConnectionsTitle = $this->projectSection($project->id, "globalConnections")->title;
+            $globalConnections = $this->projectSection($project->id, "globalConnections")->description;
+
+            $pdf = PDF::loadView("pdfs.wiki-template", [
+                    "id" => $project->id, 
+                    "title" => $title, 
+                    "drivingQuestionTitle" => $drivingQuestionTitle,
+                    "drivingQuestion" => $drivingQuestion,
+                    "timeFrameTitle" => $timeFrameTitle,
+                    "timeFrame" => $timeFrame,
+                    "publicProductTitle" => $publicProductTitle,
+                    "publicProduct" => $publicProduct,
+                    "mainInfo" => $mainInfo,
+                    "bibliography" => $bibliography,
+                    "subjectTitle" => $subjectTitle,
+                    "subjects" => $subjects,
+                    "levelTitle" => $levelTitle,
+                    "level" => $level,
+                    "hashtag" => $hashtag,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "upvoteSystem" => $upvoteSystem,
+                    "projectSumary" => $projectSumary,
+                    "project" => $project,
+                    "toolsTitle" => $toolsTitle,
+                    "tools" => $tools,
+                    "learningGoalsTitle" => $learningGoalsTitle,
+                    "learningGoals" => str_replace("'", "\'", $learningGoals),
+                    "resourcesTitle" => $resourcesTitle,
+                    "resources" => $resources,
+                    "projectMilestonesTitle" => $projectMilestonesTitle,
+                    "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                    "expertTitle" => $expertTitle,
+                    "expert" => $expert,
+                    "fieldWorkTitle" => $fieldWorkTitle,
+                    "fieldWork" => $fieldWork,
+                    "globalConnectionsTitle" => $globalConnectionsTitle,
+                    "globalConnections" => $globalConnections
+                ]
+            );
+
+            return  $pdf->stream();
+
+        }
 
     }
 
@@ -732,6 +873,112 @@ class ProjectController extends Controller
         return Title::where("project_id", $projectId)->orderBy("id", "desc")->where("status", "launched")->first();
 
     }
+
+    function followProject(Request $request){
+
+        try{
+
+            if(ProjectShare::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->exists()){
+
+                $this->unfollowProject($request);
+                return response()->json(["success" => true, "msg" => "You unfollow this project"]);
+    
+            }else{
+    
+                $projectShare = new ProjectShare;
+                $projectShare->project_id = $request->project_id;
+                $projectShare->user_id = \Auth::user()->id;
+                $projectShare->save();
+    
+                return response()->json(["success" => true, "msg" => "You start following this project"]);
+    
+            }
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function unfollowProject($request){
+
+        $projectShare = ProjectShare::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->first();
+        $projectShare->delete();
+
+    }
+
+    function reportProject($request){
+
+        try{
+
+            if(ProjectReport::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->exists()){
+
+                $this->deleteProjectReport($request);
+                return response()->json(["success" => true, "msg" => "You undo the report this project"]);
+
+            }else{
+            
+                $projectReport = new ProjectReport;
+                $projectReport->project_id = $request->project_id;
+                $projectReport->user_id = \Auth::user()->id;
+                $projectReport->save();
+                
+                if(ProjectReport::where("project_id", $request->project_id)->count() == 10){
+                    $this->banProject($request);
+                }
+
+                return response()->json(["success" => true, "msg" => "You have reported this project"]);
+
+            }
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function deleteProjectReport($request){
+
+        $projectReport = ProjectReport::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->first();
+        $projectReport->delete();
+
+    }
+
+    function BanProject($request){
+
+        $project = Project::find($request->project_id);
+        $project->status = "banned";
+        $project->update();
+
+        if(env("SEND_EMAIL") == true){
+            $this->sendAdminReportEmail();
+        }
+
+    }
+
+    function sendAdminReportEmail($request){
+
+        foreach(AdminMail::all() as $adminMail){
+
+            $to_name = "Admin";
+            $to_email = $adminMail->email;
+            $data = ["project_id" => $request->project_id];
+
+            \Mail::send("emails.projectReport", $data, function($message) use ($to_name, $to_email) {
+
+                $message->to($to_email, $to_name)->subject("Project reported");
+                $message->from(env("MAIL_FROM_ADDRESS"), env("MAIL_FROM_NAME"));
+
+            });
+
+        }
+
+    }
+
 
 
 }

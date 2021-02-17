@@ -30,4 +30,10 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function upvoteSystemProjects(){
+
+        return $this->hasMany(UpvoteSystemProject::class);
+
+    }
+
 }
