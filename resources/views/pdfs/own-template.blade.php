@@ -29,25 +29,25 @@
         {!! $publicProduct !!}
         
         <h3 class="titulo-templates" >{!! htmlspecialchars_decode($levelTitle) !!}</h3>
-        <div class="row">
-           
-                
-                <p>{{ json_decode($level)->level }}</p>
-        
-           
 
-                <p>Ages</p>
+           
                 
-                <p>
-                    @foreach(json_decode($level)->ages as $age)
-                        {{ $age }}
-                        @if($loop->index < count(json_decode($level)->ages)-1)
-                            ,
-                        @endif
-                    @endforeach
-                </p>
+        <p>{{ json_decode($level)->level }}</p>
+
+    
+
+        <p>Ages</p>
         
-        </div>
+        <p>
+            @foreach(json_decode($level)->ages as $age)
+                {{ $age }}
+                @if($loop->index < count(json_decode($level)->ages)-1)
+                    ,
+                @endif
+            @endforeach
+        </p>
+        
+
         
         <h3 class="titulo-templates">#hashtags</h3>
         <p>

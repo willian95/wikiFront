@@ -84,6 +84,31 @@
                                         <li class="nav-item  flex-main">
                                             <a target="_blank" href="{{ url('/project/pdf/'.$project[0]->id) }}">
                                                 <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/add-file.svg') }}">
+                                                
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item  flex-main">
+                                            <a style="cursor:pointer;" @click="followProject()">
+                                                <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/group.svg') }}">
+                                                <p v-if="follow == '0'">follow</p>
+                                                <p v-else>unfollow</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item  flex-main">
+                                            <a style="cursor:pointer;" @click="likeProject()">
+                                                <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/like.svg') }}">
+                                                <p v-if="like == '0'">like</p>
+                                                <p v-else>dislike</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item  flex-main">
+                                            <a style="cursor:pointer;" @click="reportProject()">
+                                                <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/like.svg') }}">
+                                                <p v-if="report == '0'">report</p>
+                                                <p v-else>unreport</p>
                                             </a>
                                         </li>
 

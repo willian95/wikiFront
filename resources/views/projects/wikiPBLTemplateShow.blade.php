@@ -438,6 +438,8 @@
                     showFieldWork:true,
                     globalConnectionsTitle:"{!! htmlspecialchars_decode($globalConnectionsTitle) !!}",
                     showGlobalConnections:true,
+                    follow:"{{ App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    like:"{{ App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
                     loading:false
                 }
             },
@@ -500,6 +502,64 @@
                     })
 
                     return exists
+                },
+                followProject(){
+
+                    this.changeFollowIcon()
+
+                    axios.post("{{ url('project/follow') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeFollowIcon(){
+                    if(this.follow == "1"){
+                        this.follow = "0"
+                    }else{
+                        this.follow = "1"
+                    }
+                },
+                likeProject(){
+
+                    this.changeLikeIcon()
+
+                    axios.post("{{ url('project/like') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeLikeIcon(){
+                    if(this.like == "1"){
+                        this.like = "0"
+                    }else{
+                        this.like = "1"
+                    }
                 },
                 
 

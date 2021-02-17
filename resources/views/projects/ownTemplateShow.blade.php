@@ -46,6 +46,29 @@
                 </div>
                 <!----------------info----------------->
                 <div class="col-md-9 info-template">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            
+                            <div class="col-md-4">
+                                @foreach($assestmentPoints as $point)
+                                    <p>
+                                        <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                            <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                            {{ $point->assestmentPointType->name }}
+                                        </button>
+                                    </p>
+                                @endforeach
+                            </div>
+                            <div class="col-md-8">
+
+                                <canvas id="myChart"></canvas>
+                                
+                            </div>
+              
+                        </div>
+                    </div>
+
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
                         <li class="content_template-general-item">
@@ -277,6 +300,8 @@
 
 @push("script")
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
     <script>
         const create = new Vue({
             el: '#own-template',
@@ -302,7 +327,14 @@
                     weeks:4,
                     calendarDay:"",
                     calendarWeek:"",
-                    loading:false
+                    follow:"{{ App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    like:"{{ App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    report:"{{ App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    assestmentArray:JSON.parse('{!! $assestmentPointsArray !!}'),
+                    loading:false,
+                    myChart:null,
+                    labels:[],
+                    values:[]
                 }
             },
             methods:{
@@ -317,64 +349,212 @@
 
                     return exists
                 },
+                showActivity(week, day){
 
-            showActivity(week, day){
+                    
+                    var activity = null
+                    this.calendarActivities.forEach((data) => {
 
-                
-                var activity = null
-                this.calendarActivities.forEach((data) => {
+                        if(data.week == week && data.day == day){
+                            activity = data
+                        }
 
-                    if(data.week == week && data.day == day){
-                        activity = data
+                    })
+
+                    if(activity){
+                        return activity.description
                     }
 
-                })
+                },
+                setWeekAndDay(week, day){
 
-                if(activity){
-                    return activity.description
-                }
+                    this.activityDescription = ""
+                    this.calendarDay = day
+                    this.calendarWeek = week
 
-            },
-            setWeekAndDay(week, day){
+                    this.calendarActivities.forEach(data => {
 
-                this.activityDescription = ""
-                this.calendarDay = day
-                this.calendarWeek = week
+                        if(data.week == week && data.day == day){
+                            this.activityDescription = data.description
+                        }
 
-                this.calendarActivities.forEach(data => {
+                    })
 
-                    if(data.week == week && data.day == day){
-                        this.activityDescription = data.description
-                    }
+                },
+                setCheckedAges(){
 
-                })
+                    this.ages.forEach((data) => {
+                    
+                        if(data == "18+"){
+                            document.getElementById("age-18").checked = true;
+                        }else if(data == "all ages"){
+                            document.getElementById("allages").checked = true;
+                        }else{
+                            document.getElementById("age-"+data).checked = true;
+                        }
+                        
 
-            },
-            setCheckedAges(){
+                    })
 
-                this.ages.forEach((data) => {
-                   
-                    if(data == "18+"){
-                        document.getElementById("age-18").checked = true;
-                    }else if(data == "all ages"){
-                        document.getElementById("allages").checked = true;
+                },
+                followProject(){
+
+                    this.changeFollowIcon()
+
+                    axios.post("{{ url('project/follow') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeFollowIcon(){
+                    if(this.follow == "1"){
+                        this.follow = "0"
                     }else{
-                        document.getElementById("age-"+data).checked = true;
+                        this.follow = "1"
                     }
+                },
+                likeProject(){
+
+                    this.changeLikeIcon()
+
+                    axios.post("{{ url('project/like') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeLikeIcon(){
+                    if(this.like == "1"){
+                        this.like = "0"
+                    }else{
+                        this.like = "1"
+                    }
+                },
+                reportProject(){
+
+                    this.changeReportIcon()
+
+                    axios.post("{{ url('project/report') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeReportIcon(){
+                    if(this.report == "1"){
+                        this.report = "0"
+                    }else{
+                        this.report = "1"
+                    }
+                },
+                drawChart(){
+
+                    this.labels = []
+                    this.values = []
+
+                    this.assestmentArray.forEach((data) => {
+
+                        this.labels.push(data.name)
+                        this.values.push(data.value)
+
+                    })
+
+                    var ctx = document.getElementById("myChart").getContext('2d');
+
+                    if (this.myChart != undefined || this.myChart !=null) {
+                        this.myChart.destroy();
+                    }
+
+                    this.myChart = new Chart(ctx, {
+                        type: 'horizontalBar',
+                        data: {
+                            labels: this.labels,
+                            datasets: [{
+                                data: this.values,
+                            }]
+                        },
+                        options: {
+                            legend: {
+                            display: false,
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                },
+                upvoteAssestment(upvoteType, upvoteTypeName){
+
+                    var arrayIndex = 0
+                    this.assestmentArray.forEach((data, index) => {
+                        if(data.name == upvoteTypeName){
+                            arrayIndex = index
+                        }
+
+                    })
                     
 
-                })
+                    axios.post("{{ url('project/assestment-point') }}", {"project_id": this.projectId, "assestmentPointTypeId": upvoteType}).then(res => {
 
-            }
-            
+                        if(res.data.action == "add"){
+                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value + 1
+                            this.drawChart()
+                        }else{
+                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value - 1
+                            this.drawChart()
+                        }
 
+                    })
+
+                }
+        
         },
         mounted(){
 
             let level = JSON.parse('{!! $level !!}')
             this.level = level.level
             this.ages = level.ages
-            //this.setCheckedAges()
 
             this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
@@ -386,6 +566,8 @@
             if(("{{ $hashtag }}").length > 0){
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
             }
+
+            this.drawChart()
 
         }
 

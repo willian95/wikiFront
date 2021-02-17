@@ -88,11 +88,16 @@ Route::post("project/creation/save", "ProjectController@saveCreation")->middlewa
 Route::post("project/edition/save", "ProjectController@saveEdition")->middleware("auth")->middleware("teacher");
 Route::post("project/creation/launch", "ProjectController@launch");
 Route::get("project/my-projects/{page}", "ProjectController@myProjects")->middleware("auth")->middleware("teacher");
+Route::get("project/my-follow-projects/{page}", "ProjectController@myFollowProjects")->middleware("auth")->middleware("teacher");
 Route::get("project/create/{id}", "ProjectController@showCreateOwnTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/wiki/create/{id}", "ProjectController@showCreateWikiTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/edit/{id}", "ProjectController@editProject")->middleware("auth")->middleware("teacher");
 Route::get("project/show/{slug}", "ProjectController@show");
 Route::get("project/pdf/{id}", "ProjectController@pdfTemplate");
+Route::post("project/follow", "ProjectController@followProject");
+Route::post("project/like", "ProjectController@likeProject");
+Route::post("project/report", "ProjectController@reportProject");
+Route::post("project/assestment-point", "ProjectController@upvoteAssestmentPoint");
 
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");

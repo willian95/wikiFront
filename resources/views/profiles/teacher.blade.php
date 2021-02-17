@@ -48,13 +48,13 @@
 
         <div class="main-wikis mt-5">
             <div class="text-center">
-                <h3>My projects - Dashboard</h3>
+                <h3>@{{typeTitle}} - Dashboard</h3>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div id="accordion">
-                        <div class="card">
+                        <div class="card" @click="fetchProjects()">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card" @click="fetchSharedProjects()">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse"
@@ -110,8 +110,14 @@
                 </div>
                 <div class="col-md-8">
             
-                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id">
+                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id" v-if="type == 'my-projects'">
                         <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                    </a>
+
+                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.project.id" v-if="type == 'following'">
+                        <span v-if="project.project">
+                            <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                        </span>
                     </a>
 
                     {{--<div :id="'accordion'+index" class="wiki-accordion" v-for="(project,index) in projects">
@@ -154,6 +160,8 @@
                 return{
 
                     institutions:[],
+                    typeTitle:"My projects",
+                    type:"my-projects",
                     institution:"{{ \Auth::user()->institution_id }}",
                     institutionName:"{{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pending_institution_name }}",
                     name:"{{ \Auth::user()->name }}",
@@ -286,9 +294,27 @@
                 },
                 fetchProjects(page  =1 ){
 
-                    this.page
+                    this.typeTitle = "My projects",
+                    this.type = "my-projects",
+
+                    this.page = page
 
                     axios.get("{{ url('/project/my-projects') }}"+"/"+page).then(res => {
+
+                        this.projects = res.data.projects
+                        this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
+
+                    })
+
+                },
+                fetchSharedProjects(page = 1){
+
+                    this.typeTitle = "Following projects",
+                    this.type = "following",
+
+                    this.page = page
+
+                    axios.get("{{ url('/project/my-follow-projects') }}"+"/"+page).then(res => {
 
                         this.projects = res.data.projects
                         this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)

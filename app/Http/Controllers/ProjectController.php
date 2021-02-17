@@ -12,8 +12,10 @@ use App\HashtagProject;
 use App\SecondaryField;
 use App\ProjectShare;
 use App\ProjectReport;
+use App\Like;
 use App\AdminMail;
 use App\UpvoteSystemProject;
+use App\UpvoteSystemProjectVote;
 use DB;
 use PDF;
 
@@ -562,6 +564,26 @@ class ProjectController extends Controller
 
     }
 
+    function myFollowProjects($page){
+
+        $dataAmount = 10;
+        $skip = ($page-1) * $dataAmount;
+
+        $projectQuery = ProjectShare::where("user_id", \Auth::user()->id)
+            ->orderBy("id", "desc")
+            ->with(["project" => function($q){
+                $q->with(["titles" => function($q){
+                    $q->orderBy("id", "desc");
+                }]);
+            }]);
+        
+        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projectsCount = $projectQuery->count();
+
+        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+
+    }
+
     function editProject($id){
 
         $project = Project::where("id", $id)->with(["titles" => function($q){
@@ -577,6 +599,10 @@ class ProjectController extends Controller
             $q->groupBy('type')->orderBy('id', 'desc')->get(['type', 'title', 'description', DB::raw('MAX(id) as id')]);
 
         }])->get(); 
+
+        if($project[0]->is_private == 1){
+           return redirect()->to("/project/show/".$project[0]->id);
+        }
 
         $title = "";
         $drivingQuestionTitle = "";
@@ -778,7 +804,15 @@ class ProjectController extends Controller
         $hashtag = $this->showProjectSection($project[0]->id, "hashtag")->description;
         $calendarActivities = $this->showProjectSection($project[0]->id, "calendarActivities")->description;
         $upvoteSystem = $this->showProjectSection($project[0]->id, "upvoteSystem")->description;
-        $projectSumary = $this->showProjectSection($project[0]->id, "projectSumary")->description;
+        $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
+        $assestmentArray = [];
+
+        foreach($assestmentPoints as $point){
+            $assestmentPointsArray[] = [
+                "name" =>  $point->assestmentPointType->name,
+                "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+            ];
+        }
 
         if($project[0]->type == "own-template"){
             return view("projects.ownTemplateShow", 
@@ -801,7 +835,9 @@ class ProjectController extends Controller
                     "calendarActivities" => str_replace("'", "\'", $calendarActivities),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
-                    "project" => $project
+                    "project" => $project,
+                    "assestmentPoints" => $assestmentPoints,
+                    "assestmentPointsArray" => json_encode($assestmentPointsArray)
 
                 ]
             );
@@ -890,7 +926,7 @@ class ProjectController extends Controller
                 $projectShare->user_id = \Auth::user()->id;
                 $projectShare->save();
     
-                return response()->json(["success" => true, "msg" => "You start following this project"]);
+                return response()->json(["success" => true, "msg" => "You are now following this project"]);
     
             }
 
@@ -909,7 +945,42 @@ class ProjectController extends Controller
 
     }
 
-    function reportProject($request){
+    function likeProject(Request $request){
+
+        try{
+
+            if(Like::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->exists()){
+
+                $this->dislikeProject($request);
+                return response()->json(["success" => true, "msg" => "You disliked this project"]);
+    
+            }else{
+    
+                $like = new Like;
+                $like->project_id = $request->project_id;
+                $like->user_id = \Auth::user()->id;
+                $like->save();
+    
+                return response()->json(["success" => true, "msg" => "You liked this project"]);
+    
+            }
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function dislikeProject($request){
+
+        $like = Like::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->first();
+        $like->delete();
+
+    }
+
+    function reportProject(Request $request){
 
         try{
 
@@ -979,6 +1050,32 @@ class ProjectController extends Controller
 
     }
 
+    function upvoteAssestmentPoint(Request $request){
 
+        if(UpvoteSystemProjectVote::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->where("assestment_point_type_id", $request->assestmentPointTypeId)->exists()){
+            
+            $this->downvoteAssestmentPoint($request);
+            return response()->json(["action" => "substract"]);
+
+        }else{
+
+            $upvote = new UpvoteSystemProjectVote;
+            $upvote->project_id = $request->project_id;
+            $upvote->user_id = \Auth::user()->id;
+            $upvote->assestment_point_type_id = $request->assestmentPointTypeId;
+            $upvote->save();
+
+            return response()->json(["action" => "add"]); 
+
+        }
+
+    }
+
+    function downvoteAssestmentPoint($request){
+
+        $upvote = UpvoteSystemProjectVote::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->where("assestment_point_type_id", $request->assestmentPointTypeId)->first();
+        $upvote->delete();
+
+    }
 
 }
