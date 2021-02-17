@@ -400,6 +400,7 @@
                     weeks:4,
                     calendarDay:"",
                     lastSave:"",
+                    private:false,
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",
