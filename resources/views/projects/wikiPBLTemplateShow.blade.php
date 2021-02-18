@@ -465,7 +465,11 @@
                     showGlobalConnections:true,
                     follow:"{{ App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
                     like:"{{ App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
-                    loading:false
+                    assestmentArray:JSON.parse('{!! $assestmentPointsArray !!}'),
+                    loading:false,
+                    myChart:null,
+                    labels:[],
+                    values:[]
                 }
             },
             methods:{
