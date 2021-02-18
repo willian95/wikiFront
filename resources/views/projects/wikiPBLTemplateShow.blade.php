@@ -677,7 +677,6 @@
 
                     })
 
-
                     axios.post("{{ url('project/assestment-point') }}", {"project_id": this.projectId, "assestmentPointTypeId": upvoteType}).then(res => {
 
                         if(res.data.action == "add"){
