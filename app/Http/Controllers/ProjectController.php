@@ -858,7 +858,7 @@ class ProjectController extends Controller
             $globalConnectionsTitle = $this->showProjectSection($project[0]->id, "globalConnections")->title;
             $globalConnections = $this->showProjectSection($project[0]->id, "globalConnections")->description;
             $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
-            $assestmentArray = [];
+            $assestmentPointsArray = [];
 
             foreach($assestmentPoints as $point){
                 $assestmentPointsArray[] = [
@@ -866,8 +866,6 @@ class ProjectController extends Controller
                     "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
                 ];
             }
-
-            dd($assestmentPointsArray);
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
