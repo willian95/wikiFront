@@ -7,7 +7,7 @@
 
         <div class="home">
             <div class="home-present">
-                <h1>Best source for project based!</h1>
+                <h1>Best source for Project Based Learning!</h1>
                 <!---------------->
                 <div>
                     <form action="">
@@ -42,7 +42,7 @@
                     <div class="abc-home">
                         <div class="abc-content" v-for="(letter, key) in subjects">
                             <strong><a href="1">@{{ letter.letter }}</a></strong>
-                            <p v-for="subject in letter.subjects"><a href="2">@{{ subject.name }}</a></p>
+                            <p v-for="subject in letter.subjects"><a :href="'{{ url('subject/projects/') }}'+'/'+subject.id">@{{ subject.name }}</a></p>
                         </div>
                         
 
