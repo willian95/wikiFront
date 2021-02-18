@@ -41,7 +41,7 @@
                     <h3> Categories/Subjects</h3>
                     <div class="abc-home">
                         <div class="abc-content" v-for="(letter, key) in subjects">
-                            <strong><a href="1">@{{ letter.letter }}</a></strong>
+                            <strong><a :href="'{{ url('subject/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a></strong>
                             <p v-for="subject in letter.subjects"><a :href="'{{ url('subject/projects/') }}'+'/'+subject.id">@{{ subject.name }}</a></p>
                         </div>
                         

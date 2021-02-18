@@ -15,6 +15,8 @@ class HashtagController extends Controller
             $q->where("id", $hashtag);
         })->count();
 
+        $hashtag = Hashtag::find($hashtag);
+
 
         return view("hashtag.projects", ["hashtag" => $hashtag, "count" => $count]);
 

@@ -13,14 +13,22 @@
             <h3> {{ $subtitle }}</h3>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="letter in elements">
-                    <strong><a href="1">@{{ letter.letter }}</a></strong>
+                    <strong>
+                        @if($type == 'teacher')
+                            <a :href="'{{ url('/teacher/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                        @elseif($type == 'school' || $type == 'university' || $type == 'organization')
+                            <a :href="'{{ url('/institution/'.$type.'/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                        @else
+                            <a :href="'{{ url('/subject/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                        @endif
+                    </strong>
                     <p v-for="element in letter.elements">
                         @if($type == 'teacher')
                         <a :href="'{{ url($type) }}'+'/'+'show/'+element.id">@{{ element.name }}</a>
                         @elseif($type == 'school' || $type == 'university' || $type == 'organization')
                         <a :href="'{{ url('/institution') }}'+'/show/'+element.id">@{{ element.name }}</a>
                         @else
-                        <a href="#">@{{ element.name }}</a>
+                        <a :href="'{{ url('/subject') }}'+'/projects/'+element.id">@{{ element.name }}</a>
                         @endif
                     </p>
                    

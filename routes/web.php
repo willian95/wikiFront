@@ -66,6 +66,8 @@ Route::post("teacher/profile/update", "TeacherController@update")->middleware("a
 Route::get("teacher/show/{id}", "TeacherController@show");
 Route::get("teacher/all", "TeacherController@showAll");
 Route::get("teacher/fetch-all", "TeacherController@fetchAll");
+Route::get("teacher/show-by-letter/{letter}", "TeacherController@showByLetter");
+Route::get("teacher/fetch/by-letter/{letter}/{page}", "TeacherController@byLetter");
 
 Route::get("organization/all", "InstitutionController@organizationAll");
 Route::get("organization/fetch-all", "InstitutionController@fetchOrganizationAll");
@@ -77,9 +79,15 @@ Route::get("school/fetch-all", "InstitutionController@fetchSchoolAll");
 Route::get("institution/show/{id}", "InstitutionController@show");
 Route::get("/institution/public/get-teachers/{id}", "InstitutionController@getPublicInstitutionTeachers");
 Route::get("/institution/public/get-users/{id}", "InstitutionController@getPublicInstitutionUsers");
+Route::get("/institution/{type}/show-by-letter/{letter}", "InstitutionController@showByLetter");
+Route::get("institution/{type}/fetch/by-letter/{letter}/{page}", "InstitutionController@byLetter");
 
 Route::get("subjects/all", "SubjectController@showAll");
 Route::get("subjects/fetch-all", "SubjectController@fetchAll");
+Route::get("subject/projects/{subject}", "SubjectController@index");
+Route::get("subject/fetch/projects/{subject}/{page}", "SubjectController@fetch");
+Route::get("subject/show-by-letter/{letter}", "SubjectController@showByLetter");
+Route::get("subject/fetch/by-letter/{letter}/{page}", "SubjectController@byLetter");
 
 Route::get("project/choose-template", "ProjectController@chooseTemplate")->middleware("teacher");
 Route::get("project/own-template/create", "ProjectController@createOwnTemplate")->middleware("auth")->middleware("teacher");

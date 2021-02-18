@@ -805,7 +805,7 @@ class ProjectController extends Controller
         $calendarActivities = $this->showProjectSection($project[0]->id, "calendarActivities")->description;
         $upvoteSystem = $this->showProjectSection($project[0]->id, "upvoteSystem")->description;
         $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
-        $assestmentArray = [];
+        $assestmentPointsArray = [];
 
         foreach($assestmentPoints as $point){
             $assestmentPointsArray[] = [

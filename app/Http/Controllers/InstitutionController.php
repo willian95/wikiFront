@@ -237,4 +237,30 @@ class InstitutionController extends Controller
 
     }
 
+    function showByLetter($type, $letter){
+
+        return view("insitutions.byLetter", ["letter" => $letter, "type" => $type]);
+
+    }
+
+    function byLetter($type, $letter, $page){
+
+        try{
+            
+            $dataAmount = 10;
+            $skip = ($page-1) * $dataAmount;
+
+            $institutions = Institution::where("name", "like", "{$letter}%")->where("type", $type)->skip($skip)->take($dataAmount)->get();
+            $institutionsCount = Institution::where("name", "like", "{$letter}%")->where("type", $type)->count();
+
+            return response()->json(["success" => true, "institutions" => $institutions, "institutionsCount" => $institutionsCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
 }

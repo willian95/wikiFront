@@ -773,7 +773,7 @@
                 },
                 addCalendarDescription(){
 
-                    if(this.activityDescription != ""){
+                    //if(this.activityDescription != ""){
 
                         let activity = {
                             "week": this.calendarWeek,
@@ -788,7 +788,7 @@
                         $("#calendarDescription").modal('hide')
                         $('.modal-backdrop').remove();
 
-                    }
+                    //}
 
                 },
                 showActivity(week, day){

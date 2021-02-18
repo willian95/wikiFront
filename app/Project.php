@@ -26,6 +26,12 @@ class Project extends Model
 
     }
 
+    public function subjectProjects(){
+
+        return $this->hasMany(subjectProject::class);
+
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

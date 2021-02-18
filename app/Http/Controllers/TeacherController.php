@@ -76,4 +76,30 @@ class TeacherController extends Controller
 
     }
 
+    function showByLetter($letter){
+
+        return view("teachers.byLetter", ["letter" => $letter]);
+
+    }
+
+    function byLetter($letter, $page){
+
+        try{
+
+            $dataAmount = 10;
+            $skip = ($page-1) * $dataAmount;
+
+            $teachers = User::where("name", "like", "{$letter}%")->where("role_id", 2)->skip($skip)->take($dataAmount)->get();
+            $teachersCount = User::where("name", "like", "{$letter}%")->where("role_id", 2)->count();
+
+            return response()->json(["success" => true, "teachers" => $teachers, "teachersCount" => $teachersCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
 }
