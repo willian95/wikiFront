@@ -561,6 +561,99 @@
                         this.like = "1"
                     }
                 },
+                reportProject(){
+
+                    this.changeReportIcon()
+
+                    axios.post("{{ url('project/report') }}", {"project_id": this.projectId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeReportIcon(){
+                    if(this.report == "1"){
+                        this.report = "0"
+                    }else{
+                        this.report = "1"
+                    }
+                },
+                drawChart(){
+
+                    this.labels = []
+                    this.values = []
+
+                    this.assestmentArray.forEach((data) => {
+
+                        this.labels.push(data.name)
+                        this.values.push(data.value)
+
+                    })
+
+                    var ctx = document.getElementById("myChart").getContext('2d');
+
+                    if (this.myChart != undefined || this.myChart !=null) {
+                        this.myChart.destroy();
+                    }
+
+                    this.myChart = new Chart(ctx, {
+                        type: 'horizontalBar',
+                        data: {
+                            labels: this.labels,
+                            datasets: [{
+                                data: this.values,
+                            }]
+                        },
+                        options: {
+                            legend: {
+                            display: false,
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                },
+                upvoteAssestment(upvoteType, upvoteTypeName){
+
+                    var arrayIndex = 0
+                    this.assestmentArray.forEach((data, index) => {
+                        if(data.name == upvoteTypeName){
+                            arrayIndex = index
+                        }
+
+                    })
+
+
+                    axios.post("{{ url('project/assestment-point') }}", {"project_id": this.projectId, "assestmentPointTypeId": upvoteType}).then(res => {
+
+                        if(res.data.action == "add"){
+                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value + 1
+                            this.drawChart()
+                        }else{
+                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value - 1
+                            this.drawChart()
+                        }
+
+                    })
+
+                }
                 
 
             },
@@ -626,7 +719,7 @@
                     this.showGlobalConnections = false
                 }
 
-                
+                this.drawChart()
 
             }
 
