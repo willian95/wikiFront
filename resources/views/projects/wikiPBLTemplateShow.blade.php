@@ -53,6 +53,29 @@
                     </div>
                     <!----------------info----------------->
                     <div class="col-md-9 info-template">
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                    @foreach($assestmentPoints as $point)
+                                        <p>
+                                            <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                                <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                                {{ $point->assestmentPointType->name }}
+                                            </button>
+                                        </p>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-8">
+
+                                    <canvas id="myChart"></canvas>
+                                    
+                                </div>
+                
+                            </div>
+                        </div>
+
                         <!--------------------general--------------------------->
                         <ul class="content_template content_template-general">
                             <li class="content_template-general-item">
@@ -395,6 +418,8 @@
 @endsection
 
 @push("script")
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 
     <script>
         const create = new Vue({
