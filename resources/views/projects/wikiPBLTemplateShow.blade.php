@@ -4,7 +4,7 @@
 
     <div id="own-template">
         @include("partials.projectShowHeader")
-        <div class="container">
+        <div class="container p5">
             <div class="container  main-template mt-5">
 
                 <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -465,6 +465,7 @@
                     showGlobalConnections:true,
                     follow:"{{ App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
                     like:"{{ App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    report:"{{ App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
                     assestmentArray:JSON.parse('{!! $assestmentPointsArray !!}'),
                     loading:false,
                     myChart:null,
