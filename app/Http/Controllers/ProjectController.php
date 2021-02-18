@@ -867,6 +867,8 @@ class ProjectController extends Controller
                 ];
             }
 
+            dd($assestmentPointsArray);
+
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
                 "title" => $title, 
