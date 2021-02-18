@@ -857,6 +857,15 @@ class ProjectController extends Controller
             $fieldWork  = $this->showProjectSection($project[0]->id, "fieldWork")->description;
             $globalConnectionsTitle = $this->showProjectSection($project[0]->id, "globalConnections")->title;
             $globalConnections = $this->showProjectSection($project[0]->id, "globalConnections")->description;
+            $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
+            $assestmentArray = [];
+
+            foreach($assestmentPoints as $point){
+                $assestmentPointsArray[] = [
+                    "name" =>  $point->assestmentPointType->name,
+                    "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                ];
+            }
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
@@ -891,7 +900,9 @@ class ProjectController extends Controller
                 "fieldWorkTitle" => $fieldWorkTitle,
                 "fieldWork" => $fieldWork,
                 "globalConnectionsTitle" => $globalConnectionsTitle,
-                "globalConnections" => $globalConnections
+                "globalConnections" => $globalConnections,
+                "assestmentPoints" => $assestmentPoints,
+                "assestmentPointsArray" => json_encode($assestmentPointsArray)
             ]);
         }
 
