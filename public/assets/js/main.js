@@ -46,3 +46,17 @@ $(function () {
   $('.collapse').collapse()
 
 });
+
+
+$(window).scroll(function() {
+
+  var st = $(this).scrollTop();
+
+  if (st > 500) {
+    $('.up').addClass('up-show');
+
+  } else {
+    $('.up').removeClass('up-show');
+  }
+
+}) 

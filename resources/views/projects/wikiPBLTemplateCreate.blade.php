@@ -74,7 +74,8 @@
                                 <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('title')">
                                     <span v-if="editSection != 'title'">Click to edit</span>
                                     <span v-if="editSection == 'title'">Click to finish editing</span>
-                                    <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                 </a>
                             </h3>
 
@@ -86,9 +87,10 @@
                             <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('drivingQuestionTitle')">
                                 <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
                                 <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
-                                <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                             </a>
-                            <p>(you can edit Driving question for whatever Title)</p>
+                            <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
                             
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
@@ -99,9 +101,10 @@
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                 <span v-if="editSection != 'subjectTitle'">Click to edit</span>
                                 <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
-                                <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                             </a>
-                            <p>(you can edit Subject(s) for whatever Title)</p>
+                            <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
                             <input class="form-control" type="text" placeholder="math" v-model="subject" v-on:keyup.enter="addSubject()">
                             <div class="row mt-3">
                                 <div v-for="(subject, index) in subjects" class="col-md-3">
@@ -122,9 +125,10 @@
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
                                 <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
                                 <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
-                                <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                             </a>
-                            <p>(you can edit Time Frame for whatever Title) </p>
+                            <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <input class="form-control" type="text" placeholder="3 Week - 5 hours a week" v-model="timeFrame">
@@ -143,9 +147,10 @@
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                 <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
                                 <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
-                                <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                             </a>
-                            <p>(you can edit this for whatever Title)
+                            <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                         </li>
@@ -156,9 +161,10 @@
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                 <span v-if="editSection != 'levelTitle'">Click to edit</span>
                                 <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
-                                <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                             </a>
-                            <p>(you can edit this for whatever Title)
+                            <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
                             <div class="row">
                                 <div class="col-md-6">
@@ -295,9 +301,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('toolsTitle')">
                                         <span v-if="editSection != 'toolsTitle'">Click to edit</span>
                                         <span v-if="editSection == 'toolsTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     
                                     <input class="form-control" type="text" placeholder="Type and enter to add each tool" v-model="tool" v-on:keyup.enter="addTool()">
@@ -330,16 +337,17 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('learningGoalsTitle')">
                                         <span v-if="editSection != 'learningGoalsTitle'">Click to edit</span>
                                         <span v-if="editSection == 'learningGoalsTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     <input type="text" placeholder="Type and enter to add each" v-model="learningGoalObjectives" class="form-control mb-2">
 
                                     <textarea name="" id="learningGoalEditor" cols="30" rows="10" ></textarea>
 
                                     <p class="text-center">
-                                        <button class="btn btn-success" @click="addLearningGoal()">Add</button>
+                                        <button class="btn btn-success btn-custom" @click="addLearningGoal()">Add</button>
                                     </p>
 
                                     <div class="row">
@@ -371,9 +379,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('resourcesTitle')">
                                         <span v-if="editSection != 'resourcesTitle'">Click to edit</span>
                                         <span v-if="editSection == 'resourcesTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     <textarea name="" id="resourcesEditor" cols="30" rows="10"></textarea>
                                 </li>
@@ -393,9 +402,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('projectMilestoneTitle')">
                                         <span v-if="editSection != 'projectMilestoneTitle'">Click to edit</span>
                                         <span v-if="editSection == 'projectMilestoneTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     <input type="text" class="form-control mb-2" v-model="milestoneTitle">
                                     <textarea cols="30" rows="10" id="projectMilestoneEditor"></textarea>
@@ -424,7 +434,7 @@
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div class="content_template">
+                    <div class="content_template mt-5 mb-5">
 
                         <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10"></textarea>
 
@@ -444,7 +454,7 @@
                                     <div class="col-md-2">Week @{{ week }}</div>
                                     <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
                                         <div class="card" style="cursor: pointer">
-                                            <div class="card-body">
+                                            <div class="card-body card-body_tarea">
                                                 @{{ showActivity(week, day) }}
                                             </div>
                                         </div>
@@ -469,9 +479,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('expertTitle')">
                                         <span v-if="editSection != 'expertTitle'">Click to edit</span>
                                         <span v-if="editSection == 'expertTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     
                                     <textarea cols="30" rows="10" id="expertEditor"></textarea>
@@ -492,9 +503,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('fieldWorkTitle')">
                                         <span v-if="editSection != 'fieldWorkTitle'">Click to edit</span>
                                         <span v-if="editSection == 'fieldWorkTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     
                                     <textarea cols="30" rows="10" id="fieldWorkEditor"></textarea>
@@ -515,9 +527,10 @@
                                     <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('globalConnectionsTitle')">
                                         <span v-if="editSection != 'globalConnectionsTitle'">Click to edit</span>
                                         <span v-if="editSection == 'globalConnectionsTitle'">Click to finish editing</span>
-                                        <img alt='icon' class="icnon-edit" src="{{ url('assets/img/iconos/edit-pinc.svg') }}">
+                                        <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
+
                                     </a>
-                                    <p>(you can edit this for whatever Title)
+                                    <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
                                     
                                     <textarea cols="30" rows="10" id="globalConnectionEditor"></textarea>

@@ -30,14 +30,14 @@
                         <div class="menu-template_option">
                             <ul>
                                 <p>Main info</p>
-                                <li> @{{ title }}</li>
-                                <li> @{{ drivingQuestionTitle }}</li>
-                                <li> @{{ subjectTitle }}</li>
-                                <li> @{{ timeFrameTitle }}</li>
-                                <li>Project Summary</li>
-                                <li> @{{ publicProductTitle }}</li>
-                                <li> @{{ levelTitle }}</li>
-                                <li> #hashtags</li>
+                                <li> <a href="#title-p">@{{ title }}</a></li>
+                                <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
+                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
+                                <li><a href="#projectsumary">Project Summary</a></li>
+                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
+                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
+                                <li> <a href="#hashtags-menu">#hashtags</a></li>
 
                             </ul>
                         </div>
@@ -73,11 +73,9 @@
                     <ul class="content_template content_template-general">
                         <li class="content_template-general-item">
                             <h3 class="titulo-templates">
-                                
                                 <span>@{{ title }}</span> 
-                                
                             </h3>
-
+                            <p><strong>By:</strong></p>
                         </li>
 
                         <li class="content_template-general-item">
@@ -250,7 +248,7 @@
 
                         {!! $mainInfo !!}
 
-                        <div class="contente_item">
+                        <div class="contente_item mt-5 mb-5">
                             <h3 class="titulo-templates">Calendar of activities </h3>
                             
                             <div class="container-fluid">
@@ -266,7 +264,7 @@
                                     <div class="col-md-2">Week @{{ week }}</div>
                                     <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
                                         <div class="card" style="cursor: pointer">
-                                            <div class="card-body">
+                                            <div class="card-body card-body_tarea">
                                                 @{{ showActivity(week, day) }}
                                             </div>
                                         </div>
@@ -286,6 +284,8 @@
                 </div>
             </div>
         </div>
+        <a class="up" href="#own-template">            <div class="arrow-up"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 32 32" fill="#fff"><path d="M11.218 20.2L17 14.418l5.782 5.782a1 1 0 0 0 1.414-1.414L17.71 12.3a.997.997 0 0 0-.71-.292.997.997 0 0 0-.71.292l-6.486 6.486a1 1 0 0 0 1.414 1.414z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="arrow,carrot,up" dc:description="arrow,carrot,up" dc:publisher="Iconscout" dc:date="2017-09-25" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Elegant Themes</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg></div>
+</a>
         <footer class="footer-estyle">
             <div class="footer container mt-5 text-center">
                 <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
