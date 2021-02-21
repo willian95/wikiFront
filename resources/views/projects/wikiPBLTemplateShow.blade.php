@@ -23,6 +23,35 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="reportConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center">Warning!</h3>
+
+                            <p class="mt-2 text-center">
+                            Thank you for letting us know this
+                            WikiPBL is having problems, remember
+                            to check always our FAQ’S for more
+                            information about reporting issues
+                            and accounts.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="reportProject()">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-3">
                     <div class="menu-template">
@@ -611,6 +640,15 @@
                     this.like = "1"
                 }
             },
+            showReportConfirmation(){
+
+                if(this.report == 0){
+                    $("#reportConfirmation").modal("show")
+                }else{
+                    this.reportProject()
+                }
+
+            },
             reportProject() {
 
                 this.changeReportIcon()
@@ -782,6 +820,10 @@
 
             if ("{{ $globalConnections }}" == "") {
                 this.showGlobalConnections = false
+            }
+
+            if(this.report > 0){
+                $("#reportIcon").css("fill", "#4674b8")
             }
 
             this.drawChart()

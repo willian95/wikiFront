@@ -1040,6 +1040,15 @@ forgotPasswordShowModal(){
 
     $(".forgotPassword").modal('show')
 
+},
+checkInstitution(){
+
+    window.setTimeout(() => {
+        if(this.institution_not_registered == true){
+            this.selected_institution = ""
+        }
+    }, 200)
+
 }
 
 },

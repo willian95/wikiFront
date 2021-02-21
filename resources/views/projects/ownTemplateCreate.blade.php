@@ -32,7 +32,7 @@
                     <div class="col-md-3">
                         <div class="menu-template">
                             <p>Edit mode </p>
-                            <div class="menu-template_option">
+                            <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                                 <ul>
                                     <p>Main info</p>
                                     <li> <a href="#title-p">@{{ title }}</a></li>
@@ -424,7 +424,7 @@
                     weeks:4,
                     calendarDay:"",
                     lastSave:"",
-                    private:false,
+                    private:0,
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",

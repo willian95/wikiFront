@@ -10,10 +10,10 @@
                 <h1>Best source for Project Based Learning!</h1>
                 <!---------------->
                 <div>
-                    <form action="">
+                    <div>
                         <i class="fa fa-search icon-sear "></i>
-                        <input type="text" class="search-home " placeholder="PBL names, teachers, #Hashtags!">
-                    </form>
+                        <input v-model="query" type="text" class="search-home " placeholder="PBL names, teachers, #Hashtags!" v-on:keyup.enter="search()">
+                    </div>
                 </div>
                 <!---------------->
                 <p>9.000+ projects and counting!</p>
@@ -127,6 +127,7 @@
                 return {
                     categoryType:"school",
                     level:"nursery",
+                    query:"",
                     hashtags:[],
                     subjects:[]
                 }
@@ -168,6 +169,11 @@
                         }
 
                     }, 200);
+
+                },
+                search(){
+
+                    window.location.href="{{ url('/search-results') }}"+"/"+this.query
 
                 }
 

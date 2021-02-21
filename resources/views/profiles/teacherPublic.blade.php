@@ -7,10 +7,49 @@
             <div class="loader-custom"></div>
         </div>
 
+        <div class="modal fade" id="reportConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-center">Warning!</h3>
+
+                        <p class="mt-2 text-center">
+                        Thank you for letting us know this
+                        WikiPBL Profile is having problems, remember
+                        to check always our FAQ’S for more
+                        information about reporting issues
+                        and accounts.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" @click="reportTeacher()">Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <div class="main-profile">
         <div class="main-profile_content">
             <h1 class="text-center">Educator profile</h1>
             <p>Stats</p>
+
+            <a style="cursor:pointer;" @click="showReportConfirmation()">
+                <svg id="reportIcon" class="login_icon  hover-svg" xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 16 16"><path  d="M2.00146 4.00134C2.00146 2.89677 2.8969 2.00134 4.00146 2.00134H12.0001C13.1047 2.00134 14.0001 2.89677 14.0001 4.00134V10.1312L13.0001 8.43571V4.00134C13.0001 3.44906 12.5524 3.00134 12.0001 3.00134H4.00146C3.44918 3.00134 3.00146 3.44906 3.00146 4.00134V12C3.00146 12.5523 3.44918 13 4.00146 13H6.30766L6.26747 13.0681C6.10029 13.3516 6.0083 13.672 6.00054 14H4.00146C2.89689 14 2.00146 13.1046 2.00146 12V4.00134Z"/><path d="M7.19234 11.5L7.78213 10.5H7.00317C6.72703 10.5 6.50317 10.7239 6.50317 11 6.50317 11.2761 6.72703 11.5 7.00317 11.5H7.19234zM8.96155 8.50029L9.26972 7.9778C9.37807 7.79407 9.51219 7.63441 9.66466 7.5004L7.00325 7.5C6.72711 7.49996 6.50322 7.72378 6.50317 7.99993 6.50313 8.27607 6.72696 8.49996 7.0031 8.5L8.96155 8.50029zM5.5 5C5.5 5.41421 5.16421 5.75 4.75 5.75 4.33579 5.75 4 5.41421 4 5 4 4.58579 4.33579 4.25 4.75 4.25 5.16421 4.25 5.5 4.58579 5.5 5zM4.75 8.75189C5.16421 8.75189 5.5 8.41611 5.5 8.00189 5.5 7.58768 5.16421 7.25189 4.75 7.25189 4.33579 7.25189 4 7.58768 4 8.00189 4 8.41611 4.33579 8.75189 4.75 8.75189zM5.5 11C5.5 11.4142 5.16421 11.75 4.75 11.75 4.33579 11.75 4 11.4142 4 11 4 10.5858 4.33579 10.25 4.75 10.25 5.16421 10.25 5.5 10.5858 5.5 11zM7.00317 4.5C6.72703 4.5 6.50317 4.72386 6.50317 5 6.50317 5.27614 6.72703 5.5 7.00317 5.5H11.4773C11.7535 5.5 11.9773 5.27614 11.9773 5 11.9773 4.72386 11.7535 4.5 11.4773 4.5H7.00317zM10.7349 8.03453C10.9857 7.96839 11.2604 7.99559 11.5012 8.1296 11.6558 8.21564 11.7822 8.33911 11.8687 8.48581L14.8709 13.5761C15.005 13.8034 15.031 14.059 14.9659 14.2919 14.9007 14.5249 14.7436 14.737 14.5035 14.8706 14.3517 14.955 14.1788 15 14.0021 15H7.99763C7.7173 15 7.467 14.8901 7.28702 14.7152 7.1073 14.5407 7 14.3042 7 14.0453 7 13.8816 7.04402 13.7199 7.12882 13.5761L10.1311 8.48581C10.2656 8.25769 10.4843 8.10064 10.7349 8.03453zM11.5 9.5022C11.5 9.22606 11.2761 9.0022 11 9.0022 10.7239 9.0022 10.5 9.22606 10.5 9.5022V11.498C10.5 11.7741 10.7239 11.998 11 11.998 11.2761 11.998 11.5 11.7741 11.5 11.498V9.5022zM11 14.5C11.4142 14.5 11.75 14.1642 11.75 13.75 11.75 13.3358 11.4142 13 11 13 10.5858 13 10.25 13.3358 10.25 13.75 10.25 14.1642 10.5858 14.5 11 14.5z"/></svg>
+                <span class="tooltip-nav">
+                <span v-if="report == '0'">Report</span>
+                    <span v-else>Unreport</span>
+                </span>    
+            
+            </a>
+
         </div>
         <div class="main-profile_dates mt-5">
             <div class="row">
@@ -38,131 +77,81 @@
 
         <div class="main-wikis mt-5">
             <div class="text-center">
-                <h3>My projects - Dashboard</h3>
+                <h3>@{{typeTitle}} - Dashboard</h3>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        My wikiPBL
+                    <div class="info_wikis">
+                        <div class="card" @click="fetchProjects()">
+                           <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> 
+                                My wikiPBL
+                            </p>
+                            <span>{{ App\Project::where("user_id", $user->id)->count() }}</span>
 
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    12
-                                </div>
-                            </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        My Public wikiPB
-
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    3
-                                </div>
-                            </div>
+                        <div class="card" @click="fetchPublicProjects()">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="24" height="24" viewBox="0 0 24 24"><path d="M12 14c1.381 0 2.631-.56 3.536-1.465C16.44 11.631 17 10.381 17 9s-.56-2.631-1.464-3.535C14.631 4.56 13.381 4 12 4s-2.631.56-3.536 1.465C7.56 6.369 7 7.619 7 9s.56 2.631 1.464 3.535A4.985 4.985 0 0 0 12 14zm8 1a2.495 2.495 0 0 0 2.5-2.5c0-.69-.279-1.315-.732-1.768A2.492 2.492 0 0 0 20 10a2.495 2.495 0 0 0-2.5 2.5A2.496 2.496 0 0 0 20 15zm0 .59c-1.331 0-2.332.406-2.917.968C15.968 15.641 14.205 15 12 15c-2.266 0-3.995.648-5.092 1.564C6.312 15.999 5.3 15.59 4 15.59c-2.188 0-3.5 1.09-3.5 2.182 0 .545 1.312 1.092 3.5 1.092.604 0 1.146-.051 1.623-.133l-.04.27c0 1 2.406 2 6.417 2 3.762 0 6.417-1 6.417-2l-.02-.255c.463.073.995.118 1.603.118 2.051 0 3.5-.547 3.5-1.092 0-1.092-1.373-2.182-3.5-2.182zM4 15c.69 0 1.315-.279 1.768-.732A2.492 2.492 0 0 0 6.5 12.5 2.495 2.495 0 0 0 4 10a2.496 2.496 0 0 0-2.5 2.5A2.495 2.495 0 0 0 4 15z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="group" dc:description="group" dc:publisher="Iconscout" dc:date="2017-09-24" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Typicons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+                                My Public wikiPB
+                            </p>
+                            <span>{{ App\Project::where("user_id", $user->id)->where("is_private", 0)->count() }}</span>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        Following
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    11
-                                </div>
-                            </div>
+                        <div class="card" @click="fetchSharedProjects()">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g data-name="Layer 2"><path d="M19,27H8a1,1,0,0,1-1-1V25a9,9,0,0,1,15.36-6.36,1,1,0,0,0,1.41-1.41A11,11,0,0,0,20,14.75a7,7,0,1,0-8,0A11,11,0,0,0,5,25v1a3,3,0,0,0,3,3H19a1,1,0,0,0,0-2ZM11,9a5,5,0,1,1,5,5A5,5,0,0,1,11,9Z"/><path d="M28.15,21.2A3.24,3.24,0,0,0,25.88,20a3.17,3.17,0,0,0-1.88.47A3.13,3.13,0,0,0,22.12,20a3.24,3.24,0,0,0-2.27,1.19A4,4,0,0,0,20,26.28l2.81,3.17a1.59,1.59,0,0,0,2.41,0L28,26.28A4,4,0,0,0,28.15,21.2ZM26.52,25,24,27.79,21.48,25a2,2,0,0,1-.1-2.48,1.26,1.26,0,0,1,.87-.48h.08a1.2,1.2,0,0,1,.8.33,1.29,1.29,0,0,0,1.73,0,1.17,1.17,0,0,1,.88-.32,1.26,1.26,0,0,1,.87.48A2,2,0,0,1,26.52,25Z"/></g></svg>
+                                Following
+                            </p>
+                            <span>{{ App\ProjectShare::where("user_id", $user->id)->count() }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
 
-                    <div id="accordion" class="wiki-accordion">
+                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project.id">
+                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                    </a>
+
+                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project.project.id" v-if="type == 'following'">
+                        <span v-if="project.project">
+                            <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                        </span>
+                    </a>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="pagination">
+                                <li class="page-item" v-for="index in pages">
+                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchProjects(index)" v-if="type == 'my-projects'">@{{ index }}</a>
+                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchPulbicProjects(index)" v-if="type == 'following'">@{{ index }}</a>
+                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchSharedProjects(index)" v-if="type == 'public'">@{{ index }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                {{--<div :id="'accordion'+index" class="wiki-accordion" v-for="(project,index) in projects">
                         <div class="card">
-                            <div class="" id="wikigOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#wikiOne"
+                            <div class="" :id="'wiki'+index">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#'wiki'+index"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        <p>1. PBL Title, Name of the educator, Name of the institution</p>
+                                        <p>@{{ project.titles[0].title }}</p>
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="wikiOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordion">
+                            <div :id="'wiki'+index" class="collapse" aria-labelledby="headingOne" :data-parent="'#accordion'+index">
                                 <div class="card-body">
                                     <button class="btn btn-custom">ORIGINAL DOCUMENT</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="" id="wikiTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#wikiTwo"
-                                        aria-expanded="false" aria-controls="wikiTwo">
-                                        <p>2. PBL Title, Name of the educator, Name of the institution</p>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="wikiTwo" class="collapse" aria-labelledby="wikiTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                                    you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="" id="wikithree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#wikithree" aria-expanded="false" aria-controls="collapseThree">
-                                        <p>3. PBL Title, Name of the educator, Name of the institution</p>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="wikithree" class="collapse" aria-labelledby="wikithree" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                                    you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    </div>--}}
+                
+                
                 </div>
             </div>
         </div>
@@ -180,6 +169,7 @@
                 return{
 
                     institutions:[],
+                    teacherId:"{{ $user->id }}",
                     institution:"{{ $user->institution_id }}",
                     institutionName:"{{ $user->institution ? $user->institution->name : $user->pending_institution_name }}",
                     name:"{{ $user->name }}",
@@ -192,16 +182,113 @@
                     portfolio:"{{ strip_tags($user->portfolio) }}",
                     showMyEmail:JSON.parse('{!! $user->show_my_email !!}'),
                     loading:false,
-                    errors:[]
+                    report:"{{ App\TeacherReport::where('user_id', \Auth::user()->id)->where('teacher_id', $user->id)->count() }}",
+                    errors:[],
+                    projects:[],
+                    page:1,
+                    pages:0,
+                    typeTitle:"My projects",
+                    type:"my-projects",
 
                 }
             },
             methods:{
 
+                showReportConfirmation(){
+       
+                    if(this.report == 0){
+                        $("#reportConfirmation").modal("show")
+                    }else{
+                        this.reportTeacher()
+                    }
+
+                },
+                reportTeacher(){
+
+
+                    this.changeReportIcon()
+
+                    axios.post("{{ url('teacher/report') }}", {"teacher_id": this.teacherId}).then(res => {
+
+                        if(res.data.success){
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            })
+
+                        }else{
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+                        }
+
+                    })
+
+                },
+                changeReportIcon(){
+                    if(this.report == "1"){
+                        this.report = "0"
+                        $("#reportIcon").css("fill", "#000")
+                    }else{
+                        this.report = "1"
+                        $("#reportIcon").css("fill", "#4674b8")
+                    }
+                },
+                fetchProjects(page  =1 ){
+
+                    this.typeTitle = "My projects",
+                    this.type = "my-projects",
+
+                    this.page = page
+
+                    axios.get("{{ url('/project/public/my-projects') }}"+"/"+page+"/"+this.teacherId).then(res => {
+
+                        this.projects = res.data.projects
+                        this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
+
+                    })
+
+                },
+                fetchPublicProjects(page  =1 ){
+
+                    this.typeTitle = "My public projects",
+                    this.type = "public",
+
+                    this.page = page
+
+                    axios.get("{{ url('/project/public/my-public-projects') }}"+"/"+page+"/"+this.teacherId).then(res => {
+
+                        this.projects = res.data.projects
+                        this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
+
+                    })
+
+                },
+                fetchSharedProjects(page = 1){
+
+                    this.typeTitle = "Following projects",
+                    this.type = "following",
+
+                    this.page = page
+
+                    axios.get("{{ url('/project/public/my-follow-projects') }}"+"/"+page+"/"+this.teacherId).then(res => {
+
+                        this.projects = res.data.projects
+                        this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
+
+                    })
+
+                }
                 
             },
             mounted(){
 
+                if(this.report > 0){
+                    $("#reportIcon").css("fill", "#4674b8")
+                }
+
+                this.fetchProjects()
 
             }
         })

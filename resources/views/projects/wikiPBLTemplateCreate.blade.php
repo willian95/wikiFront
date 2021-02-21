@@ -630,7 +630,7 @@
                     globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
                     showGlobalConnections:true,
                     lastSave:"",
-                    private:false,
+                    private:0,
                     loading:false
                 }
                 

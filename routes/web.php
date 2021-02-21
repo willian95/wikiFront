@@ -22,9 +22,7 @@ Route::get('/about', function () {
     return view('/about');
 });
 
-Route::get('/SearchResults', function () {
-    return view('/SearchResults');
-});
+Route::get('/search-results/{search}', "SearchController@searchView");
 
 Route::get('/ProjectCreation', function () {
     return view('ProjectCreation');
@@ -60,6 +58,7 @@ Route::post("/institution/profile/update", "InstitutionController@updateInstitut
 Route::post("/institution/profile/add-user", "InstitutionController@addUser")->middleware("auth");
 Route::get("/institution/get-teachers", "InstitutionController@getPublicInstitutionUsers")->middleware("auth");
 Route::get("/institution/get-users", "InstitutionController@getInstitutionUsers")->middleware("auth");
+Route::post("institution/report", "InstitutionController@reportInstitution");
 
 Route::get("teacher/profile", "TeacherController@profile")->middleware("auth")->middleware("teacher");
 Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
@@ -68,6 +67,7 @@ Route::get("teacher/all", "TeacherController@showAll");
 Route::get("teacher/fetch-all", "TeacherController@fetchAll");
 Route::get("teacher/show-by-letter/{letter}", "TeacherController@showByLetter");
 Route::get("teacher/fetch/by-letter/{letter}/{page}", "TeacherController@byLetter");
+Route::post("teacher/report", "TeacherController@reportTeacher");
 
 Route::get("organization/all", "InstitutionController@organizationAll");
 Route::get("organization/fetch-all", "InstitutionController@fetchOrganizationAll");
@@ -96,6 +96,7 @@ Route::post("project/creation/save", "ProjectController@saveCreation")->middlewa
 Route::post("project/edition/save", "ProjectController@saveEdition")->middleware("auth")->middleware("teacher");
 Route::post("project/creation/launch", "ProjectController@launch");
 Route::get("project/my-projects/{page}", "ProjectController@myProjects")->middleware("auth")->middleware("teacher");
+Route::get("project/my-public-projects/{page}", "ProjectController@myProjects")->middleware("auth")->middleware("teacher");
 Route::get("project/my-follow-projects/{page}", "ProjectController@myFollowProjects")->middleware("auth")->middleware("teacher");
 Route::get("project/create/{id}", "ProjectController@showCreateOwnTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/wiki/create/{id}", "ProjectController@showCreateWikiTemplate")->middleware("auth")->middleware("teacher");
@@ -107,8 +108,13 @@ Route::post("project/like", "ProjectController@likeProject");
 Route::post("project/report", "ProjectController@reportProject");
 Route::post("project/assestment-point", "ProjectController@upvoteAssestmentPoint");
 
+Route::get("project/public/my-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");
+Route::get("project/public/my-public-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");
+Route::get("project/public/my-follow-projects/{page}/{teacherId}", "ProjectController@publicMyFollowProjects");
+
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");
 
+Route::post("/search/hashtag", "SearchController@hashtag");
 
 Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");

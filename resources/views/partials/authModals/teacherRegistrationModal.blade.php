@@ -24,7 +24,7 @@
                         <div class="col-md-6 offset-2">
                             <div class="form-group">
                                 <label for="inputinstitutioe"></label>
-                                <select id="inputinstitutio" class="form-control" v-model="selected_institution">
+                                <select id="inputinstitutio" class="form-control" v-model="selected_institution" :disabled="institution_not_registered">
                                     <option value="">Choose your institution </option>
                                     <option :value="institution" v-for="institution in institutions">@{{ institution.name }}</option>
                                 </select>
@@ -34,7 +34,7 @@
                                 <!---check--->
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck" v-model="institution_not_registered">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck" v-model="institution_not_registered" @click="checkInstitution()">
                                         <label class="form-check-label" for="gridCheck">
                                             My institution is not registered/listed
                                         </label>

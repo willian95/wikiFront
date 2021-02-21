@@ -1466,10 +1466,14 @@
 
             if ("{{ strlen($subjects) }}" > 0) {
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+            }else{
+                this.subjects = []
             }
 
             if (("{{ $hashtag }}").length > 0) {
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+            }else{
+                this.hashtags = []
             }
 
             this.tools = ("{!! htmlspecialchars_decode($tools) !!}").split(",")

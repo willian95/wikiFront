@@ -7,6 +7,7 @@ use App\Institution;
 use App\Http\Requests\UserRegisterInstitutionRequest;
 use App\User;
 use Illuminate\Support\Str;
+use App\InstitutionReport;
 
 class InstitutionController extends Controller
 {
@@ -260,6 +261,45 @@ class InstitutionController extends Controller
             return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
 
         }
+
+    }
+
+    function reportInstitution(Request $request){
+
+        try{
+
+            if(InstitutionReport::where("institution_id", $request->institution_id)->where("user_id", \Auth::user()->id)->exists()){
+
+                $this->deleteInstitutionReport($request);
+                return response()->json(["success" => true, "msg" => "You undo the report of this institution"]);
+
+            }else{
+            
+                $institutionReport = new InstitutionReport;
+                $institutionReport->institution_id = $request->institution_id;
+                $institutionReport->user_id = \Auth::user()->id;
+                $institutionReport->save();
+                
+                /*if(ProjectReport::where("institution_id", $request->institution_id)->count() == 10){
+                    $this->banProject($request);
+                }*/
+
+                return response()->json(["success" => true, "msg" => "You have reported this profile"]);
+
+            }
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function deleteInstitutionReport($request){
+
+        $institutionReport = InstitutionReport::where("institution_id", $request->institution_id)->where("user_id", \Auth::user()->id)->first();
+        $institutionReport->delete();
 
     }
 

@@ -59,4 +59,8 @@ class User extends Authenticatable
         return $this->hasMany(Project::class);
     }
 
+    public function teacherReport(){
+        return $this->hasMany(teacherReport::class, "teacher_id", "id");
+    }
+
 }

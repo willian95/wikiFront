@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="main-results">
+<div class="main-results" id="dev-search">
     <div class="home-present">
         <!---------------->
         <div>
@@ -13,7 +13,7 @@
             </form>
         </div>
         <!---------------->
-        <div class="hashtag-home">
+        {{--<div class="hashtag-home">
             <a href="#"> <span>#Hashtag</span></a>
             <a href="#"> <span>#Hashtag</span></a>
             <a href="#"> <span>#Hashtag</span></a>
@@ -21,12 +21,12 @@
             <a href="#"> <span>#Hashtag</span></a>
             <a href="#"> <span>#Hashtag</span></a>
             <a href="#"> <span>#Hashtag</span></a>
-        </div>
+        </div>--}}
     </div>
     <!------------------------>
     <div class="row word">
         <div class="col-md-12">
-            <h3 class="text-center"> Subjects</h3>
+            {{--<h3 class="text-center"> Subjects</h3>
             <div class="abc-home abc-categories">
                 <div class="abc-content">
                     <strong><a href="1">M</a></strong>
@@ -44,12 +44,12 @@
                 </div>
 
 
-            </div>
+            </div>--}}
 
         </div>
 
         <div class="col-md-12">
-            <h3 class="text-center"> Educators</h3>
+            <h3 class="text-center"> Hashtags</h3>
             <div class="abc-home abc-categories">
                 <div class="abc-content">
                     <strong><a href="1">M</a></strong>
@@ -81,3 +81,38 @@
 
 
 @endsection
+
+@push("script")
+
+    <script>
+        const home = new Vue({
+            el: '#dev-search',
+            data() {
+                return {
+                    query:"{{ $search }}",
+                    hashtags:[],
+                    subjects:[]
+                }
+            },
+            methods:{
+
+                hashtagSearch(){
+
+                    axios.post("{{ url('/search/hashtag') }}", {search: this.query}).then(res => {
+
+                        console.log("res", res)
+
+                    })
+
+                }
+
+            },
+            mounted(){
+
+                this.hashtagSearch()
+
+            }
+        })
+    </script>
+
+@endpush

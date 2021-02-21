@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeacherProfileUpdateRequest;
 use App\User;
+use App\TeacherReport;
 
 class TeacherController extends Controller
 {
@@ -99,6 +100,45 @@ class TeacherController extends Controller
             return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
 
         }
+
+    }
+
+    function reportTeacher(Request $request){
+
+        try{
+
+            if(TeacherReport::where("teacher_id", $request->teacher_id)->where("user_id", \Auth::user()->id)->exists()){
+
+                $this->deleteTeacherReport($request);
+                return response()->json(["success" => true, "msg" => "You undo the report of this teacher"]);
+
+            }else{
+            
+                $teacherReport = new TeacherReport;
+                $teacherReport->teacher_id = $request->teacher_id;
+                $teacherReport->user_id = \Auth::user()->id;
+                $teacherReport->save();
+                
+                /*
+                    add ban to teacher
+                */
+
+                return response()->json(["success" => true, "msg" => "You have reported this teacher"]);
+
+            }
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function deleteTeacherReport($request){
+
+        $teacherReport = TeacherReport::where("teacher_id", $request->teacher_id)->where("user_id", \Auth::user()->id)->first();
+        $teacherReport->delete();
 
     }
 

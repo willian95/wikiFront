@@ -557,8 +557,35 @@ class ProjectController extends Controller
             }
         ]);
 
+        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
-        $projectsCount = $projectQuery->count();
+        $projectsCount = $projectQueryCount->count();
+
+        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+
+    }
+
+    function myPublicProjects($page){
+
+        $dataAmount = 10;
+        $skip = ($page-1) * $dataAmount;
+
+        $projectQuery = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projectsCount = $projectQueryCount->count();
 
         return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
@@ -576,9 +603,17 @@ class ProjectController extends Controller
                     $q->orderBy("id", "desc");
                 }]);
             }]);
+
+        $projectQueryCount = ProjectShare::where("user_id", \Auth::user()->id)
+            ->orderBy("id", "desc")
+            ->with(["project" => function($q){
+                $q->with(["titles" => function($q){
+                    $q->orderBy("id", "desc");
+                }]);
+            }]);
         
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
-        $projectsCount = $projectQuery->count();
+        $projectsCount = $projectQueryCount->count();
 
         return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
@@ -600,7 +635,7 @@ class ProjectController extends Controller
 
         }])->get(); 
 
-        if($project[0]->is_private == 1){
+        if($project[0]->is_private == 1 && $project[0]->user_id != \Auth::user()->id){
            return redirect()->to("/project/show/".$project[0]->id);
         }
 
@@ -1086,6 +1121,78 @@ class ProjectController extends Controller
 
         $upvote = UpvoteSystemProjectVote::where("project_id", $request->project_id)->where("user_id", \Auth::user()->id)->where("assestment_point_type_id", $request->assestmentPointTypeId)->first();
         $upvote->delete();
+
+    }
+
+    function publicMyProjects($page, $teacherId){
+
+        $dataAmount = 10;
+        $skip = ($page-1) * $dataAmount;
+
+        $projectQuery = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projectQueryCount = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projectsCount = $projectQueryCount->count();
+
+        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+
+    }
+
+    function publicMyPublicProjects($page, $teacherId){
+
+        $dataAmount = 10;
+        $skip = ($page-1) * $dataAmount;
+
+        $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+                $q->orderBy("id", "desc");
+            }
+        ]);
+
+        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projectsCount = $projectQueryCount->count();
+
+        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+
+    }
+
+    function publicMyFollowProjects($page, $teacherId){
+
+        $dataAmount = 10;
+        $skip = ($page-1) * $dataAmount;
+
+        $projectQuery = ProjectShare::where("user_id", $teacherId)
+            ->orderBy("id", "desc")
+            ->with(["project" => function($q){
+                $q->with(["titles" => function($q){
+                    $q->orderBy("id", "desc");
+                }]);
+            }]);
+
+        $projectQueryCount = ProjectShare::where("user_id", $teacherId)
+            ->orderBy("id", "desc")
+            ->with(["project" => function($q){
+                $q->with(["titles" => function($q){
+                    $q->orderBy("id", "desc");
+                }]);
+            }]);
+        
+        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projectsCount = $projectQueryCount->count();
+
+        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
     }
 
