@@ -116,5 +116,14 @@ Route::get("project/own-template/public", "ProjectController@publicOwnTemplate")
 Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTemplate");
 
 Route::post("/search/hashtag", "SearchController@hashtag");
+Route::post("/search/subject", "SearchController@subject");
+Route::post("/search/project", "SearchController@project");
+
+Route::get("/search/only/hashtags/{search}", "SearchController@searchOnlyHashtagView");
+Route::post("/search/only/hashtags", "SearchController@searchOnlyHashtag");
+Route::get("/search/only/subjects/{search}", "SearchController@searchOnlySubjectView");
+Route::post("/search/only/subjects", "SearchController@searchOnlySubject");
+Route::get("/search/only/projects/{search}", "SearchController@searchOnlyProjectView");
+Route::post("/search/only/projects", "SearchController@searchOnlyProject");
 
 Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");

@@ -1132,12 +1132,12 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("user");
 
         $projectQueryCount = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("user");
 
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
         $projectsCount = $projectQueryCount->count();
@@ -1154,12 +1154,12 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("user");
 
         $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("user");
 
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
         $projectsCount = $projectQueryCount->count();
@@ -1179,7 +1179,7 @@ class ProjectController extends Controller
                 $q->with(["titles" => function($q){
                     $q->orderBy("id", "desc");
                 }]);
-            }]);
+            }])->with("user");
 
         $projectQueryCount = ProjectShare::where("user_id", $teacherId)
             ->orderBy("id", "desc")
@@ -1187,7 +1187,7 @@ class ProjectController extends Controller
                 $q->with(["titles" => function($q){
                     $q->orderBy("id", "desc");
                 }]);
-            }]);
+            }])->with("user");
         
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
         $projectsCount = $projectQueryCount->count();

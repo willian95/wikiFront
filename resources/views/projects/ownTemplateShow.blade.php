@@ -77,25 +77,27 @@
                 <div class="col-md-9 info-template">
 
                     <div class="container-fluid">
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                @foreach($assestmentPoints as $point)
-                                    <p>
-                                        <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                            <i class="fa {{ $point->assestmentPointType->icon }}"></i>
-                                            {{ $point->assestmentPointType->name }}
-                                        </button>
-                                    </p>
-                                @endforeach
-                            </div>
-                            <div class="col-md-8">
-
-                                <canvas id="myChart"></canvas>
+                        @if(\Auth::check())
+                            <div class="row">
                                 
+                                <div class="col-md-4">
+                                    @foreach($assestmentPoints as $point)
+                                        <p>
+                                            <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                                <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                                {{ $point->assestmentPointType->name }}
+                                            </button>
+                                        </p>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-8">
+
+                                    <canvas id="myChart"></canvas>
+                                    
+                                </div>
+                
                             </div>
-              
-                        </div>
+                        @endif
                     </div>
 
                     <!--------------------general--------------------------->
@@ -356,9 +358,9 @@
                     weeks:4,
                     calendarDay:"",
                     calendarWeek:"",
-                    follow:"{{ App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
-                    like:"{{ App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
-                    report:"{{ App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() }}",
+                    follow:"{{ \Auth::check() ? App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                    like:"{{ \Auth::check() ? App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                    report:"{{ \Auth::check() ? App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
                     assestmentArray:JSON.parse('{!! $assestmentPointsArray !!}'),
                     loading:false,
                     myChart:null,

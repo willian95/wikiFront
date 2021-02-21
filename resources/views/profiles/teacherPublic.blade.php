@@ -110,12 +110,12 @@
                 <div class="col-md-8">
 
                     <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project.id">
-                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, @{{ project.project.user.name }} @{{ project.project.user.lastname }} </p>
                     </a>
 
                     <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project.project.id" v-if="type == 'following'">
                         <span v-if="project.project">
-                            <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                            <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, @{{ project.project.user.name }} @{{ project.project.user.lastname }}</p>
                         </span>
                     </a>
 
