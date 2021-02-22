@@ -80,7 +80,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-messaging.js"></script>
-    
+
     <script>
 
         var firebaseConfig = {
@@ -100,6 +100,7 @@
         function InitializeFirebaseMessaging(){
             messaging.requestPermission().then(function(){
                 console.log("Notification Permission")
+                return messaging.getToken()
             })
             .then(function(token){
                 console.log("Token: "+token)
