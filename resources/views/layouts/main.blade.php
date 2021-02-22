@@ -76,6 +76,55 @@
     <script src="{{ url('assets/js/main.js') }}"></script>
     <script src="{{ url('js/app.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-messaging.js"></script>
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyBb0uKwppvkQM-ZgwJTPz0DondwITp5cr4",
+            authDomain: "wikipbl-cc8f6.firebaseapp.com",
+            projectId: "wikipbl-cc8f6",
+            storageBucket: "wikipbl-cc8f6.appspot.com",
+            messagingSenderId: "1025334549968",
+            appId: "1:1025334549968:web:4fd31998bf2f1001c7add5",
+            measurementId: "G-9V2ELKNRET"
+        };
+
+        firebase.initializeApp(firebaseConfig)
+
+        const messaging = firebase.messaging();
+
+        function InitializeFirebaseMessaging(){
+            messaging.requestPermission().then(function(){
+                console.log("Notification Permission")
+            })
+            .then(function(token){
+                console.log("Token: "+token)
+            })
+            .catch(function(reason){
+                console.log(reason)
+            })
+        }
+
+        messaging.onMessage(function(payload){
+            console.log(payload)
+        })
+
+        messaging.onTokenRefresh(function(payload){
+            messaging.getToken().then(function(newToken){
+                console.log("new token: "+newToken)
+            })
+            .catch(function(reason){
+                console.log(reason)
+            })
+        })
+
+        InitializeFirebaseMessaging()
+
+    </script>
+
     <!-- Modal FAQ -->
     <div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

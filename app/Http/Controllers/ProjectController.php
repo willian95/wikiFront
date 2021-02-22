@@ -639,6 +639,7 @@ class ProjectController extends Controller
            return redirect()->to("/project/show/".$project[0]->id);
         }
 
+
         $title = "";
         $drivingQuestionTitle = "";
         $drivingQuestion = "";
@@ -805,6 +806,16 @@ class ProjectController extends Controller
             $q->groupBy('type')->orderBy('id', 'desc')->where("status", "launched")->get(['type', 'title', 'description', DB::raw('MAX(id) as id')]);
 
         }])->get(); 
+
+        if($project[0]->status == "banned" && \Auth::guest()){
+
+            return "project reported";
+
+        }
+
+        if($project[0]->status == "banned" && \Auth::user()->role_id != 1){
+            return "project reported";
+        }
 
         $drivingQuestionTitle = "";
         $drivingQuestion = "";
