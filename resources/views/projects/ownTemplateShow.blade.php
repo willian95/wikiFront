@@ -83,7 +83,7 @@
                                 <div class="col-md-4">
                                     @foreach($assestmentPoints as $point)
                                         <p>
-                                            <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                            <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                                 <i class="fa {{ $point->assestmentPointType->icon }}"></i>
                                                 {{ $point->assestmentPointType->name }}
                                             </button>

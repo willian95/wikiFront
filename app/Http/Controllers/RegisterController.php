@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\InstitutionRegisterRequest;
 use App\PendingInstitution;
 use Illuminate\Support\Str;
+use App\AdminMail;
 use App\User;
 use App\Institution;
 use Carbon\Carbon;
@@ -69,6 +70,10 @@ class RegisterController extends Controller
 
             return $pendingInstitution;
 
+            if(env("SEND_EMAIL") == true){
+                $this->sendAdminEmail("New pending institution registered", "The ".$pendingInstitution->name." has been registered", "", false);
+            }
+
         }else{
             return $institution;
         }
@@ -123,6 +128,25 @@ class RegisterController extends Controller
 
     }
 
+    function sendAdminEmail($title, $description, $link, $showLink){
+
+        foreach(AdminMail::all() as $adminMail){
+
+            $to_name = "admin";
+            $to_email = $adminMail->email;
+            $data = ["title" => $title, "description" => $description, "link" => $link, "showLink" => $showLink];
+
+            \Mail::send("emails.adminMail", $data, function($message) use ($to_name, $to_email, $title) {
+
+                $message->to($to_email, $to_name)->subject($title);
+                $message->from(env("MAIL_FROM_ADDRESS"), env("MAIL_FROM_NAME"));
+
+            });
+
+        }
+
+    }
+
     function institutionRegister(InstitutionRegisterRequest $request){
 
         try{
@@ -143,6 +167,7 @@ class RegisterController extends Controller
 
             if(env("SEND_EMAIL") == true){
                 $this->sendEmail($user);
+                $this->sendAdminEmail("New institution registered", "The ".$institution->name." ".$institution->type." has been registered", url('/institution/show/'.$institution->id), true);
             }
             
             return response()->json(["success" => true, "msg" => "Successfully registered", "user" => $user]);
