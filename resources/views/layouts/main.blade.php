@@ -83,47 +83,51 @@
 
     <script>
 
-        var firebaseConfig = {
-            apiKey: "AIzaSyBb0uKwppvkQM-ZgwJTPz0DondwITp5cr4",
-            authDomain: "wikipbl-cc8f6.firebaseapp.com",
-            projectId: "wikipbl-cc8f6",
-            storageBucket: "wikipbl-cc8f6.appspot.com",
-            messagingSenderId: "1025334549968",
-            appId: "1:1025334549968:web:4fd31998bf2f1001c7add5",
-            measurementId: "G-9V2ELKNRET"
-        };
+        $(document).ready(function(){
 
-        firebase.initializeApp(firebaseConfig)
+            var firebaseConfig = {
+                apiKey: "AIzaSyBb0uKwppvkQM-ZgwJTPz0DondwITp5cr4",
+                authDomain: "wikipbl-cc8f6.firebaseapp.com",
+                projectId: "wikipbl-cc8f6",
+                storageBucket: "wikipbl-cc8f6.appspot.com",
+                messagingSenderId: "1025334549968",
+                appId: "1:1025334549968:web:4fd31998bf2f1001c7add5",
+                measurementId: "G-9V2ELKNRET"
+            };
 
-        const messaging = firebase.messaging();
+            firebase.initializeApp(firebaseConfig)
 
-        function InitializeFirebaseMessaging(){
-            messaging.requestPermission().then(function(){
-                console.log("Notification Permission")
-                return messaging.getToken()
+            const messaging = firebase.messaging();
+
+            function InitializeFirebaseMessaging(){
+                messaging.requestPermission().then(function(){
+                    console.log("Notification Permission")
+                    return messaging.getToken()
+                })
+                .then(function(token){
+                    console.log("Token: "+token)
+                })
+                .catch(function(reason){
+                    console.log(reason)
+                })
+            }
+
+            messaging.onMessage(function(payload){
+                console.log(payload)
             })
-            .then(function(token){
-                console.log("Token: "+token)
-            })
-            .catch(function(reason){
-                console.log(reason)
-            })
-        }
 
-        messaging.onMessage(function(payload){
-            console.log(payload)
+            messaging.onTokenRefresh(function(payload){
+                messaging.getToken().then(function(newToken){
+                    console.log("new token: "+newToken)
+                })
+                .catch(function(reason){
+                    console.log(reason)
+                })
+            })
+
+            InitializeFirebaseMessaging()
+
         })
-
-        messaging.onTokenRefresh(function(payload){
-            messaging.getToken().then(function(newToken){
-                console.log("new token: "+newToken)
-            })
-            .catch(function(reason){
-                console.log(reason)
-            })
-        })
-
-        InitializeFirebaseMessaging()
 
     </script>
 
