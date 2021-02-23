@@ -408,6 +408,7 @@
                     faculty_members: "0-50",
                     which_network: "",
                     forgotPasswordEmail:"",
+                    likes:parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}")
 
                 }
             },
@@ -527,11 +528,13 @@
                 changeLikeIcon(){
                     if(this.like == "1"){
                         this.like = "0"
+                        this.likes = this.likes--
                         
                         $("#likeIcon").css("fill", "#000")
             
                     }else{
                         this.like = "1"
+                        this.likes = this.likes++
                         $("#likeIcon").css("fill", "#4674b8")
                     }
                 },

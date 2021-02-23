@@ -860,7 +860,21 @@ class ProjectController extends Controller
             ];
         }
 
+        $titleHistory = $this->titleHistory($project[0]->id);
+        $drivingQuestionHistory = $this->secondaryFieldsHistory($project[0]->id, "drivingQuestion");
+        $timeFrameHistory = $this->showProjectSection($project[0]->id, "timeFrame");
+        $publicProjectHistory = $this->showProjectSection($project[0]->id, "publicProduct");
+        $mainInfoHistory = $this->showProjectSection($project[0]->id, "mainInfo");
+        $bibliographyHistory = $this->showProjectSection($project[0]->id, "bibliography");
+        $subjectHistory = $this->showProjectSection($project[0]->id, "subject");
+        $levelHistory = $this->showProjectSection($project[0]->id, "level");
+        $hashtagHistory = $this->showProjectSection($project[0]->id, "hashtag");
+        $calendarActivitiesHistory = $this->showProjectSection($project[0]->id, "calendarActivities");
+            //$drivingQuestionHistory = $this->showProjectSection($project[0]->id, "upvoteSystem")
+
+
         if($project[0]->type == "own-template"){
+
             return view("projects.ownTemplateShow", 
                 [
                     "id" => $project[0]->id, 
@@ -883,8 +897,17 @@ class ProjectController extends Controller
                     "projectSumary" => $projectSumary,
                     "project" => $project,
                     "assestmentPoints" => $assestmentPoints,
-                    "assestmentPointsArray" => json_encode($assestmentPointsArray)
-
+                    "assestmentPointsArray" => json_encode($assestmentPointsArray),
+                    "titleHistory" => $titleHistory,
+                    "drivingQuestionHistory" => $drivingQuestionHistory,
+                    "timeFrameHistory" => $timeFrameHistory,
+                    "publicProjectHistory" => $publicProjectHistory,
+                    "mainInfoHistory" => $mainInfoHistory,
+                    "bibliographyHistory" => $bibliographyHistory,
+                    "subjectHistory" => $subjectHistory,
+                    "levelHistory" => $levelHistory,
+                    "hashtagHistory" => $hashtagHistory,
+                    "calendarActivitiesHistory" => $calendarActivitiesHistory
                 ]
             );
         }else{
@@ -912,6 +935,14 @@ class ProjectController extends Controller
                     "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
                 ];
             }
+
+            $toolHistory = $this->showProjectSection($project[0]->id, "tools")->description;
+            $learningGoalHistory = $this->showProjectSection($project[0]->id, "learningGoals")->description;
+            $resourceHistory = $this->showProjectSection($project[0]->id, "resources")->description;
+            $projectMilestoneHistory = $this->showProjectSection($project[0]->id, "projectMilestone")->description;
+            $expertHistory  = $this->showProjectSection($project[0]->id, "expert")->description;
+            $fieldWorkHistory  = $this->showProjectSection($project[0]->id, "fieldWork")->description;
+            $globalConnectionHistory = $this->showProjectSection($project[0]->id, "globalConnections")->description;
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
@@ -948,7 +979,25 @@ class ProjectController extends Controller
                 "globalConnectionsTitle" => $globalConnectionsTitle,
                 "globalConnections" => $globalConnections,
                 "assestmentPoints" => $assestmentPoints,
-                "assestmentPointsArray" => json_encode($assestmentPointsArray)
+                "assestmentPointsArray" => json_encode($assestmentPointsArray),
+
+                "titleHistory" => $titleHistory,
+                "drivingQuestionHistory" => $drivingQuestionHistory,
+                "timeFrameHistory" => $timeFrameHistory,
+                "publicProjectHistory" => $publicProjectHistory,
+                "mainInfoHistory" => $mainInfoHistory,
+                "bibliographyHistory" => $bibliographyHistory,
+                "subjectHistory" => $subjectHistory,
+                "levelHistory" => $levelHistory,
+                "hashtagHistory" => $hashtagHistory,
+                "calendarActivitiesHistory" => $calendarActivitiesHistory,
+                "toolHistory" => $toolHistory,
+                "learningGoalHistory" => $learningGoalHistory,
+                "resourceHistory" => $resourceHistory,
+                "projectMilestoneHistory" => $projectMilestoneHistory,
+                "expertHistory" => $expertHistory,
+                "fieldWorkHistory" => $fieldWorkHistory,
+                "globalConnectionHistory" => $globalConnectionHistory
             ]);
         }
 
@@ -964,6 +1013,51 @@ class ProjectController extends Controller
     function showTitleSection($projectId){
 
         return Title::where("project_id", $projectId)->orderBy("id", "desc")->where("status", "launched")->first();
+
+    }
+
+    function titleHistory($project_id){
+
+        $historyTitleChanges = [];
+
+        $titles = Title::where("project_id", $project_id)->where("status", "launched")->orderBy("id")->with(["user" => function($q){
+            $q->withTrashed();
+        }])->get();
+
+        foreach($titles as $title){
+
+            if($title->user){
+                $historyTitleChanges[] = [
+                    "user" => $title->user->name." ".$title->user->lastname,
+                    "date" => $title->updated_at->format("m/d/Y")
+                ];
+            }
+
+        }
+
+        return $historyTitleChanges;
+
+    }
+
+    function secondaryFieldsHistory($project_id, $type){
+
+        $historySectionChanges = [];
+
+        $fields = SecondaryField::where("project_id", $project_id)->where("type", $type)->where("status", "launched")->orderBy("id")->with(["user" => function($q){
+            $q->withTrashed();
+        }])->get();
+
+        foreach($fields as $field){
+
+            if($field->user){
+                $historySectionChanges[] = [
+                    "user" => $field->user->name." ".$field->user->lastname,
+                    "date" => $field->updated_at->format("m/d/Y")
+                ];
+            }
+
+        }
+        return $historySectionChanges;
 
     }
 
