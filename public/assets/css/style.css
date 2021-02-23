@@ -1306,5 +1306,4 @@ input:checked + .slider:before {
 }
 .calendario:hover .tooltip-nav_last {
     display: inline-grid;
-    
 }
