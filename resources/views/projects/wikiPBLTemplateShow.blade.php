@@ -579,6 +579,7 @@
                 follow: "{{ \Auth::check() ? App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
                 like: "{{ \Auth::check() ? App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
                 report: "{{ \Auth::check() ? App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                likes:parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}"),
                 assestmentArray: JSON.parse('{!! $assestmentPointsArray !!}'),
                 loading: false,
                 myChart: null,
@@ -704,8 +705,10 @@
             changeLikeIcon() {
                 if (this.like == "1") {
                     this.like = "0"
+                    this.likes = this.likes - 1
                 } else {
                     this.like = "1"
+                    this.likes = this.likes + 1
                 }
             },
             showReportConfirmation() {

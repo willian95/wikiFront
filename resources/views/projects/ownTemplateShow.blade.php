@@ -554,13 +554,13 @@
                 changeLikeIcon(){
                     if(this.like == "1"){
                         this.like = "0"
-                        this.likes = this.likes--
+                        this.likes = this.likes - 1
                         
                         $("#likeIcon").css("fill", "#000")
             
                     }else{
                         this.like = "1"
-                        this.likes = this.likes++
+                        this.likes = this.likes + 1
                         $("#likeIcon").css("fill", "#4674b8")
                     }
                 },
