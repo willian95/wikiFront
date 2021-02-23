@@ -6,7 +6,6 @@
     transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
-
 }
 
 *,
@@ -26,8 +25,6 @@
     background: #9e9e9e;
 }
 
-
-
 body :focus {
     outline: none;
 }
@@ -35,25 +32,21 @@ body :focus {
 a {
     text-decoration: none !important;
 }
-html{
+html {
     scroll-behavior: smooth !important;
 }
 body {
-    
-    font-family: 'Inconsolata', monospace;
-    font-family: 'Montserrat', sans-serif;
-
+    font-family: "Inconsolata", monospace;
+    font-family: "Montserrat", sans-serif;
 }
 
 .font-titulos {
-    font-family: 'Inconsolata',
-    monospace;
+    font-family: "Inconsolata", monospace;
     font-weight: 600;
 }
 
 .font-parraf {
-    font-family: 'Montserrat',
-    sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 /*---------------
@@ -71,8 +64,6 @@ Nav
 
 .login_icon {
     width: 30px;
-
-
 }
 
 .header-icons {
@@ -81,12 +72,12 @@ Nav
 }
 
 .header-shadow {
- box-shadow: 0px 0px 20px #00000008;
- position: fixed;
- width: 100%;
- top: 0;
- background: #fff;
- z-index: 99;
+    box-shadow: 0px 0px 20px #00000008;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #fff;
+    z-index: 99;
 }
 
 @media (max-width: 767px) {
@@ -103,7 +94,7 @@ Nav
         transition: -webkit-transform 0.3s ease-in-out;
         transition: transform 0.3s ease-in-out;
         transition: transform 0.3s ease-in-out,
-        -webkit-transform 0.3s ease-in-out;
+            -webkit-transform 0.3s ease-in-out;
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
     }
@@ -120,7 +111,7 @@ Nav
         padding: 0;
         width: 100%;
         background: transparent;
-        transition: .6s;
+        transition: 0.6s;
     }
 
     .hamburger:hover {
@@ -224,7 +215,7 @@ Nav
 
 .nav-item {
     cursor: pointer;
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
 }
 
 .flex-custom {
@@ -250,14 +241,14 @@ Nav
 .w-nav {
     /*width: 100px;*/
 }
-.w-nav svg{
+.w-nav svg {
     width: 20px;
     height: auto;
 }
 
 /**********modaaal******************** */
 .titulo {
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
     font-weight: 600;
     font-size: 23px;
 }
@@ -276,7 +267,7 @@ Nav
     display: flex;
     margin-bottom: 30px;
 }
-.info-regrister p{
+.info-regrister p {
     margin: 0;
 }
 
@@ -339,224 +330,218 @@ Nav
     }
     }*/
 
-    .option-input {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -ms-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-        position: relative;
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
 
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        transition: all 0.15s ease-out 0s;
-        background: transparent;
-        border: 1px solid #000;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        margin-right: 0.5rem;
-        outline: none;
-        position: relative;
-        z-index: 1000;
-    }
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: transparent;
+    border: 1px solid #000;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
 
-    .option-input:hover {
-        background: #9faab7;
-    }
+.option-input:hover {
+    background: #9faab7;
+}
 
-    .option-input:checked {
-        background: transparent;
-        border: 1px solid #000;
-    }
+.option-input:checked {
+    background: transparent;
+    border: 1px solid #000;
+}
 
-    .option-input:checked::before {
-        height: 19px;
-        width: 19px;
-        position: absolute;
-        content: '✔';
-        display: inline-block;
-        font-size: 12px;
-        text-align: center;
-        line-height: 0px;
-        color: black;
-        left: 0;
-    }
+.option-input:checked::before {
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    content: "✔";
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    line-height: 0px;
+    color: black;
+    left: 0;
+}
 
-    .option-input:checked::after {
-        -webkit-animation: click-wave 0.65s;
-        -moz-animation: click-wave 0.65s;
-        animation: click-wave 0.65s;
-        background: #40e0d0;
-        content: '';
-        display: block;
-        position: relative;
-        z-index: 100;
-    }
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 100;
+}
 
-    .option-input.radio {}
+.option-input.radio {
+}
 
-    .option-input.radio::after {}
+.option-input.radio::after {
+}
 
+/*****estep form** */
+/* Style the form */
 
-    /*****estep form** */
-    /* Style the form */
+/* Style the input fields */
+.check-inst input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
 
+/* Mark input boxes that gets an error on validation: */
+.check-inst input.invalid {
+    background-color: #ffdddd;
+}
 
-    /* Style the input fields */
-    .check-inst input {
-        padding: 10px;
-        width: 100%;
-        font-size: 17px;
-        font-family: Raleway;
-        border: 1px solid #aaaaaa;
-    }
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
 
-    /* Mark input boxes that gets an error on validation: */
-    .check-inst input.invalid {
-        background-color: #ffdddd;
-    }
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
 
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4caf50;
+}
 
+.info-regrister--inst p {
+    font-weight: 600;
+    font-family: "Inconsolata";
+    font-size: 15px;
+}
 
-    /* Make circles that indicate the steps of the form: */
-    .step {
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbbbbb;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        opacity: 0.5;
-    }
+.info-regrister img {
+    width: 23px;
+}
+.info-regrister svg {
+    width: 23px;
+    height: auto;
+}
 
-    /* Mark the active step: */
-    .step.active {
-        opacity: 1;
-    }
+.modal-footers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #00000033;
+}
 
-    /* Mark the steps that are finished and valid: */
-    .step.finish {
-        background-color: #4CAF50;
-    }
+.modal-footers .btn {
+    border-right: 1px solid #00000033;
+    border-radius: 0;
+}
 
+.contenido-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 13px;
+}
 
+.contenido-select-2 {
+    grid-template-columns: 1fr 1fr;
+}
 
-    .info-regrister--inst p {
-        font-weight: 600;
-        font-family: 'Inconsolata';
-        font-size: 15px;
-    }
+.info-regrister-2 {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .info-regrister img {
-        width: 23px;
-    }
-    .info-regrister svg {
-        width: 23px;
-        height: auto;
-    }
+/************************************** */
+.home-present {
+    text-align: center;
+}
 
-    .modal-footers {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border-top: 1px solid #00000033;
-    }
+h1 {
+    font-family: "Inconsolata";
+    font-size: 35px;
+    margin-bottom: 2rem;
+}
 
-    .modal-footers .btn {
-        border-right: 1px solid #00000033;
-        border-radius: 0;
-    }
+h3 {
+    font-family: "Inconsolata";
+}
 
-    .contenido-select {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 13px;
-    }
+.home-present p,
+.categories-layout_title p {
+    margin: 20px 0;
+    font-size: 14px;
+}
 
-    .contenido-select-2 {
-        grid-template-columns: 1fr 1fr;
-    }
+.search-home {
+    border-radius: 30px;
+    border: 1px solid #00000038;
+    width: 40%;
+    padding: 10px 40px;
+}
 
-    .info-regrister-2 {
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.search-home:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 12px #0000004f;
+}
 
-    /************************************** */
-    .home-present {
-        text-align: center;
-    }
+.hashtag-home {
+    margin: 40px 0px;
+}
 
-    h1 {
-        font-family: 'Inconsolata';
-        font-size: 35px;
-        margin-bottom: 2rem;
-    }
+.hashtag-home span {
+    margin-right: 12px;
+    color: #4674b8;
+    font-size: 13px;
+}
 
-    h3 {
-        font-family: 'Inconsolata';
-    }
+.icon-sear {
+    margin-left: 18px;
+    position: absolute;
+    margin-top: 12px;
+}
 
-    .home-present p,
-    .categories-layout_title p {
-        margin: 20px 0;
-        font-size: 14px;
-    }
+.check-inst-home {
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    text-align: start;
+}
 
-    .search-home {
-        border-radius: 30px;
-        border: 1px solid #00000038;
-        width: 40%;
-        padding: 10px 40px;
-    }
+.abc-home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.abc-home a {
+    color: #000000;
+}
 
-    .search-home:focus {
-
-        border: 1px solid transparent;
-        box-shadow: 0px 0px 12px #0000004f;
-
-    }
-
-    .hashtag-home {
-        margin: 40px 0px;
-    }
-
-    .hashtag-home span {
-        margin-right: 12px;
-        color: #4674b8;
-        font-size: 13px;
-    }
-
-    .icon-sear {
-        margin-left: 18px;
-        position: absolute;
-        margin-top: 12px;
-    }
-
-    .check-inst-home {
-        display: flex;
-        align-items: self-start;
-        flex-direction: column;
-        text-align: start;
-    }
-
-    .abc-home {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    .abc-home a{
-       color: #000000;
-   }
-
-   .abc-home .abc-content {
+.abc-home .abc-content {
     width: 24%;
     position: relative;
     margin-bottom: 1.5rem;
@@ -573,7 +558,7 @@ Nav
 
 .abc-home strong {
     font-size: 30px;
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
     position: absolute;
     left: -20px;
     top: -15px;
@@ -595,9 +580,8 @@ Nav
 
 .feactured-one .titulo {
     font-size: 20px;
-    font-family: 'Inconsolata';
-    line-height: .9;
-
+    font-family: "Inconsolata";
+    line-height: 0.9;
 }
 
 .feactured-one .titulo span {
@@ -607,7 +591,6 @@ Nav
 
 .abc-categories .abc-content {
     width: 16%;
-
 }
 
 /**********************profile*************** */
@@ -619,11 +602,10 @@ Nav
 .main-dates {
     text-align: center;
     margin: 50px 0;
-
 }
 
 .main-dates p {
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
 }
 
 /* The switch - the box around the slider */
@@ -650,8 +632,8 @@ Nav
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 }
 
 .slider:before {
@@ -662,19 +644,19 @@ Nav
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 }
 
-input:checked+.slider {
-    background-color: #2196F3;
+input:checked + .slider {
+    background-color: #2196f3;
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -688,7 +670,6 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-
 
 .slider-nav {
     height: 25px;
@@ -707,7 +688,6 @@ input:checked+.slider:before {
 .wiki-accordion .card {
     border: 0;
 }
-
 
 .nav {
     width: 100%;
@@ -741,10 +721,11 @@ input:checked+.slider:before {
     display: block;
 }
 
-.menu-titulo {}
+.menu-titulo {
+}
 
 .nav ul li ul li:hover {
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     position: relative;
 }
 
@@ -768,7 +749,7 @@ input:checked+.slider:before {
 
 .nav-fixed .dropdown-toggle {
     font-size: 16px;
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
     font-weight: 500;
     border-bottom: 1px #d7d9dd solid;
     white-space: initial;
@@ -784,7 +765,7 @@ input:checked+.slider:before {
 
 .nav a {
     font-size: 16px;
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
     font-weight: 500;
     cursor: pointer;
 }
@@ -808,7 +789,7 @@ input:checked+.slider:before {
 }
 
 .home:hover .blue-box {
-    background-color: #3FA6FD;
+    background-color: #3fa6fd;
     position: absolute;
     margin-left: 0;
     height: 100%;
@@ -837,7 +818,7 @@ input:checked+.slider:before {
 }
 
 .settings:hover .blue-box {
-    background-color: #3FA6FD;
+    background-color: #3fa6fd;
     position: absolute;
     margin-left: 0;
     height: 100%;
@@ -860,7 +841,7 @@ input:checked+.slider:before {
 }
 
 .nav-box_li:hover .blue-box {
-    background-color: #9EC54C;
+    background-color: #9ec54c;
     position: absolute;
     margin-left: 0;
     height: 100%;
@@ -886,7 +867,7 @@ input:checked+.slider:before {
     margin-left: 275px;
     border-right: 9px solid transparent;
     border-left: 9px solid transparent;
-    border-bottom: 9px solid #FEFEFE;
+    border-bottom: 9px solid #fefefe;
     position: absolute;
     top: -9px;
 }
@@ -978,7 +959,7 @@ input:checked+.slider:before {
     border-bottom: 1px solid #0000000d;
     padding: 10px;
     font-weight: 700;
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
 }
 
 .menu-template_option li {
@@ -986,7 +967,7 @@ input:checked+.slider:before {
     margin-bottom: 10px;
     padding: 6px 13px;
     cursor: pointer;
-}/*
+} /*
 .menu-template_option li:hover{
     background: #9e9e9e;
     color: #fff;
@@ -1000,6 +981,7 @@ input:checked+.slider:before {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: 4rem;
 }
 
 .content_template textarea {
@@ -1009,7 +991,6 @@ input:checked+.slider:before {
 .titulo-templates {
     text-transform: capitalize;
     font-weight: 600;
-
 }
 
 .txt-edit {
@@ -1028,74 +1009,75 @@ input:checked+.slider:before {
     padding-bottom: 30px;
     list-style: none;
 }
-.content_template-general-item img{
-    width: 4%!important;
-    height: 4%!important;
+.content_template-general-item img {
+    width: 4% !important;
+    height: 4% !important;
 }
-.flex-edit{
+.flex-edit {
     display: flex;
     align-items: baseline;
 }
-.forgot{
+.forgot {
     color: #757575;
     font-size: 12px;
 }
-.btn-cerrar{
+.btn-cerrar {
     position: absolute;
     right: 0;
     top: 0;
 }
-.btn-cerrar .btn{
+.btn-cerrar .btn {
     font-size: 35px;
 }
-.p50{
+.p50 {
     padding: 0 50px;
 }
-.info-regrister--inst{
+.info-regrister--inst {
     width: 100%;
     text-align: center;
     justify-content: center;
     display: block;
 }
-.nav-link  svg{
+.nav-link svg {
     width: 20px;
     height: auto;
 }
-.last-style{
- font-size: 9px;
- line-height: 0;
- padding-top: 10px;
+.last-style {
+    font-size: 9px;
+    line-height: 0;
+    padding-top: 10px;
 }
-.p5{
+.p5 {
     padding-top: 5rem;
 }
-.w29{
+.w29 {
     width: 29px;
 }
-.color-blue_icon{
+.color-blue_icon {
     fill: #4674b8;
 }
-.color-green_icon{
+.color-green_icon {
     fill: #9ec54c;
 }
-.color-blue_icon:hover, .color-green_icon:hover{
+.color-blue_icon:hover,
+.color-green_icon:hover {
     fill: #cccccc;
 }
-.subtitule_txt{
+.subtitule_txt {
     color: #ababab;
     font-size: 12px;
 }
-.close-tab{
+.close-tab {
     cursor: pointer;
     position: absolute;
     right: 11px;
 }
-.card-sub{
+.card-sub {
     border: 0;
     box-shadow: 0px 0px 9px #0000003d;
     text-transform: capitalize;
 }
-.card-sub:hover{
+.card-sub:hover {
     box-shadow: 0px 0px 9px #0000001f;
 }
 /*.days{
@@ -1103,12 +1085,12 @@ input:checked+.slider:before {
     border: 0;
     }*/
 
-    .days-descr{
-     height: 32px;
-     overflow: hidden;
-     padding: 10px 10px 29px;
- }
- .desc-days{
+.days-descr {
+    height: 32px;
+    overflow: hidden;
+    padding: 10px 10px 29px;
+}
+.desc-days {
     display: none;
     /* border: 1px solid red; */
     font-size: 13px;
@@ -1119,18 +1101,17 @@ input:checked+.slider:before {
     padding: 20px;
     border-radius: 10px;
 }
-.card:hover .desc-days{
-  display: block;
-  box-shadow: 0px 0px 9px #0000001f;
-
+.card:hover .desc-days {
+    display: block;
+    box-shadow: 0px 0px 9px #0000001f;
 }
 
-.info_wikis{
+.info_wikis {
     box-shadow: 0px 0px 10px #0006;
     border-radius: 10px;
     padding: 20px;
 }
-.info_wikis .card{
+.info_wikis .card {
     display: flex;
     flex-direction: initial;
     align-items: center;
@@ -1138,24 +1119,24 @@ input:checked+.slider:before {
     border: 0;
     margin-bottom: 14px;
 }
-.info_wikis svg{
+.info_wikis svg {
     width: 28px;
 }
-.info_wikis p{
+.info_wikis p {
     margin: 0;
 }
-.info_wikis span{
+.info_wikis span {
     font-weight: 700;
     color: #4674b8;
-    font-family: 'Inconsolata';
+    font-family: "Inconsolata";
     font-size: 20px;
 }
-.nav-item{
+.nav-item {
     position: relative;
 }
 /* Mostrando los tooltip-navs*/
-.nav-item:hover .tooltip-nav{
-	display: block;
+.nav-item:hover .tooltip-nav {
+    display: block;
 }
 
 /* tooltip-nav CSS 2.1 */
@@ -1171,19 +1152,17 @@ input:checked+.slider:before {
     position: absolute;
     width: 0;
     top: -6px;
-    transform: rotate(
--180deg
-);
+    transform: rotate(-180deg);
 }
-.by{
+.by {
     color: #4674b8;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 500;
     font-size: 15px;
 }
 .tooltip-nav {
     background-color: #9a9a9a;
-    color: #FFFFFF;
+    color: #ffffff;
     display: none;
     left: -37px;
     padding: 10px 11px;
@@ -1194,19 +1173,19 @@ input:checked+.slider:before {
     border-radius: 5px;
 }
 
-.btn-votos{
+.btn-votos {
     color: #4674b8;
     font-size: 14px;
     border: 1px solid #dadada;
     width: 200px;
     text-align: start;
 }
-.flex-icons{
+.flex-icons {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.card-shows{
+.card-shows {
     background: #9ec54c;
     color: #fff;
     border: 0;
@@ -1214,35 +1193,35 @@ input:checked+.slider:before {
     width: 169px;
     height: 50px;
 }
-.card-shows .card-body{
+.card-shows .card-body {
     padding: 11px 15px;
 }
-.arrow-up{
+.arrow-up {
     position: fixed;
     right: 20px;
     bottom: 30px;
 }
-.arrow-up svg{
+.arrow-up svg {
     width: 35px;
     box-shadow: 0px 0px 16px #00000040;
     border-radius: 50%;
     background: #4674b8;
 }
-.up{
+.up {
     opacity: 0;
-    transition: .8s;
+    transition: 0.8s;
 }
-.up-show{
+.up-show {
     opacity: 1;
-    transition: .8s;
+    transition: 0.8s;
 }
-.card-body_tarea{
+.card-body_tarea {
     font-size: 10px;
     padding: 12px;
     height: 7vh;
     overflow: hidden;
 }
-.btn-info{
+.btn-info {
     margin: 50px 0;
     margin-left: 20px;
     background: #4674b8;
@@ -1250,6 +1229,82 @@ input:checked+.slider:before {
     padding: 4px 18px;
 }
 
-.hover-svg:hover{
+.hover-svg:hover {
     fill: #4674b8;
+}
+.last-menu {
+    display: flex;
+    justify-content: space-between;
+}
+.last-meu_p {
+    font-size: 12px;
+}
+.last-menu span {
+    font-weight: 600;
+    text-align: center;
+}
+.last-menu {
+}
+.borde-calen {
+    padding: 10px;
+    margin: 0;
+}
+.calendario {
+    display: flex;
+    border: 1px solid #4674b8;
+    border-radius: 10px;
+    padding: 0px 10px;
+        position: relative;
+}
+.user_last {
+    display: flex;
+    font-size: 14px;
+    margin: 9px 0;
+}
+.user_last svg {
+    width: 17px;
+    margin-right: 5px;
+}
+
+
+/* tooltip-nav CSS 2.1 */
+.tooltip-nav_last:before {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #9a9a9a;
+    bottom: -6px;
+    content: "";
+    height: 0;
+    left: 50%;
+    margin-left: -6px;
+    position: absolute;
+    width: 0;
+    top: -6px;
+    transform: rotate(-180deg);
+}
+
+.tooltip-nav_last {
+    background-color: #9a9a9a;
+    color: #ffffff;
+    display: none;
+    left: 0;
+    padding: 10px 11px;
+    position: absolute;
+    top: 100%;
+    font-size: 11px;
+    /* width: 100px; */
+    border-radius: 5px;
+    right: 0;
+    max-height: 50vh;
+    overflow: scroll;
+}
+.tooltip-nav_last span{
+    border-bottom: 1px solid #ffffff29;
+    padding-bottom: 10px;
+    padding-top: 10px;
+        text-align: start;
+}
+.calendario:hover .tooltip-nav_last {
+    display: inline-grid;
+    
 }
