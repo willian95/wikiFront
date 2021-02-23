@@ -83,7 +83,7 @@
                                 <div class="col-md-4">
                                     @foreach($assestmentPoints as $point)
                                         <p>
-                                            <button class="btn btn-success" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                            <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                                 <i class="fa {{ $point->assestmentPointType->icon }}"></i>
                                                 {{ $point->assestmentPointType->name }}
                                             </button>
@@ -391,7 +391,50 @@
                     loading:false,
                     myChart:null,
                     labels:[],
-                    values:[]
+                    values:[],
+
+                    institutions: [],
+                    selected_institution: "",
+                    institution_not_registered: false,
+                    name: "",
+                    lastname: "",
+                    email: "",
+                    institution_email: "",
+                    password: "",
+                    password_confirmation: "",
+                    step: 1,
+                    errors: [],
+                    forgotPasswordErrors:[],
+                    loading: false,
+                    admin_institution_name: "",
+                    admin_institution_lastname: "",
+                    admin_institution_email: "",
+                    admin_institution_phone: "",
+                    admin_institution_password: "",
+                    admin_institution_password_confirmation: "",
+                    institution_name: "",
+                    institution_website: "",
+                    institution_email: "",
+                    institution_type: "",
+                    user: null,
+                    login_email: "",
+                    login_password: "",
+                    showInstitutionStepForm: false,
+                    stepForm: 1,
+                    countries: [],
+                    selectedCountry: "",
+                    states: [],
+                    selectedState: "",
+                    gender_institution_type: "",
+                    lowest_age: "",
+                    highest_age: "",
+                    part_of_network_institution: 'true',
+                    institution_public_or_private: "public",
+                    students_enrolled: "0-100",
+                    faculty_members: "0-50",
+                    which_network: "",
+                    forgotPasswordEmail:"",
+
                 }
             },
             methods:{
@@ -629,43 +672,726 @@
 
                     })
 
+                },
+                next(form = "teacher") {
+
+                    if (form == "institution") {
+                        if (this.validateNextStepInstitution()) {
+                            this.stepForm++
+                        }
+
+                    } else {
+                        this.step++
+                    }
+
+                },
+                previous(form = "teacher") {
+
+                    if (form == "institution") {
+                        if (this.stepForm - 1 > 0) {
+                            this.stepForm--
+                        }
+                    } else {
+                        if (this.step - 1 > 0) {
+                            this.step--
+                        }
+                    }
+                },
+                fetchCountries() {
+
+                    axios.get("{{ url('/countries/fetch') }}").then(res => {
+
+                        this.countries = res.data.countries
+
+                    })
+
+                },
+                fetchStates() {
+
+                    axios.get("{{ url('/states/fetch/') }}" + "/" + this.selectedCountry).then(res => {
+
+                        this.states = res.data.states
+
+                    })
+
+                },
+                fetchAllInstitutions() {
+
+                    axios.get("{{ url('/institutions/fetchAll') }}").then(res => {
+
+                        this.institutions = res.data.institutions;
+
+                    })
+
+                },
+                resetRegistrationForm() {
+
+                    this.step = 1;
+                    this.selected_institution = ""
+                    this.name = ""
+                    this.lastname = ""
+                    this.email = ""
+                    this.institution_email = ""
+                    this.password = ""
+                    this.password_confirmation = ""
+                    this.user = null
+                    this.institution_not_registered = false
+                    this.institution_name = ""
+                    this.institution_contact_email = ""
+                    this.institution_website = ""
+
+                },
+                resetInstitutionRegistrationForm() {
+
+                    this.admin_institution_name = ""
+                    this.admin_institution_lastname = ""
+                    this.admin_institution_email = ""
+                    this.admin_institution_phone = ""
+                    this.admin_institution_password = ""
+                    this.admin_institution_password_confirmation = ""
+                    this.institution_name = ""
+                    this.institution_website = ""
+                    this.institution_type = ""
+
+                },
+                login() {
+
+                    this.loading = true
+
+                    axios.post("{{ url('/login') }}", {
+                        "login_email": this.login_email,
+                        "login_password": this.login_password
+                    }).then(res => {
+
+                        this.loading = false
+                        if (res.data.success == true) {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            }).then(res => {
+
+                                window.location.reload()
+
+                            })
+
+                        } else {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+
+                        }
+
+                    }).catch(err => {
+
+                        swal({
+                            text: "Check some fields, please",
+                            icon: "error"
+                        });
+
+                        this.loading = false
+                        this.errors = err.response.data.errors
+                    })
+                },
+                teacherRegister() {
+
+                    if (this.validateTeacherRegister()) {
+
+                        let form = new FormData
+                        form.append("name", this.name)
+                        form.append("email", this.email)
+                        form.append("lastname", this.lastname)
+                        form.append("institution_email", this.institution_email)
+                        form.append("password", this.password)
+                        form.append("password_confirmation", this.password_confirmation)
+                        form.append("institution_id", this.selected_institution.id)
+                        form.append("institution_not_registered", this.institution_not_registered)
+                        form.append("institution_name", this.institution_name)
+                        form.append("institution_contact_email", this.institution_contact_email)
+                        form.append("institution_website", this.institution_website)
+
+                        this.loading = true
+
+                        axios.post("{{ url('/register') }}", form).then(res => {
+
+                            this.loading = false
+
+                            if (res.data.success == true) {
+
+                                this.resetRegistrationForm()
+                                this.user = res.data.user
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "success"
+                                }).then(res => {
+
+
+                                    $(".modalClose").click();
+                                    $('body').removeClass('modal-open');
+                                    $('body').css('padding-right', '0px');
+                                    $('.modal-backdrop').remove();
+
+                                    $('#mensaje').modal('show')
+
+                                })
+
+
+                            } else {
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "error"
+                                })
+
+                            }
+
+                        }).catch(err => {
+
+                            swal({
+                                text: "Check some fields, please",
+                                icon: "error"
+                            });
+
+
+                            this.loading = false
+                            this.errors = err.response.data.errors
+                        })
+                    }
+
+                },
+                institutionRegister() {
+
+                    if (this.validateInstitutionRegister()) {
+
+                        this.loading = true
+
+                        let formData = new FormData;
+                        formData.append("admin_institution_name", this.admin_institution_name)
+                        formData.append("admin_institution_lastname", this.admin_institution_lastname)
+                        formData.append("admin_institution_email", this.admin_institution_email)
+                        formData.append("admin_institution_phone", this.admin_institution_phone)
+                        formData.append("admin_institution_password", this.admin_institution_password)
+                        formData.append("admin_institution_password_confirmation", this
+                            .admin_institution_password_confirmation)
+                        formData.append("institution_name", this.institution_name)
+                        formData.append("institution_website", this.institution_website)
+                        formData.append("institution_type", this.institution_type)
+
+                        axios.post("{{ url('/institution-register') }}", formData).then(res => {
+
+                            this.loading = false
+
+                            if (res.data.success == true) {
+
+                                this.resetInstitutionRegistrationForm()
+                                this.user = res.data.user
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "success"
+                                }).then(res => {
+
+
+
+                                    $(".modalClose").click();
+                                    $('body').removeClass('modal-open');
+                                    $('body').css('padding-right', '0px');
+                                    $('.modal-backdrop').remove();
+
+                                    $('#mensaje').modal('show')
+
+                                })
+
+                            } else {
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "error"
+                                })
+
+                            }
+
+                        }).catch(err => {
+
+                            swal({
+                                text: "Check some fields, please",
+                                icon: "error"
+                            });
+
+
+                            this.loading = false
+                            this.errors = err.response.data.errors
+                        })
+
+                    }
+
+                },
+                validateTeacherRegister() {
+
+
+                    if (!this.institution_not_registered) {
+                        if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
+                            .toLowerCase()) < 0) {
+
+                            swal({
+                                text: "Institution website and your institution email doesn't match",
+                                icon: "warning"
+                            })
+
+                            return false
+
+                        }
+
+                    }
+
+                    if (this.institution_not_registered) {
+
+                        if (this.institution_name == "") {
+                            swal({
+                                text: "Institution name is required",
+                                icon: "warning"
+                            })
+
+                            return false
+                        } else if (this.institution_contact_email == "") {
+                            swal({
+                                text: "Institution contact email is required",
+                                icon: "warning"
+                            })
+
+                            return false
+                        } else if (this.institution_website == "") {
+                            swal({
+                                text: "Institution websote is required",
+                                icon: "warning"
+                            })
+
+                            return false
+                        }
+
+                    }
+
+
+                    if (this.name == "") {
+
+                        swal({
+                            text: "Name is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.lastname == "") {
+
+                        swal({
+                            text: "Lastname is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.email == "") {
+
+                        swal({
+                            text: "Email is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.institution_email == "") {
+
+                        swal({
+                            text: "Institution email is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.password == "") {
+
+                        swal({
+                            text: "Password is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.password_confirmation != this.password) {
+
+                        swal({
+                            text: "Passwords don't match",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    }
+
+                    return true
+
+                },
+                validateInstitutionRegister() {
+
+                    if (this.admin_institution_name == "") {
+
+                        swal({
+                            text: "Name is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.admin_institution_lastname == "") {
+
+                        swal({
+                            text: "Lastname is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.admin_institution_email == "") {
+
+                        swal({
+                            text: "Email is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.admin_institution_phone == "") {
+
+                        swal({
+                            text: "Phone is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.admin_institution_password == "") {
+
+                        swal({
+                            text: "Password is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.admin_institution_password != this
+                        .admin_institution_password_confirmation) {
+
+                        swal({
+                            text: "Password don't match",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.institution_type == "") {
+
+                        swal({
+                            text: "Institution type is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.institution_name == "") {
+
+                        swal({
+                            text: "Institution name is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    } else if (this.institution_website == "") {
+
+                        swal({
+                            text: "Institution website is required",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    }
+
+                    return true
+
+                },
+                resendEmail() {
+                    this.loading = true
+                    axios.post("{{ url('/resend-email') }}", {
+                        id: this.user.id
+                    }).then(res => {
+                        this.loading = false
+                        if (res.data.success == true) {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            });
+
+                        } else {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            });
+
+                        }
+
+                    }).catch(err => {
+
+                        this.loading = false
+                    })
+
+                },
+                isNumber(evt) {
+                    evt = (evt) ? evt : window.event;
+                    var charCode = (evt.which) ? evt.which : evt.keyCode;
+                    if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
+                        evt.preventDefault();;
+                    } else {
+                        return true;
+                    }
+                },
+                validateNextStepInstitution() {
+
+                    if (this.institution_type == "school" || this.institution_type == "university") {
+
+                        if (this.selectedCountry == "" || this.selectedState == "" || this
+                            .gender_institution_type == "" || this.lowest_age == "" || this.highest_age == "") {
+                            return false
+                    }
+
+                        } else if (this.institution_type == "organization") {
+
+                            if (this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" ||
+                                this.highest_age == "") {
+                                return false
+                        }
+
+                    }
+
+                    return true
+
+                },
+                validateFirstUpdateInstitution() {
+
+                    if (this.institution_type == "school" || this.institution_type == "university") {
+
+                        if (this.part_of_network_institution == "true" && this.which_network == ""){
+                            swal({
+                                text:"Institution network is required",
+                                icon: "error"
+                            })
+
+                            return false
+                        }
+
+                        else if(this.institution_public_or_private == ""){
+
+                            swal({
+                                text:"Public or private institution?",
+                                icon: "error"
+                            })
+
+                            return false
+
+                        }else if(this.students_enrolled == ""){
+
+                            swal({
+                                text:"Stundents enrolled is required",
+                                icon: "error"
+                            })
+
+                            return false
+
+                        }else if(this.faculty_members == ""){
+
+                            swal({
+                                text:"Faculty members is required",
+                                icon: "error"
+                            })
+
+                            return false
+                        }
+
+                    } else if (this.institution_type == "organization") {
+
+                        if (this.institution_public_or_private == "") {
+
+                            swal({
+                                text:"Public or private institution?",
+                                icon: "error"
+                            })
+
+                            return false
+                        }
+
+                    }
+
+                    return true
+
+                },
+                institutionFirstUpdate() {
+
+                    if (this.validateFirstUpdateInstitution()) {
+
+                        this.loading = true
+
+                        let form = new FormData;
+                        form.append("country_id", this.selectedCountry)
+                        form.append("state_id", this.selectedState)
+                        form.append("gender_institution_type", this.gender_institution_type)
+                        form.append("lowest_age", this.lowest_age)
+                        form.append("highest_age", this.highest_age)
+                        form.append("part_of_network_institution", this.part_of_network_institution)
+                        form.append("which_network", this.which_network)
+                        form.append("institution_public_or_private", this.institution_public_or_private)
+                        form.append("students_enrolled", this.students_enrolled)
+                        form.append("faculty_members", this.faculty_members)
+
+                        axios.post("{{ url('/institution/first-update') }}", form).then(res => {
+
+                            this.loading = false
+
+                            if (res.data.success == true) {
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "success"
+                                }).then(res => {
+
+                                    $(".modalClose").click();
+                                    $('body').removeClass('modal-open');
+                                    $('body').css('padding-right', '0px');
+                                    $('.modal-backdrop').remove();
+
+                                })
+
+                            } else {
+
+                                swal({
+                                    text: res.data.msg,
+                                    icon: "error"
+                                })
+
+                            }
+
+                        }).catch(err => {
+
+                            this.loading = false
+
+                        })
+
+                    }
+
+                },
+                restorePassword(){
+
+                    axios.post("{{ url('/password/send-email') }}", {"email": this.forgotPasswordEmail}).then(res => {
+
+                        if(res.data.success == true){
+
+                            $(".modalClose").click();
+                            $('body').removeClass('modal-open');
+                            $('body').css('padding-right', '0px');
+                            $('.modal-backdrop').remove();
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            });
+
+                        }
+
+                    }).catch(err => {
+
+                        swal({
+                            text: "Check some fields, please",
+                            icon: "error"
+                        });
+
+                        this.loading = false
+                        this.forgotPasswordErrors = err.response.data.errors
+
+                    })
+
+                },
+                forgotPasswordShowModal(){
+
+                    $(".modalClose").click();
+                    $('body').removeClass('modal-open');
+                    $('body').css('padding-right', '0px');
+                    $('.modal-backdrop').remove();
+
+                    $(".forgotPassword").modal('show')
+
+                },
+                checkInstitution(){
+
+                    window.setTimeout(() => {
+                        if(this.institution_not_registered == true){
+                            this.selected_institution = ""
+                        }
+                    }, 200)
+
                 }
         
-        },
-        mounted(){
+            },
+            mounted(){
 
-            let level = JSON.parse('{!! $level !!}')
-            this.level = level.level
-            this.ages = level.ages
+                let level = JSON.parse('{!! $level !!}')
+                this.level = level.level
+                this.ages = level.ages
 
-            this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
-            this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
-            
-            if("{{ strlen($subjects) }}" > 0){
-                this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
+                this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+                
+                if("{{ strlen($subjects) }}" > 0){
+                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+                }
+
+                if(("{{ $hashtag }}").length > 0){
+                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+                }
+
+                if(this.like > 0){
+                    $("#likeIcon").css("fill", "#4674b8")
+                }
+
+                if(this.report > 0){
+                    $("#reportIcon").css("fill", "#4674b8")
+                }
+
+                if(this.follow > 0){
+                    $("#followIcon").css("fill", "#4674b8")
+                }
+
+                this.fetchAllInstitutions()
+
+                if (this.showInstitutionStepForm == 1) {
+                    $(".stepFormModal").modal('show')
+                    this.fetchCountries()
+                }
+
+                @if(\Auth::check())
+
+                    this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+
+                @endif
+
+                //this.drawChart()
+
             }
 
-            if(("{{ $hashtag }}").length > 0){
-                this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
-            }
-
-            if(this.like > 0){
-                $("#likeIcon").css("fill", "#4674b8")
-            }
-
-            if(this.report > 0){
-                $("#reportIcon").css("fill", "#4674b8")
-            }
-
-            if(this.follow > 0){
-                $("#followIcon").css("fill", "#4674b8")
-            }
-
-            this.drawChart()
-
-        }
-
-    })
+        })
     
 </script>
 

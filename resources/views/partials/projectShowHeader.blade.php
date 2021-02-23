@@ -173,5 +173,25 @@
     </header>
 
 
+<!-- registro modal -->
+@include("partials.authModals.teacherRegistrationModal")
+
+
+<!-- institution-modal modal -->
+@include("partials.authModals.institutionRegistrationModal")
+
+
+<!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
+
+<!-- Modal -->
+@include("partials.authModals.messageModal")
+
+<!-- Login -->
+@include("partials.authModals.loginModal")
+
+<!-- forgot Password -->
+@include("partials.authModals.forgotPasswordModal")
+
+<!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
 </div>
 

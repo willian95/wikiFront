@@ -119,9 +119,11 @@ class TeacherController extends Controller
                 $teacherReport->user_id = \Auth::user()->id;
                 $teacherReport->save();
                 
-                /*
-                    add ban to teacher
-                */
+                
+                if(TeacherReport::where("teacher_id", $request->teacher_id)->count() == 10){
+                    $this->banTeacher($request);
+                }
+                
 
                 return response()->json(["success" => true, "msg" => "You have reported this teacher"]);
 
@@ -130,6 +132,37 @@ class TeacherController extends Controller
         }catch(\Exception $e){
 
             return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function banTeacher($request){
+
+        $project = User::find($request->teacher_id);
+        $project->is_banned = 1;
+        $project->update();
+
+        if(env("SEND_EMAIL") == true){
+            $this->sendAdminReportEmail();
+        }
+
+    }
+
+    function sendAdminReportEmail($request){
+
+        foreach(AdminMail::all() as $adminMail){
+
+            $to_name = "Admin";
+            $to_email = $adminMail->email;
+            $data = ["teacher_id" => $request->teacher_id];
+
+            \Mail::send("emails.teacherReport", $data, function($message) use ($to_name, $to_email) {
+
+                $message->to($to_email, $to_name)->subject("Teacher reported");
+                $message->from(env("MAIL_FROM_ADDRESS"), env("MAIL_FROM_NAME"));
+
+            });
 
         }
 

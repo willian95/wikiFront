@@ -177,6 +177,7 @@ class SearchController extends Controller
                 
             }
             
+            $projectsResults = [];
             foreach($projects as $key){
 
                 $projectModel = Project::where("id", $key)->with(["titles" => function($q){
