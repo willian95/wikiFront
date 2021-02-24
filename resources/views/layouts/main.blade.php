@@ -107,7 +107,6 @@
                     })
                     .then(function (token) {
                         console.log("Token : "+token);
-                        document.getElementById("token").innerHTML=token;
                     })
                     .catch(function (reason) {
                         console.log(reason);
