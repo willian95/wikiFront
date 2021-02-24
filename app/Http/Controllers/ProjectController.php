@@ -841,6 +841,7 @@ class ProjectController extends Controller
         $timeFrame = $this->showProjectSection($project[0]->id, "timeFrame")->description;
         $publicProductTitle = $this->showProjectSection($project[0]->id, "publicProduct")->title;
         $publicProduct = $this->showProjectSection($project[0]->id, "publicProduct")->description;
+        $projectSumary = $this->showProjectSection($project[0]->id, "projectSumary")->description;
         $mainInfo = $this->showProjectSection($project[0]->id, "mainInfo")->description;
         $bibliography = $this->showProjectSection($project[0]->id, "bibliography")->description;
         $subjectTitle = $this->showProjectSection($project[0]->id, "subject")->title;
@@ -862,17 +863,18 @@ class ProjectController extends Controller
 
         $titleHistory = $this->titleHistory($project[0]->id);
         $drivingQuestionHistory = $this->secondaryFieldsHistory($project[0]->id, "drivingQuestion");
-        $timeFrameHistory = $this->showProjectSection($project[0]->id, "timeFrame");
-        $publicProjectHistory = $this->showProjectSection($project[0]->id, "publicProduct");
-        $mainInfoHistory = $this->showProjectSection($project[0]->id, "mainInfo");
-        $bibliographyHistory = $this->showProjectSection($project[0]->id, "bibliography");
-        $subjectHistory = $this->showProjectSection($project[0]->id, "subject");
-        $levelHistory = $this->showProjectSection($project[0]->id, "level");
-        $hashtagHistory = $this->showProjectSection($project[0]->id, "hashtag");
-        $calendarActivitiesHistory = $this->showProjectSection($project[0]->id, "calendarActivities");
+        $timeFrameHistory = $this->secondaryFieldsHistory($project[0]->id, "timeFrame");
+        $publicProjectHistory = $this->secondaryFieldsHistory($project[0]->id, "publicProduct");
+        $mainInfoHistory = $this->secondaryFieldsHistory($project[0]->id, "mainInfo");
+        $bibliographyHistory = $this->secondaryFieldsHistory($project[0]->id, "bibliography");
+        $subjectHistory = $this->secondaryFieldsHistory($project[0]->id, "subject");
+        $levelHistory = $this->secondaryFieldsHistory($project[0]->id, "level");
+        $hashtagHistory = $this->secondaryFieldsHistory($project[0]->id, "hashtag");
+        $calendarActivitiesHistory = $this->secondaryFieldsHistory($project[0]->id, "calendarActivities");
+        $projectSumaryHistory = $this->secondaryFieldsHistory($project[0]->id, "projectSumary");
             //$drivingQuestionHistory = $this->showProjectSection($project[0]->id, "upvoteSystem")
 
-
+        
         if($project[0]->type == "own-template"){
 
             return view("projects.ownTemplateShow", 
@@ -907,7 +909,8 @@ class ProjectController extends Controller
                     "subjectHistory" => $subjectHistory,
                     "levelHistory" => $levelHistory,
                     "hashtagHistory" => $hashtagHistory,
-                    "calendarActivitiesHistory" => $calendarActivitiesHistory
+                    "calendarActivitiesHistory" => $calendarActivitiesHistory,
+                    "projectSumaryHistory" => $projectSumaryHistory
                 ]
             );
         }else{
@@ -936,13 +939,13 @@ class ProjectController extends Controller
                 ];
             }
 
-            $toolHistory = $this->showProjectSection($project[0]->id, "tools")->description;
-            $learningGoalHistory = $this->showProjectSection($project[0]->id, "learningGoals")->description;
-            $resourceHistory = $this->showProjectSection($project[0]->id, "resources")->description;
-            $projectMilestoneHistory = $this->showProjectSection($project[0]->id, "projectMilestone")->description;
-            $expertHistory  = $this->showProjectSection($project[0]->id, "expert")->description;
-            $fieldWorkHistory  = $this->showProjectSection($project[0]->id, "fieldWork")->description;
-            $globalConnectionHistory = $this->showProjectSection($project[0]->id, "globalConnections")->description;
+            $toolHistory = $this->secondaryFieldsHistory($project[0]->id, "tools")->description;
+            $learningGoalHistory = $this->secondaryFieldsHistory($project[0]->id, "learningGoals")->description;
+            $resourceHistory = $this->secondaryFieldsHistory($project[0]->id, "resources")->description;
+            $projectMilestoneHistory = $this->secondaryFieldsHistory($project[0]->id, "projectMilestone")->description;
+            $expertHistory  = $this->secondaryFieldsHistory($project[0]->id, "expert")->description;
+            $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork")->description;
+            $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections")->description;
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
@@ -1035,7 +1038,7 @@ class ProjectController extends Controller
 
         }
 
-        return $historyTitleChanges;
+        return json_encode($historyTitleChanges);
 
     }
 
@@ -1057,7 +1060,7 @@ class ProjectController extends Controller
             }
 
         }
-        return $historySectionChanges;
+        return json_encode($historySectionChanges);
 
     }
 
@@ -1300,5 +1303,41 @@ class ProjectController extends Controller
         return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
     }
+
+    function sendFCMNotification(){
+
+        $url ="https://fcm.googleapis.com/fcm/send";
+
+        $token = "fkwdzp_18deVDzF5nke1l2:APA91bH6AQ_Jm1Zk4-lT3OdujQcQWCN-bLWE6vTiP3t3Wl_ohrRJRTyeB8hxnZqvsEkO36OEUkHP9RtqL08wNSKisKjJuipGySnLS7O8IJeTbfV0c7pKgSmNXV1Qz9TAtL-k_6r_ztYj";
+        $body = "Body test";
+        $title = "notification title";
+
+        $fields=array(
+            "to"=>$token,
+            "notification"=>array(
+                "body"=>$body,
+                "title"=>$title,
+                "icon"=>"https://www.wikipbl.org/comingSoonAssets/img/favicon.png",
+                "click_action"=>"https://google.com"
+            )
+        );
+    
+        $headers=array(
+            'Authorization: key=AAAA7rqzndA:APA91bHggyDsG6OhrFvMknYahydWbKXFmME2j72EosbsgnCDMBN2If4URJgfoY9R0mRFe3Eh4txr6pFvzsx-FTmtT3peTzBESB1ReRBwY4fE--iIhFgM_WwRiQswYyuxL67S1fOYjxTO',
+            'Content-Type:application/json'
+        );
+    
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_POST,true);
+        curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
+        $result=curl_exec($ch);
+        print_r($result);
+        curl_close($ch);
+
+    }
+
 
 }

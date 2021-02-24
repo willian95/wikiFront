@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("test/notification", "ProjectController@sendFCMNotification");
+
 Route::get('/', function () {
     return view('comingSoon');
 });
