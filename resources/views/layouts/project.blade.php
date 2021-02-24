@@ -114,26 +114,21 @@
 
             messaging.onMessage(function(payload){
 
-                console.log("payload", payload.data.notification)
+                let data = JSON.parse(payload.data.notification)
 
                 const notificationOption={
-                    body:payload.notification.body,
-                    icon:payload.notification.icon
+                    body:data.body,
+                    icon:data.icon
                 };
 
-                
-
                 if(Notification.permission==="granted"){
-                    var notification=new Notification(payload.notification.title,notificationOption);
+                    var notification=new Notification(data.title,notificationOption);
 
                     notification.onclick=function (ev) {
                         ev.preventDefault();
-                        window.open(payload.notification.click_action,'_blank');
+                        window.open(data.click_action,'_blank');
                         notification.close();
                     }
-
-                    window.localStorage.setItem("show_notifications", "1")
-
                 }
 
             })
