@@ -1404,8 +1404,10 @@
             changeFollowIcon() {
                 if (this.follow == "1") {
                     this.follow = "0"
+                    $("#followIcon").css("fill", "#000")
                 } else {
                     this.follow = "1"
+                    $("#followIcon").css("fill", "#4674b8")
                 }
             },
             likeProject() {
@@ -1436,9 +1438,16 @@
                 if (this.like == "1") {
                     this.like = "0"
                     this.likes = this.likes - 1
+
+                    $("#likeIcon").css("fill", "#000")
+
+
                 } else {
                     this.like = "1"
                     this.likes = this.likes + 1
+
+                    $("#likeIcon").css("fill", "#4674b8")
+
                 }
             },
             showReportConfirmation() {
@@ -1477,8 +1486,14 @@
             changeReportIcon() {
                 if (this.report == "1") {
                     this.report = "0"
+
+                    $("#reportIcon").css("fill", "#000")
+
                 } else {
                     this.report = "1"
+
+                    $("#reportIcon").css("fill", "#4674b8")
+
                 }
             },
             drawChart() {
