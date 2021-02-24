@@ -16,10 +16,11 @@ firebase.initializeApp(firebaseConfig)
 const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload){
-    let data = JSON.parse(payload.data.notification)
+    console.log(payload);
+    const notification=JSON.parse(payload);
     const notificationOption={
-        body:data.body,
-        icon:data.icon
+        body:notification.body,
+        icon:notification.icon
     };
-    return self.registration.showNotification(data.title,notificationOption);
+    return self.registration.showNotification(payload.notification.title,notificationOption);
 })

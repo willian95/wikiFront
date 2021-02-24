@@ -134,6 +134,7 @@
                     }
 
                     window.localStorage.setItem("show_notifications", "1")
+                    alert(data.title)
 
                 }
 

@@ -124,8 +124,6 @@
                 if(Notification.permission==="granted"){
                     var notification=new Notification(data.title,notificationOption);
 
-                    console.log(notification)
-
                     notification.onclick=function (ev) {
                         ev.preventDefault();
                         window.open(data.click_action,'_blank');
