@@ -106,7 +106,8 @@
                         return messaging.getToken();
                     })
                     .then(function (token) {
-                        console.log("Token : "+token);
+                        localStorage.setItem("fcm_token", token)
+                        //console.log("Token : "+token);
                     })
                     .catch(function (reason) {
                         console.log(reason);

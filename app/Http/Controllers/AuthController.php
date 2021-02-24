@@ -23,6 +23,12 @@ class AuthController extends Controller
                         return response()->json(["success" => false, "msg" => "You haven't validate your email"]);
 
                     }else{
+
+                        if(isset($request->token)){
+                            $user->fcm_token = $request->token;
+                            $user->update();
+                        }
+
                         $url = redirect()->intended()->getTargetUrl();
                         return response()->json(["success" => true, "msg" => "Signed in", "role_id" => Auth::user()->role_id, "url" => $url]);
                     }

@@ -459,10 +459,12 @@
             login() {
 
                 this.loading = true
+                let token = window.localStorage.getItem("fcm_token")
 
                 axios.post("{{ url('/login') }}", {
                     "login_email": this.login_email,
-                    "login_password": this.login_password
+                    "login_password": this.login_password,
+                    "token": token
                 }).then(res => {
 
                     this.loading = false

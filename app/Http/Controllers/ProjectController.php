@@ -16,6 +16,7 @@ use App\Like;
 use App\AdminMail;
 use App\UpvoteSystemProject;
 use App\UpvoteSystemProjectVote;
+use App\Notification;
 use DB;
 use PDF;
 
@@ -81,6 +82,18 @@ class ProjectController extends Controller
             $project->status = "launched";
             $project->is_private = $request->is_private;
             $project->update();
+
+            if($project->user_id != \Auth::user()->id){
+                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")-where("status", "launched")->first();
+                $this->storeNotification("Notification", "Your ".$title."  has been updated by ".\Auth::user()->name." ".\Auth::user()->lastname." - Check it out!", $project->user_id, url('/project/show/'.$project->id));
+            }
+
+            foreach(ProjectShare::where("project_id", $project_id)->get() as $project){
+
+                $title = Title::where("project_id", $project_id)->orderBy("id", "desc")-where("status", "launched")->first();
+                $this->storeNotification("Notification", "The ".$title." you are following was updated by ".\Auth::user()->name." ".\Auth::user()->lastname." - Check it out!", $project->user_id, url('/project/show/'.$project_id));
+
+            }
             
             return response()->json(["success" => true, "msg" => "Project successfully launched"]);
 
@@ -939,13 +952,13 @@ class ProjectController extends Controller
                 ];
             }
 
-            $toolHistory = $this->secondaryFieldsHistory($project[0]->id, "tools")->description;
-            $learningGoalHistory = $this->secondaryFieldsHistory($project[0]->id, "learningGoals")->description;
-            $resourceHistory = $this->secondaryFieldsHistory($project[0]->id, "resources")->description;
-            $projectMilestoneHistory = $this->secondaryFieldsHistory($project[0]->id, "projectMilestone")->description;
-            $expertHistory  = $this->secondaryFieldsHistory($project[0]->id, "expert")->description;
-            $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork")->description;
-            $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections")->description;
+            $toolHistory = $this->secondaryFieldsHistory($project[0]->id, "tools");
+            $learningGoalHistory = $this->secondaryFieldsHistory($project[0]->id, "learningGoals");
+            $resourceHistory = $this->secondaryFieldsHistory($project[0]->id, "resources");
+            $projectMilestoneHistory = $this->secondaryFieldsHistory($project[0]->id, "projectMilestone");
+            $expertHistory  = $this->secondaryFieldsHistory($project[0]->id, "expert");
+            $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork");
+            $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections");
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
@@ -983,6 +996,7 @@ class ProjectController extends Controller
                 "globalConnections" => $globalConnections,
                 "assestmentPoints" => $assestmentPoints,
                 "assestmentPointsArray" => json_encode($assestmentPointsArray),
+                "projectSumaryHistory" => $projectSumaryHistory,
 
                 "titleHistory" => $titleHistory,
                 "drivingQuestionHistory" => $drivingQuestionHistory,
@@ -1114,6 +1128,14 @@ class ProjectController extends Controller
                 $like->project_id = $request->project_id;
                 $like->user_id = \Auth::user()->id;
                 $like->save();
+
+                if($project->user_id != \Auth::user()->id){
+
+                    $project = Project::where("id", $request->project_id)->first();
+
+                    $title = Title::where("project_id", $project->id)->orderBy("id", "desc")-where("status", "launched")->first();
+                    $this->storeNotification("Notification", "Your ".$title." just received a like or an assessment point!", $project->user_id, url('/project/show/'.$project->id));
+                }
     
                 return response()->json(["success" => true, "msg" => "You liked this project"]);
     
@@ -1219,6 +1241,14 @@ class ProjectController extends Controller
             $upvote->assestment_point_type_id = $request->assestmentPointTypeId;
             $upvote->save();
 
+            if($project->user_id != \Auth::user()->id){
+
+                $project = Project::where("id", $request->project_id)->first();
+
+                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")-where("status", "launched")->first();
+                $this->storeNotification("Notification", "Your ".$title." just received a like or an assessment point!", $project->user_id, url('/project/show/'.$project->id));
+            }
+
             return response()->json(["action" => "add"]); 
 
         }
@@ -1304,13 +1334,24 @@ class ProjectController extends Controller
 
     }
 
-    function sendFCMNotification(){
+    function storeNotification($title, $body, $userId, $url){
+
+        $notification = new Notification;
+        $notification->title = $title;
+        $notification->body = $body;
+        $notification->url = $url;
+        $notification->user_id = $userId;
+        $notification->save();
+
+        $user = User::find($userId);
+
+        $this->sendFCMNotification($user->token, $body, $title, $url);
+
+    }
+
+    function sendFCMNotification($token, $body, $title, $url){
 
         $url ="https://fcm.googleapis.com/fcm/send";
-
-        $token = "crvZHSEzohXTFhVX7DiJep:APA91bGnRLt6-ZdrZeZc-6JMLw2TXXFMGemurflTocfOYyX5C1RZUDYDQGXjxSkaEBPE3GObyfHAu5mqyJvrMo_1HHnPK7SwkOmxjWLu8mMuluYGIN3ZyU5hc0ZACT-b3w3a4UxVDB1P";
-        $body = "Body test";
-        $title = "notification title";
 
         $fields=array(
             "to"=>$token,
@@ -1318,7 +1359,7 @@ class ProjectController extends Controller
                 "body"=>$body,
                 "title"=>$title,
                 "icon"=>"https://www.wikipbl.org/comingSoonAssets/img/favicon.png",
-                "click_action"=>"https://google.com"
+                "click_action"=>$url
             )
         );
     
