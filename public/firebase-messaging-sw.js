@@ -17,8 +17,9 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload){
 
-    const notification=JSON.parse(payload.data);
-    console.log(notification)
+    console.log(payload)
+    const notification=JSON.parse(payload);
+    
     const notificationOption={
         body:notification.body,
         icon:notification.icon
