@@ -127,7 +127,7 @@
                 })
             })
 
-            InitializeFirebaseMessaging()
+            InititalizeFireBaseMessaging()
 
         })
 
