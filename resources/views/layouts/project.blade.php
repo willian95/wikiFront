@@ -114,7 +114,7 @@
 
             messaging.onMessage(function(payload){
 
-                console.log("payload", payload)
+                console.log("payload", payload.data.notification)
 
                 const notificationOption={
                     body:payload.notification.body,
