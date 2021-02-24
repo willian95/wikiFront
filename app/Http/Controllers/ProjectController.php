@@ -17,6 +17,7 @@ use App\AdminMail;
 use App\UpvoteSystemProject;
 use App\UpvoteSystemProjectVote;
 use App\Notification;
+use App\User;
 use DB;
 use PDF;
 
