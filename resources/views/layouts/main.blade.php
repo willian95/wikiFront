@@ -122,10 +122,12 @@
                     icon:data.icon
                 };
 
-                console.log("notification", notificationOption)
-
+                
                 if(Notification.permission==="granted"){
-                    var notification=new Notification(data.title,notificationOption);
+
+                    console.log("notification", notificationOption)
+
+                    var notification=new Notification(data.title, notificationOption);
 
                     notification.onclick=function (ev) {
                         ev.preventDefault();
