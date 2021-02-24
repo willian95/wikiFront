@@ -1308,7 +1308,7 @@ class ProjectController extends Controller
 
         $url ="https://fcm.googleapis.com/fcm/send";
 
-        $token = "fkwdzp_18deVDzF5nke1l2:APA91bH6AQ_Jm1Zk4-lT3OdujQcQWCN-bLWE6vTiP3t3Wl_ohrRJRTyeB8hxnZqvsEkO36OEUkHP9RtqL08wNSKisKjJuipGySnLS7O8IJeTbfV0c7pKgSmNXV1Qz9TAtL-k_6r_ztYj";
+        $token = "crvZHSEzohXTFhVX7DiJep:APA91bGnRLt6-ZdrZeZc-6JMLw2TXXFMGemurflTocfOYyX5C1RZUDYDQGXjxSkaEBPE3GObyfHAu5mqyJvrMo_1HHnPK7SwkOmxjWLu8mMuluYGIN3ZyU5hc0ZACT-b3w3a4UxVDB1P";
         $body = "Body test";
         $title = "notification title";
 
