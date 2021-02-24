@@ -85,7 +85,7 @@ class ProjectController extends Controller
             $project->update();
 
             if($project->user_id != \Auth::user()->id){
-                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first();
+                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first()->title;
                 $this->storeNotification("Notification", "Your ".$title."  has been updated by ".\Auth::user()->name." ".\Auth::user()->lastname." - Check it out!", $project->user_id, url('/project/show/'.$project->id));
             }
 
@@ -1133,7 +1133,7 @@ class ProjectController extends Controller
                 $project = Project::where("id", $request->project_id)->first();
                 if($project->user_id != \Auth::user()->id){
 
-                    $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first();
+                    $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first()->title;
                     $this->storeNotification("Notification", "Your ".$title." just received a like or an assessment point!", $project->user_id, url('/project/show/'.$project->id));
                 }
     
@@ -1245,7 +1245,7 @@ class ProjectController extends Controller
             $project = Project::where("id", $request->project_id)->first();
             if($project->user_id != \Auth::user()->id){
 
-                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first();
+                $title = Title::where("project_id", $project->id)->orderBy("id", "desc")->where("status", "launched")->first()->title;
                 $this->storeNotification("Notification", "Your ".$title." just received a like or an assessment point!", $project->user_id, url('/project/show/'.$project->id));
             }
 
