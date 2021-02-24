@@ -1375,7 +1375,6 @@ class ProjectController extends Controller
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
         $result=curl_exec($ch);
-        print_r($result);
         curl_close($ch);
 
     }
