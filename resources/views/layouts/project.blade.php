@@ -119,6 +119,8 @@
                     icon:payload.notification.icon
                 };
 
+                console.log("payload", payload)
+
                 if(Notification.permission==="granted"){
                     var notification=new Notification(payload.notification.title,notificationOption);
 
