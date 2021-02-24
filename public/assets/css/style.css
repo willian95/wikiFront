@@ -1307,3 +1307,37 @@ input:checked + .slider:before {
 .calendario:hover .tooltip-nav_last {
     display: inline-grid;
 }
+.notificacion{
+    width: 25px;
+}
+
+.drop-notificacion .dropdown-menu {
+    position: absolute !important;
+}
+.drop-notificacion .dropdown-menu {
+    background: white;
+border-radius: 10px;
+box-shadow: 0px 0px 10px #00000052;
+text-align: start;
+padding: 10px 10px;
+}
+.drop-notificacion  .dropdown-item {
+
+    border-bottom: 1px solid #00000017;
+    margin-bottom: 10px;
+}
+.drop-notificacion .noti{
+    position: absolute;
+top: 5px;
+background: #9ec54c;
+
+border-radius: 50%;
+color: #fff;
+width: 20px;
+height: 20px;
+font-size: 13px;
+display: flex;
+justify-content: center;
+align-content: center;
+right: 17px;
+}

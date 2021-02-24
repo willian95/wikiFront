@@ -2294,7 +2294,7 @@
             }
 
             if (this.report > 0) {
-                $("#reportIcon").css("fill", "#4674b8")
+                $("#reportIcon").css("fill", "#f25d4d")
             }
 
             this.fetchAllInstitutions()
