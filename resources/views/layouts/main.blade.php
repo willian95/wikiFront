@@ -96,20 +96,22 @@
             };
 
             firebase.initializeApp(firebaseConfig)
-
             const messaging = firebase.messaging();
 
-            function InitializeFirebaseMessaging(){
-                messaging.requestPermission().then(function(){
-                    console.log("Notification Permission")
-                    return messaging.getToken()
-                })
-                .then(function(token){
-                    console.log("Token: "+token)
-                })
-                .catch(function(reason){
-                    console.log(reason)
-                })
+            function IntitalizeFireBaseMessaging() {
+                messaging
+                    .requestPermission()
+                    .then(function () {
+                        console.log("Notification Permission");
+                        return messaging.getToken();
+                    })
+                    .then(function (token) {
+                        console.log("Token : "+token);
+                        document.getElementById("token").innerHTML=token;
+                    })
+                    .catch(function (reason) {
+                        console.log(reason);
+                    });
             }
 
             messaging.onMessage(function(payload){
