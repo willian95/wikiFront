@@ -216,10 +216,12 @@ class ProjectController extends Controller
         
         foreach($assestmentArray as $assestment){
 
-            $upvote = new UpvoteSystemProject;
-            $upvote->assestment_point_type_id = $assestment;
-            $upvote->project_id = $request->projectId;
-            $upvote->save();
+            if(UpvoteSystemProject::where("assestment_point_type_id", $assestment)->where("project_id", $request->projectId)->count() == 0){
+                $upvote = new UpvoteSystemProject;
+                $upvote->assestment_point_type_id = $assestment;
+                $upvote->project_id = $request->projectId;
+                $upvote->save();
+            }
 
         }
         
