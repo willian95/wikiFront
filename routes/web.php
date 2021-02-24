@@ -129,3 +129,6 @@ Route::get("/search/only/projects/{search}", "SearchController@searchOnlyProject
 Route::post("/search/only/projects", "SearchController@searchOnlyProject");
 
 Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");
+
+Route::get("/notification/last", "NotificationController@fetchLast");
+Route::post("/notification/seen", "NotificationController@seen");

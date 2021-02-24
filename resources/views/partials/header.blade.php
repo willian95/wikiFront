@@ -103,16 +103,15 @@
                         <!-- Iconos temlate option-->
 
                         <div class="dropdown drop-notificacion mr-4">
-                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="setSeenNotifications()">
                                <svg class="notificacion" id="Capa_1" enable-background="new 0 0 512 512"  viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m450.201 407.453c-1.505-.977-12.832-8.912-24.174-32.917-20.829-44.082-25.201-106.18-25.201-150.511 0-.193-.004-.384-.011-.576-.227-58.589-35.31-109.095-85.514-131.756v-34.657c0-31.45-25.544-57.036-56.942-57.036h-4.719c-31.398 0-56.942 25.586-56.942 57.036v34.655c-50.372 22.734-85.525 73.498-85.525 132.334 0 44.331-4.372 106.428-25.201 150.511-11.341 24.004-22.668 31.939-24.174 32.917-6.342 2.935-9.469 9.715-8.01 16.586 1.473 6.939 7.959 11.723 15.042 11.723h109.947c.614 42.141 35.008 76.238 77.223 76.238s76.609-34.097 77.223-76.238h109.947c7.082 0 13.569-4.784 15.042-11.723 1.457-6.871-1.669-13.652-8.011-16.586zm-223.502-350.417c0-14.881 12.086-26.987 26.942-26.987h4.719c14.856 0 26.942 12.106 26.942 26.987v24.917c-9.468-1.957-19.269-2.987-29.306-2.987-10.034 0-19.832 1.029-29.296 2.984v-24.914zm29.301 424.915c-25.673 0-46.614-20.617-47.223-46.188h94.445c-.608 25.57-21.549 46.188-47.222 46.188zm60.4-76.239c-.003 0-213.385 0-213.385 0 2.595-4.044 5.236-8.623 7.861-13.798 20.104-39.643 30.298-96.129 30.298-167.889 0-63.417 51.509-115.01 114.821-115.01s114.821 51.593 114.821 115.06c0 .185.003.369.01.553.057 71.472 10.25 127.755 30.298 167.286 2.625 5.176 5.267 9.754 7.861 13.798z"/></svg>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a v-for="notification in notifications" class="dropdown-item" :href="notification.url">@{{ notification.body }}</a>
+                                
                             </div>
 
-                            <span class="noti">4</span>
+                            <span class="noti">@{{ unseenNotificationsCount }}</span>
                             </div>
 
 
@@ -386,6 +385,8 @@
                 faculty_members: "0-50",
                 which_network: "",
                 forgotPasswordEmail:"",
+                notifications:[],
+                unseenNotificationsCount:0
 
             }
         },
@@ -894,200 +895,238 @@
                     return false
             }
 
-        } else if (this.institution_type == "organization") {
+            } else if (this.institution_type == "organization") {
 
-            if (this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" ||
-                this.highest_age == "") {
-                return false
-        }
+                if (this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" ||
+                    this.highest_age == "") {
+                    return false
+                }
 
-    }
+            }
 
-    return true
+            return true
 
-},
-validateFirstUpdateInstitution() {
+        },
+        validateFirstUpdateInstitution() {
 
-    if (this.institution_type == "school" || this.institution_type == "university") {
+            if (this.institution_type == "school" || this.institution_type == "university") {
 
-        if (this.part_of_network_institution == "true" && this.which_network == ""){
-            swal({
-                text:"Institution network is required",
-                icon: "error"
-            })
+                if (this.part_of_network_institution == "true" && this.which_network == ""){
+                    swal({
+                        text:"Institution network is required",
+                        icon: "error"
+                    })
 
-            return false
-        }
+                    return false
+                }
 
-        else if(this.institution_public_or_private == ""){
+                else if(this.institution_public_or_private == ""){
 
-            swal({
-                text:"Public or private institution?",
-                icon: "error"
-            })
+                    swal({
+                        text:"Public or private institution?",
+                        icon: "error"
+                    })
 
-            return false
+                    return false
 
-        }else if(this.students_enrolled == ""){
+                }else if(this.students_enrolled == ""){
 
-            swal({
-                text:"Stundents enrolled is required",
-                icon: "error"
-            })
+                    swal({
+                        text:"Stundents enrolled is required",
+                        icon: "error"
+                    })
 
-            return false
+                    return false
 
-        }else if(this.faculty_members == ""){
+                }else if(this.faculty_members == ""){
 
-            swal({
-                text:"Faculty members is required",
-                icon: "error"
-            })
+                    swal({
+                        text:"Faculty members is required",
+                        icon: "error"
+                    })
 
-            return false
-        }
+                    return false
+                }
 
-    } else if (this.institution_type == "organization") {
+            } else if (this.institution_type == "organization") {
 
-        if (this.institution_public_or_private == "") {
+                if (this.institution_public_or_private == "") {
 
-            swal({
-                text:"Public or private institution?",
-                icon: "error"
-            })
+                    swal({
+                        text:"Public or private institution?",
+                        icon: "error"
+                    })
 
-            return false
-        }
+                    return false
+                }
 
-    }
+            }
 
-    return true
+            return true
 
-},
-institutionFirstUpdate() {
+        },
+        institutionFirstUpdate() {
 
-    if (this.validateFirstUpdateInstitution()) {
+            if (this.validateFirstUpdateInstitution()) {
 
-        this.loading = true
+                this.loading = true
 
-        let form = new FormData;
-        form.append("country_id", this.selectedCountry)
-        form.append("state_id", this.selectedState)
-        form.append("gender_institution_type", this.gender_institution_type)
-        form.append("lowest_age", this.lowest_age)
-        form.append("highest_age", this.highest_age)
-        form.append("part_of_network_institution", this.part_of_network_institution)
-        form.append("which_network", this.which_network)
-        form.append("institution_public_or_private", this.institution_public_or_private)
-        form.append("students_enrolled", this.students_enrolled)
-        form.append("faculty_members", this.faculty_members)
+                let form = new FormData;
+                form.append("country_id", this.selectedCountry)
+                form.append("state_id", this.selectedState)
+                form.append("gender_institution_type", this.gender_institution_type)
+                form.append("lowest_age", this.lowest_age)
+                form.append("highest_age", this.highest_age)
+                form.append("part_of_network_institution", this.part_of_network_institution)
+                form.append("which_network", this.which_network)
+                form.append("institution_public_or_private", this.institution_public_or_private)
+                form.append("students_enrolled", this.students_enrolled)
+                form.append("faculty_members", this.faculty_members)
 
-        axios.post("{{ url('/institution/first-update') }}", form).then(res => {
+                axios.post("{{ url('/institution/first-update') }}", form).then(res => {
 
-            this.loading = false
+                    this.loading = false
 
-            if (res.data.success == true) {
+                    if (res.data.success == true) {
 
-                swal({
-                    text: res.data.msg,
-                    icon: "success"
-                }).then(res => {
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        }).then(res => {
+
+                            $(".modalClose").click();
+                            $('body').removeClass('modal-open');
+                            $('body').css('padding-right', '0px');
+                            $('.modal-backdrop').remove();
+
+                        })
+
+                    } else {
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+
+                    this.loading = false
+
+                })
+
+            }
+
+        },
+        restorePassword(){
+
+            axios.post("{{ url('/password/send-email') }}", {"email": this.forgotPasswordEmail}).then(res => {
+
+                if(res.data.success == true){
 
                     $(".modalClose").click();
                     $('body').removeClass('modal-open');
                     $('body').css('padding-right', '0px');
                     $('.modal-backdrop').remove();
 
-                })
+                    swal({
+                        text: res.data.msg,
+                        icon: "success"
+                    });
 
-            } else {
+                }
+
+            }).catch(err => {
 
                 swal({
-                    text: res.data.msg,
+                    text: "Check some fields, please",
                     icon: "error"
-                })
+                });
 
-            }
+                this.loading = false
+                this.forgotPasswordErrors = err.response.data.errors
 
-        }).catch(err => {
+            })
 
-            this.loading = false
-
-        })
-
-    }
-
-},
-restorePassword(){
-
-    axios.post("{{ url('/password/send-email') }}", {"email": this.forgotPasswordEmail}).then(res => {
-
-        if(res.data.success == true){
+        },
+        forgotPasswordShowModal(){
 
             $(".modalClose").click();
             $('body').removeClass('modal-open');
             $('body').css('padding-right', '0px');
             $('.modal-backdrop').remove();
 
-            swal({
-                text: res.data.msg,
-                icon: "success"
-            });
+            $(".forgotPassword").modal('show')
+
+        },
+        checkInstitution(){
+
+            window.setTimeout(() => {
+                if(this.institution_not_registered == true){
+                    this.selected_institution = ""
+                }
+            }, 200)
+
+        },
+
+        getNotifications(){
+            this.unseenNotificationsCount = 0
+            axios.get("{{ url('/notification/last') }}").then(res => {
+
+                this.notifications = res.data.notifications
+
+                this.notifications.forEach((data) => {
+
+                    if(data.is_seen == 0){
+                        this.unseenNotificationsCount++
+                    }
+
+                })
+
+            })
+
+        },
+
+        setSeenNotifications(){
+
+            this.unseenNotificationsCount = 0
+            axios.post("{{ url('/notification/seen') }}").then(res => {
+
+
+            })
 
         }
 
-    }).catch(err => {
+    },
+    mounted() {
+        this.fetchAllInstitutions()
 
-        swal({
-            text: "Check some fields, please",
-            icon: "error"
-        });
-
-        this.loading = false
-        this.forgotPasswordErrors = err.response.data.errors
-
-    })
-
-},
-forgotPasswordShowModal(){
-
-    $(".modalClose").click();
-    $('body').removeClass('modal-open');
-    $('body').css('padding-right', '0px');
-    $('.modal-backdrop').remove();
-
-    $(".forgotPassword").modal('show')
-
-},
-checkInstitution(){
-
-    window.setTimeout(() => {
-        if(this.institution_not_registered == true){
-            this.selected_institution = ""
+        if (this.showInstitutionStepForm == 1) {
+            $(".stepFormModal").modal('show')
+            this.fetchCountries()
         }
-    }, 200)
 
-}
+        @if(\Auth::check())
 
-},
-mounted() {
-    this.fetchAllInstitutions()
+        this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
 
-    if (this.showInstitutionStepForm == 1) {
-        $(".stepFormModal").modal('show')
-        this.fetchCountries()
+        @endif
+
+        window.setInterval(() => {
+
+            if(window.localStorage.getItem("show_notifications") == "1"){
+                window.localStorage.setItem("show_notifications", "0")
+                this.getNotifications();
+
+            }
+
+        }, 1000)
+
+        this.getNotifications()
+
     }
-
-    @if(\Auth::check())
-
-    this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
-
-    @endif
-
-
-
-}
-})
+    })
 
 </script>
 
