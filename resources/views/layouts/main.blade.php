@@ -125,8 +125,6 @@
                 
                 if(Notification.permission==="granted"){
 
-                    console.log("notification", notificationOption)
-
                     var notification=new Notification(data.title, notificationOption);
 
                     notification.onclick=function (ev) {
@@ -134,6 +132,9 @@
                         window.open(data.click_action,'_blank');
                         notification.close();
                     }
+
+                    window.localStorage.setItem("show_notifications", "1")
+
                 }
 
             })

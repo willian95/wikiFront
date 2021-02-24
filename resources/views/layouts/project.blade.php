@@ -131,6 +131,9 @@
                         window.open(data.click_action,'_blank');
                         notification.close();
                     }
+
+                    window.localStorage.setItem("show_notifications", "1")
+
                 }
 
             })
