@@ -92,7 +92,7 @@ class ProjectController extends Controller
             foreach(ProjectShare::where("project_id", $project->id)->get() as $project){
 
                 $title = Title::where("project_id", $project->project_id)->orderBy("id", "desc")->where("status", "launched")->first()->title;
-                $this->storeNotification("Notification", "The ".$title." you are following was updated by ".\Auth::user()->name." ".\Auth::user()->lastname." - Check it out!", $project->user_id, url('/project/show/'.$project_id));
+                $this->storeNotification("Notification", "The ".$title." you are following was updated by ".\Auth::user()->name." ".\Auth::user()->lastname." - Check it out!", $project->user_id, url('/project/show/'.$project->project_id));
 
             }
             
