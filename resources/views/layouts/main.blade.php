@@ -107,7 +107,7 @@
                     })
                     .then(function (token) {
                         localStorage.setItem("fcm_token", token)
-                        //console.log("Token : "+token);
+                        console.log("Token : "+token);
                     })
                     .catch(function (reason) {
                         console.log(reason);
