@@ -205,7 +205,15 @@ class ProjectController extends Controller
 
     function storeAssestmentPoints($request){
 
+        $upvoteSystems = UpvoteSystemProject::where("project_id", $request->projectId)->get();
         $assestmentArray = json_decode($request->upvoteSystem);
+
+        $upvoteTypeToDelete = UpvoteSystemProject::whereNotIn("assestment_point_type_id", $assestmentArray)->where("project_id", $request->projectId)->get();
+
+        foreach($upvoteTypeToDelete as $upvoteDelete){
+            $upvoteDelete->delete();
+        }
+        
         foreach($assestmentArray as $assestment){
 
             $upvote = new UpvoteSystemProject;
@@ -1038,7 +1046,7 @@ class ProjectController extends Controller
 
         $historyTitleChanges = [];
 
-        $titles = Title::where("project_id", $project_id)->where("status", "launched")->orderBy("id")->with(["user" => function($q){
+        $titles = Title::where("project_id", $project_id)->where("status", "launched")->orderBy("id", "desc")->with(["user" => function($q){
             $q->withTrashed();
         }])->get();
 
@@ -1061,7 +1069,7 @@ class ProjectController extends Controller
 
         $historySectionChanges = [];
 
-        $fields = SecondaryField::where("project_id", $project_id)->where("type", $type)->where("status", "launched")->orderBy("id")->with(["user" => function($q){
+        $fields = SecondaryField::where("project_id", $project_id)->where("type", $type)->where("status", "launched")->orderBy("id", "desc")->with(["user" => function($q){
             $q->withTrashed();
         }])->get();
 
