@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
     <style>
         .loader-cover-custom {
             position: fixed;
@@ -81,6 +88,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-messaging.js"></script>
 
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
     <script>
 
         $(document).ready(function(){
@@ -125,16 +135,16 @@
                 
                 if(Notification.permission==="granted"){
 
-                    var notification=new Notification(data.title, notificationOption);
+                    /*var notification=new Notification(data.title, notificationOption);
 
                     notification.onclick=function (ev) {
                         ev.preventDefault();
                         window.open(data.click_action,'_blank');
-                        notification.close();
-                    }
+                    }*/
 
                     window.localStorage.setItem("show_notifications", "1")
-                    alert(data.title)
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.notify(data.body, 'info', 5, function(){  console.log('dismissed'); });
 
                 }
 

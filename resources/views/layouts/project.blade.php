@@ -122,14 +122,17 @@
                 };
 
                 if(Notification.permission==="granted"){
-                    var notification=new Notification(data.title,notificationOption);
+                    /*var notification=new Notification(data.title,notificationOption);
 
                     notification.onclick=function (ev) {
                         ev.preventDefault();
                         window.open(data.click_action,'_blank');
-                    }
+                    }*/
 
                     window.localStorage.setItem("show_notifications", "1")
+
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.notify(data.body, 'info', 5, function(){  console.log('dismissed'); });
 
                 }
 
