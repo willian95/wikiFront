@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
 
     <style>
+        .ajs-message.ajs-custom { color: #31708f;  background-color: #d9edf7;  border-color: #31708f; }
+    </style>
+
+    <style>
         .loader-cover-custom {
             position: fixed;
             left: 0;

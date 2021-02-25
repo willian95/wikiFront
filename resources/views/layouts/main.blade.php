@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
     <style>
+        .ajs-message.ajs-custom { color: #31708f;  background-color: #d9edf7;  border-color: #31708f; }
+    </style>
+
+    <style>
         .loader-cover-custom {
             position: fixed;
             left: 0;
