@@ -1360,33 +1360,18 @@ class ProjectController extends Controller
     }
 
     function sendFCMNotification($token, $body, $title, $url){
-
-        $url ="https://fcm.googleapis.com/fcm/send";
-
-        $fields=array(
-            "to"=>$token,
-            "notification"=>array(
-                "body"=>$body,
-                "title"=>$title,
-                "icon"=>"https://www.wikipbl.org/comingSoonAssets/img/favicon.png",
-                "click_action"=>$url
-            )
-        );
     
-        $headers=array(
-            'Authorization: key=AAAA7rqzndA:APA91bHggyDsG6OhrFvMknYahydWbKXFmME2j72EosbsgnCDMBN2If4URJgfoY9R0mRFe3Eh4txr6pFvzsx-FTmtT3peTzBESB1ReRBwY4fE--iIhFgM_WwRiQswYyuxL67S1fOYjxTO',
-            'Content-Type:application/json'
-        );
-    
-        $ch=curl_init();
-        curl_setopt($ch,CURLOPT_URL,$url);
-        curl_setopt($ch,CURLOPT_POST,true);
-        curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
-        $result=curl_exec($ch);
-        curl_close($ch);
-        dd($result);
+        fcm()
+        ->to([$token])
+        ->priority('high')
+        ->timeToLive(0)
+        ->data([
+            'title' => $title,
+            'body' => $body,
+            "icon"=>"https://www.wikipbl.org/comingSoonAssets/img/favicon.png"
+
+        ])
+        ->send();
     }
 
 
