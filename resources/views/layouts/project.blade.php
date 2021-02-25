@@ -136,7 +136,7 @@
                     window.localStorage.setItem("show_notifications", "1")
 
                     alertify.set('notifier','position', 'top-right');
-                    alertify.notify(data.body, 'info', 5, function(){  console.log('dismissed'); });
+                    alertify.notify(data.body, 'custom', 5, function(){  console.log('dismissed'); });
 
                 }
 
