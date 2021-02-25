@@ -1361,8 +1361,6 @@ class ProjectController extends Controller
 
     function sendFCMNotification($token, $body, $title, $url){
 
-        dd($token, $body, $title, $url);
-
         $url ="https://fcm.googleapis.com/fcm/send";
 
         $fields=array(
@@ -1388,7 +1386,7 @@ class ProjectController extends Controller
         curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
         $result=curl_exec($ch);
         curl_close($ch);
-
+        dd($result);
     }
 
 
