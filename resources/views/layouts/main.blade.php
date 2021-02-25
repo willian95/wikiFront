@@ -129,6 +129,7 @@
             }
 
             messaging.onMessage(function(payload){
+                console.log(payload)
                 let data = JSON.parse(payload.data.notification)
 
                 const notificationOption={
