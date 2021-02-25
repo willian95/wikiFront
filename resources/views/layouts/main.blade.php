@@ -130,7 +130,7 @@
 
             messaging.onMessage(function(payload){
                 console.log(payload)
-                let data = JSON.parse(payload.data.notification)
+                let data = JSON.parse(payload.data)
 
                 const notificationOption={
                     body:data.body,
