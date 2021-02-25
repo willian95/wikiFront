@@ -1355,13 +1355,11 @@ class ProjectController extends Controller
 
         $user = User::find($userId);
 
-        $this->sendFCMNotification($user->token, $body, $title, $url);
+        $this->sendFCMNotification($user->fcm_token, $body, $title, $url);
 
     }
 
     function sendFCMNotification($token, $body, $title, $url){
-
-        dd($token, $body, $title, $url);
 
         $url ="https://fcm.googleapis.com/fcm/send";
 
