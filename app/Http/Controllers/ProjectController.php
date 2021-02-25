@@ -1361,6 +1361,8 @@ class ProjectController extends Controller
 
     function sendFCMNotification($token, $body, $title, $url){
 
+        dd($token, $body, $title, $url);
+
         $url ="https://fcm.googleapis.com/fcm/send";
 
         $fields=array(
