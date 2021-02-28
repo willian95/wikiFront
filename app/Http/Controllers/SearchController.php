@@ -10,6 +10,8 @@ use App\SubjectProject;
 use App\Project;
 use App\Title;
 use App\SecondaryField;
+use App\User;
+use App\Institution;
 use DB;
 
 class SearchController extends Controller
@@ -192,6 +194,166 @@ class SearchController extends Controller
             }
 
             return response()->json(["success" => true, "projects" => $projectsResults, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function searchOnlyTeacherView($search){
+
+        return view("searchViews.teacher", ["search" => $search]);
+
+    }
+
+    function searchOnlyTeacher(Request $request){
+
+        try{
+
+            $dataAmount = 20;
+            $skip = ($request->page-1) * $dataAmount;
+
+            $words = $this->splitWords($request);
+
+            $teachers = User::where("role_id", 2)->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->skip($skip)->take($dataAmount)->orderBy("name")->get();
+
+            $teachersCount = Subject::where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })->count();
+
+            return response()->json(["success" => true, "teachers" => $teachers, "teachersCount" => $teachersCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function searchOnlySchoolView($search){
+
+        return view("searchViews.school", ["search" => $search]);
+
+    }
+
+    function searchOnlySchool(Request $request){
+
+        try{
+
+            $dataAmount = 20;
+            $skip = ($request->page-1) * $dataAmount;
+
+            $words = $this->splitWords($request);
+
+            $institutions = Institution::where("type", "school")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->skip($skip)->take($dataAmount)->orderBy("name")->get();
+
+            $institutionsCount = Institution::where("type", "school")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })->count();
+
+            return response()->json(["success" => true, "institutions" => $institutions, "institutionsCount" => $institutionsCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function searchOnlyUniversityView($search){
+
+        return view("searchViews.university", ["search" => $search]);
+
+    }
+
+    function searchOnlyUniversity(Request $request){
+
+        try{
+
+            $dataAmount = 20;
+            $skip = ($request->page-1) * $dataAmount;
+
+            $words = $this->splitWords($request);
+
+            $institutions = Institution::where("type", "university")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->skip($skip)->take($dataAmount)->orderBy("name")->get();
+
+            $institutionsCount = Institution::where("type", "university")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })->count();
+
+            return response()->json(["success" => true, "institutions" => $institutions, "institutionsCount" => $institutionsCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function searchOnlyOrganizationView($search){
+
+        return view("searchViews.organization", ["search" => $search]);
+
+    }
+
+    function searchOnlyOrganization(Request $request){
+
+        try{
+
+            $dataAmount = 20;
+            $skip = ($request->page-1) * $dataAmount;
+
+            $words = $this->splitWords($request);
+
+            $institutions = Institution::where("type", "organization")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->skip($skip)->take($dataAmount)->orderBy("name")->get();
+
+            $institutionsCount = Institution::where("type", "organization")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })->count();
+
+            return response()->json(["success" => true, "institutions" => $institutions, "institutionsCount" => $institutionsCount, "dataAmount" => $dataAmount]);
 
         }catch(\Exception $e){
             return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
@@ -389,6 +551,105 @@ class SearchController extends Controller
 
     }
 
+    function teacher(Request $request){
+
+        try{
+
+            $words = $this->splitWords($request);
+
+            $teachers = User::where("role_id", 2)->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->take(20)->orderBy("name")->get();
+
+            $groupedResults = $this->groupByFirstLetter($teachers);
+
+            return response()->json(["success" => true, "teachers" => $groupedResults]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function school(Request $request){
+
+        try{
+
+            $words = $this->splitWords($request);
+
+            $schools = Institution::where("type", "school")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->take(20)->orderBy("name")->get();
+
+            $groupedResults = $this->groupByFirstLetter($schools);
+
+            return response()->json(["success" => true, "schools" => $groupedResults]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function university(Request $request){
+
+        try{
+
+            $words = $this->splitWords($request);
+
+            $universities = Institution::where("type", "university")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->take(20)->orderBy("name")->get();
+
+            $groupedResults = $this->groupByFirstLetter($universities);
+
+            return response()->json(["success" => true, "universities" => $groupedResults]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function organization(Request $request){
+
+        try{
+
+            $words = $this->splitWords($request);
+
+            $organizations = Institution::where("type", "organization")->where(function ($query) use($words) {
+                for ($i = 0; $i < count($words); $i++){
+                    if($words[$i] != ""){
+                        $query->orWhere('name', "like", "%".$words[$i]."%");
+                    }
+                }      
+            })
+            ->take(20)->orderBy("name")->get();
+
+            $groupedResults = $this->groupByFirstLetter($organizations);
+
+            return response()->json(["success" => true, "organizations" => $groupedResults]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
 
     function splitWords($request){
 
