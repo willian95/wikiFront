@@ -120,6 +120,10 @@ Route::get("project/wikipbl-template/public", "ProjectController@publicWikiPblTe
 Route::post("/search/hashtag", "SearchController@hashtag");
 Route::post("/search/subject", "SearchController@subject");
 Route::post("/search/project", "SearchController@project");
+Route::post("/search/teacher", "SearchController@teacher");
+Route::post("/search/school", "SearchController@school");
+Route::post("/search/university", "SearchController@university");
+Route::post("/search/organization", "SearchController@organization");
 
 Route::get("/search/only/hashtags/{search}", "SearchController@searchOnlyHashtagView");
 Route::post("/search/only/hashtags", "SearchController@searchOnlyHashtag");
@@ -127,6 +131,14 @@ Route::get("/search/only/subjects/{search}", "SearchController@searchOnlySubject
 Route::post("/search/only/subjects", "SearchController@searchOnlySubject");
 Route::get("/search/only/projects/{search}", "SearchController@searchOnlyProjectView");
 Route::post("/search/only/projects", "SearchController@searchOnlyProject");
+Route::get("/search/only/teachers/{search}", "SearchController@searchOnlyTeacherView");
+Route::post("/search/only/teachers", "SearchController@searchOnlyTeacher");
+Route::get("/search/only/schools/{search}", "SearchController@searchOnlySchoolView");
+Route::post("/search/only/schools", "SearchController@searchOnlySchool");
+Route::get("/search/only/universities/{search}", "SearchController@searchOnlyUniversityView");
+Route::post("/search/only/universities", "SearchController@searchOnlyUniversity");
+Route::get("/search/only/organizations/{search}", "SearchController@searchOnlyOrganizationView");
+Route::post("/search/only/organizations", "SearchController@searchOnlyOrganization");
 
 Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upload");
 

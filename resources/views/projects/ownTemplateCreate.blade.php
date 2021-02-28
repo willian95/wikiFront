@@ -60,6 +60,18 @@
                     <div class="col-md-9 info-template" id="title">
                         <!--------------------general--------------------------->
                         <ul class="content_template content_template-general">
+
+                            <li class="content_template-general-item">
+                                <p>Incubator Features</p>
+                                <img alt='icon' class="login_icon "
+                                src="{{ url('assets/img/iconos/edit.svg') }}">
+                                <!-- Rounded switch -->
+                                <label class="switch" >
+                                    <input type="checkbox" v-model="incubatorFeature">
+                                    <span class="slider slider-nav round"></span>
+                                </label>
+                            </li>
+
                             <li class="content_template-general-item" style="margin-top: 100px;">
                                 <h3 class="titulo-templates">
                                     
@@ -428,7 +440,8 @@
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",
-                    loading:false
+                    loading:false,
+                    incubatorFeature:false
                 }
             },
             methods:{
@@ -591,6 +604,11 @@
                     return formData
                 },
                 validateLaunch(){
+
+                    if(this.incubatorFeature == true){
+                        return true
+                    }
+
                     if(this.title == ""){
                         swal({
                             text: "Title is required",
