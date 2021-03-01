@@ -59,14 +59,14 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p"> @{{ title }}</a></li>
-                                <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                                <li><a href="#projectsumary">Project Summary</a></li>
-                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                                <li> <a href="#hashtags-menu">#hashtags</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')">@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
 
                             </ul>
                         </div>
@@ -2079,6 +2079,15 @@
                         }
                     }, 200)
 
+                },
+                scrollTo(identifier){
+
+                    let distance = $("#"+identifier).offset().top - 120
+
+                    $('html, body').animate({
+                        scrollTop: distance
+                    }, 50);
+            
                 }
         
             },

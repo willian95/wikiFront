@@ -34,21 +34,21 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p"><i class="fa fa-times" aria-hidden="true"></i>@{{ title }}</a></li>
-                                <li> <a href="#driving"><i class="fa fa-check" aria-hidden="true"></i>@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                                <li><a href="#projectsumary">Project Summary</a></li>
-                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                                <li> <a href="#hashtags-menu">#hashtags</a></li>
-                                <li v-if="showTools"> <a href="#toolstitle">@{{ toolsTitle }}</a></li>
-                                <li v-if="showLearningGoals"><a href="#leargoals">@{{ learningGoalsTitle }}</a></li>
-                                <li v-if="showResources"><a href="#resoustitle">@{{ resourcesTitle }}</a></li>
-                                <li v-if="showProjectMilestone"><a href="projectmiles">@{{ projectMilestoneTitle }}</a></li>
-                                <li v-if="showExpert"><a href="#experttitle">@{{ expertTitle }}</a></li>
-                                <li v-if="showFieldWork"> <a href="#fielwork">@{{ fieldWorkTitle }}</a></li>
-                                <li v-if="showGlobalConnections"> <a href="#globalconnections">@{{ globalConnectionsTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || incubatorFeature == true"></i>@{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || incubatorFeature == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || incubatorFeature == true"></i>@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || incubatorFeature == true"></i>@{{ timeFrameTitle }}</a></li>
+                                <li><a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != '' || incubatorFeature == true"></i>Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || incubatorFeature == true"></i>@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || incubatorFeature == true"></i>@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtag == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtag != '' || incubatorFeature == true"></i>#hashtags</a></li>
+                                <li v-if="showTools"> <a style="cursor: pointer;" @click="scrollTo('toolstitle')">@{{ toolsTitle }}</a></li>
+                                <li v-if="showLearningGoals"><a style="cursor: pointer;" @click="scrollTo('leargoals')">@{{ learningGoalsTitle }}</a></li>
+                                <li v-if="showResources"><a style="cursor: pointer;" @click="scrollTo('resoustitle')">@{{ resourcesTitle }}</a></li>
+                                <li v-if="showProjectMilestone"><a style="cursor: pointer;" @click="scrollTo('projectmiles')">@{{ projectMilestoneTitle }}</a></li>
+                                <li v-if="showExpert"><a style="cursor: pointer;" @click="scrollTo('experttitle')">@{{ expertTitle }}</a></li>
+                                <li v-if="showFieldWork"> <a style="cursor: pointer;" @click="scrollTo('fielwork')">@{{ fieldWorkTitle }}</a></li>
+                                <li v-if="showGlobalConnections"> <a style="cursor: pointer;" @click="scrollTo('globalconnections')">@{{ globalConnectionsTitle }}</a> </li>
                             </ul>
                         </div>
                         <div class="menu-template_option">
@@ -611,6 +611,7 @@
                     levelTitle:"Level & age",
                     level:"",
                     ages:[],
+                    projectSumary:"",
                     hashtag:"",
                     hashtags:[],
                     calendarActivities:[],
@@ -1194,6 +1195,23 @@
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
 
                     return formData
+
+                },
+                scrollTo(identifier){
+
+                    let distance = $("#"+identifier).offset().top - 120
+
+                    $('html, body').animate({
+                        scrollTop: distance
+                    }, 50);
+
+                },
+                testChange(){
+    
+                    this.drivingQuestion = CKEDITOR.instances.drivingQuestionEditor.getData()
+                    this.projectSumary = CKEDITOR.instances.projectSummaryEditor.getData()
+                    this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
+                    this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
 
                 }
             },

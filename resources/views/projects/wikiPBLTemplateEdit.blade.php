@@ -35,21 +35,21 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p">@{{ title }}</a></li>
-                                <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                                <li><a href="#projectsumary">Project Summary</a></li>
-                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                                <li> <a href="#hashtags-menu">#hashtags</a></li>
-                                <li v-if="showTools"> <a href="#toolstitle">@{{ toolsTitle }}</a></li>
-                                <li v-if="showLearningGoals"><a href="#leargoals">@{{ learningGoalsTitle }}</a></li>
-                                <li v-if="showResources"><a href="#resoustitle">@{{ resourcesTitle }}</a></li>
-                                <li v-if="showProjectMilestone"><a href="projectmiles">@{{ projectMilestoneTitle }}</a></li>
-                                <li v-if="showExpert"><a href="#experttitle">@{{ expertTitle }}</a></li>
-                                <li v-if="showFieldWork"> <a href="#fielwork">@{{ fieldWorkTitle }}</a></li>
-                                <li v-if="showGlobalConnections"> <a href="#globalconnections">@{{ globalConnectionsTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subject')">@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
+                                <li v-if="showTools"> <a style="cursor: pointer;" @click="scrollTo('toolstitle')">@{{ toolsTitle }}</a></li>
+                                <li v-if="showLearningGoals"><a style="cursor: pointer;" @click="scrollTo('leargoals')">@{{ learningGoalsTitle }}</a></li>
+                                <li v-if="showResources"><a style="cursor: pointer;" @click="scrollTo('resoustitle')">@{{ resourcesTitle }}</a></li>
+                                <li v-if="showProjectMilestone"><a style="cursor: pointer;" @click="scrollTo('projectmiles')">@{{ projectMilestoneTitle }}</a></li>
+                                <li v-if="showExpert"><a style="cursor: pointer;" @click="scrollTo('experttitle')">@{{ expertTitle }}</a></li>
+                                <li v-if="showFieldWork"> <a style="cursor: pointer;" @click="scrollTo('fielwork')">@{{ fieldWorkTitle }}</a></li>
+                                <li v-if="showGlobalConnections"> <a style="cursor: pointer;" @click="scrollTo('globalconnections')">@{{ globalConnectionsTitle }}</a> </li>
 
                             </ul>
                         </div>
@@ -125,7 +125,7 @@
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! htmlspecialchars_decode($drivingQuestion) !!}</textarea>
 
                         </li>
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="subject">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -166,7 +166,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="time">
                             <div class="flex-edit">
 
                                 <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
@@ -195,12 +195,12 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="projectsumary">
                             <h3 class="titulo-templates">Project summary</h3>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! htmlspecialchars_decode($projectSumary) !!}</textarea>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="publictitle">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
@@ -224,7 +224,7 @@
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="leveltitle">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -347,7 +347,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="hashtags-menu">
                             <h3 class="titulo-templates">#hashtags</h3>
 
                             <div class="row">
@@ -371,7 +371,7 @@
                         </li>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="toolstitle">
                               
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
@@ -417,7 +417,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="leargoals">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
@@ -470,7 +470,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="resoustitle">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
                                 <small v-if="showResources">Feel free to remove this section</small>
@@ -504,7 +504,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="projectmiles">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
@@ -590,7 +590,7 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="experttitle">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
@@ -626,7 +626,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="fielwork">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
@@ -1415,6 +1415,15 @@
                 }
 
             },
+            scrollTo(identifier){
+
+                let distance = $("#"+identifier).offset().top - 120
+
+                $('html, body').animate({
+                    scrollTop: distance
+                }, 50);
+
+            }
 
 
         },

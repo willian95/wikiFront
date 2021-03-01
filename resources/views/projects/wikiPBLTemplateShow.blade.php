@@ -59,21 +59,21 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p"> @{{ title }}</a></li>
-                                <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                                <li><a href="#projectsumary">Project Summary</a></li>
-                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                                <li> <a href="#hashtags-menu">#hashtags</a></li>
-                                <li v-if="showTools"> <a href="#toolstitle">@{{ toolsTitle }}</a></li>
-                                <li v-if="showLearningGoals"><a href="#leargoals">@{{ learningGoalsTitle }}</a></li>
-                                <li v-if="showResources"><a href="#resoustitle">@{{ resourcesTitle }}</a></li>
-                                <li v-if="showProjectMilestone"><a href="projectmiles">@{{ projectMilestoneTitle }}</a></li>
-                                <li v-if="showExpert"><a href="#experttitle">@{{ expertTitle }}</a></li>
-                                <li v-if="showFieldWork"> <a href="#fielwork">@{{ fieldWorkTitle }}</a></li>
-                                <li v-if="showGlobalConnections"> <a href="#globalconnections">@{{ globalConnectionsTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')">@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
+                                <li v-if="showTools"> <a style="cursor: pointer;" @click="scrollTo('toolstitle')">@{{ toolsTitle }}</a></li>
+                                <li v-if="showLearningGoals"><a style="cursor: pointer;" @click="scrollTo('leargoals')">@{{ learningGoalsTitle }}</a></li>
+                                <li v-if="showResources"><a style="cursor: pointer;" @click="scrollTo('resoustitle')">@{{ resourcesTitle }}</a></li>
+                                <li v-if="showProjectMilestone"><a style="cursor: pointer;" @click="scrollTo('projectmiles')">@{{ projectMilestoneTitle }}</a></li>
+                                <li v-if="showExpert"><a style="cursor: pointer;" @click="scrollTo('experttitle')">@{{ expertTitle }}</a></li>
+                                <li v-if="showFieldWork"> <a style="cursor: pointer;" @click="scrollTo('fielwork')">@{{ fieldWorkTitle }}</a></li>
+                                <li v-if="showGlobalConnections"> <a style="cursor: pointer;" @click="scrollTo('globalconnections')">@{{ globalConnectionsTitle }}</a> </li>
 
                             </ul>
                         </div>
@@ -891,7 +891,7 @@
                         <div class="row" v-if="showLearningGoals">
                             <div class="col-12">
 
-                                <li class="content_template-general-item last-menu" id="#leargoals">
+                                <li class="content_template-general-item last-menu" id="leargoals">
 
                                     <div>
                                         <h3 class="titulo-templates">@{{ learningGoalsTitle }}</h3>
@@ -2705,6 +2705,15 @@
                         this.selected_institution = ""
                     }
                 }, 200)
+
+            },
+            scrollTo(identifier){
+
+                let distance = $("#"+identifier).offset().top - 120
+
+                $('html, body').animate({
+                    scrollTop: distance
+                }, 50);
 
             }
 

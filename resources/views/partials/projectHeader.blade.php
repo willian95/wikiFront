@@ -79,14 +79,20 @@
 
 
                                 <li class="nav-item  flex-main">
-                                    <img alt='icon' class="login_icon "
-                                    src="{{ url('assets/img/iconos/eye.svg') }}">
+                                    
                                     <!-- Rounded switch -->
                                     <label class="switch" >
                                         <input type="checkbox" v-model="private">
                                         <span class="slider slider-nav round"></span>
                                     </label>
+
+                                    
+                                </li>
+                                <li class="nav-item  flex-main">
+
+                                    <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/eye.svg') }}">
                                     <span class="tooltip-nav">View Only</span>
+
                                 </li>
                                 {{--<li class="nav-item   flex-main">
                                     <img alt='icon' class="login_icon "

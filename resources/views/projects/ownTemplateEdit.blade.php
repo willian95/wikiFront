@@ -36,14 +36,14 @@
                     <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                         <ul>
                             <p>Main info</p>
-                            <li> <a href="#title-p">@{{ title }}</a></li>
-                            <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
-                            <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                            <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                            <li><a href="#projectsumary">Project Summary</a></li>
-                            <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                            <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                            <li> <a href="#hashtags-menu">#hashtags</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')">@{{ subjectTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
 
                         </ul>
                     </div>
@@ -65,10 +65,10 @@
             <div class="col-md-9 info-template">
                 <!--------------------general--------------------------->
                 <ul class="content_template content_template-general">
-                    <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
+                    <li class="content_template-general-item" style="margin-top: 100px;">
                         <h3 class="titulo-templates">
 
-                            <span v-if="editSection != 'title'">@{{ title }}</span>
+                            <span id="title-p" v-if="editSection != 'title'">@{{ title }}</span>
                             <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
 
                             <a class="txt-edit" href="#" @click="setEditSection('title')">
@@ -88,10 +88,10 @@
 
                     </li>
 
-                    <li class="content_template-general-item" id="driving">
+                    <li class="content_template-general-item">
 
                         <div class="flex-edit">
-                            <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
+                            <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                             <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                 <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
@@ -834,6 +834,15 @@
                 $(".check-age").attr("checked", false)
 
             },
+            scrollTo(identifier){
+
+                let distance = $("#"+identifier).offset().top - 120
+
+                $('html, body').animate({
+                    scrollTop: distance
+                }, 50);
+
+            }
 
 
         },

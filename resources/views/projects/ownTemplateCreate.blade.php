@@ -35,14 +35,14 @@
                             <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                                 <ul>
                                     <p>Main info</p>
-                                <li> <a href="#title-p"><i class="fa fa-times" aria-hidden="true"></i>@{{ title }}</a></li>
-                                <li> <a href="#driving"><i class="fa fa-check" aria-hidden="true"></i>@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
-                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
-                                <li><a href="#projectsumary">Project Summary</a></li>
-                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
-                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
-                                <li> <a href="#hashtags-menu">#hashtags</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || incubatorFeature == true"></i>@{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || incubatorFeature == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || incubatorFeature == true"></i>@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || incubatorFeature == true"></i>@{{ timeFrameTitle }}</a></li>
+                                <li><a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != '' || incubatorFeature == true"></i>Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || incubatorFeature == true"></i>@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || incubatorFeature == true"></i>@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtag == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtag != '' || incubatorFeature == true"></i>#hashtags</a></li>
 
                                 </ul>
                             </div>
@@ -72,7 +72,7 @@
                                 </label>
                             </li>
 
-                            <li class="content_template-general-item" id="title-p" style="margin-top: 100px;">
+                            <li class="content_template-general-item" id="title-p" style="margin-top: 100px;" @mouseleave="testChange()">
                                 <h3 class="titulo-templates">
                                     
                                     <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -88,7 +88,7 @@
 
                             </li>
 
-                            <li class="content_template-general-item" id="driving">
+                            <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
                             
                             <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
@@ -162,12 +162,12 @@
                                 </div>
                             </li>
 
-                            <li class="content_template-general-item" id="projectsumary">
+                            <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
                                 <h3 class="titulo-templates">Project summary</h3>
                                 <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                             </li>
 
-                            <li class="content_template-general-item"  id="publictitle">
+                            <li class="content_template-general-item"  id="publictitle" @mouseleave="testChange()">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
@@ -181,7 +181,7 @@
                                 <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                             </li>
 
-                            <li class="content_template-general-item" id="leveltitle">
+                            <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                             <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="row" v-show="level == 'nursery'">
+                                        <div class="row" v-show="level == 'nursery'" >
                                             
                                             <div class="col-6" v-for="nurseryLevel in 4">
                                                 <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
@@ -298,7 +298,7 @@
                                 </div>
                             </li>
 
-                            <li class="content_template-general-item" id="hashtags-menu">
+                            <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                                 <h3 class="titulo-templates">#hashtags</h3>
                                 
                                 <div class="row">
@@ -356,7 +356,7 @@
 
                             </div>
 
-                            <div class="contente_item mt-5 mb-5">
+                            <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                                 <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                             </div>
@@ -426,6 +426,7 @@
                     publicProductTitle:"Public Product (Individual And In Groups)",
                     publicProduct:"",
                     levelTitle:"Level & age",
+                    projectSumary:"",
                     level:"",
                     ages:[],
                     hashtag:"",
@@ -754,6 +755,23 @@
                     $(".check-age").attr("checked", false)
 
                 },
+                scrollTo(identifier){
+
+                    let distance = $("#"+identifier).offset().top - 120
+
+                    $('html, body').animate({
+                        scrollTop: distance
+                    }, 50);
+
+                },
+                testChange(){
+    
+                    this.drivingQuestion = CKEDITOR.instances.drivingQuestionEditor.getData()
+                    this.projectSumary = CKEDITOR.instances.projectSummaryEditor.getData()
+                    this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
+                    this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
+
+                }
                 
             },
             mounted(){
@@ -763,6 +781,7 @@
                     filebrowserUploadMethod: 'form',
                     language:"en"
                 }
+
                 CKEDITOR.replace('drivingQuestionEditor', options);
                 CKEDITOR.replace("projectSummaryEditor", options)
                 CKEDITOR.replace("publicProductEditor", options)

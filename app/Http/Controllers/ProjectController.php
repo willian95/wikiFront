@@ -576,12 +576,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", \Auth::user()->id)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", \Auth::user()->id)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
 
-        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
@@ -598,12 +598,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
 
-        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
@@ -1277,12 +1277,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user");
 
-        $projectQueryCount = Project::where("user_id", $teacherId)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user");
@@ -1299,12 +1299,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user");
 
-        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->withTrashed()->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user");
