@@ -65,7 +65,7 @@
             <div class="col-md-9 info-template">
                 <!--------------------general--------------------------->
                 <ul class="content_template content_template-general">
-                    <li class="content_template-general-item" style="margin-top: 100px;">
+                    <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
                         <h3 class="titulo-templates">
 
                             <span v-if="editSection != 'title'">@{{ title }}</span>
@@ -88,7 +88,7 @@
 
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="driving">
 
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
@@ -113,7 +113,7 @@
                         <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! $drivingQuestion !!}</textarea>
 
                     </li>
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="subjecttitle">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -154,7 +154,7 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="time">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
@@ -182,12 +182,12 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="projectsumary">
                         <h3 class="titulo-templates">Project summary</h3>
                         <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! $projectSumary !!}</textarea>
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="publictitle">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
@@ -212,7 +212,7 @@
                         <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="leveltitle">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -337,7 +337,7 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" id="hashtags-menu">
                         <h3 class="titulo-templates">#hashtags</h3>
 
                         <div class="row">
@@ -401,7 +401,7 @@
 
                     @if($project[0]->status == 'pending')
                     <div>
-                        <h1>Which Upvote System
+                        <h1 class="mt-5">Which Upvote System
                             options will your WikiPBL
                             have?
                         </h1>

@@ -34,21 +34,21 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> @{{ title }}</li>
-                                <li> @{{ drivingQuestionTitle }}</li>
-                                <li> @{{ subjectTitle }}</li>
-                                <li> @{{ timeFrameTitle }}</li>
-                                <li>Project Summary</li>
-                                <li> @{{ publicProductTitle }}</li>
-                                <li> @{{ levelTitle }}</li>
-                                <li> #hashtags</li>
-                                <li v-if="showTools">@{{ toolsTitle }}</li>
-                                <li v-if="showLearningGoals">@{{ learningGoalsTitle }}</li>
-                                <li v-if="showResources">@{{ resourcesTitle }}</li>
-                                <li v-if="showProjectMilestone">@{{ projectMilestoneTitle }}</li>
-                                <li v-if="showExpert">@{{ expertTitle }}</li>
-                                <li v-if="showFieldWork">@{{ fieldWorkTitle }}</li>
-                                <li v-if="showGlobalConnections">@{{ globalConnectionsTitle }}</li>
+                                <li> <a href="#title-p"><i class="fa fa-times" aria-hidden="true"></i>@{{ title }}</a></li>
+                                <li> <a href="#driving"><i class="fa fa-check" aria-hidden="true"></i>@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
+                                <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
+                                <li><a href="#projectsumary">Project Summary</a></li>
+                                <li> <a href="#publictitle">@{{ publicProductTitle }}</a> </li>
+                                <li> <a href="#leveltitle">@{{ levelTitle }}</a></li>
+                                <li> <a href="#hashtags-menu">#hashtags</a></li>
+                                <li v-if="showTools"> <a href="#toolstitle">@{{ toolsTitle }}</a></li>
+                                <li v-if="showLearningGoals"><a href="#leargoals">@{{ learningGoalsTitle }}</a></li>
+                                <li v-if="showResources"><a href="#resoustitle">@{{ resourcesTitle }}</a></li>
+                                <li v-if="showProjectMilestone"><a href="projectmiles">@{{ projectMilestoneTitle }}</a></li>
+                                <li v-if="showExpert"><a href="#experttitle">@{{ expertTitle }}</a></li>
+                                <li v-if="showFieldWork"> <a href="#fielwork">@{{ fieldWorkTitle }}</a></li>
+                                <li v-if="showGlobalConnections"> <a href="#globalconnections">@{{ globalConnectionsTitle }}</a> </li>
                             </ul>
                         </div>
                         <div class="menu-template_option">
@@ -66,7 +66,7 @@
                     <!--------------------general--------------------------->
                     <ul style="list-style:none" class="content_template content_template-general">
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" >
                             <p>Incubator Features</p>
                             <img alt='icon' class="login_icon "
                             src="{{ url('assets/img/iconos/edit.svg') }}">
@@ -77,7 +77,7 @@
                             </label>
                         </li>
 
-                        <li class="content_template-general-item" style="margin-top: 100px;">
+                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
                             <h3 class="titulo-templates">
                                 
                                 <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -93,7 +93,7 @@
 
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="driving">
                             <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                             <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('drivingQuestionTitle')">
@@ -107,7 +107,7 @@
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
                         </li>
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="subjecttitle">
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
@@ -131,7 +131,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="time">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">@{{ timeFrameTitle }}</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
@@ -148,12 +148,12 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="projectsumary">
                             <h3 class="titulo-templates">Project summary</h3>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="publictitle">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
@@ -167,7 +167,7 @@
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="leveltitle">
                             <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
@@ -280,7 +280,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item" id="hashtags-menu">
                             <h3 class="titulo-templates">#hashtags</h3>
                             <div class="row">
                                 <div class="col-md-6">
@@ -301,7 +301,7 @@
                         </li>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="toolstitle">
                                 <button class="btn btn-info" @click="toggleShowSection('tools')">+</button>
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
@@ -337,7 +337,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="leargoals">
                                 <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
                                 <small v-if="!showLearningGoals">Show @{{ learningGoalsTitle }} section</small>
@@ -379,7 +379,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id=resoustitle">
                                 <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
                                 <small v-if="showResources">Feel free to remove this section</small>
                                 <small v-if="!showResources">Show @{{ resourcesTitle }} section</small>
@@ -402,7 +402,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="projectmiles">
                                 <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
                                 <small v-if="!showProjectMilestone">Show @{{ projectMilestoneTitle }} section</small>
@@ -479,7 +479,7 @@
 
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="experttitle">
                                 <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
                                 <small v-if="!showExpert">Show @{{ expertTitle  }} section</small>
@@ -503,7 +503,7 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="fielwork">
                                 <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
                                 <small v-if="!showFieldWork">Show @{{ fieldWorkTitle }} section</small>
@@ -527,7 +527,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" id="globalconnections">
                                 <button class="btn btn-info" @click="toggleShowSection('globalConnection')">+</button>
                                 <small v-if="showGlobalConnections">Feel free to remove this section</small>
                                 <small v-if="!showGlobalConnections">Show @{{ globalConnectionsTitle }} section</small>
@@ -559,7 +559,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12">
-                                    <h1>Which Upvote System
+                                    <h1 class="mt-5">Which Upvote System
                                         options will your WikiPBL
                                         have?
                                     </h1>

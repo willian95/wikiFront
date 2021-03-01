@@ -702,7 +702,7 @@
 
                         @if($project[0]->status == 'pending')
                         <div>
-                            <h1>Which Upvote System
+                            <h1 class="mt-5">Which Upvote System
                                 options will your WikiPBL
                                 have?
                             </h1>

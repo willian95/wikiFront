@@ -1009,10 +1009,11 @@ input:checked + .slider:before {
     padding-bottom: 30px;
     list-style: none;
 }
+/*
 .content_template-general-item img {
     width: 4% !important;
     height: 4% !important;
-}
+}*/
 .flex-edit {
     display: flex;
     align-items: baseline;
@@ -1255,10 +1256,11 @@ input:checked + .slider:before {
     border-radius: 10px;
     padding: 0px 10px;
         position: relative;
+        width: 150px;
 }
 .user_last {
     display: flex;
-    font-size: 14px;
+    font-size: 13px;
     margin: 9px 0;
 }
 .user_last svg {
@@ -1340,4 +1342,33 @@ display: flex;
 justify-content: center;
 align-content: center;
 right: 17px;
+}
+.menu-template_option i{
+    margin-right: 10px;
+}
+.menu-template_option .fa-times{
+    color: red;
+}
+.menu-template_option .fa-check {
+    color: #4caf50;
+}
+.main-wikis .card {
+    border: 0;
+    border-bottom: 1px solid #00000014;
+    border-radius: 0;
+    padding: 10px 0px;
+    flex-direction: inherit;
+    justify-content: space-between;
+}
+.main-wikis p{
+    margin: 0;
+}
+.fill-blue{
+    fill: #4674b8;
+}
+.line_{
+    border-bottom: 1px solid #4674b8;
+}
+.card-proyectos .card{
+    margin-bottom: 16px;
 }
