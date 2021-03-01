@@ -59,7 +59,7 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p">@{{ title }}</a></li>
+                                <li> <a href="#title-p"> @{{ title }}</a></li>
                                 <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
                                 <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
                                 <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
@@ -109,9 +109,9 @@
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="title-p">
                             <div>
-                                <h3 class="titulo-templates">
+                                <h3 class="titulo-templates" >
                                     <span>@{{ title }}</span>
                                 </h3>
                             </div>
@@ -338,13 +338,8 @@
 
                         <li class="content_template-general-item last-menu" id="time">
                             <div>
-                                <h3 class="titulo-templates">@{{ timeFrameTitle }}</h3>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        @{{ timeFrame }}
-                                    </div>
-                                </div>
+                                <h3 class="titulo-templates">@{{ timeFrameTitle }}</h3>            
+                                        @{{ timeFrame }}                                                    
                             </div>
                             <div v-if="timeFrameHistory.length > 0">
                                 <span class="last-meu_p">Last update</span>

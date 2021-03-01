@@ -59,7 +59,7 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a href="#title-p">@{{ title }}</a></li>
+                                <li> <a href="#title-p"> @{{ title }}</a></li>
                                 <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
                                 <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
                                 <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
@@ -102,7 +102,7 @@
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
-                    <li class="content_template-general-item last-menu">
+                    <li class="content_template-general-item last-menu" id="title-p">
                             <div>
                                 <h3 class="titulo-templates">
                                     <span>@{{ title }}</span>
@@ -175,7 +175,7 @@
 
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="driving">
                            <div>
                            <h3 class="titulo-templates">@{{ drivingQuestionTitle }}</h3>
                             {!! $drivingQuestion !!}
@@ -248,7 +248,7 @@
                             </div>
 
                         </li>
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="subjecttitle">
                             <div class="w-100">
                                 <h3 class="titulo-templates">@{{ subjectTitle }}</h3>
                                 <div class="row mt-3 w-100">
@@ -330,15 +330,15 @@
 
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="time">
                             <div>
                                 <h3 class="titulo-templates">@{{ timeFrameTitle }}</h3>
                                 
-                                <div class="row">
-                                    <div class="col-md-6">
+                              
+                                    
                                         @{{ timeFrame }}
-                                    </div>
-                                </div>
+                                 
+                            
                             </div>
                             <div v-if="timeFrameHistory.length > 0">
                                 <span class="last-meu_p">Last update</span>
@@ -406,7 +406,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="projectsumary">
                             <div>
                                 <h3 class="titulo-templates">Project summary</h3>
                                 {!! $projectSumary !!}
@@ -477,7 +477,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="publictitle">
                             <div>
                                 <h3 class="titulo-templates">@{{ publicProductTitle }}</h3>
                                 {!! $publicProduct !!}
@@ -548,7 +548,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="leveltitle">
                             
                             <div>
                                 <h3 class="titulo-templates">@{{ levelTitle }}</h3>
@@ -723,7 +723,7 @@
                             
                         </li>
 
-                        <li class="content_template-general-item last-menu">
+                        <li class="content_template-general-item last-menu" id="hashtags-menu">
                             <div class="w-100">
                                 <h3 class="titulo-templates">#hashtags</h3>
                                 <div class="row mt-3">

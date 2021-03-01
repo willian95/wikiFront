@@ -35,8 +35,8 @@
                             <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                                 <ul>
                                     <p>Main info</p>
-                                    <li> <a href="#title-p">@{{ title }}</a></li>
-                                <li> <a href="#driving">@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a href="#title-p"><i class="fa fa-times" aria-hidden="true"></i>@{{ title }}</a></li>
+                                <li> <a href="#driving"><i class="fa fa-check" aria-hidden="true"></i>@{{ drivingQuestionTitle }}</a></li>
                                 <li> <a href="#subjecttitle">@{{ subjectTitle }}</a></li>
                                 <li> <a href="#time">@{{ timeFrameTitle }}</a></li>
                                 <li><a href="#projectsumary">Project Summary</a></li>
@@ -72,7 +72,7 @@
                                 </label>
                             </li>
 
-                            <li class="content_template-general-item" style="margin-top: 100px;">
+                            <li class="content_template-general-item" id="title-p" style="margin-top: 100px;">
                                 <h3 class="titulo-templates">
                                     
                                     <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -88,7 +88,7 @@
 
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="driving">
                             
                             <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
@@ -106,7 +106,7 @@
                                 <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
                             </li>
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="subjecttitle">
                             <div class="flex-edit" >
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -141,7 +141,7 @@
                                 </div>
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="time">
                             <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                                 <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
@@ -162,12 +162,12 @@
                                 </div>
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="projectsumary">
                                 <h3 class="titulo-templates">Project summary</h3>
                                 <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item"  id="publictitle">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
@@ -181,7 +181,7 @@
                                 <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="leveltitle">
                             <div class="flex-edit">
                             <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -298,7 +298,7 @@
                                 </div>
                             </li>
 
-                            <li class="content_template-general-item">
+                            <li class="content_template-general-item" id="hashtags-menu">
                                 <h3 class="titulo-templates">#hashtags</h3>
                                 
                                 <div class="row">
