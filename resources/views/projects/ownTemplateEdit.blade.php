@@ -605,7 +605,7 @@
                         if (res.data.success == true) {
 
                             swal({
-                                text: res.data.msg,
+                                text: "Project succesfully updated",
                                 icon: "success"
                             }).then(() => {
 
