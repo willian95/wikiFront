@@ -8,7 +8,7 @@
         <div class="container  main-template mt-5">
 
             <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Activity description</h5>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="modal fade" id="reportConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             
@@ -76,6 +76,7 @@
                 <!----------------info----------------->
                 <div class="col-md-9 info-template">
 
+                    @if(\Auth::check())
                     <div class="container-fluid">
                  
                             <div class="row">
@@ -99,6 +100,7 @@
                             </div>
                
                     </div>
+                    @endif
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
@@ -107,6 +109,7 @@
                                 <h3 class="titulo-templates">
                                     <span>@{{ title }}</span>
                                 </h3>
+                                <p><strong>By:</strong> {{ $project[0]->user->name }}</p>
                             </div>
                             <div v-if="titleHistory.length > 0">
                                 <span class="last-meu_p">Last update</span>
@@ -556,18 +559,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inp"></label>
-                                            <select id="inpt" class="form-control" v-model="level" disabled>
-                                                <option value="">Choose your level </option>
-                                                <option value="nursery">Nursery </option>
-                                                <option value="early">Early Childhood </option>
-                                                <option value="primary">Primary/Elementary School</option>
-                                                <option value="middle">Middle School</option>
-                                                <option value="high">High School</option>
-                                                <option value="undergraduate">Undergraduate</option>
-                                                <option value="masters">Masters</option>
-                                                <option value="phd">PhD</option>
-                                                </option>
-                                            </select>
+                                            <label v-if="level == 'nursery'">Nursery </label>
+                                            <label v-if="level == 'early'">Early Childhood </label>
+                                            <label v-if="level == 'primary'">Primary/Elementary School</label>
+                                            <label v-if="level == 'middle'">Middle School</label>
+                                            <label v-if="level == 'high'">High School</label>
+                                            <label v-if="level == 'undergraduate'">Undergraduate</label>
+                                            <label v-if="level == 'masters'">Masters</label>
+                                            <label v-if="level == 'phd'">PhD</label>
 
                                         </div>
                                     </div>
@@ -576,7 +575,7 @@
                                         <div class="row" v-show="level == 'nursery'">
                                             
                                             <div class="col-6" v-for="nurseryLevel in 4">
-                                                <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
+                                                <div class="form-check" v-if="checkTest(nurseryLevel-1)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)" disabled>
                                                     <label class="form-check-label">
                                                         @{{ nurseryLevel - 1 }}
@@ -589,7 +588,7 @@
                                         <div class="row" v-show="level == 'early'">
                                             
                                             <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
-                                                <div class="form-check" @click="addOrPopAges(earlyLevel)">
+                                                <div class="form-check" v-if="checkTest(earlyLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel" disabled>
                                                     <label class="form-check-label">
                                                         @{{ earlyLevel }}
@@ -602,7 +601,7 @@
                                         <div class="row" v-show="level == 'primary'">
                                             
                                             <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
-                                                <div class="form-check" @click="addOrPopAges(primaryLevel)">
+                                                <div class="form-check" v-if="checkTest(primaryLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel" disabled>
                                                     <label class="form-check-label">
                                                         @{{ primaryLevel }}
@@ -615,7 +614,7 @@
                                         <div class="row" v-show="level == 'middle'">
                                             
                                             <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
-                                                <div class="form-check" @click="addOrPopAges(middleLevel)">
+                                                <div class="form-check" v-if="checkTest(middleLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel" disabled>
                                                     <label class="form-check-label">
                                                         @{{ middleLevel }}
@@ -628,7 +627,7 @@
                                         <div class="row" v-show="level == 'high'">
                                             
                                             <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
-                                                <div class="form-check">
+                                                <div class="form-check" v-if="checkTest(highLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel" disabled>
                                                     <label class="form-check-label">
                                                         @{{ highLevel }}
@@ -644,7 +643,7 @@
                                                 +18
                                             </label>
                                         </div>
-                                        <div class="form-check" v-show="level != ''">
+                                        <div class="form-check" v-show="level != ''" v-if="checkTest('all ages')">
                                             <input class="form-check-input check-age"  type="checkbox" :checked="checkTest('all ages')" value="" id="noapply" disabled>
                                             <label class="form-check-label">
                                                 Doesn't apply
@@ -2127,12 +2126,14 @@
                     this.fetchCountries()
                 }
 
-                if(this.auth == "1"){
+                @if(\Auth::check())
+                    if(this.auth == "1"){
 
-                    this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
-                    this.drawChart()
+                        this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+                        this.drawChart()
 
-                }
+                    }
+                @endif
 
                 this.titleHistory = JSON.parse('{!! $titleHistory !!}')
                 this.drivingQuestionHistory = JSON.parse('{!! $drivingQuestionHistory !!}')

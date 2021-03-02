@@ -68,7 +68,7 @@ class SubjectController extends Controller
                                     $q->whereIn("subject_id", $subjectIdArray);
                                 }
                             )
-                            ->with("user")->with("user.institution");
+                            ->with("user")->with("user.institution")->with("likes");
             
             $projectCountQuery = Project::orderBy("id", "desc")->where("status", "launched")
                             ->with(["titles" => function($q){

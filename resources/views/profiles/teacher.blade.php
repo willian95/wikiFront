@@ -101,8 +101,10 @@
                 </div>
                 <div class="col-md-8 card-proyectos">
 
-                    <a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/edit/') }}'+'/'+project.id" v-if="type == 'my-projects' || type == 'public'">
-                        <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                    <div class="card" v-for="(project,index) in projects" v-if="type == 'my-projects' || type == 'public'">
+                        <a :href="'{{ url('/project/edit/') }}'+'/'+project.id">
+                            <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
+                        </a>
                         <!---------------------iconos------------------->
                         <div>
                              <!---------------------icono1------------------->
@@ -121,7 +123,10 @@
                                <!---------------------icono3------------------->
                                <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
                         </div>
-                    </a>
+
+                        <a :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+
+                    </div>
 
 
                     <div class="card" v-for="(project,index) in projects" v-if="type == 'following' && project.project">
@@ -146,20 +151,10 @@
                                 </svg>
                             </span>
                             <!---------------------icono3------------------->
-                            <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
+                            <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
                             
-                        </div>
+                            <a :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
 
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
                         </div>
                         
                

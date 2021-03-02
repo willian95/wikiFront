@@ -104,6 +104,7 @@ Route::get("project/create/{id}", "ProjectController@showCreateOwnTemplate")->mi
 Route::get("project/wiki/create/{id}", "ProjectController@showCreateWikiTemplate")->middleware("auth")->middleware("teacher");
 Route::get("project/edit/{id}", "ProjectController@editProject")->middleware("auth")->middleware("teacher");
 Route::get("project/show/{slug}", "ProjectController@show");
+Route::get("project/original/show/{slug}", "ProjectController@originalShow");
 Route::get("project/pdf/{id}", "ProjectController@pdfTemplate");
 Route::post("project/follow", "ProjectController@followProject");
 Route::post("project/like", "ProjectController@likeProject");

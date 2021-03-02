@@ -1,5 +1,5 @@
 <div class="modal fade bd-example-modal-lg institution-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="btn-cerrar">
               <button type="button" class="modalClose btn text-right" data-dismiss="modal" aria-label="Close">
@@ -29,10 +29,10 @@
                             <input type="text" class="form-control" placeholder="Last name " v-model="admin_institution_lastname">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="John@harvard.org" v-model="admin_institution_email">
+                            <input type="text" class="form-control" placeholder="Email" v-model="admin_institution_email">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="1234567890" v-model="admin_institution_phone" @keypress="isNumber($event)">
+                            <input type="text" class="form-control" placeholder="Phone number" v-model="admin_institution_phone" @keypress="isNumber($event)">
                         </div>
 
                     </div>

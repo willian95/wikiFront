@@ -33,7 +33,7 @@ class HashtagController extends Controller
 
             });
 
-        })->get();
+        })->with("likes")->with("user")->get();
 
         return response()->json(["projects" => $projects]);
 

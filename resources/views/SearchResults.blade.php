@@ -22,7 +22,7 @@
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="subject in subjects">
                     <strong><a href="#">@{{ subject.letter }}</a></strong>
-                    <p v-for="word in subject.results"><a :href="'{{ url('/subject/projects/') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <p v-for="word in subject.results"><a :href="'{{ url('/subject/projects/') }}'+'/'+word.id">@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="teacher in teachers">
                     <strong><a href="#">@{{ teacher.letter }}</a></strong>
-                    <p v-for="word in teacher.results"><a :href="'{{ url('/teacher/show') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <p v-for="word in teacher.results"><a :href="'{{ url('/teacher/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -64,7 +64,7 @@
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="school in schools">
                     <strong><a href="#">@{{ school.letter }}</a></strong>
-                    <p v-for="word in school.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <p v-for="word in school.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="university in universities">
                     <strong><a href="#">@{{ university.letter }}</a></strong>
-                    <p v-for="word in university.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <p v-for="word in university.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="organization in organizations">
                     <strong><a href="#">@{{ organization.letter }}</a></strong>
-                    <p v-for="word in organization.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <p v-for="word in organization.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
 
                 </div>
             </div>

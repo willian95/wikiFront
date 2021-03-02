@@ -11,7 +11,7 @@ class CKEditorController extends Controller
     function upload(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'upload' =>  'required|image|mimes:jpeg,png,jpg,gif'
+            'upload' =>  'required|file|mimes:jpeg,png,jpg,gif,mp4'
         ]);
 
         if ($validator->fails()) {

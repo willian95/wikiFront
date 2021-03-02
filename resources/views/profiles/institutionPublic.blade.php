@@ -9,7 +9,7 @@
         </div>
 
         <div class="modal fade" id="reportConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         
@@ -130,7 +130,7 @@
                     studentsEnrolled:"{{ $institution->students_enrolled }}",
                     facultyMembers:"{{ $institution->faculty_members }}",
                     whichNetwork:"{{ strip_tags($institution->which_network) }}",
-                    report:"{{ App\InstitutionReport::where('user_id', \Auth::user()->id)->where('institution_id', $institution->id)->count() }}",
+                    report:"{{ \Auth::check() ? App\InstitutionReport::where('user_id', \Auth::user()->id)->where('institution_id', $institution->id)->count() : 0 }}",
                     modalField:"",
                     userName:"",
                     userLastname:"",

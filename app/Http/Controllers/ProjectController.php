@@ -829,7 +829,7 @@ class ProjectController extends Controller
 
             $q->groupBy('type')->orderBy('id', 'desc')->where("status", "launched")->get(['type', 'title', 'description', DB::raw('MAX(id) as id')]);
 
-        }])->get(); 
+        }])->with("user")->get(); 
 
         if($project[0]->status == "banned" && \Auth::guest()){
 
@@ -1029,6 +1029,219 @@ class ProjectController extends Controller
             ]);
         }
 
+
+    }
+
+    public function originalShow($slug){
+
+        $projctId = $slug;
+
+        $project = Project::where("id", $projctId)->with(["titles" => function($q){
+            $q->orderBy("id", "desc")->where("status", "launched")->where("is_original", 1)->take(1);
+            }
+        ])->with(["secondaryFields" => function($q){
+
+            $q->groupBy('type')->orderBy('id', 'desc')->where("status", "launched")->where("is_original", 1);
+
+        }])->with("user")->get(); 
+
+        if($project[0]->status == "banned" && \Auth::guest()){
+
+            return "project reported";
+
+        }
+
+        if($project[0]->status == "banned" && \Auth::user()->role_id != 1){
+            return "project reported";
+        }
+
+        $drivingQuestionTitle = "";
+        $drivingQuestion = "";
+        $timeFrameTitle = "";
+        $timeFrame = "";
+        $publicProductTitle = "";
+        $publicProduct = "";
+        $mainInfo = "";
+        $bibliography="";
+        $subjectTitle = "";
+        $subjects = "";
+        $levelTitle = "";
+        $level = "";
+        $hashtag = "";
+        $calendarActivities = "";
+        $upvoteSystem = "";
+        $projectSumary = "";
+
+        $title = Title::where("project_id", $project[0]->id)->where("is_original", 1)->first()->title;
+        $drivingQuestionTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "drivingQuestion")->first()->title;
+        $drivingQuestion = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "drivingQuestion")->first()->description;
+        $timeFrameTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "timeFrame")->first()->title;
+        $timeFrame = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "timeFrame")->first()->description;
+        $publicProductTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "publicProduct")->first()->title;
+        $publicProduct = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "publicProduct")->first()->description;
+        $projectSumary = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectSumary")->first()->description;
+        $mainInfo = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "mainInfo")->first()->description;
+        $bibliography = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "bibliography")->first()->description;
+        $subjectTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "subject")->first()->title;
+        $subjects = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "subject")->first()->description;
+        $levelTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "level")->first()->title;
+        $level = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "level")->first()->description;
+        $hashtag = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "hashtag")->first()->description;
+        $calendarActivities = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "calendarActivities")->first()->description;
+        $upvoteSystem = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "upvoteSystem")->first()->description;
+        $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
+        $assestmentPointsArray = [];
+
+        foreach($assestmentPoints as $point){
+            $assestmentPointsArray[] = [
+                "name" =>  $point->assestmentPointType->name,
+                "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+            ];
+        }
+
+        $titleHistory = $this->titleHistory($project[0]->id);
+        $drivingQuestionHistory = $this->secondaryFieldsHistory($project[0]->id, "drivingQuestion");
+        $timeFrameHistory = $this->secondaryFieldsHistory($project[0]->id, "timeFrame");
+        $publicProjectHistory = $this->secondaryFieldsHistory($project[0]->id, "publicProduct");
+        $mainInfoHistory = $this->secondaryFieldsHistory($project[0]->id, "mainInfo");
+        $bibliographyHistory = $this->secondaryFieldsHistory($project[0]->id, "bibliography");
+        $subjectHistory = $this->secondaryFieldsHistory($project[0]->id, "subject");
+        $levelHistory = $this->secondaryFieldsHistory($project[0]->id, "level");
+        $hashtagHistory = $this->secondaryFieldsHistory($project[0]->id, "hashtag");
+        $calendarActivitiesHistory = $this->secondaryFieldsHistory($project[0]->id, "calendarActivities");
+        $projectSumaryHistory = $this->secondaryFieldsHistory($project[0]->id, "projectSumary");
+            //$drivingQuestionHistory = $this->showProjectSection($project[0]->id, "upvoteSystem")
+
+        
+        if($project[0]->type == "own-template"){
+
+            return view("projects.ownTemplateShow", 
+                [
+                    "id" => $project[0]->id, 
+                    "title" => $project[0]->titles[0]->title, 
+                    "drivingQuestionTitle" => $drivingQuestionTitle,
+                    "drivingQuestion" => $drivingQuestion,
+                    "timeFrameTitle" => $timeFrameTitle,
+                    "timeFrame" => $timeFrame,
+                    "publicProductTitle" => $publicProductTitle,
+                    "publicProduct" => $publicProduct,
+                    "mainInfo" => $mainInfo,
+                    "bibliography" => $bibliography,
+                    "subjectTitle" => $subjectTitle,
+                    "subjects" => $subjects,
+                    "levelTitle" => $levelTitle,
+                    "level" => $level,
+                    "hashtag" => $hashtag,
+                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "upvoteSystem" => $upvoteSystem,
+                    "projectSumary" => $projectSumary,
+                    "project" => $project,
+                    "assestmentPoints" => $assestmentPoints,
+                    "assestmentPointsArray" => json_encode($assestmentPointsArray),
+                    "titleHistory" => $titleHistory,
+                    "drivingQuestionHistory" => $drivingQuestionHistory,
+                    "timeFrameHistory" => $timeFrameHistory,
+                    "publicProjectHistory" => $publicProjectHistory,
+                    "mainInfoHistory" => $mainInfoHistory,
+                    "bibliographyHistory" => $bibliographyHistory,
+                    "subjectHistory" => $subjectHistory,
+                    "levelHistory" => $levelHistory,
+                    "hashtagHistory" => $hashtagHistory,
+                    "calendarActivitiesHistory" => $calendarActivitiesHistory,
+                    "projectSumaryHistory" => $projectSumaryHistory
+                ]
+            );
+        }else{
+
+            $toolsTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "tools")->first()->title;
+            $tools = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "tools")->first()->description;
+            $learningGoalsTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "learningGoals")->first()->title;
+            $learningGoals = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "learningGoals")->first()->description;
+            $resourcesTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "resources")->first()->title;
+            $resources = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "resources")->first()->description;
+            $projectMilestonesTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->title;
+            $projectMilestones = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->description;
+            $expertTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "expert")->first()->title;
+            $expert  = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->description;
+            $fieldWorkTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "fieldWork")->first()->title;
+            $fieldWork  = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "fieldWork")->first()->description;
+            $globalConnectionsTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "globalConnections")->first()->title;
+            $globalConnections = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "globalConnections")->first()->description;
+            $assestmentPoints = UpvoteSystemProject::where("project_id", $project[0]->id)->with("assestmentPointType")->get();
+            $assestmentPointsArray = [];
+
+            foreach($assestmentPoints as $point){
+                $assestmentPointsArray[] = [
+                    "name" =>  $point->assestmentPointType->name,
+                    "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                ];
+            }
+
+            $toolHistory = $this->secondaryFieldsHistory($project[0]->id, "tools");
+            $learningGoalHistory = $this->secondaryFieldsHistory($project[0]->id, "learningGoals");
+            $resourceHistory = $this->secondaryFieldsHistory($project[0]->id, "resources");
+            $projectMilestoneHistory = $this->secondaryFieldsHistory($project[0]->id, "projectMilestone");
+            $expertHistory  = $this->secondaryFieldsHistory($project[0]->id, "expert");
+            $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork");
+            $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections");
+
+            return view("projects.wikiPBLTemplateShow", [
+                "id" => $project[0]->id, 
+                "title" => $title, 
+                "drivingQuestionTitle" => $drivingQuestionTitle,
+                "drivingQuestion" => $drivingQuestion,
+                "timeFrameTitle" => $timeFrameTitle,
+                "timeFrame" => $timeFrame,
+                "publicProductTitle" => $publicProductTitle,
+                "publicProduct" => $publicProduct,
+                "mainInfo" => $mainInfo,
+                "bibliography" => $bibliography,
+                "subjectTitle" => $subjectTitle,
+                "subjects" => $subjects,
+                "levelTitle" => $levelTitle,
+                "level" => $level,
+                "hashtag" => $hashtag,
+                "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                "upvoteSystem" => $upvoteSystem,
+                "projectSumary" => $projectSumary,
+                "project" => $project,
+                "toolsTitle" => $toolsTitle,
+                "tools" => $tools,
+                "learningGoalsTitle" => $learningGoalsTitle,
+                "learningGoals" => str_replace("'", "\'", $learningGoals),
+                "resourcesTitle" => $resourcesTitle,
+                "resources" => $resources,
+                "projectMilestonesTitle" => $projectMilestonesTitle,
+                "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                "expertTitle" => $expertTitle,
+                "expert" => $expert,
+                "fieldWorkTitle" => $fieldWorkTitle,
+                "fieldWork" => $fieldWork,
+                "globalConnectionsTitle" => $globalConnectionsTitle,
+                "globalConnections" => $globalConnections,
+                "assestmentPoints" => $assestmentPoints,
+                "assestmentPointsArray" => json_encode($assestmentPointsArray),
+                "projectSumaryHistory" => $projectSumaryHistory,
+
+                "titleHistory" => $titleHistory,
+                "drivingQuestionHistory" => $drivingQuestionHistory,
+                "timeFrameHistory" => $timeFrameHistory,
+                "publicProjectHistory" => $publicProjectHistory,
+                "mainInfoHistory" => $mainInfoHistory,
+                "bibliographyHistory" => $bibliographyHistory,
+                "subjectHistory" => $subjectHistory,
+                "levelHistory" => $levelHistory,
+                "hashtagHistory" => $hashtagHistory,
+                "calendarActivitiesHistory" => $calendarActivitiesHistory,
+                "toolHistory" => $toolHistory,
+                "learningGoalHistory" => $learningGoalHistory,
+                "resourceHistory" => $resourceHistory,
+                "projectMilestoneHistory" => $projectMilestoneHistory,
+                "expertHistory" => $expertHistory,
+                "fieldWorkHistory" => $fieldWorkHistory,
+                "globalConnectionHistory" => $globalConnectionHistory
+            ]);
+        }
 
     }
 
@@ -1277,15 +1490,15 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", $teacherId)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user")->with("likes");
+        ])->with("user")->with("user.institution")->with("likes");
 
-        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", $teacherId)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user");
+        ])->with("user")->with("user.institution");
 
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
         $projectsCount = $projectQueryCount->count();
@@ -1302,12 +1515,12 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user")->with("likes");
+        ])->with("user")->with("user.institution")->with("likes");
 
         $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user");
+        ])->with("user")->with("user.institution");
 
         $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
         $projectsCount = $projectQueryCount->count();
@@ -1326,8 +1539,8 @@ class ProjectController extends Controller
             ->with(["project" => function($q){
                 $q->with(["titles" => function($q){
                     $q->orderBy("id", "desc");
-                }]);
-            }])->with("user")->with("likes");
+                }])->with("user")->with("likes");
+            }]);
 
         $projectQueryCount = ProjectShare::where("user_id", $teacherId)
             ->orderBy("id", "desc")

@@ -5,7 +5,7 @@
 
 <div class="categories-layout" id="elements">
     <div class="text-center categories-layout_title">
-        <h1>{{ $title }}</h1>
+        <h1>{{ $type }}: {{ $title }}</h1>
         <p>{{ $count }}+ {{ strtolower($title) }} and counting!</p>
     </div>
     <div class="row word">

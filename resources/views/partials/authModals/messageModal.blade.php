@@ -13,7 +13,8 @@
                     confirmation email to finish the
                     registration, so all of your teachers and
                     associates can start creating WikiPBL
-                    projects ASAP! Remember to check y
+                    projects ASAP! Remember to check your spam
+                    folder.
                 </div>
             </div>
             <div class="modal-footers">
