@@ -8,10 +8,10 @@
         <h1>Subject: {{ $subject->name }}</h1>
         <p>{{ $count }}+ and counting!</p>
     </div>
-    <div class="row word">
+    <div class="row word main-wikis">
         <div class="col-md-12 card-proyectos">
             
-            <div v-for="project in projects">
+            <div  class="card" v-for="project in projects">
 
                 <a :href="'{{ url('project/show/') }}'+'/'+project.id">
                     <p v-if="project.titles[0]">@{{ project.titles[0].title }}, @{{ project.user.name }} @{{ project.user.lastname }}, @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution_name }}</p>
