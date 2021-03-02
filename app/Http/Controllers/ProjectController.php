@@ -579,7 +579,7 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", \Auth::user()->id)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("likes");
 
         $projectQueryCount = Project::where("user_id", \Auth::user()->id)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
@@ -601,7 +601,7 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ]);
+        ])->with("likes");
 
         $projectQueryCount = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
@@ -625,7 +625,7 @@ class ProjectController extends Controller
             ->with(["project" => function($q){
                 $q->with(["titles" => function($q){
                     $q->orderBy("id", "desc");
-                }]);
+                }])->with("likes");
             }]);
 
         $projectQueryCount = ProjectShare::where("user_id", \Auth::user()->id)
@@ -1280,7 +1280,7 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user");
+        ])->with("user")->with("likes");
 
         $projectQueryCount = Project::where("user_id", $teacherId)->where("is_pricate", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
@@ -1302,7 +1302,7 @@ class ProjectController extends Controller
         $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
-        ])->with("user");
+        ])->with("user")->with("likes");
 
         $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
@@ -1327,7 +1327,7 @@ class ProjectController extends Controller
                 $q->with(["titles" => function($q){
                     $q->orderBy("id", "desc");
                 }]);
-            }])->with("user");
+            }])->with("user")->with("likes");
 
         $projectQueryCount = ProjectShare::where("user_id", $teacherId)
             ->orderBy("id", "desc")
