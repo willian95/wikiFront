@@ -18,7 +18,7 @@
                     <input type="password" class="form-control" v-model="passwordConfirmation">
                 </div>
                 <p class="text-center">
-                    <button class="btn btn-success" @click="restore()">Restore</button>
+                    <button class="btn btn-custom" @click="restore()">Restore</button>
                 </p>
             </div>
         </div>

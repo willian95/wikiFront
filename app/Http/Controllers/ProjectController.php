@@ -508,7 +508,7 @@ class ProjectController extends Controller
 
                 ]
             );
-
+            //
             return  $pdf->download($title.".pdf");
 
         }else{
