@@ -38,7 +38,7 @@
                     <small style="color:red"
                     v-if="errors.hasOwnProperty('login_password')">@{{ errors['login_password'][0] }}</small>
                 </div>
-                <a class="col-md forgot" @click="forgotPasswordShowModal()">Forgot password</a>
+                <a class="col-md forgot" style="cursor: pointer;" @click="forgotPasswordShowModal()">Forgot password</a>
 
                 <div class="text-lg-right mr-2">
                     <button class="btn btn-custom" @click="login()">Login</button>
