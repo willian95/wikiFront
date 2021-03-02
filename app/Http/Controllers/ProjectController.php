@@ -509,7 +509,7 @@ class ProjectController extends Controller
                 ]
             );
 
-            return  $pdf->stream();
+            return  $pdf->download($title);
 
         }else{
 
@@ -565,7 +565,7 @@ class ProjectController extends Controller
                 ]
             );
 
-            return  $pdf->stream();
+            return  $pdf->download($title);
 
         }
 
