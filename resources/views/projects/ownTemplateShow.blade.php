@@ -883,10 +883,10 @@
                             <div class="container-fluid">
 
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-md-9">
                                         <h3 class="titulo-templates">Calendar of activities </h3>
                                     </div>
-                                    <div class="col-3" style="margin-top: -22px;">
+                                    <div class="col-md-3 mt--22" >
                                         <div v-if="calendarActivitiesHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
@@ -980,11 +980,11 @@
                         <div class="contente_item">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-md-9">
                                         <h3 class="titulo-templates">Bibliography</h3>
                                     </div>
-                                    <div class="col-3">
-                                        <div style="margin-top: -22px;" v-if="bibliographyHistory.length > 0">
+                                    <div class="col-md-3">
+                                        <div class="mt--22"  v-if="bibliographyHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
                                                 <p class="borde-calen">@{{ bibliographyHistory[0].date }}</p>
@@ -1333,7 +1333,7 @@
                         $("#reportIcon").css("fill", "#000")
                     }else{
                         this.report = "1"
-                        $("#reportIcon").css("fill", "#4674b8")
+                        $("#reportIcon").css("fill", "#f44336")
                     }
                 },
                 drawChart(){
@@ -2112,7 +2112,7 @@
                 }
 
                 if(this.report > 0){
-                    $("#reportIcon").css("fill", "#4674b8")
+                    $("#reportIcon").css("fill", "#f44336")
                 }
 
                 if(this.follow > 0){

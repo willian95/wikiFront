@@ -16,7 +16,7 @@
                 </div>
                 <div class="text-center d-flex align-content-center justify-content-center">
                     <div class="info-regrister">
-                        <img src="{{ url('assets/img/iconos/login.svg') }}" alt="">
+                        <img class="mr-1" src="{{ url('assets/img/iconos/login.svg') }}" alt="">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quos
 
                         </p>

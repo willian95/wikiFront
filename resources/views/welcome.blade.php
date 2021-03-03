@@ -103,7 +103,7 @@
                             <a href="{{ url('/hashtag/show/'.$hashtag->hashtag->id) }}"> <span>#{{ $hashtag->hashtag->name }}</span></a>
                         @endforeach
                     </div>
-                        <a href="{{ url('/project/show/'.$project->id) }}" class="btn btn-custom">View complete PBL</a>
+                        <a href="{{ url('/project/show/'.$project->id) }}" class="btn btn-custom btn-custom-green ">View complete PBL</a>
                     </div>
 
 

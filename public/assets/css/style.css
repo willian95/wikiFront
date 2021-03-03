@@ -81,10 +81,10 @@ Nav
 }
 
 @media (max-width: 767px) {
-    .offcanvas-collapse {
+    /*.offcanvas-collapse {
         position: fixed;
         top: 56px;
-        /* Height of navbar */
+    
         bottom: 0;
         width: 100%;
         padding-right: 1rem;
@@ -97,7 +97,7 @@ Nav
             -webkit-transform 0.3s ease-in-out;
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
-    }
+    }*/
 
     /**navbaar */
     body.offcanvas-expanded {
@@ -1372,3 +1372,40 @@ right: 17px;
 .card-proyectos .card{
     margin-bottom: 16px;
 }
+
+.contenido-select-step{
+    gap: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenido-select-step .form-group {
+    margin-bottom: 0rem;
+    width: 48%;
+}
+.btn-custom-green {
+    border: 1px solid #a1c751;
+    background: #a0c650;
+    color: #fff;
+    padding: 6px 30px;
+}
+#hashtags-menu .card-body{
+    font-size: 11px;
+    box-shadow: 0px 0px 10px #0000002b;
+    border-radius: 6px;
+}
+#hashtags-menu .card{
+    border: 0;
+}
+.menu-template_option li:hover{
+    background: #e5e5e5;
+    border-radius: 5px;
+}
+.menu-template_option ul li:active { 
+ 
+    background: gray; 
+   
+  } 
+  .mt--22{
+    margin-top: -22px;
+  }
