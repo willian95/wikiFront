@@ -144,7 +144,7 @@ class TeacherController extends Controller
         $project->update();
 
         if(env("SEND_EMAIL") == true){
-            $this->sendAdminReportEmail();
+            $this->sendAdminReportEmail($request);
         }
 
     }
