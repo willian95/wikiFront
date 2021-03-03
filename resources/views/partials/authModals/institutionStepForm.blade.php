@@ -1,5 +1,5 @@
 <div class="modal fade stepFormModal" data-backdrop="static" data-keyboard="false" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg " role="document">
         <div class="modal-content">
 
             <div class="modal-body">
@@ -10,7 +10,7 @@
                         <div class="content-titulo">
                             <p class="titulo"> Welcome back {{ \Auth::user()->name }}! <span>Step 1/2</span></p>
                             <div class="info-regrister">
-                                <img src="{{ url('assets/img/iconos/like.svg') }}" alt="">
+                                <img class="mr-1" src="{{ url('assets/img/iconos/like.svg') }}" alt="">
                                 <p>The institution: {{ \Auth::user()->institution->name }} was
                                     approved! Thanks for your time, please fill ' out the following info and your
                                     good
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <!-----------------------selct--------------------------------->
-                        <div class="contenido-select">
+                        <div class="contenido-select contenido-select-step">
                             <div class="form-group">
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="selectedCountry" @change="fetchStates()">
@@ -75,14 +75,14 @@
                             <p class="titulo"> Welcome back {{ \Auth::user()->name }}! <span>Step 2/2</span></p>
                         </div>
                         <!-----------------------selct--------------------------------->
-                        <div class="contenido-select contenido-select-2">
+                        <div class="contenido-select contenido-select-2" style="padding: 0 35px;">
                             <div class="form-group" v-if="institution_type == 'school' || institution_type == 'university'">
                                 <label for="">Are you part of a network of institutions?</label>
-                                <select class="form-control" v-model="part_of_network_institution">
+                                <select class="form-control mb-3" v-model="part_of_network_institution">
                                     <option value="true">Yes </option>
                                     <option value="false">No</option>
                                 </select>
-                                <input type="text" class="form-control" v-if="part_of_network_institution == 'true'" placeholder="Which one?" v-model="which_network">
+                                <input type="text" class="form-control " v-if="part_of_network_institution == 'true'" placeholder="Which one?" v-model="which_network">
                             </div>
 
                             <div class="form-group">
@@ -115,7 +115,7 @@
                         </div>
                         <!-----------------------selct--------------------------------->
                         <div style="overflow:auto;">
-                            <div style="float:right;">
+                            <div class="text-center mt-4">
                                 <button class="btn btn-custom" type="button"
                                     @click="previous('institution')">Previous</button>
                                 <button class="btn btn-custom" type="button"

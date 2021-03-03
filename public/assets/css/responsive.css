@@ -29,6 +29,56 @@
         width: 49%;
      
     }
+
+    /***************/
+    .navbar-nav {
+
+        flex-direction: initial;
+        padding-left: revert;
+        margin-bottom: 0;
+    }
+    .offcanvas-collapse {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f9f8f2;
+        transition: -webkit-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    }
+    .like-xs{
+        position: absolute;
+    background: #4674b8;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    line-height: 1.2;
+    margin-left: -5px;
+    }
+    .mt--22{
+        margin-top: 0;
+    }
+    .navbar-nav  .mt-3{
+        margin-top: 0rem!important;
+    }
+    .hamburger {
+      
+        display: none;
+    }
+    .nav {
+        width: 100%;
+        top: 11%;
+        left: 35%;
+        background-color: transparent;
+        position: absolute;
+        border-radius: 2px;
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        width: 100%;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

@@ -13,7 +13,7 @@
                 <div class="content-titulo">
                     <p class="titulo">Educator Registration - Welcome!</p>
                     <div class="info-regrister">
-                        <img src="{{ url('assets/img/iconos/info.svg') }}" alt="">
+                        <img class="mr-1" src="{{ url('assets/img/iconos/info.svg') }}" alt="">
                         <p> Before registering, remember that your email address must be valid and approved by your
                             Institution & the wikiPB Admin
                         </p>
