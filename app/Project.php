@@ -28,7 +28,7 @@ class Project extends Model
 
     public function subjectProjects(){
 
-        return $this->hasMany(subjectProject::class);
+        return $this->hasMany(SubjectProject::class);
 
     }
 
