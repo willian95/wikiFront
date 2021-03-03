@@ -68,40 +68,42 @@
             </div>
         </div>
 
+
+        @php
+
+            $project = App\Like::select('project_id', \DB::raw('COUNT(project_id) as project_count'))->groupBy('project_id')->orderBy("project_count", "desc")->first();
+
+            $project = App\Project::where("id", $project->project_id)->with(["titles" => function($q){
+                $q->orderBy("id", "desc")->where("status", "launched")->take(1);
+                }
+            ])->with("user")->first();
+
+            $drivingQuestion = App\SecondaryField::where("project_id", $project->id)->where("type", "drivingQuestion")->orderBy("id", "desc")->where("status", "launched")->first();
+            
+
+
+        @endphp
+
         <div class="feactured-home">
             <h3 class="ml-3 mb-4 font-titulos text-center pt-4">Today’s featured wikiPBL!</h3>
             <div class="feactured-one">
-                <p class="titulo">What ever title <br> <span>by Alicia Suarez</span> </p>
+                <p class="titulo">{{ $project->titles[0]->title }} <br> <span>by {{ $project->user->name }}</span> </p>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit dignissimos praesentium
-                            fuga
-                            eveniet labore neque quos officiis earum eaque unde minima corporis voluptatum voluptatem
-                            molestiae,
-                            voluptatibus consequatur tenetur impedit?Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Ipsum fugit dignissimos praesentium
-                            fuga
-                            eveniet labore neque quos officiis earum eaque unde minima corporis voluptatum voluptatem
-                            molestiae,
-                            voluptatibus consequatur tenetur impedit?</p>
+                        <p>{!! $drivingQuestion->description !!}</p>
                     </div>
                     <div class="col-md-3">
-                        <p>Level & Age</p>
-                        <p> Subject Name</p>
-                        <p>Skills</p>
-                        <p> Driving question</p>
+                        
+                        {{ App\SubjectProject::where("project_id", $project->id)->with("subject")->first()->subject->name }}
+                        <p>{{ $drivingQuestion->title }}</p>
                     </div>
                     <div class="col-md-3">
                        <div class="hashtag-home mt-0 mb-5 pb-5">
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
-                        <a href="#"> <span>#Hashtag</span></a>
+                       @foreach(App\HashtagProject::where("project_id", $project->id)->with("hashtag")->get() as $hashtag)
+                            <a href="{{ url('/hashtag/show/'.$hashtag->hashtag->id) }}"> <span>#{{ $hashtag->hashtag->name }}</span></a>
+                        @endforeach
                     </div>
-                        <button class="btn btn-custom">View complete PBL</button>
+                        <a href="{{ url('/project/show/'.$project->id) }}" class="btn btn-custom">View complete PBL</a>
                     </div>
 
 
