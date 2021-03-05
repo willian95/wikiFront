@@ -658,7 +658,7 @@
 
                 if (!this.institution_not_registered) {
                     if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
-                        .toLowerCase()) < 0) {
+                        .toLowerCase().replace("www.", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
@@ -689,7 +689,7 @@
                     return false
                 } else if (this.institution_website == "") {
                     swal({
-                        text: "Institution websote is required",
+                        text: "Institution website is required",
                         icon: "warning"
                     })
 
