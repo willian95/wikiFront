@@ -1389,12 +1389,12 @@ right: 17px;
     color: #fff;
     padding: 6px 30px;
 }
-#hashtags-menu .card-body{
+#hashtags-menu .card-body , .content_template-general-item .card-body{
     font-size: 11px;
     box-shadow: 0px 0px 10px #0000002b;
     border-radius: 6px;
 }
-#hashtags-menu .card{
+#hashtags-menu .card , .content_template-general-item .card{
     border: 0;
 }
 .menu-template_option li:hover{
