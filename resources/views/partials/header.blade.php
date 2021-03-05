@@ -655,6 +655,9 @@
             },
             validateTeacherRegister() {
 
+                console.log("institution_email", this.institution_email.toLowerCase())
+                console.log("website", this.selected_institution.website.toLowerCase().replace("www.", ""))
+
 
                 if (!this.institution_not_registered) {
                     if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
@@ -668,6 +671,8 @@
                     return false
 
                 }
+
+                return true
 
             }
 
