@@ -661,7 +661,7 @@
 
                 if (!this.institution_not_registered) {
                     if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
-                        .toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://")) < 0) {
+                        .toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
