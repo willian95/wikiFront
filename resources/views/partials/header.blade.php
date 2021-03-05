@@ -656,7 +656,7 @@
             validateTeacherRegister() {
 
                 console.log("institution_email", this.institution_email.toLowerCase())
-                console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://"))
+                console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
 
 
                 if (!this.institution_not_registered) {
