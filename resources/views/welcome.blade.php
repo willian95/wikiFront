@@ -56,10 +56,10 @@
                         <label for=""></label>
                         <select id="" class="form-control" v-model="level" @change="getSubjects()">
                             <option v-if="categoryType == 'school'" value="nursery">Nursery 0 - 3 </option>
-                            <option v-if="categoryType == 'school'" value="early">Early childhood 4 - 6</option>
+                            <option v-if="categoryType == 'school'" value="early">Early Childhood 4 - 6</option>
                             <option v-if="categoryType == 'school'" value="primary">Primary/Elementary 7 - 10</option>
                             <option v-if="categoryType == 'school'" value="middle">Middle School 11 - 13</option>
-                            <option v-if="categoryType == 'school'" value="high">Highe School 14 - 18</option>
+                            <option v-if="categoryType == 'school'" value="high">High School 14 - 18</option>
                             <option :value="i" v-for="i in 18" v-if="categoryType == 'university'">@{{ i }} Month</option>
                         </select>
 
