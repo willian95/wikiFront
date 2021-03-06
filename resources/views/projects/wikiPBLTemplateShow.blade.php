@@ -1239,6 +1239,38 @@
 
                     <div class="content_template">
 
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="false">
+                            <div class="carousel-inner">
+                                <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides">
+                                    
+                                    <div class="row mt-2">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-2">Day 1</div>
+                                        <div class="col-md-2">Day 2</div>
+                                        <div class="col-md-2">Day 3</div>
+                                        <div class="col-md-2">Day 4</div>
+                                        <div class="col-md-2">Day 5</div>
+                                    </div>
+                                    <div class="row mt-1" v-for="week in 4*currentSlide" v-if="week > (4*currentSlide - 4) && week <= weeks">
+                                        <div class="col-md-2">Week @{{ week }}</div>
+                                        <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
+                                            <div class="card" style="cursor: pointer">
+                                                <div class="card-body card-body_tarea">
+                                                    @{{ showActivity(week, day) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-success" @click="previousSlide()">Previous</button>
+                                <button class="btn btn-success" @click="nextSlide()">Next</button>
+                            </div>
+                            
+                        </div>
 
 
                         <div class="contente_item mt-5 mb-5">
@@ -1710,6 +1742,8 @@
                 activityDescription: "",
                 days: 5,
                 weeks: parseInt("{{ $project[0]->number_of_weeks }}"),
+                slides:1,
+                currentSlide:1,
                 calendarDay: "",
                 calendarWeek: "",
                 toolsTitle: "{!! htmlspecialchars_decode($toolsTitle) !!}",
@@ -2057,6 +2091,25 @@
 
                 })
 
+            },
+            nextSlide(){
+                    
+                $("#carouselExampleControls").carousel('next')
+                $('.carousel').carousel('pause');
+                if(this.currentSlide < this.slides){
+                    this.currentSlide++
+                }else{
+                    this.currentSlide = 1
+                }
+            },
+            previousSlide(){
+                $("#carouselExampleControls").carousel('prev')
+                $('.carousel').carousel('pause');
+                if(this.currentSlide > 1){
+                    this.currentSlide --
+                }else{
+                    this.currentSlide = this.slides
+                }
             },
             next(form = "teacher") {
 
@@ -2841,6 +2894,8 @@
             this.expertHistory = JSON.parse('{!! $expertHistory !!}')
             this.fieldWorkHistory = JSON.parse('{!! $fieldWorkHistory !!}')
             this.globalConnectionHistory = JSON.parse('{!! $globalConnectionHistory !!}')
+
+            this.slides = Math.ceil("{{ $project[0]->number_of_weeks }}" / 4)
 
         }
 

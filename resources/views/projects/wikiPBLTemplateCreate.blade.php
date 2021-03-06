@@ -794,7 +794,7 @@
 
                         this.calendarActivities.push(activity)
                         this.activityDescription = ""
-                        this.weeks = 4
+                        this.weeks = this.weeks
 
                         $("#calendarDescription").modal('hide')
                         $('.modal-backdrop').remove();
