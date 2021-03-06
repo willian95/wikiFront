@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <h3> Categories/Subjects</h3>
+                    <h3>Find Categories/Subjects</h3>
                     <div class="abc-home">
                         <div class="abc-content" v-for="(letter, key) in subjects">
                             <strong><a :href="'{{ url('subject/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a></strong>
