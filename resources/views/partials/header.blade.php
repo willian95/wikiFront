@@ -2,20 +2,20 @@
 
     @php
 
-    $showModal = false;
-    if(\Auth::check()){
-    if(\Auth::user()->role_id == 3){
+        $showModal = false;
+        if(\Auth::check()){
+            if(\Auth::user()->role_id == 3){
 
-    $isProfileComplete = App\Institution::where("id", \Auth::user()->institution_id)->first()->is_profile_complete;
-    
-    if($isProfileComplete == 0){
-    $showModal = true;
-}
+                $isProfileComplete = App\Institution::where("id", \Auth::user()->institution_id)->first()->is_profile_complete;
+            
+                if($isProfileComplete == 0){
+                    $showModal = true;
+                }
 
-}
-}
+            }
+        }
 
-@endphp
+    @endphp
 
 <div class="loader-cover-custom" v-if="loading == true">
     <div class="loader-custom"></div>
@@ -657,11 +657,10 @@
 
                 console.log("institution_email", this.institution_email.toLowerCase())
                 console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
-
+                let domain = new URL(this.selected_institution.website.toLowerCase())
 
                 if (!this.institution_not_registered) {
-                    if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
-                        .toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
+                    if (this.institution_email.toLowerCase().indexOf(domain.hostname.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
