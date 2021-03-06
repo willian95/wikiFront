@@ -5,6 +5,10 @@
     </head>
     <body>
         
+    <a href="{{ url('/') }}">
+        <img src="https://www.wikipbl.org/assets/img/logo.svg" alt="" style="200px;">
+    </a>
+
         <h3 class="titulo-templates">
                         
             <span>{!! htmlspecialchars_decode($title) !!}</span> 
