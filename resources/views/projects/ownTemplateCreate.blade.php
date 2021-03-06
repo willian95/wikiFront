@@ -333,6 +333,16 @@
                                 <h3 class="titulo-templates  mt-5 mb-5">Calendar of activities </h3>
                                 
                                 <div class="container-fluid">
+                                    
+                                    <div class="row">
+                                        
+                                        <label for="inp">Weeks</label>
+                                        <select id="inpt" class="form-control" v-model="weeks">
+                                            <option v-for="week in 18" :value="week" v-if="week > 3">@{{ week }} </option>
+                                        </select>
+                                       
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-2"></div>
                                         <div class="col-md-2">Day 1</div>
@@ -351,6 +361,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
 
 
@@ -509,7 +520,7 @@
                         }
                         this.calendarActivities.push(activity)
                         this.activityDescription = ""
-                        this.weeks = 4
+                        this.weeks = this.weeks
                         $("#calendarDescription").modal('hide')
                         $('.modal-backdrop').remove();
                     }
@@ -601,6 +612,7 @@
                     formData.append("upvoteSystemTitle", "upvoteSystem")
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
                     formData.append("is_private", this.private)
+                    formData.append("number_of_weeks", this.weeks)
                     
                     return formData
                 },

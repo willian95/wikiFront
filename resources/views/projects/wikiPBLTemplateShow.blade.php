@@ -1709,7 +1709,7 @@
                 calendarActivities: [],
                 activityDescription: "",
                 days: 5,
-                weeks: 4,
+                weeks: parseInt("{{ $project[0]->number_of_weeks }}"),
                 calendarDay: "",
                 calendarWeek: "",
                 toolsTitle: "{!! htmlspecialchars_decode($toolsTitle) !!}",

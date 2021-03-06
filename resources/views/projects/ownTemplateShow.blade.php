@@ -1100,7 +1100,7 @@
                     calendarActivities:[],
                     activityDescription:"",
                     days:5,
-                    weeks:4,
+                    weeks:parseInt("{{ $project[0]->number_of_weeks }}"),
                     calendarDay:"",
                     calendarWeek:"",
                     follow:"{{ \Auth::check() ? App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",

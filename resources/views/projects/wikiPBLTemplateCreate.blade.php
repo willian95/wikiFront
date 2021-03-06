@@ -452,6 +452,15 @@
 
                         <div class="contente_item">
                             <h3 class="titulo-templates">Calendar of activities </h3>
+
+                            <div class="row">
+                                        
+                                <label for="inp">Weeks</label>
+                                <select id="inpt" class="form-control" v-model="weeks">
+                                    <option v-for="week in 18" :value="week" v-if="week > 3">@{{ week }} </option>
+                                </select>
+                                
+                            </div>
                             
                             <div class="container-fluid">
                                 <div class="row">
@@ -1132,6 +1141,7 @@
                     formData.append("hashtagTitle", "hashtag")
                     formData.append("hashtag", this.hashtags)
                     formData.append("is_private", this.private)
+                    formData.append("number_of_weeks", this.weeks)
 
                     if(this.showTools == true){
                         formData.append("toolsTitle", this.toolsTitle)

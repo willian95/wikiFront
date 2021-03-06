@@ -566,6 +566,15 @@
                         <div class="contente_item mt-5 mb-5">
                             <h3 class="titulo-templates">Calendar of activities </h3>
 
+                            <div class="row">
+                                        
+                                <label for="inp">Weeks</label>
+                                <select id="inpt" class="form-control" v-model="weeks">
+                                    <option v-for="week in 18" :value="week" v-if="week > 3">@{{ week }} </option>
+                                </select>
+                                
+                            </div>
+
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-2"></div>
@@ -765,7 +774,7 @@
                 calendarActivities: [],
                 activityDescription: "",
                 days: 5,
-                weeks: 4,
+                weeks: parseInt("{{ $project[0]->number_of_weeks }}"),
                 calendarDay: "",
                 calendarWeek: "",
                 upvoteSystems: [],
@@ -1088,6 +1097,7 @@
                 formData.append("upvoteSystemTitle", "upvoteSystem")
                 formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
                 formData.append("is_private", this.private)
+                formData.append("number_of_weeks", this.weeks)
 
                 if (this.showTools == true) {
                     formData.append("toolsTitle", this.toolsTitle)
