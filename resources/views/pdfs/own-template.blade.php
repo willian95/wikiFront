@@ -5,10 +5,13 @@
     </head>
     <body>
         
+        
+
         <h3 class="titulo-templates">
                         
             <span>{!! htmlspecialchars_decode($title) !!}</span> 
         </h3>
+        <p>By: {{ $project->user->name }} {{ $project->user->lastname }}</p>
         
         
         <h3 class="titulo-templates">{!! htmlspecialchars_decode($drivingQuestionTitle) !!}</h3>
