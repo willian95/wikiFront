@@ -5,7 +5,7 @@
 
 <div class="categories-layout" id="elements">
     <div class="text-center categories-layout_title">
-        <h1>Hashtag: {{ $hashtag->name }}</h1>
+        <h1>Hashtag: #{{ $hashtag->name }}</h1>
         <p>{{ $count }}+ and counting!</p>
     </div>
     <div class="row word main-wikis">
