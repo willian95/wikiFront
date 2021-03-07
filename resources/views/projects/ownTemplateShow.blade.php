@@ -27,7 +27,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            
+
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -36,11 +36,11 @@
                             <h3 class="text-center">Warning!</h3>
 
                             <p class="mt-2 text-center">
-                            Thank you for letting us know this
-                            WikiPBL is having problems, remember
-                            to check always our FAQ’S for more
-                            information about reporting issues
-                            and accounts.
+                                Thank you for letting us know this
+                                WikiPBL is having problems, remember
+                                to check always our FAQ’S for more
+                                information about reporting issues
+                                and accounts.
                             </p>
                         </div>
 
@@ -78,33 +78,33 @@
 
                     @if(\Auth::check())
                     <div class="container-fluid">
-                 
-                            <div class="row">
-                                
-                                <div class="col-md-4">
-                                    @foreach($assestmentPoints as $point)
-                                        <p>
-                                            <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                                <i class="fa {{ $point->assestmentPointType->icon }}"></i>
-                                                {{ $point->assestmentPointType->name }}
-                                            </button>
-                                        </p>
-                                    @endforeach
-                                </div>
-                                <div class="col-md-8">
 
-                                    <canvas id="myChart"></canvas>
-                                    
-                                </div>
-                
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                @foreach($assestmentPoints as $point)
+                                <p>
+                                    <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                        <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                        {{ $point->assestmentPointType->name }}
+                                    </button>
+                                </p>
+                                @endforeach
                             </div>
-               
+                            <div class="col-md-8">
+
+                                <canvas id="myChart"></canvas>
+
+                            </div>
+
+                        </div>
+
                     </div>
                     @endif
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
-                    <li class="content_template-general-item last-menu" id="title-p">
+                        <li class="content_template-general-item last-menu" id="title-p">
                             <div>
                                 <h3 class="titulo-templates">
                                     <span>@{{ title }}</span>
@@ -179,10 +179,10 @@
                         </li>
 
                         <li class="content_template-general-item last-menu" id="driving">
-                           <div>
-                           <h3 class="titulo-templates">@{{ drivingQuestionTitle }}</h3>
-                            {!! $drivingQuestion !!}
-                           </div>
+                            <div>
+                                <h3 class="titulo-templates">@{{ drivingQuestionTitle }}</h3>
+                                {!! $drivingQuestion !!}
+                            </div>
 
 
                             <div v-if="drivingQuestionHistory.length > 0">
@@ -258,9 +258,9 @@
                                     <div v-for="(subject, index) in subjects" class="col-md-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                
+
                                                 @{{ subject }}
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -336,12 +336,12 @@
                         <li class="content_template-general-item last-menu" id="time">
                             <div>
                                 <h3 class="titulo-templates">@{{ timeFrameTitle }}</h3>
-                                
-                              
-                                    
-                                        @{{ timeFrame }}
-                                 
-                            
+
+
+
+                                @{{ timeFrame }}
+
+
                             </div>
                             <div v-if="timeFrameHistory.length > 0">
                                 <span class="last-meu_p">Last update</span>
@@ -552,7 +552,7 @@
                         </li>
 
                         <li class="content_template-general-item last-menu" id="leveltitle">
-                            
+
                             <div>
                                 <h3 class="titulo-templates">@{{ levelTitle }}</h3>
                                 <div class="row">
@@ -571,9 +571,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            
+
                                         <div class="row" v-show="level == 'nursery'">
-                                            
+
                                             <div class="col-6" v-for="nurseryLevel in 4">
                                                 <div class="form-check" v-if="checkTest(nurseryLevel-1)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)" disabled>
@@ -586,7 +586,7 @@
                                         </div>
 
                                         <div class="row" v-show="level == 'early'">
-                                            
+
                                             <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
                                                 <div class="form-check" v-if="checkTest(earlyLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel" disabled>
@@ -599,7 +599,7 @@
                                         </div>
 
                                         <div class="row" v-show="level == 'primary'">
-                                            
+
                                             <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
                                                 <div class="form-check" v-if="checkTest(primaryLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel" disabled>
@@ -612,7 +612,7 @@
                                         </div>
 
                                         <div class="row" v-show="level == 'middle'">
-                                            
+
                                             <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
                                                 <div class="form-check" v-if="checkTest(middleLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel" disabled>
@@ -625,7 +625,7 @@
                                         </div>
 
                                         <div class="row" v-show="level == 'high'">
-                                            
+
                                             <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
                                                 <div class="form-check" v-if="checkTest(highLevel)">
                                                     <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel" disabled>
@@ -644,7 +644,7 @@
                                             </label>
                                         </div>
                                         <div class="form-check" v-show="level != ''" v-if="checkTest('all ages')">
-                                            <input class="form-check-input check-age"  type="checkbox" :checked="checkTest('all ages')" value="" id="noapply" disabled>
+                                            <input class="form-check-input check-age" type="checkbox" :checked="checkTest('all ages')" value="" id="noapply" disabled>
                                             <label class="form-check-label">
                                                 Doesn't apply
                                             </label>
@@ -652,7 +652,7 @@
 
 
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div v-if="levelHistory.length > 0">
@@ -719,7 +719,7 @@
                                     @{{ levelHistory[0].user }}
                                 </p>
                             </div>
-                            
+
                         </li>
 
                         <li class="content_template-general-item last-menu" id="hashtags-menu">
@@ -728,7 +728,7 @@
                                 <div class="row mt-3">
                                     <div v-for="(hashtag, index) in hashtags" class="col-md-3">
                                         <div class="card">
-                                            <div class="card-body"> 
+                                            <div class="card-body">
                                                 #@{{ hashtag }}
                                             </div>
                                         </div>
@@ -799,7 +799,7 @@
                                     @{{ hashtagHistory[0].user }}
                                 </p>
                             </div>
-                            
+
 
                         </li>
 
@@ -877,19 +877,60 @@
                     <!-----------------------END general------------------------>
 
                     <div id="carouselExampleControls" class="carousel slide" data-ride="false">
+                    <div class="button-groups">
+                        <h3 class="titulo-templates">      Calendar Of Activities</h3>
+                   
+                            <div>
+                            <button class="btn btn-success btn-sliders" @click="previousSlide()"><i class="fa fa-angle-left mr-2" aria-hidden="true"></i>Previous
+</button>
+                            <button class="btn btn-success btn-sliders btn-sliders-2" @click="nextSlide()">Next<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+</button>
+                            </div>
+                      
+                    </div>
+                  
                         <div class="carousel-inner">
                             <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides">
-                                
+
                                 <div class="row mt-2">
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-2">Day 1</div>
-                                    <div class="col-md-2">Day 2</div>
-                                    <div class="col-md-2">Day 3</div>
-                                    <div class="col-md-2">Day 4</div>
-                                    <div class="col-md-2">Day 5</div>
+                                    <div class="col-md-2">
+                                        <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
+                                            <g> <path d="M109.881,183.46c-4.142,0-7.5,3.358-7.5,7.5v21.324c0,4.142,3.358,7.5,7.5,7.5c4.143,0,7.5-3.358,7.5-7.5V190.96 C117.381,186.817,114.023,183.46,109.881,183.46z" /><path d="M109.881,36.329c4.143,0,7.5-3.358,7.5-7.5V7.503c0-4.142-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.358-7.5,7.5v21.326C102.381,32.971,105.739,36.329,109.881,36.329z" /> <path d="M47.269,161.909l-15.084,15.076c-2.93,2.928-2.931,7.677-0.003,10.606c1.465,1.465,3.385,2.198,5.305,2.198 c1.919,0,3.837-0.732,5.302-2.195l15.084-15.076c2.93-2.928,2.931-7.677,0.003-10.606 C54.946,158.982,50.198,158.982,47.269,161.909z" /> <path d="M167.208,60.067c1.919,0,3.838-0.732,5.303-2.196l15.082-15.076c2.929-2.929,2.93-7.677,0.002-10.607 c-2.929-2.93-7.677-2.931-10.607-0.001l-15.082,15.076c-2.929,2.928-2.93,7.677-0.002,10.606 C163.368,59.335,165.288,60.067,167.208,60.067z" /><path d="M36.324,109.895c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h21.324C32.966,117.395,36.324,114.037,36.324,109.895z" /> <path d="M212.286,102.395h-21.334c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h21.334c4.143,0,7.5-3.358,7.5-7.5 C219.786,105.754,216.429,102.395,212.286,102.395z" /> <path d="M47.267,57.871c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.303-2.196c2.929-2.929,2.929-7.678,0-10.607 L42.797,32.188c-2.929-2.929-7.678-2.929-10.606,0c-2.929,2.929-2.929,7.678,0,10.606L47.267,57.871z" /><path d="M172.52,161.911c-2.929-2.929-7.678-2.93-10.607-0.001c-2.93,2.929-2.93,7.678-0.001,10.606l15.074,15.076 c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196c2.93-2.929,2.93-7.678,0.001-10.606L172.52,161.911z" /> <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
+                                        </svg>
+                                        Day 1
+                                    </div>
+                                    <div class="col-md-2">
+                                    <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
+                                            <g> <path d="M109.881,183.46c-4.142,0-7.5,3.358-7.5,7.5v21.324c0,4.142,3.358,7.5,7.5,7.5c4.143,0,7.5-3.358,7.5-7.5V190.96 C117.381,186.817,114.023,183.46,109.881,183.46z" /><path d="M109.881,36.329c4.143,0,7.5-3.358,7.5-7.5V7.503c0-4.142-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.358-7.5,7.5v21.326C102.381,32.971,105.739,36.329,109.881,36.329z" /> <path d="M47.269,161.909l-15.084,15.076c-2.93,2.928-2.931,7.677-0.003,10.606c1.465,1.465,3.385,2.198,5.305,2.198 c1.919,0,3.837-0.732,5.302-2.195l15.084-15.076c2.93-2.928,2.931-7.677,0.003-10.606 C54.946,158.982,50.198,158.982,47.269,161.909z" /> <path d="M167.208,60.067c1.919,0,3.838-0.732,5.303-2.196l15.082-15.076c2.929-2.929,2.93-7.677,0.002-10.607 c-2.929-2.93-7.677-2.931-10.607-0.001l-15.082,15.076c-2.929,2.928-2.93,7.677-0.002,10.606 C163.368,59.335,165.288,60.067,167.208,60.067z" /><path d="M36.324,109.895c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h21.324C32.966,117.395,36.324,114.037,36.324,109.895z" /> <path d="M212.286,102.395h-21.334c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h21.334c4.143,0,7.5-3.358,7.5-7.5 C219.786,105.754,216.429,102.395,212.286,102.395z" /> <path d="M47.267,57.871c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.303-2.196c2.929-2.929,2.929-7.678,0-10.607 L42.797,32.188c-2.929-2.929-7.678-2.929-10.606,0c-2.929,2.929-2.929,7.678,0,10.606L47.267,57.871z" /><path d="M172.52,161.911c-2.929-2.929-7.678-2.93-10.607-0.001c-2.93,2.929-2.93,7.678-0.001,10.606l15.074,15.076 c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196c2.93-2.929,2.93-7.678,0.001-10.606L172.52,161.911z" /> <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
+                                        </svg>
+                                  Day 2</div>
+                                    <div class="col-md-2">    <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
+                                            <g> <path d="M109.881,183.46c-4.142,0-7.5,3.358-7.5,7.5v21.324c0,4.142,3.358,7.5,7.5,7.5c4.143,0,7.5-3.358,7.5-7.5V190.96 C117.381,186.817,114.023,183.46,109.881,183.46z" /><path d="M109.881,36.329c4.143,0,7.5-3.358,7.5-7.5V7.503c0-4.142-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.358-7.5,7.5v21.326C102.381,32.971,105.739,36.329,109.881,36.329z" /> <path d="M47.269,161.909l-15.084,15.076c-2.93,2.928-2.931,7.677-0.003,10.606c1.465,1.465,3.385,2.198,5.305,2.198 c1.919,0,3.837-0.732,5.302-2.195l15.084-15.076c2.93-2.928,2.931-7.677,0.003-10.606 C54.946,158.982,50.198,158.982,47.269,161.909z" /> <path d="M167.208,60.067c1.919,0,3.838-0.732,5.303-2.196l15.082-15.076c2.929-2.929,2.93-7.677,0.002-10.607 c-2.929-2.93-7.677-2.931-10.607-0.001l-15.082,15.076c-2.929,2.928-2.93,7.677-0.002,10.606 C163.368,59.335,165.288,60.067,167.208,60.067z" /><path d="M36.324,109.895c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h21.324C32.966,117.395,36.324,114.037,36.324,109.895z" /> <path d="M212.286,102.395h-21.334c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h21.334c4.143,0,7.5-3.358,7.5-7.5 C219.786,105.754,216.429,102.395,212.286,102.395z" /> <path d="M47.267,57.871c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.303-2.196c2.929-2.929,2.929-7.678,0-10.607 L42.797,32.188c-2.929-2.929-7.678-2.929-10.606,0c-2.929,2.929-2.929,7.678,0,10.606L47.267,57.871z" /><path d="M172.52,161.911c-2.929-2.929-7.678-2.93-10.607-0.001c-2.93,2.929-2.93,7.678-0.001,10.606l15.074,15.076 c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196c2.93-2.929,2.93-7.678,0.001-10.606L172.52,161.911z" /> <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
+                                        </svg>Day 3</div>
+                                    <div class="col-md-2">    <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
+                                            <g> <path d="M109.881,183.46c-4.142,0-7.5,3.358-7.5,7.5v21.324c0,4.142,3.358,7.5,7.5,7.5c4.143,0,7.5-3.358,7.5-7.5V190.96 C117.381,186.817,114.023,183.46,109.881,183.46z" /><path d="M109.881,36.329c4.143,0,7.5-3.358,7.5-7.5V7.503c0-4.142-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.358-7.5,7.5v21.326C102.381,32.971,105.739,36.329,109.881,36.329z" /> <path d="M47.269,161.909l-15.084,15.076c-2.93,2.928-2.931,7.677-0.003,10.606c1.465,1.465,3.385,2.198,5.305,2.198 c1.919,0,3.837-0.732,5.302-2.195l15.084-15.076c2.93-2.928,2.931-7.677,0.003-10.606 C54.946,158.982,50.198,158.982,47.269,161.909z" /> <path d="M167.208,60.067c1.919,0,3.838-0.732,5.303-2.196l15.082-15.076c2.929-2.929,2.93-7.677,0.002-10.607 c-2.929-2.93-7.677-2.931-10.607-0.001l-15.082,15.076c-2.929,2.928-2.93,7.677-0.002,10.606 C163.368,59.335,165.288,60.067,167.208,60.067z" /><path d="M36.324,109.895c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h21.324C32.966,117.395,36.324,114.037,36.324,109.895z" /> <path d="M212.286,102.395h-21.334c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h21.334c4.143,0,7.5-3.358,7.5-7.5 C219.786,105.754,216.429,102.395,212.286,102.395z" /> <path d="M47.267,57.871c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.303-2.196c2.929-2.929,2.929-7.678,0-10.607 L42.797,32.188c-2.929-2.929-7.678-2.929-10.606,0c-2.929,2.929-2.929,7.678,0,10.606L47.267,57.871z" /><path d="M172.52,161.911c-2.929-2.929-7.678-2.93-10.607-0.001c-2.93,2.929-2.93,7.678-0.001,10.606l15.074,15.076 c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196c2.93-2.929,2.93-7.678,0.001-10.606L172.52,161.911z" /> <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
+                                        </svg>Day 4</div>
+                                    <div class="col-md-2">    <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
+                                            <g> <path d="M109.881,183.46c-4.142,0-7.5,3.358-7.5,7.5v21.324c0,4.142,3.358,7.5,7.5,7.5c4.143,0,7.5-3.358,7.5-7.5V190.96 C117.381,186.817,114.023,183.46,109.881,183.46z" /><path d="M109.881,36.329c4.143,0,7.5-3.358,7.5-7.5V7.503c0-4.142-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.358-7.5,7.5v21.326C102.381,32.971,105.739,36.329,109.881,36.329z" /> <path d="M47.269,161.909l-15.084,15.076c-2.93,2.928-2.931,7.677-0.003,10.606c1.465,1.465,3.385,2.198,5.305,2.198 c1.919,0,3.837-0.732,5.302-2.195l15.084-15.076c2.93-2.928,2.931-7.677,0.003-10.606 C54.946,158.982,50.198,158.982,47.269,161.909z" /> <path d="M167.208,60.067c1.919,0,3.838-0.732,5.303-2.196l15.082-15.076c2.929-2.929,2.93-7.677,0.002-10.607 c-2.929-2.93-7.677-2.931-10.607-0.001l-15.082,15.076c-2.929,2.928-2.93,7.677-0.002,10.606 C163.368,59.335,165.288,60.067,167.208,60.067z" /><path d="M36.324,109.895c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h21.324C32.966,117.395,36.324,114.037,36.324,109.895z" /> <path d="M212.286,102.395h-21.334c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h21.334c4.143,0,7.5-3.358,7.5-7.5 C219.786,105.754,216.429,102.395,212.286,102.395z" /> <path d="M47.267,57.871c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.303-2.196c2.929-2.929,2.929-7.678,0-10.607 L42.797,32.188c-2.929-2.929-7.678-2.929-10.606,0c-2.929,2.929-2.929,7.678,0,10.606L47.267,57.871z" /><path d="M172.52,161.911c-2.929-2.929-7.678-2.93-10.607-0.001c-2.93,2.929-2.93,7.678-0.001,10.606l15.074,15.076 c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196c2.93-2.929,2.93-7.678,0.001-10.606L172.52,161.911z" /> <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
+                                        </svg>Day 5</div>
                                 </div>
                                 <div class="row mt-1" v-for="week in 4*currentSlide" v-if="week > (4*currentSlide - 4) && week <= weeks">
-                                    <div class="col-md-2">Week @{{ week }}</div>
+                                    <div class="col-md-2">
+                                        <svg id="Capa_1" class="icon-calendar" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path d="m497 32h-46v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-46c-8.284 0-15 6.716-15 15v450c0 8.284 6.716 15 15 15h482c8.284 0 15-6.716 15-15v-450c0-8.284-6.716-15-15-15zm-436 30v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h31v60h-452v-60zm-31 420v-330h452v330z" />
+                                                <path d="m166 212h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
+                                                <path d="m406 212h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
+                                                <path d="m286 331h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
+                                                <path d="m286 212h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
+                                                <path d="m406 331h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
+                                                <path d="m175.462 345.161c-6.428-5.226-15.875-4.25-21.101 2.176l-30.498 37.513-8.352-6.849c-6.406-5.255-15.857-4.318-21.11 2.087-5.253 6.406-4.318 15.857 2.088 21.11l20 16.4c6.438 5.28 15.922 4.295 21.15-2.136l40-49.2c5.226-6.428 4.251-15.875-2.177-21.101z" />
+                                            </g>
+                                        </svg>
+
+                                        Week @{{ week }}
+                                    </div>
                                     <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
                                         <div class="card" style="cursor: pointer">
                                             <div class="card-body card-body_tarea">
@@ -902,24 +943,20 @@
                             </div>
                         </div>
 
-                        <div>
-                            <button class="btn btn-success" @click="previousSlide()">Previous</button>
-                            <button class="btn btn-success" @click="nextSlide()">Next</button>
-                        </div>
-                        
+
                     </div>
 
                     <div class="content_template">
 
                         <div class="contente_item mt-5 mb-5">
-                            
+
                             <div class="container-fluid">
 
                                 <div class="row">
                                     <div class="col-md-9">
                                         <h3 class="titulo-templates">Calendar of activities </h3>
                                     </div>
-                                    <div class="col-md-3 mt--22" >
+                                    <div class="col-md-3 mt--22">
                                         <div v-if="calendarActivitiesHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
@@ -1017,7 +1054,7 @@
                                         <h3 class="titulo-templates">Bibliography</h3>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="mt--22"  v-if="bibliographyHistory.length > 0">
+                                        <div class="mt--22" v-if="bibliographyHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
                                                 <p class="borde-calen">@{{ bibliographyHistory[0].date }}</p>
@@ -1084,7 +1121,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {!! $bibliography !!}
                         </div>
 
@@ -1092,13 +1129,26 @@
                 </div>
             </div>
         </div>
-        <a class="up" href="#own-template">            <div class="arrow-up"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 32 32" fill="#fff"><path d="M11.218 20.2L17 14.418l5.782 5.782a1 1 0 0 0 1.414-1.414L17.71 12.3a.997.997 0 0 0-.71-.292.997.997 0 0 0-.71.292l-6.486 6.486a1 1 0 0 0 1.414 1.414z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="arrow,carrot,up" dc:description="arrow,carrot,up" dc:publisher="Iconscout" dc:date="2017-09-25" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Elegant Themes</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg></div>
-</a>
+        <a class="up" href="#own-template">
+            <div class="arrow-up"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" fill="#fff">
+                    <path d="M11.218 20.2L17 14.418l5.782 5.782a1 1 0 0 0 1.414-1.414L17.71 12.3a.997.997 0 0 0-.71-.292.997.997 0 0 0-.71.292l-6.486 6.486a1 1 0 0 0 1.414 1.414z" />
+                    <metadata>
+                        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                            <rdf:Description about="https://iconscout.com/legal#licenses" dc:title="arrow,carrot,up" dc:description="arrow,carrot,up" dc:publisher="Iconscout" dc:date="2017-09-25" dc:format="image/svg+xml" dc:language="en">
+                                <dc:creator>
+                                    <rdf:Bag>
+                                        <rdf:li>Elegant Themes</rdf:li>
+                                    </rdf:Bag>
+                                </dc:creator>
+                            </rdf:Description>
+                        </rdf:RDF>
+                    </metadata>
+                </svg></div>
+        </a>
         <footer class="footer-estyle">
             <div class="footer container mt-5 text-center">
-                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
-                    data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
-                Copyrights - Contact us! </p>
+                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                    Copyrights - Contact us! </p>
             </div>
         </footer>
     </div>
@@ -1108,433 +1158,941 @@
 
 @push("script")
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 
-    <script>
-        const create = new Vue({
-            el: '#own-template',
-            data() {
-                return {
-                    auth:"{{\Auth::check()}}",
-                    projectId: "{{ $id }}",
-                    title:"{!! htmlspecialchars_decode($title) !!}",
-                    drivingQuestionTitle:"{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
-                    subjectTitle:"{!! htmlspecialchars_decode($subjectTitle) !!}",
-                    subject:"",
-                    subjects:"",
-                    timeFrameTitle:"{!! htmlspecialchars_decode($timeFrameTitle) !!}",
-                    timeFrame:"{!! htmlspecialchars_decode($timeFrame) !!}",
-                    publicProductTitle:"{!! htmlspecialchars_decode($publicProductTitle) !!}",
-                    levelTitle:"{!! htmlspecialchars_decode($levelTitle) !!}",
-                    level:"",
-                    ages:[],
-                    hashtag:"",
-                    hashtags:"",
-                    calendarActivities:[],
-                    activityDescription:"",
-                    days:5,
-                    weeks:parseInt("{{ $project[0]->number_of_weeks }}"),
-                    slides:1,
-                    currentSlide:1,
-                    calendarDay:"",
-                    calendarWeek:"",
-                    follow:"{{ \Auth::check() ? App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
-                    like:"{{ \Auth::check() ? App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
-                    report:"{{ \Auth::check() ? App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
-                    assestmentArray:JSON.parse('{!! $assestmentPointsArray !!}'),
-                    loading:false,
-                    myChart:null,
-                    labels:[],
-                    values:[],
+<script>
+    const create = new Vue({
+        el: '#own-template',
+        data() {
+            return {
+                auth: "{{\Auth::check()}}",
+                projectId: "{{ $id }}",
+                title: "{!! htmlspecialchars_decode($title) !!}",
+                drivingQuestionTitle: "{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
+                subjectTitle: "{!! htmlspecialchars_decode($subjectTitle) !!}",
+                subject: "",
+                subjects: "",
+                timeFrameTitle: "{!! htmlspecialchars_decode($timeFrameTitle) !!}",
+                timeFrame: "{!! htmlspecialchars_decode($timeFrame) !!}",
+                publicProductTitle: "{!! htmlspecialchars_decode($publicProductTitle) !!}",
+                levelTitle: "{!! htmlspecialchars_decode($levelTitle) !!}",
+                level: "",
+                ages: [],
+                hashtag: "",
+                hashtags: "",
+                calendarActivities: [],
+                activityDescription: "",
+                days: 5,
+                weeks: parseInt("{{ $project[0]->number_of_weeks }}"),
+                slides: 1,
+                currentSlide: 1,
+                calendarDay: "",
+                calendarWeek: "",
+                follow: "{{ \Auth::check() ? App\ProjectShare::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                like: "{{ \Auth::check() ? App\Like::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                report: "{{ \Auth::check() ? App\ProjectReport::where('user_id', \Auth::user()->id)->where('project_id', $project[0]->id)->count() : 0 }}",
+                assestmentArray: JSON.parse('{!! $assestmentPointsArray !!}'),
+                loading: false,
+                myChart: null,
+                labels: [],
+                values: [],
 
-                    institutions: [],
-                    selected_institution: "",
-                    institution_not_registered: false,
-                    name: "",
-                    lastname: "",
-                    email: "",
-                    institution_email: "",
-                    password: "",
-                    password_confirmation: "",
-                    step: 1,
-                    errors: [],
-                    forgotPasswordErrors:[],
-                    loading: false,
-                    admin_institution_name: "",
-                    admin_institution_lastname: "",
-                    admin_institution_email: "",
-                    admin_institution_phone: "",
-                    admin_institution_password: "",
-                    admin_institution_password_confirmation: "",
-                    institution_name: "",
-                    institution_website: "",
-                    institution_email: "",
-                    institution_type: "",
-                    user: null,
-                    login_email: "",
-                    login_password: "",
-                    showInstitutionStepForm: false,
-                    stepForm: 1,
-                    countries: [],
-                    selectedCountry: "",
-                    states: [],
-                    selectedState: "",
-                    gender_institution_type: "",
-                    lowest_age: "",
-                    highest_age: "",
-                    part_of_network_institution: 'true',
-                    institution_public_or_private: "public",
-                    students_enrolled: "0-100",
-                    faculty_members: "0-50",
-                    which_network: "",
-                    forgotPasswordEmail:"",
-                    likes:parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}"),
+                institutions: [],
+                selected_institution: "",
+                institution_not_registered: false,
+                name: "",
+                lastname: "",
+                email: "",
+                institution_email: "",
+                password: "",
+                password_confirmation: "",
+                step: 1,
+                errors: [],
+                forgotPasswordErrors: [],
+                loading: false,
+                admin_institution_name: "",
+                admin_institution_lastname: "",
+                admin_institution_email: "",
+                admin_institution_phone: "",
+                admin_institution_password: "",
+                admin_institution_password_confirmation: "",
+                institution_name: "",
+                institution_website: "",
+                institution_email: "",
+                institution_type: "",
+                user: null,
+                login_email: "",
+                login_password: "",
+                showInstitutionStepForm: false,
+                stepForm: 1,
+                countries: [],
+                selectedCountry: "",
+                states: [],
+                selectedState: "",
+                gender_institution_type: "",
+                lowest_age: "",
+                highest_age: "",
+                part_of_network_institution: 'true',
+                institution_public_or_private: "public",
+                students_enrolled: "0-100",
+                faculty_members: "0-50",
+                which_network: "",
+                forgotPasswordEmail: "",
+                likes: parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}"),
 
-                    titleHistory:"",
-                    drivingQuestionHistory:"",
-                    timeFrameHistory:"",
-                    publicProjectHistory:"",
-                    mainInfoHistory:"",
-                    bibliographyHistory:"",
-                    subjectHistory:"",
-                    levelHistory:"",
-                    hashtagHistory:"",
-                    calendarActivitiesHistory:"",
-                    projectSumaryHistory:""
+                titleHistory: "",
+                drivingQuestionHistory: "",
+                timeFrameHistory: "",
+                publicProjectHistory: "",
+                mainInfoHistory: "",
+                bibliographyHistory: "",
+                subjectHistory: "",
+                levelHistory: "",
+                hashtagHistory: "",
+                calendarActivitiesHistory: "",
+                projectSumaryHistory: ""
 
+            }
+        },
+        methods: {
+
+            checkTest(age) {
+                var exists = false
+                this.ages.forEach((data) => {
+                    if (data == age) {
+                        exists = true
+                    }
+                })
+
+                return exists
+            },
+            showActivity(week, day) {
+
+
+                var activity = null
+                this.calendarActivities.forEach((data) => {
+
+                    if (data.week == week && data.day == day) {
+                        activity = data
+                    }
+
+                })
+
+                if (activity) {
+                    return activity.description
+                }
+
+            },
+            setWeekAndDay(week, day) {
+
+                this.activityDescription = ""
+                this.calendarDay = day
+                this.calendarWeek = week
+
+                this.calendarActivities.forEach(data => {
+
+                    if (data.week == week && data.day == day) {
+                        this.activityDescription = data.description
+                    }
+
+                })
+
+            },
+            setCheckedAges() {
+
+                this.ages.forEach((data) => {
+
+                    if (data == "18+") {
+                        document.getElementById("age-18").checked = true;
+                    } else if (data == "all ages") {
+                        document.getElementById("allages").checked = true;
+                    } else {
+                        document.getElementById("age-" + data).checked = true;
+                    }
+
+
+                })
+
+            },
+            followProject() {
+
+                this.changeFollowIcon()
+
+                axios.post("{{ url('project/follow') }}", {
+                    "project_id": this.projectId
+                }).then(res => {
+
+                    if (res.data.success) {
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
+
+                    } else {
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+                    }
+
+                })
+
+            },
+            changeFollowIcon() {
+                if (this.follow == "1") {
+                    this.follow = "0"
+                    $("#followIcon").css("fill", "#000")
+                } else {
+                    this.follow = "1"
+                    $("#followIcon").css("fill", "#4674b8")
                 }
             },
-            methods:{
+            likeProject() {
 
-                checkTest(age){
-                    var exists = false
-                    this.ages.forEach((data) => {
-                        if(data == age){
-                            exists = true
-                        }
-                    })
+                this.changeLikeIcon()
 
-                    return exists
-                },
-                showActivity(week, day){
+                axios.post("{{ url('project/like') }}", {
+                    "project_id": this.projectId
+                }).then(res => {
 
-                    
-                    var activity = null
-                    this.calendarActivities.forEach((data) => {
+                    if (res.data.success) {
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
 
-                        if(data.week == week && data.day == day){
-                            activity = data
-                        }
-
-                    })
-
-                    if(activity){
-                        return activity.description
+                    } else {
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
                     }
 
-                },
-                setWeekAndDay(week, day){
+                })
 
-                    this.activityDescription = ""
-                    this.calendarDay = day
-                    this.calendarWeek = week
+            },
+            changeLikeIcon() {
+                if (this.like == "1") {
+                    this.like = "0"
+                    this.likes = this.likes - 1
 
-                    this.calendarActivities.forEach(data => {
+                    $("#likeIcon").css("fill", "#000")
 
-                        if(data.week == week && data.day == day){
-                            this.activityDescription = data.description
-                        }
+                } else {
+                    this.like = "1"
+                    this.likes = this.likes + 1
+                    $("#likeIcon").css("fill", "#4674b8")
+                }
+            },
+            showReportConfirmation() {
 
-                    })
+                if (this.report == 0) {
+                    $("#reportConfirmation").modal("show")
+                } else {
+                    this.reportProject()
+                }
 
-                },
-                setCheckedAges(){
+            },
+            reportProject() {
 
-                    this.ages.forEach((data) => {
-                    
-                        if(data == "18+"){
-                            document.getElementById("age-18").checked = true;
-                        }else if(data == "all ages"){
-                            document.getElementById("allages").checked = true;
-                        }else{
-                            document.getElementById("age-"+data).checked = true;
-                        }
-                        
 
-                    })
+                this.changeReportIcon()
 
-                },
-                followProject(){
+                axios.post("{{ url('project/report') }}", {
+                    "project_id": this.projectId
+                }).then(res => {
 
-                    this.changeFollowIcon()
+                    if (res.data.success) {
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
 
-                    axios.post("{{ url('project/follow') }}", {"project_id": this.projectId}).then(res => {
-
-                        if(res.data.success){
-                            swal({
-                                text: res.data.msg,
-                                icon: "success"
-                            })
-
-                        }else{
-                            swal({
-                                text: res.data.msg,
-                                icon: "error"
-                            })
-                        }
-
-                    })
-
-                },
-                changeFollowIcon(){
-                    if(this.follow == "1"){
-                        this.follow = "0"
-                        $("#followIcon").css("fill", "#000")
-                    }else{
-                        this.follow = "1"
-                        $("#followIcon").css("fill", "#4674b8")
-                    }
-                },
-                likeProject(){
-
-                    this.changeLikeIcon()
-
-                    axios.post("{{ url('project/like') }}", {"project_id": this.projectId}).then(res => {
-
-                        if(res.data.success){
-                            swal({
-                                text: res.data.msg,
-                                icon: "success"
-                            })
-
-                        }else{
-                            swal({
-                                text: res.data.msg,
-                                icon: "error"
-                            })
-                        }
-
-                    })
-
-                },
-                changeLikeIcon(){
-                    if(this.like == "1"){
-                        this.like = "0"
-                        this.likes = this.likes - 1
-                        
-                        $("#likeIcon").css("fill", "#000")
-            
-                    }else{
-                        this.like = "1"
-                        this.likes = this.likes + 1
-                        $("#likeIcon").css("fill", "#4674b8")
-                    }
-                },
-                showReportConfirmation(){
-
-                    if(this.report == 0){
-                        $("#reportConfirmation").modal("show")
-                    }else{
-                        this.reportProject()
+                    } else {
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
                     }
 
-                },
-                reportProject(){
+                })
 
+            },
+            changeReportIcon() {
+                if (this.report == "1") {
+                    this.report = "0"
+                    $("#reportIcon").css("fill", "#000")
+                } else {
+                    this.report = "1"
+                    $("#reportIcon").css("fill", "#f44336")
+                }
+            },
+            drawChart() {
 
-                    this.changeReportIcon()
+                this.labels = []
+                this.values = []
 
-                    axios.post("{{ url('project/report') }}", {"project_id": this.projectId}).then(res => {
+                this.assestmentArray.forEach((data) => {
 
-                        if(res.data.success){
-                            swal({
-                                text: res.data.msg,
-                                icon: "success"
-                            })
+                    this.labels.push(data.name)
+                    this.values.push(data.value)
 
-                        }else{
-                            swal({
-                                text: res.data.msg,
-                                icon: "error"
-                            })
-                        }
+                })
 
-                    })
+                var ctx = document.getElementById("myChart").getContext('2d');
 
-                },
-                changeReportIcon(){
-                    if(this.report == "1"){
-                        this.report = "0"
-                        $("#reportIcon").css("fill", "#000")
-                    }else{
-                        this.report = "1"
-                        $("#reportIcon").css("fill", "#f44336")
-                    }
-                },
-                drawChart(){
+                if (this.myChart != undefined || this.myChart != null) {
+                    this.myChart.destroy();
+                }
 
-                    this.labels = []
-                    this.values = []
-
-                    this.assestmentArray.forEach((data) => {
-
-                        this.labels.push(data.name)
-                        this.values.push(data.value)
-
-                    })
-
-                    var ctx = document.getElementById("myChart").getContext('2d');
-    
-                        if (this.myChart != undefined || this.myChart !=null) {
-                            this.myChart.destroy();
-                        }
-
-                        this.myChart = new Chart(ctx, {
-                            type: 'horizontalBar',
-                            data: {
-                                labels: this.labels,
-                                datasets: [{
-                                    data: this.values,
-                                }]
-                            },
-                            options: {
-                                legend: {
-                                display: false,
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero:true
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        ticks: {
-                                            beginAtZero:true,
-                                            callback: function (value) { if (Number.isInteger(value)) { return value; } },
-                                            stepSize: 1
-                                        }
-                                    }]
+                this.myChart = new Chart(ctx, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: this.labels,
+                        datasets: [{
+                            data: this.values,
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false,
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
                                 }
-                            }
-                        });
-                    
-
-                },
-                upvoteAssestment(upvoteType, upvoteTypeName){
-
-                    var arrayIndex = 0
-                    this.assestmentArray.forEach((data, index) => {
-                        if(data.name == upvoteTypeName){
-                            arrayIndex = index
-                        }
-
-                    })
-                    
-
-                    axios.post("{{ url('project/assestment-point') }}", {"project_id": this.projectId, "assestmentPointTypeId": upvoteType}).then(res => {
-
-                        if(res.data.action == "add"){
-                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value + 1
-                            this.drawChart()
-                        }else{
-                            this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value - 1
-                            this.drawChart()
-                        }
-
-                    })
-
-                },
-                next(form = "teacher") {
-
-                    if (form == "institution") {
-                        if (this.validateNextStepInstitution()) {
-                            this.stepForm++
-                        }
-
-                    } else {
-                        this.step++
-                    }
-
-                },
-                previous(form = "teacher") {
-
-                    if (form == "institution") {
-                        if (this.stepForm - 1 > 0) {
-                            this.stepForm--
-                        }
-                    } else {
-                        if (this.step - 1 > 0) {
-                            this.step--
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    callback: function(value) {
+                                        if (Number.isInteger(value)) {
+                                            return value;
+                                        }
+                                    },
+                                    stepSize: 1
+                                }
+                            }]
                         }
                     }
-                },
-                fetchCountries() {
+                });
 
-                    axios.get("{{ url('/countries/fetch') }}").then(res => {
 
-                        this.countries = res.data.countries
+            },
+            upvoteAssestment(upvoteType, upvoteTypeName) {
 
-                    })
+                var arrayIndex = 0
+                this.assestmentArray.forEach((data, index) => {
+                    if (data.name == upvoteTypeName) {
+                        arrayIndex = index
+                    }
 
-                },
-                fetchStates() {
+                })
 
-                    axios.get("{{ url('/states/fetch/') }}" + "/" + this.selectedCountry).then(res => {
 
-                        this.states = res.data.states
+                axios.post("{{ url('project/assestment-point') }}", {
+                    "project_id": this.projectId,
+                    "assestmentPointTypeId": upvoteType
+                }).then(res => {
 
-                    })
+                    if (res.data.action == "add") {
+                        this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value + 1
+                        this.drawChart()
+                    } else {
+                        this.assestmentArray[arrayIndex].value = this.assestmentArray[arrayIndex].value - 1
+                        this.drawChart()
+                    }
 
-                },
-                fetchAllInstitutions() {
+                })
 
-                    axios.get("{{ url('/institutions/fetchAll') }}").then(res => {
+            },
+            next(form = "teacher") {
 
-                        this.institutions = res.data.institutions;
+                if (form == "institution") {
+                    if (this.validateNextStepInstitution()) {
+                        this.stepForm++
+                    }
 
-                    })
+                } else {
+                    this.step++
+                }
 
-                },
-                resetRegistrationForm() {
+            },
+            previous(form = "teacher") {
 
-                    this.step = 1;
-                    this.selected_institution = ""
-                    this.name = ""
-                    this.lastname = ""
-                    this.email = ""
-                    this.institution_email = ""
-                    this.password = ""
-                    this.password_confirmation = ""
-                    this.user = null
-                    this.institution_not_registered = false
-                    this.institution_name = ""
-                    this.institution_contact_email = ""
-                    this.institution_website = ""
+                if (form == "institution") {
+                    if (this.stepForm - 1 > 0) {
+                        this.stepForm--
+                    }
+                } else {
+                    if (this.step - 1 > 0) {
+                        this.step--
+                    }
+                }
+            },
+            fetchCountries() {
 
-                },
-                resetInstitutionRegistrationForm() {
+                axios.get("{{ url('/countries/fetch') }}").then(res => {
 
-                    this.admin_institution_name = ""
-                    this.admin_institution_lastname = ""
-                    this.admin_institution_email = ""
-                    this.admin_institution_phone = ""
-                    this.admin_institution_password = ""
-                    this.admin_institution_password_confirmation = ""
-                    this.institution_name = ""
-                    this.institution_website = ""
-                    this.institution_type = ""
+                    this.countries = res.data.countries
 
-                },
-                login() {
+                })
+
+            },
+            fetchStates() {
+
+                axios.get("{{ url('/states/fetch/') }}" + "/" + this.selectedCountry).then(res => {
+
+                    this.states = res.data.states
+
+                })
+
+            },
+            fetchAllInstitutions() {
+
+                axios.get("{{ url('/institutions/fetchAll') }}").then(res => {
+
+                    this.institutions = res.data.institutions;
+
+                })
+
+            },
+            resetRegistrationForm() {
+
+                this.step = 1;
+                this.selected_institution = ""
+                this.name = ""
+                this.lastname = ""
+                this.email = ""
+                this.institution_email = ""
+                this.password = ""
+                this.password_confirmation = ""
+                this.user = null
+                this.institution_not_registered = false
+                this.institution_name = ""
+                this.institution_contact_email = ""
+                this.institution_website = ""
+
+            },
+            resetInstitutionRegistrationForm() {
+
+                this.admin_institution_name = ""
+                this.admin_institution_lastname = ""
+                this.admin_institution_email = ""
+                this.admin_institution_phone = ""
+                this.admin_institution_password = ""
+                this.admin_institution_password_confirmation = ""
+                this.institution_name = ""
+                this.institution_website = ""
+                this.institution_type = ""
+
+            },
+            login() {
+
+                this.loading = true
+
+                axios.post("{{ url('/login') }}", {
+                    "login_email": this.login_email,
+                    "login_password": this.login_password
+                }).then(res => {
+
+                    this.loading = false
+                    if (res.data.success == true) {
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        }).then(res => {
+
+                            window.location.reload()
+
+                        })
+
+                    } else {
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+
+                    swal({
+                        text: "Check some fields, please",
+                        icon: "error"
+                    });
+
+                    this.loading = false
+                    this.errors = err.response.data.errors
+                })
+            },
+            teacherRegister() {
+
+                if (this.validateTeacherRegister()) {
+
+                    let form = new FormData
+                    form.append("name", this.name)
+                    form.append("email", this.email)
+                    form.append("lastname", this.lastname)
+                    form.append("institution_email", this.institution_email)
+                    form.append("password", this.password)
+                    form.append("password_confirmation", this.password_confirmation)
+                    form.append("institution_id", this.selected_institution.id)
+                    form.append("institution_not_registered", this.institution_not_registered)
+                    form.append("institution_name", this.institution_name)
+                    form.append("institution_contact_email", this.institution_contact_email)
+                    form.append("institution_website", this.institution_website)
 
                     this.loading = true
 
-                    axios.post("{{ url('/login') }}", {
-                        "login_email": this.login_email,
-                        "login_password": this.login_password
-                    }).then(res => {
+                    axios.post("{{ url('/register') }}", form).then(res => {
 
                         this.loading = false
+
+                        if (res.data.success == true) {
+
+                            this.resetRegistrationForm()
+                            this.user = res.data.user
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            }).then(res => {
+
+
+                                $(".modalClose").click();
+                                $('body').removeClass('modal-open');
+                                $('body').css('padding-right', '0px');
+                                $('.modal-backdrop').remove();
+
+                                $('#mensaje').modal('show')
+
+                            })
+
+
+                        } else {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+
+                        }
+
+                    }).catch(err => {
+
+                        swal({
+                            text: "Check some fields, please",
+                            icon: "error"
+                        });
+
+
+                        this.loading = false
+                        this.errors = err.response.data.errors
+                    })
+                }
+
+            },
+            institutionRegister() {
+
+                if (this.validateInstitutionRegister()) {
+
+                    this.loading = true
+
+                    let formData = new FormData;
+                    formData.append("admin_institution_name", this.admin_institution_name)
+                    formData.append("admin_institution_lastname", this.admin_institution_lastname)
+                    formData.append("admin_institution_email", this.admin_institution_email)
+                    formData.append("admin_institution_phone", this.admin_institution_phone)
+                    formData.append("admin_institution_password", this.admin_institution_password)
+                    formData.append("admin_institution_password_confirmation", this
+                        .admin_institution_password_confirmation)
+                    formData.append("institution_name", this.institution_name)
+                    formData.append("institution_website", this.institution_website)
+                    formData.append("institution_type", this.institution_type)
+
+                    axios.post("{{ url('/institution-register') }}", formData).then(res => {
+
+                        this.loading = false
+
+                        if (res.data.success == true) {
+
+                            this.resetInstitutionRegistrationForm()
+                            this.user = res.data.user
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "success"
+                            }).then(res => {
+
+
+
+                                $(".modalClose").click();
+                                $('body').removeClass('modal-open');
+                                $('body').css('padding-right', '0px');
+                                $('.modal-backdrop').remove();
+
+                                $('#mensaje').modal('show')
+
+                            })
+
+                        } else {
+
+                            swal({
+                                text: res.data.msg,
+                                icon: "error"
+                            })
+
+                        }
+
+                    }).catch(err => {
+
+                        swal({
+                            text: "Check some fields, please",
+                            icon: "error"
+                        });
+
+
+                        this.loading = false
+                        this.errors = err.response.data.errors
+                    })
+
+                }
+
+            },
+            validateTeacherRegister() {
+
+
+                if (!this.institution_not_registered) {
+                    if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
+                            .toLowerCase()) < 0) {
+
+                        swal({
+                            text: "Institution website and your institution email doesn't match",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    }
+
+                }
+
+                if (this.institution_not_registered) {
+
+                    if (this.institution_name == "") {
+                        swal({
+                            text: "Institution name is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    } else if (this.institution_contact_email == "") {
+                        swal({
+                            text: "Institution contact email is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    } else if (this.institution_website == "") {
+                        swal({
+                            text: "Institution websote is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    }
+
+                }
+
+
+                if (this.name == "") {
+
+                    swal({
+                        text: "Name is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.lastname == "") {
+
+                    swal({
+                        text: "Lastname is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.email == "") {
+
+                    swal({
+                        text: "Email is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.institution_email == "") {
+
+                    swal({
+                        text: "Institution email is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.password == "") {
+
+                    swal({
+                        text: "Password is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.password_confirmation != this.password) {
+
+                    swal({
+                        text: "Passwords don't match",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                }
+
+                return true
+
+            },
+            validateInstitutionRegister() {
+
+                if (this.admin_institution_name == "") {
+
+                    swal({
+                        text: "Name is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.admin_institution_lastname == "") {
+
+                    swal({
+                        text: "Lastname is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.admin_institution_email == "") {
+
+                    swal({
+                        text: "Email is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.admin_institution_phone == "") {
+
+                    swal({
+                        text: "Phone is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.admin_institution_password == "") {
+
+                    swal({
+                        text: "Password is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.admin_institution_password != this
+                    .admin_institution_password_confirmation) {
+
+                    swal({
+                        text: "Password don't match",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.institution_type == "") {
+
+                    swal({
+                        text: "Institution type is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.institution_name == "") {
+
+                    swal({
+                        text: "Institution name is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.institution_website == "") {
+
+                    swal({
+                        text: "Institution website is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                }
+
+                return true
+
+            },
+            resendEmail() {
+                this.loading = true
+                axios.post("{{ url('/resend-email') }}", {
+                    id: this.user.id
+                }).then(res => {
+                    this.loading = false
+                    if (res.data.success == true) {
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        });
+
+                    } else {
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        });
+
+                    }
+
+                }).catch(err => {
+
+                    this.loading = false
+                })
+
+            },
+            isNumber(evt) {
+                evt = (evt) ? evt : window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
+                    evt.preventDefault();;
+                } else {
+                    return true;
+                }
+            },
+            validateNextStepInstitution() {
+
+                if (this.institution_type == "school" || this.institution_type == "university") {
+
+                    if (this.selectedCountry == "" || this.selectedState == "" || this
+                        .gender_institution_type == "" || this.lowest_age == "" || this.highest_age == "") {
+                        return false
+                    }
+
+                } else if (this.institution_type == "organization") {
+
+                    if (this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" ||
+                        this.highest_age == "") {
+                        return false
+                    }
+
+                }
+
+                return true
+
+            },
+            validateFirstUpdateInstitution() {
+
+                if (this.institution_type == "school" || this.institution_type == "university") {
+
+                    if (this.part_of_network_institution == "true" && this.which_network == "") {
+                        swal({
+                            text: "Institution network is required",
+                            icon: "error"
+                        })
+
+                        return false
+                    } else if (this.institution_public_or_private == "") {
+
+                        swal({
+                            text: "Public or private institution?",
+                            icon: "error"
+                        })
+
+                        return false
+
+                    } else if (this.students_enrolled == "") {
+
+                        swal({
+                            text: "Stundents enrolled is required",
+                            icon: "error"
+                        })
+
+                        return false
+
+                    } else if (this.faculty_members == "") {
+
+                        swal({
+                            text: "Faculty members is required",
+                            icon: "error"
+                        })
+
+                        return false
+                    }
+
+                } else if (this.institution_type == "organization") {
+
+                    if (this.institution_public_or_private == "") {
+
+                        swal({
+                            text: "Public or private institution?",
+                            icon: "error"
+                        })
+
+                        return false
+                    }
+
+                }
+
+                return true
+
+            },
+            institutionFirstUpdate() {
+
+                if (this.validateFirstUpdateInstitution()) {
+
+                    this.loading = true
+
+                    let form = new FormData;
+                    form.append("country_id", this.selectedCountry)
+                    form.append("state_id", this.selectedState)
+                    form.append("gender_institution_type", this.gender_institution_type)
+                    form.append("lowest_age", this.lowest_age)
+                    form.append("highest_age", this.highest_age)
+                    form.append("part_of_network_institution", this.part_of_network_institution)
+                    form.append("which_network", this.which_network)
+                    form.append("institution_public_or_private", this.institution_public_or_private)
+                    form.append("students_enrolled", this.students_enrolled)
+                    form.append("faculty_members", this.faculty_members)
+
+                    axios.post("{{ url('/institution/first-update') }}", form).then(res => {
+
+                        this.loading = false
+
                         if (res.data.success == true) {
 
                             swal({
@@ -1542,7 +2100,10 @@
                                 icon: "success"
                             }).then(res => {
 
-                                window.location.reload()
+                                $(".modalClose").click();
+                                $('body').removeClass('modal-open');
+                                $('body').css('padding-right', '0px');
+                                $('.modal-backdrop').remove();
 
                             })
 
@@ -1557,657 +2118,158 @@
 
                     }).catch(err => {
 
-                        swal({
-                            text: "Check some fields, please",
-                            icon: "error"
-                        });
-
                         this.loading = false
-                        this.errors = err.response.data.errors
-                    })
-                },
-                teacherRegister() {
-
-                    if (this.validateTeacherRegister()) {
-
-                        let form = new FormData
-                        form.append("name", this.name)
-                        form.append("email", this.email)
-                        form.append("lastname", this.lastname)
-                        form.append("institution_email", this.institution_email)
-                        form.append("password", this.password)
-                        form.append("password_confirmation", this.password_confirmation)
-                        form.append("institution_id", this.selected_institution.id)
-                        form.append("institution_not_registered", this.institution_not_registered)
-                        form.append("institution_name", this.institution_name)
-                        form.append("institution_contact_email", this.institution_contact_email)
-                        form.append("institution_website", this.institution_website)
-
-                        this.loading = true
-
-                        axios.post("{{ url('/register') }}", form).then(res => {
-
-                            this.loading = false
-
-                            if (res.data.success == true) {
-
-                                this.resetRegistrationForm()
-                                this.user = res.data.user
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "success"
-                                }).then(res => {
-
-
-                                    $(".modalClose").click();
-                                    $('body').removeClass('modal-open');
-                                    $('body').css('padding-right', '0px');
-                                    $('.modal-backdrop').remove();
-
-                                    $('#mensaje').modal('show')
-
-                                })
-
-
-                            } else {
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "error"
-                                })
-
-                            }
-
-                        }).catch(err => {
-
-                            swal({
-                                text: "Check some fields, please",
-                                icon: "error"
-                            });
-
-
-                            this.loading = false
-                            this.errors = err.response.data.errors
-                        })
-                    }
-
-                },
-                institutionRegister() {
-
-                    if (this.validateInstitutionRegister()) {
-
-                        this.loading = true
-
-                        let formData = new FormData;
-                        formData.append("admin_institution_name", this.admin_institution_name)
-                        formData.append("admin_institution_lastname", this.admin_institution_lastname)
-                        formData.append("admin_institution_email", this.admin_institution_email)
-                        formData.append("admin_institution_phone", this.admin_institution_phone)
-                        formData.append("admin_institution_password", this.admin_institution_password)
-                        formData.append("admin_institution_password_confirmation", this
-                            .admin_institution_password_confirmation)
-                        formData.append("institution_name", this.institution_name)
-                        formData.append("institution_website", this.institution_website)
-                        formData.append("institution_type", this.institution_type)
-
-                        axios.post("{{ url('/institution-register') }}", formData).then(res => {
-
-                            this.loading = false
-
-                            if (res.data.success == true) {
-
-                                this.resetInstitutionRegistrationForm()
-                                this.user = res.data.user
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "success"
-                                }).then(res => {
-
-
-
-                                    $(".modalClose").click();
-                                    $('body').removeClass('modal-open');
-                                    $('body').css('padding-right', '0px');
-                                    $('.modal-backdrop').remove();
-
-                                    $('#mensaje').modal('show')
-
-                                })
-
-                            } else {
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "error"
-                                })
-
-                            }
-
-                        }).catch(err => {
-
-                            swal({
-                                text: "Check some fields, please",
-                                icon: "error"
-                            });
-
-
-                            this.loading = false
-                            this.errors = err.response.data.errors
-                        })
-
-                    }
-
-                },
-                validateTeacherRegister() {
-
-
-                    if (!this.institution_not_registered) {
-                        if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
-                            .toLowerCase()) < 0) {
-
-                            swal({
-                                text: "Institution website and your institution email doesn't match",
-                                icon: "warning"
-                            })
-
-                            return false
-
-                        }
-
-                    }
-
-                    if (this.institution_not_registered) {
-
-                        if (this.institution_name == "") {
-                            swal({
-                                text: "Institution name is required",
-                                icon: "warning"
-                            })
-
-                            return false
-                        } else if (this.institution_contact_email == "") {
-                            swal({
-                                text: "Institution contact email is required",
-                                icon: "warning"
-                            })
-
-                            return false
-                        } else if (this.institution_website == "") {
-                            swal({
-                                text: "Institution websote is required",
-                                icon: "warning"
-                            })
-
-                            return false
-                        }
-
-                    }
-
-
-                    if (this.name == "") {
-
-                        swal({
-                            text: "Name is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.lastname == "") {
-
-                        swal({
-                            text: "Lastname is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.email == "") {
-
-                        swal({
-                            text: "Email is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.institution_email == "") {
-
-                        swal({
-                            text: "Institution email is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.password == "") {
-
-                        swal({
-                            text: "Password is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.password_confirmation != this.password) {
-
-                        swal({
-                            text: "Passwords don't match",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    }
-
-                    return true
-
-                },
-                validateInstitutionRegister() {
-
-                    if (this.admin_institution_name == "") {
-
-                        swal({
-                            text: "Name is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.admin_institution_lastname == "") {
-
-                        swal({
-                            text: "Lastname is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.admin_institution_email == "") {
-
-                        swal({
-                            text: "Email is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.admin_institution_phone == "") {
-
-                        swal({
-                            text: "Phone is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.admin_institution_password == "") {
-
-                        swal({
-                            text: "Password is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.admin_institution_password != this
-                        .admin_institution_password_confirmation) {
-
-                        swal({
-                            text: "Password don't match",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.institution_type == "") {
-
-                        swal({
-                            text: "Institution type is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.institution_name == "") {
-
-                        swal({
-                            text: "Institution name is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    } else if (this.institution_website == "") {
-
-                        swal({
-                            text: "Institution website is required",
-                            icon: "warning"
-                        })
-
-                        return false
-
-                    }
-
-                    return true
-
-                },
-                resendEmail() {
-                    this.loading = true
-                    axios.post("{{ url('/resend-email') }}", {
-                        id: this.user.id
-                    }).then(res => {
-                        this.loading = false
-                        if (res.data.success == true) {
-
-                            swal({
-                                text: res.data.msg,
-                                icon: "success"
-                            });
-
-                        } else {
-
-                            swal({
-                                text: res.data.msg,
-                                icon: "error"
-                            });
-
-                        }
-
-                    }).catch(err => {
-
-                        this.loading = false
-                    })
-
-                },
-                isNumber(evt) {
-                    evt = (evt) ? evt : window.event;
-                    var charCode = (evt.which) ? evt.which : evt.keyCode;
-                    if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
-                        evt.preventDefault();;
-                    } else {
-                        return true;
-                    }
-                },
-                validateNextStepInstitution() {
-
-                    if (this.institution_type == "school" || this.institution_type == "university") {
-
-                        if (this.selectedCountry == "" || this.selectedState == "" || this
-                            .gender_institution_type == "" || this.lowest_age == "" || this.highest_age == "") {
-                            return false
-                    }
-
-                        } else if (this.institution_type == "organization") {
-
-                            if (this.selectedCountry == "" || this.selectedState == "" || this.lowest_age == "" ||
-                                this.highest_age == "") {
-                                return false
-                        }
-
-                    }
-
-                    return true
-
-                },
-                validateFirstUpdateInstitution() {
-
-                    if (this.institution_type == "school" || this.institution_type == "university") {
-
-                        if (this.part_of_network_institution == "true" && this.which_network == ""){
-                            swal({
-                                text:"Institution network is required",
-                                icon: "error"
-                            })
-
-                            return false
-                        }
-
-                        else if(this.institution_public_or_private == ""){
-
-                            swal({
-                                text:"Public or private institution?",
-                                icon: "error"
-                            })
-
-                            return false
-
-                        }else if(this.students_enrolled == ""){
-
-                            swal({
-                                text:"Stundents enrolled is required",
-                                icon: "error"
-                            })
-
-                            return false
-
-                        }else if(this.faculty_members == ""){
-
-                            swal({
-                                text:"Faculty members is required",
-                                icon: "error"
-                            })
-
-                            return false
-                        }
-
-                    } else if (this.institution_type == "organization") {
-
-                        if (this.institution_public_or_private == "") {
-
-                            swal({
-                                text:"Public or private institution?",
-                                icon: "error"
-                            })
-
-                            return false
-                        }
-
-                    }
-
-                    return true
-
-                },
-                institutionFirstUpdate() {
-
-                    if (this.validateFirstUpdateInstitution()) {
-
-                        this.loading = true
-
-                        let form = new FormData;
-                        form.append("country_id", this.selectedCountry)
-                        form.append("state_id", this.selectedState)
-                        form.append("gender_institution_type", this.gender_institution_type)
-                        form.append("lowest_age", this.lowest_age)
-                        form.append("highest_age", this.highest_age)
-                        form.append("part_of_network_institution", this.part_of_network_institution)
-                        form.append("which_network", this.which_network)
-                        form.append("institution_public_or_private", this.institution_public_or_private)
-                        form.append("students_enrolled", this.students_enrolled)
-                        form.append("faculty_members", this.faculty_members)
-
-                        axios.post("{{ url('/institution/first-update') }}", form).then(res => {
-
-                            this.loading = false
-
-                            if (res.data.success == true) {
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "success"
-                                }).then(res => {
-
-                                    $(".modalClose").click();
-                                    $('body').removeClass('modal-open');
-                                    $('body').css('padding-right', '0px');
-                                    $('.modal-backdrop').remove();
-
-                                })
-
-                            } else {
-
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "error"
-                                })
-
-                            }
-
-                        }).catch(err => {
-
-                            this.loading = false
-
-                        })
-
-                    }
-
-                },
-                restorePassword(){
-
-                    axios.post("{{ url('/password/send-email') }}", {"email": this.forgotPasswordEmail}).then(res => {
-
-                        if(res.data.success == true){
-
-                            $(".modalClose").click();
-                            $('body').removeClass('modal-open');
-                            $('body').css('padding-right', '0px');
-                            $('.modal-backdrop').remove();
-
-                            swal({
-                                text: res.data.msg,
-                                icon: "success"
-                            });
-
-                        }
-
-                    }).catch(err => {
-
-                        swal({
-                            text: "Check some fields, please",
-                            icon: "error"
-                        });
-
-                        this.loading = false
-                        this.forgotPasswordErrors = err.response.data.errors
 
                     })
 
-                },
-                forgotPasswordShowModal(){
-
-                    $(".modalClose").click();
-                    $('body').removeClass('modal-open');
-                    $('body').css('padding-right', '0px');
-                    $('.modal-backdrop').remove();
-
-                    $(".forgotPassword").modal('show')
-
-                },
-                checkInstitution(){
-
-                    window.setTimeout(() => {
-                        if(this.institution_not_registered == true){
-                            this.selected_institution = ""
-                        }
-                    }, 200)
-
-                },
-                scrollTo(identifier){
-
-                    let distance = $("#"+identifier).offset().top - 120
-
-                    $('html, body').animate({
-                        scrollTop: distance
-                    }, 50);
-            
-                },
-                nextSlide(){
-                    
-                    $("#carouselExampleControls").carousel('next')
-                    $('.carousel').carousel('pause');
-                    if(this.currentSlide < this.slides){
-                        this.currentSlide++
-                    }else{
-                        this.currentSlide = 1
-                    }
-                },
-                previousSlide(){
-                    $("#carouselExampleControls").carousel('prev')
-                    $('.carousel').carousel('pause');
-                    if(this.currentSlide > 1){
-                        this.currentSlide --
-                    }else{
-                        this.currentSlide = this.slides
-                    }
                 }
-        
+
             },
-            mounted(){
+            restorePassword() {
 
-                let level = JSON.parse('{!! $level !!}')
-                this.level = level.level
-                this.ages = level.ages
+                axios.post("{{ url('/password/send-email') }}", {
+                    "email": this.forgotPasswordEmail
+                }).then(res => {
 
-                this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
-                this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
-                
-                if("{{ strlen($subjects) }}" > 0){
-                    this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
-                }
+                    if (res.data.success == true) {
 
-                if(("{{ $hashtag }}").length > 0){
-                    this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
-                }
+                        $(".modalClose").click();
+                        $('body').removeClass('modal-open');
+                        $('body').css('padding-right', '0px');
+                        $('.modal-backdrop').remove();
 
-                if(this.like > 0){
-                    $("#likeIcon").css("fill", "#4674b8")
-                }
-
-                if(this.report > 0){
-                    $("#reportIcon").css("fill", "#f44336")
-                }
-
-                if(this.follow > 0){
-                    $("#followIcon").css("fill", "#4674b8")
-                }
-
-                this.fetchAllInstitutions()
-
-                if (this.showInstitutionStepForm == 1) {
-                    $(".stepFormModal").modal('show')
-                    this.fetchCountries()
-                }
-
-                @if(\Auth::check())
-                    if(this.auth == "1"){
-
-                        this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
-                        this.drawChart()
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        });
 
                     }
-                @endif
 
-                this.titleHistory = JSON.parse('{!! $titleHistory !!}')
-                this.drivingQuestionHistory = JSON.parse('{!! $drivingQuestionHistory !!}')
-                this.timeFrameHistory = JSON.parse('{!! $timeFrameHistory !!}')
-                this.publicProjectHistory = JSON.parse('{!! $publicProjectHistory !!}')
-                this.mainInfoHistory = JSON.parse('{!! $mainInfoHistory !!}')
-                this.bibliographyHistory = JSON.parse('{!! $bibliographyHistory !!}')
-                this.subjectHistory = JSON.parse('{!! $subjectHistory !!}')
-                this.levelHistory = JSON.parse('{!! $levelHistory !!}')
-                this.hashtagHistory = JSON.parse('{!! $hashtagHistory !!}')
-                this.calendarActivitiesHistory = JSON.parse('{!! $calendarActivitiesHistory !!}')
-                this.projectSumaryHistory = JSON.parse('{!! $projectSumaryHistory !!}')
-                this.slides = Math.ceil("{{ $project[0]->number_of_weeks }}" / 4)
+                }).catch(err => {
 
-                
+                    swal({
+                        text: "Check some fields, please",
+                        icon: "error"
+                    });
 
+                    this.loading = false
+                    this.forgotPasswordErrors = err.response.data.errors
+
+                })
+
+            },
+            forgotPasswordShowModal() {
+
+                $(".modalClose").click();
+                $('body').removeClass('modal-open');
+                $('body').css('padding-right', '0px');
+                $('.modal-backdrop').remove();
+
+                $(".forgotPassword").modal('show')
+
+            },
+            checkInstitution() {
+
+                window.setTimeout(() => {
+                    if (this.institution_not_registered == true) {
+                        this.selected_institution = ""
+                    }
+                }, 200)
+
+            },
+            scrollTo(identifier) {
+
+                let distance = $("#" + identifier).offset().top - 120
+
+                $('html, body').animate({
+                    scrollTop: distance
+                }, 50);
+
+            },
+            nextSlide() {
+
+                $("#carouselExampleControls").carousel('next')
+                $('.carousel').carousel('pause');
+                if (this.currentSlide < this.slides) {
+                    this.currentSlide++
+                } else {
+                    this.currentSlide = 1
+                }
+            },
+            previousSlide() {
+                $("#carouselExampleControls").carousel('prev')
+                $('.carousel').carousel('pause');
+                if (this.currentSlide > 1) {
+                    this.currentSlide--
+                } else {
+                    this.currentSlide = this.slides
+                }
             }
 
-        })
-    
+        },
+        mounted() {
+
+            let level = JSON.parse('{!! $level !!}')
+            this.level = level.level
+            this.ages = level.ages
+
+            this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
+            this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+
+            if ("{{ strlen($subjects) }}" > 0) {
+                this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
+            }
+
+            if (("{{ $hashtag }}").length > 0) {
+                this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
+            }
+
+            if (this.like > 0) {
+                $("#likeIcon").css("fill", "#4674b8")
+            }
+
+            if (this.report > 0) {
+                $("#reportIcon").css("fill", "#f44336")
+            }
+
+            if (this.follow > 0) {
+                $("#followIcon").css("fill", "#4674b8")
+            }
+
+            this.fetchAllInstitutions()
+
+            if (this.showInstitutionStepForm == 1) {
+                $(".stepFormModal").modal('show')
+                this.fetchCountries()
+            }
+
+            @if(\Auth::check())
+            if (this.auth == "1") {
+
+                this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
+                this.drawChart()
+
+            }
+            @endif
+
+            this.titleHistory = JSON.parse('{!! $titleHistory !!}')
+            this.drivingQuestionHistory = JSON.parse('{!! $drivingQuestionHistory !!}')
+            this.timeFrameHistory = JSON.parse('{!! $timeFrameHistory !!}')
+            this.publicProjectHistory = JSON.parse('{!! $publicProjectHistory !!}')
+            this.mainInfoHistory = JSON.parse('{!! $mainInfoHistory !!}')
+            this.bibliographyHistory = JSON.parse('{!! $bibliographyHistory !!}')
+            this.subjectHistory = JSON.parse('{!! $subjectHistory !!}')
+            this.levelHistory = JSON.parse('{!! $levelHistory !!}')
+            this.hashtagHistory = JSON.parse('{!! $hashtagHistory !!}')
+            this.calendarActivitiesHistory = JSON.parse('{!! $calendarActivitiesHistory !!}')
+            this.projectSumaryHistory = JSON.parse('{!! $projectSumaryHistory !!}')
+            this.slides = Math.ceil("{{ $project[0]->number_of_weeks }}" / 4)
+
+
+
+        }
+
+    })
 </script>
 
 @endpush

@@ -1409,3 +1409,38 @@ right: 17px;
   .mt--22{
     margin-top: -22px;
   }
+  .icon-calendar{
+    width: 20px;
+    height: auto;
+    fill: #9ec54d;
+    margin-right: 9px;
+  }
+  .btn-sliders{
+    border: 1px solid #9ec54c;
+    background: transparent;
+    color: #9ec54c;
+ 
+    width: 113px;
+  }
+  .btn-sliders-2{
+    border: 1px solid #4674b8;
+    background: #4674b800;
+    color: #4674b8;
+    width: 100px;
+  }
+  .button-groups{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .icon-calendar-blue{
+    fill: #4674b8;
+  }
+  .flex-wee{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contente_item .card{
+    margin-bottom: 12px;
+  }

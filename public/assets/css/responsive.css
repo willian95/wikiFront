@@ -27,15 +27,37 @@
     }
     .abc-home .abc-content {
         width: 49%;
+        display: flex;
+        align-items: center;
      
+    }
+    .abc-home strong {
+        font-size: 30px;
+        font-family: "Inconsolata";
+        position: initial;
+        left: 0;
+        top: 0;
+        display: flex;
+    }
+    .menu-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .nav-item {
+        position: relative;
+        width: 32%;
     }
 
     /***************/
     .navbar-nav {
 
         flex-direction: initial;
-        padding-left: revert;
+        padding-left: initial;
         margin-bottom: 0;
+        padding-right: 0;
+        justify-content: center;
     }
     .offcanvas-collapse {
         position: fixed;
@@ -78,6 +100,48 @@
         height: 50px;
         line-height: 50px;
         width: 100%;
+    }
+    .brand img {
+        width: 150px;
+        padding: 10px;
+    }
+    .titulo {
+       
+        font-size: 20px;
+    }
+    .info-regrister {
+        width: 100%;
+        display: flex;
+        margin-bottom: 4px;
+    }
+    .content-modal_register .offset-2 {
+        margin-left: 0;
+    }
+    .btn-custom {
+
+        margin-bottom: 20px;
+    }
+    .info-regrister--inst p {
+
+        font-size: 13px;
+    }
+    .p50 {
+        padding: 0 20px;
+    }
+    .check-inst label {
+  
+        font-size: 10px;
+    
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+    
+        padding-left: 0;
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 
