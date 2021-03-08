@@ -2325,8 +2325,8 @@
             this.level = level.level
             this.ages = level.ages
 
-            this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
-            this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+            //this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
+            //this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
             if ("{{ strlen($subjects) }}" > 0) {
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
