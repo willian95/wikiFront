@@ -1283,7 +1283,7 @@
                 drivingQuestionTitle: "{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
                 subjectTitle: "{!! htmlspecialchars_decode($subjectTitle) !!}",
                 subject: "",
-                subjects: "",
+                subjects: [],
                 timeFrameTitle: "{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                 timeFrame: "{!! htmlspecialchars_decode($timeFrame) !!}",
                 publicProductTitle: "{!! htmlspecialchars_decode($publicProductTitle) !!}",
