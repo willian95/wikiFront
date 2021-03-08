@@ -4,7 +4,7 @@
 
 <div id="own-template">
     @include("partials.projectShowHeader")
-    {{--<div class="container p5">
+    <div class="container p5">
         <div class="container  main-template mt-5">
 
             <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,7 +103,7 @@
                     @endif
 
                     <!--------------------general--------------------------->
-                    <ul class="content_template content_template-general">
+                    {{--<ul class="content_template content_template-general">
                         <li class="content_template-general-item last-menu" id="title-p">
                             <div>
                                 <h3 class="titulo-templates">
@@ -1237,7 +1237,7 @@
                             {!! $bibliography !!}
                         </div>
 
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
@@ -1263,7 +1263,7 @@
                     Copyrights - Contact us! </p>
             </div>
         </footer>
-    </div>--}}
+    </div>
 </div>
 
 @endsection
@@ -2325,16 +2325,16 @@
             this.level = level.level
             this.ages = level.ages
 
-            //this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
-            //this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
+            this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
+            this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
-            /*if ("{{ strlen($subjects) }}" > 0) {
+            if ("{{ strlen($subjects) }}" > 0) {
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
-            }*/
+            }
 
-            /*if (("{{ $hashtag }}").length > 0) {
+            if (("{{ $hashtag }}").length > 0) {
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
-            }*/
+            }
 
             if (this.like > 0) {
                 $("#likeIcon").css("fill", "#4674b8")
