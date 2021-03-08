@@ -2328,9 +2328,9 @@
             //this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             //this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
-            if ("{{ strlen($subjects) }}" > 0) {
+            /*if ("{{ strlen($subjects) }}" > 0) {
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
-            }
+            }*/
 
             /*if (("{{ $hashtag }}").length > 0) {
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
