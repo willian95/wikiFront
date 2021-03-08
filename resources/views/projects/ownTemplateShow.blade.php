@@ -1048,7 +1048,7 @@
 
                             </div>
                         </div>
-                        <div class="text-center mt-4" v-if="slides > 0">
+                        <div class="text-center mt-4" v-if="slides > 2">
                             <button class="btn btn-success btn-sliders" @click="previousSlide()"><i class="fa fa-angle-left mr-2" aria-hidden="true"></i>Previous
                             </button>
                             <button class="btn btn-success btn-sliders btn-sliders-2" @click="nextSlide()">Next<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
