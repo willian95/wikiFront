@@ -123,7 +123,7 @@ class RegisterController extends Controller
 
         }catch(\Exception $e){
             
-            abort(403);
+            dd($e);
         }
 
     }
