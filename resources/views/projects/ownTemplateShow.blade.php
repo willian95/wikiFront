@@ -1352,17 +1352,17 @@
                 forgotPasswordEmail: "",
                 likes: parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}"),
 
-                titleHistory: "",
-                drivingQuestionHistory: "",
-                timeFrameHistory: "",
-                publicProjectHistory: "",
-                mainInfoHistory: "",
-                bibliographyHistory: "",
-                subjectHistory: "",
-                levelHistory: "",
-                hashtagHistory: "",
-                calendarActivitiesHistory: "",
-                projectSumaryHistory: ""
+                titleHistory: [],
+                drivingQuestionHistory: [],
+                timeFrameHistory: [],
+                publicProjectHistory: [],
+                mainInfoHistory: [],
+                bibliographyHistory: [],
+                subjectHistory: [],
+                levelHistory: [],
+                hashtagHistory: [],
+                calendarActivitiesHistory: [],
+                projectSumaryHistory: []
 
             }
         },
