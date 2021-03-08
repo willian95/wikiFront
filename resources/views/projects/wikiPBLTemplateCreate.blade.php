@@ -69,7 +69,7 @@
                         <li class="content_template-general-item" >
                             <p>Incubator Features</p>
                             <img alt='icon' class="login_icon "
-                            src="{{ url('assets/img/iconos/edit.svg') }}">
+                            src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
                             <label class="switch" >
                                 <input type="checkbox" v-model="incubatorFeature">
