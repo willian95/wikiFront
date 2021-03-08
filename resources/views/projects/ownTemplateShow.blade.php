@@ -103,7 +103,7 @@
                     @endif
 
                     <!--------------------general--------------------------->
-                    {{--<ul class="content_template content_template-general">
+                    <ul class="content_template content_template-general">
                         <li class="content_template-general-item last-menu" id="title-p">
                             <div>
                                 <h3 class="titulo-templates">
@@ -876,7 +876,7 @@
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="false">
+                    {{--<div id="carouselExampleControls" class="carousel slide" data-ride="false">
                         <div class="button-groups">
                             <h3 class="titulo-templates"> Calendar Of Activities</h3>
 
