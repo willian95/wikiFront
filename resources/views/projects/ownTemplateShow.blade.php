@@ -2332,9 +2332,9 @@
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
             }
 
-            if (("{{ $hashtag }}").length > 0) {
+            /*if (("{{ $hashtag }}").length > 0) {
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
-            }
+            }*/
 
             if (this.like > 0) {
                 $("#likeIcon").css("fill", "#4674b8")
