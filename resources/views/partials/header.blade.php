@@ -653,15 +653,34 @@
                 }
 
             },
+            isURL(str) {
+                const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+                    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+                    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+                    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+                    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+                    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+                return !!pattern.test(str);
+            }
             validateTeacherRegister() {
 
                 if (!this.institution_not_registered) {
 
                     //console.log("institution_email", this.institution_email.toLowerCase())
                     //console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
-                    let domain = new URL(this.selected_institution.website.toLowerCase())
+                    let domain = null
 
-                    if (this.institution_email.toLowerCase().indexOf(domain.hostname.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
+                    if(this.isURL(this.selected_institution.website.toLowerCase())){
+                        domain = new URL(this.selected_institution.website.toLowerCase()).hostname
+                    }else{
+
+                        this.domain = this.selected_institution.website.toLowerCase()
+
+                    }
+                        
+                    
+
+                    if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
