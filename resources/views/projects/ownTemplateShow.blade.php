@@ -4,7 +4,7 @@
 
 <div id="own-template">
     @include("partials.projectShowHeader")
-    <div class="container p5">
+    {{--<div class="container p5">
         <div class="container  main-template mt-5">
 
             <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1263,7 +1263,7 @@
                     Copyrights - Contact us! </p>
             </div>
         </footer>
-    </div>
+    </div>--}}
 </div>
 
 @endsection
@@ -1291,7 +1291,7 @@
                 level: "",
                 ages: [],
                 hashtag: "",
-                hashtags: "",
+                hashtags: [],
                 calendarActivities: [],
                 activityDescription: "",
                 days: 5,
