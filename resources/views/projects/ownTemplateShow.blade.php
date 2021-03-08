@@ -950,7 +950,7 @@
                         </div>
 
                         <div class="carousel-inner">
-                            <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides">
+                            <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides" v-if="slides > 0">
 
                                 <div class="row mt-2">
                                     <div class="col-md-2"></div>
@@ -1048,7 +1048,7 @@
 
                             </div>
                         </div>
-                        <div class="text-center mt-4">
+                        <div class="text-center mt-4" v-if="slides > 0">
                             <button class="btn btn-success btn-sliders" @click="previousSlide()"><i class="fa fa-angle-left mr-2" aria-hidden="true"></i>Previous
                             </button>
                             <button class="btn btn-success btn-sliders btn-sliders-2" @click="nextSlide()">Next<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
