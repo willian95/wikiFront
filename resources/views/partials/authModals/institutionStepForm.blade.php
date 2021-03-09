@@ -12,9 +12,7 @@
                             <div class="info-regrister">
                                 <img class="mr-1" src="{{ url('assets/img/iconos/like.svg') }}" alt="">
                                 <p>The institution: {{ \Auth::user()->institution->name }} was
-                                    approved! Thanks for your time, please fill ' out the following info and your
-                                    good
-                                    to go!
+                                    approved! Thanks for your time, please fill ' out the following info and your are good to go!
 
                                 </p>
                             </div>
@@ -26,6 +24,13 @@
                                 <select id="inputinstitutio" class="form-control" v-model="selectedCountry" @change="fetchStates()">
                                     <option value="" selected>Country </option>
                                     <option :value="country.id" v-for="country in countries">@{{ country.name }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputinstitutioe"></label>
+                                <select id="inputinstitutio" class="form-control" v-model="selectedState">
+                                    <option selected value="">City</option>
+                                    <option :value="state.id" v-for="state in states">@{{ state.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -44,13 +49,7 @@
                                     <option value="girls">Girls</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="inputinstitutioe"></label>
-                                <select id="inputinstitutio" class="form-control" v-model="selectedState">
-                                    <option selected value="">City</option>
-                                    <option :value="state.id" v-for="state in states">@{{ state.name }}</option>
-                                </select>
-                            </div>
+                         
                             <div class="form-group">
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="highest_age">
@@ -60,8 +59,8 @@
                             </div>
                         </div>
 
-                        <div style="overflow:auto;">
-                            <div style="float:right;">
+                        <div style="overflow:auto;" class="mt-4 text-center">
+                            <div >
                                 <button class="btn btn-custom" type="button"
                                     @click="next('institution')">Continue</button>
                             </div>
