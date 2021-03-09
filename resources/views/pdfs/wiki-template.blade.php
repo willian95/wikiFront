@@ -193,7 +193,7 @@
 
         <footer class="footer-estyle">
             <div class="footer container mt-5 text-center">
-                <p class="text-dark"> <a>Privacy Policy </a> - <a >Terms & Conditions</a> - <a >About WikiPBL</a> - 2021
+                <p class="text-dark"> <a>Privacy Policy </a> - <a >Terms & Conditions</a> - <a >About wikiPBL</a> - 2021
                 Copyrights - Contact us! </p>
             </div>
         </footer>

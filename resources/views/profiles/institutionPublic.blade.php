@@ -22,7 +22,7 @@
 
                         <p class="mt-2 text-center">
                         Thank you for letting us know this
-                        WikiPBL Profile is having problems, remember
+                        wikiPBL Profile is having problems, remember
                         to check always our FAQ’S for more
                         information about reporting issues
                         and accounts.
@@ -59,7 +59,7 @@
 
                 </div>
                 <div class="col-md-4">
-                    <p>WikiPBL Pages (public):</p>
+                    <p>wikiPBL Pages (public):</p>
                     <span>@{{ publicPBLCounts }}</span>
                 </div>
                 <div class="col-md-4">

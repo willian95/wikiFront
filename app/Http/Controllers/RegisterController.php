@@ -88,7 +88,7 @@ class RegisterController extends Controller
 
         \Mail::send("emails.register", $data, function($message) use ($to_name, $to_email) {
 
-            $message->to($to_email, $to_name)->subject("Welcome to WikiPBL, just one more step!");
+            $message->to($to_email, $to_name)->subject("Welcome to wikiPBL, just one more step!");
             $message->from(env("MAIL_FROM_ADDRESS"), env("MAIL_FROM_NAME"));
 
         });

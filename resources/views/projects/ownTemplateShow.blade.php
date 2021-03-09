@@ -37,7 +37,7 @@
 
                             <p class="mt-2 text-center">
                                 Thank you for letting us know this
-                                WikiPBL is having problems, remember
+                                wikiPBL is having problems, remember
                                 to check always our FAQ’S for more
                                 information about reporting issues
                                 and accounts.
@@ -1160,7 +1160,7 @@
         </a>
         <footer class="footer-estyle">
             <div class="footer container mt-5 text-center">
-                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".terms">Terms & Conditions</a> - <a href="#">About wikiPBL</a> - 2021
                     Copyrights - Contact us! </p>
             </div>
         </footer>

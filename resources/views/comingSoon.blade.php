@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="{{ url('comingSoonAssets/img/favicon.png') }}">
     
-        <title>Wikipbl</title>
+        <title>wikiPBL</title>
     </head>
 
     <body class="">
