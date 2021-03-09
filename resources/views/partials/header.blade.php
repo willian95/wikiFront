@@ -666,20 +666,18 @@
 
                 if (!this.institution_not_registered) {
 
-                    console.log("institution_email", this.institution_email.toLowerCase())
-                    console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
+                    //console.log("institution_email", this.institution_email.toLowerCase())
+                    //console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
                     let domain = null
-                    console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
+                    //console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
 
                     try{
                         domain = new URL(this.selected_institution.website.toLowerCase()).hostname
                     }catch{
 
-                        this.domain = this.selected_institution.website.toLowerCase()
+                        domain = this.selected_institution.website.toLowerCase()
 
                     }
-                        
-                    
 
                     if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
