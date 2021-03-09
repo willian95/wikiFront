@@ -633,6 +633,7 @@
                     formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
                     formData.append("is_private", this.private)
                     formData.append("number_of_weeks", this.weeks)
+                    formData.append("isIncubator", this.incubatorFeature)
                     
                     return formData
                 },

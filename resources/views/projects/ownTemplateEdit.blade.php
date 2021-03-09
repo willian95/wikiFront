@@ -481,6 +481,7 @@
                 editSection: "",
                 lastSave: "",
                 private: JSON.parse('{!! $project[0]->is_private !!}'),
+                isIncubator:"{{ $project[0]->is_incubator }}",
                 loading: false
             }
         },
@@ -707,6 +708,10 @@
 
             },
             validateLaunch() {
+
+                if(this.isIncubator == 1){
+                    return true;
+                }
 
                 if (this.title == "") {
                     swal({

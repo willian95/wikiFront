@@ -1165,6 +1165,7 @@
                     formData.append("hashtag", this.hashtags)
                     formData.append("is_private", this.private)
                     formData.append("number_of_weeks", this.weeks)
+                    formData.append("isIncubator", this.incubatorFeature)
 
                     if(this.showTools == true){
                         formData.append("toolsTitle", this.toolsTitle)

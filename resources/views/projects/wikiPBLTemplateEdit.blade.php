@@ -800,6 +800,7 @@
                 globalConnectionsTitle: "{!! htmlspecialchars_decode($globalConnectionsTitle) !!}",
                 showGlobalConnections: true,
                 lastSave: "",
+                isIncubator:"{{ $project[0]->is_incubator }}",
                 private: JSON.parse('{!! $project[0]->is_private !!}'),
                 loading: false
             }
@@ -1159,6 +1160,10 @@
 
             },
             validateLaunch() {
+
+                if(this.isIncubator == 1){
+                    return true;
+                }
 
                 if (this.title == "") {
                     swal({
