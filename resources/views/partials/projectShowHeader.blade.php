@@ -158,10 +158,154 @@
                                     </li>
                                     <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal"
                                         @click="resetRegistrationForm()">
-                                        <a class='nav-link  '>Register</a>
+                                        <a class='nav-link  '>                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="92px" height="92px" viewBox="0 0 92 92" xml:space="preserve"><path id="XMLID_1253_" d="M46 57.1c14.8 0 26.9-12.1 26.9-27C72.9 15.1 60.8 3 46 3S19.1 15.1 19.1 30c0 15 12.1 27.1 26.9 27.1zM46 11c10.4 0 18.9 8.5 18.9 19S56.4 49 46 49s-18.9-8.5-18.9-19S35.6 11 46 11zm12.5 48.7c-1.3-.4-2.8-.1-3.8.8L46 67.9l-8.7-7.4c-1.1-.9-2.5-1.2-3.8-.8C27.9 61.5 0 71.1 0 85c0 2.2 1.8 4 4 4h84c2.2 0 4-1.8 4-4 0-13.9-27.9-23.5-33.5-25.3zM10.1 81c4.4-4.7 15-9.9 23.8-12.9l9.5 8.1c1.5 1.3 3.7 1.3 5.2 0l9.5-8.1c8.8 3.1 19.4 8.3 23.8 12.9H10.1z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="user" dc:description="user" dc:publisher="Iconscout" dc:date="2017-09-24" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Amit Jakhu</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+Register</a>
                                     </li>
                                     <li class='nav-item w-nav' data-toggle="modal" data-target=".institution-modal">
-                                        <a class='nav-link'>Institution Registration</a>
+                                        <a class='nav-link'><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 464 464" style="enable-background:new 0 0 464 464;" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path d="M456,217.12H353.68v-19.76c-0.005-2.886-1.564-5.546-4.08-6.96L240,128.8V97.44h21.68v11.92c0,4.418,3.582,8,8,8h65.36
+                                        c4.418-0.002,7.998-3.585,7.997-8.003c0-0.926-0.162-1.845-0.477-2.717L336,88l6.64-18.24c1.502-4.155-0.648-8.741-4.803-10.243
+                                        c-0.871-0.315-1.79-0.476-2.717-0.477h-29.76v-11.6c0-4.418-3.582-8-8-8H240v-9.76c0-4.418-3.582-8-8-8s-8,3.582-8,8v99.12
+                                        l-109.6,61.52c-2.516,1.414-4.075,4.074-4.08,6.96v19.76H8c-4.418,0-8,3.582-8,8v209.28c0,4.418,3.582,8,8,8h448
+                                        c4.418,0,8-3.582,8-8v-209.2C464,220.702,460.418,217.12,456,217.12z M305.36,89.44l-0.32-0.32V75.36h18.24L320,85.6
+                                        c-0.655,1.782-0.655,3.738,0,5.52l3.76,10.24h-46.08v-3.92h19.68C301.778,97.44,305.36,93.858,305.36,89.44z M240,55.44h49.36
+                                        v11.92v14.08H240V55.44z M110.32,426.32H16v-193.2h94.32V426.32z M224,426.32h-42v-91.36h42V426.32z M282,426.32h-42v-91.36h42
+                                        V426.32z M338,426.32h-40v-99.36c0-4.418-3.582-8-8-8H174c-4.418,0-8,3.582-8,8v99.36h-40v-224l106-59.68L337.68,202l0.32,23.04
+                                        V426.32z M448,426.32h-94.32v-193.2H448V426.32z"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <path d="M232,167.12c-18.526,0.044-33.52,15.074-33.52,33.6c0.044,18.513,15.087,33.484,33.6,33.44
+                                        c18.513-0.044,33.484-15.087,33.44-33.6C265.476,182.079,250.481,167.12,232,167.12z M232,218.16
+                                        c-9.676-0.044-17.484-7.924-17.44-17.6c0.044-9.613,7.826-17.396,17.44-17.44c9.689,0.044,17.52,7.911,17.52,17.6h0.08
+                                        C249.556,210.396,241.676,218.204,232,218.16z"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="35.28" y="250.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="74.72" y="250.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="150.32" y="250.72" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="216" y="250.72" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="281.68" y="250.72" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="150.32" y="288" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="216" y="288" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="281.68" y="288" width="32" height="16"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="35.28" y="313.68" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="74.72" y="313.68" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="35.28" y="376.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="74.72" y="376.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="373.28" y="250.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="412.72" y="250.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="373.28" y="313.68" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="412.72" y="313.68" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="373.28" y="376.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <rect x="412.72" y="376.72" width="16" height="32"/>
+                                    </g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                            </svg>Institution Registration</a>
                                     </li>
                                 </div>
                             </div>
