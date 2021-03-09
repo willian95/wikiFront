@@ -24,7 +24,7 @@
 
                 </div>
                 <div class="col-md-4">
-                    <p>WikiPBL Pages (public):</p>
+                    <p>wikiPBL Pages (public):</p>
                     <span>@{{ publicPBLCounts }}</span>
                 </div>
                 <div class="col-md-4">

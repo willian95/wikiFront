@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/favicon.png') }}">
-    <title>WikiPBL</title>
+    <title>wikiPBL</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700;900&family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
@@ -69,7 +69,7 @@
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> - <a href="#">About wikiPBL</a> - 2021
                     Copyrights - Contact us! </p>
                 </div>
             </footer>

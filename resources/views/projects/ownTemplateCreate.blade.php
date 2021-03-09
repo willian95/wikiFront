@@ -394,7 +394,7 @@
 
                             <div class="mt-5 mb-5">
                                 <h1>Which Upvote System
-                                    options will your WikiPBL
+                                    options will your wikiPBL
                                     have?
                                 </h1>
                                 
@@ -427,7 +427,7 @@
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
                     <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal"
-                            data-target=".terms">Terms & Conditions</a> - <a href="#">About WikiPBL</a> - 2021
+                            data-target=".terms">Terms & Conditions</a> - <a href="#">About wikiPBL</a> - 2021
                         Copyrights - Contact us! </p>
                 </div>
             </footer>

@@ -12,7 +12,7 @@
                     part of wikiPBL! You should get a
                     confirmation email to finish the
                     registration, so all of your teachers and
-                    associates can start creating WikiPBL
+                    associates can start creating wikiPBL
                     projects ASAP! Remember to check your spam
                     folder.
                 </div>

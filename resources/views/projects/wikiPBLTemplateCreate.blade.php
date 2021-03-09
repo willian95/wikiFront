@@ -592,7 +592,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h1 class="mt-5">Which Upvote System
-                                        options will your WikiPBL
+                                        options will your wikiPBL
                                         have?
                                     </h1>
                                 </div>
