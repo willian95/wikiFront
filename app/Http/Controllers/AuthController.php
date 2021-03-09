@@ -15,14 +15,14 @@ class AuthController extends Controller
 
             $user = User::where("email", $request->login_email)->first();
             if($user){
+                
+                if($user->email_verified_at == null){
 
-                if (Auth::attempt(['email' => $request->login_email, 'password' => $request->login_password], true)) {
+                    return response()->json(["success" => false, "msg" => "You haven't validate your email"]);
 
-                    if($user->email_verified_at == null){
-
-                        return response()->json(["success" => false, "msg" => "You haven't validate your email"]);
-
-                    }else{
+                }else{
+                    
+                    if (Auth::attempt(['email' => $request->login_email, 'password' => $request->login_password], true)) {
 
                         if(isset($request->token)){
                             $user->fcm_token = $request->token;

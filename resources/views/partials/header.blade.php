@@ -653,113 +653,130 @@
                 }
 
             },
+            isURL(str) {
+                const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+                    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+                    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+                    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+                    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+                    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+                return !!pattern.test(str);
+            },
             validateTeacherRegister() {
 
-                console.log("institution_email", this.institution_email.toLowerCase())
-                console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
-                let domain = new URL(this.selected_institution.website.toLowerCase())
-
                 if (!this.institution_not_registered) {
-                    if (this.institution_email.toLowerCase().indexOf(domain.hostname.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
+
+                    //console.log("institution_email", this.institution_email.toLowerCase())
+                    //console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
+                    let domain = null
+                    //console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
+
+                    try{
+                        domain = new URL(this.selected_institution.website.toLowerCase()).hostname
+                    }catch{
+
+                        domain = this.selected_institution.website.toLowerCase()
+
+                    }
+
+                    if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
                             icon: "warning"
                         })
 
+                        return false
+
+                    }
+
+                }
+
+                if (this.institution_not_registered) {
+
+                    if (this.institution_name == "") {
+                        swal({
+                            text: "Institution name is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    } else if (this.institution_contact_email == "") {
+                        swal({
+                            text: "Institution contact email is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    } else if (this.institution_website == "") {
+                        swal({
+                            text: "Institution website is required",
+                            icon: "warning"
+                        })
+
+                        return false
+                    }
+
+                }
+
+
+                if (this.name == "") {
+
+                    swal({
+                        text: "Name is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.lastname == "") {
+
+                    swal({
+                        text: "Lastname is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.email == "") {
+
+                    swal({
+                        text: "Email is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.institution_email == "") {
+
+                    swal({
+                        text: "Institution email is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.password == "") {
+
+                    swal({
+                        text: "Password is required",
+                        icon: "warning"
+                    })
+
+                    return false
+
+                } else if (this.password_confirmation != this.password) {
+
+                    swal({
+                        text: "Passwords don't match",
+                        icon: "warning"
+                    })
+
                     return false
 
                 }
 
                 return true
-
-            }
-
-            if (this.institution_not_registered) {
-
-                if (this.institution_name == "") {
-                    swal({
-                        text: "Institution name is required",
-                        icon: "warning"
-                    })
-
-                    return false
-                } else if (this.institution_contact_email == "") {
-                    swal({
-                        text: "Institution contact email is required",
-                        icon: "warning"
-                    })
-
-                    return false
-                } else if (this.institution_website == "") {
-                    swal({
-                        text: "Institution website is required",
-                        icon: "warning"
-                    })
-
-                    return false
-                }
-
-            }
-
-
-            if (this.name == "") {
-
-                swal({
-                    text: "Name is required",
-                    icon: "warning"
-                })
-
-                return false
-
-            } else if (this.lastname == "") {
-
-                swal({
-                    text: "Lastname is required",
-                    icon: "warning"
-                })
-
-                return false
-
-            } else if (this.email == "") {
-
-                swal({
-                    text: "Email is required",
-                    icon: "warning"
-                })
-
-                return false
-
-            } else if (this.institution_email == "") {
-
-                swal({
-                    text: "Institution email is required",
-                    icon: "warning"
-                })
-
-                return false
-
-            } else if (this.password == "") {
-
-                swal({
-                    text: "Password is required",
-                    icon: "warning"
-                })
-
-                return false
-
-            } else if (this.password_confirmation != this.password) {
-
-                swal({
-                    text: "Passwords don't match",
-                    icon: "warning"
-                })
-
-                return false
-
-            }
-
-            return true
 
 
 

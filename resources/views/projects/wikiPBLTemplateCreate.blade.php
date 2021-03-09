@@ -458,7 +458,7 @@
                                 <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
                                 <select id="inpt" class="form-control" v-model="weeks">
-                                    <option v-for="week in 18" :value="week" v-if="week > 3">@{{ week }} </option>
+                                    <option v-for="week in 18" :value="week" v-if="week > 0">@{{ week }} </option>
                                 </select> 
                                 </div>     
                             </div>

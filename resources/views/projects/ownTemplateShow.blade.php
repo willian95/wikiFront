@@ -1048,7 +1048,7 @@
 
                             </div>
                         </div>
-                        <div class="text-center mt-4" v-if="slides > 0">
+                        <div class="text-center mt-4" v-if="slides > 2">
                             <button class="btn btn-success btn-sliders" @click="previousSlide()"><i class="fa fa-angle-left mr-2" aria-hidden="true"></i>Previous
                             </button>
                             <button class="btn btn-success btn-sliders btn-sliders-2" @click="nextSlide()">Next<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
@@ -1778,10 +1778,22 @@
             },
             validateTeacherRegister() {
 
-
                 if (!this.institution_not_registered) {
-                    if (this.institution_email.toLowerCase().indexOf(this.selected_institution.website
-                            .toLowerCase()) < 0) {
+
+                    //console.log("institution_email", this.institution_email.toLowerCase())
+                    //console.log("website", this.selected_institution.website.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", ""))
+                    let domain = null
+                    //console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
+
+                    try{
+                        domain = new URL(this.selected_institution.website.toLowerCase()).hostname
+                    }catch{
+
+                        domain = this.selected_institution.website.toLowerCase()
+
+                    }
+
+                    if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
 
                         swal({
                             text: "Institution website and your institution email doesn't match",
@@ -1812,7 +1824,7 @@
                         return false
                     } else if (this.institution_website == "") {
                         swal({
-                            text: "Institution websote is required",
+                            text: "Institution website is required",
                             icon: "warning"
                         })
 
@@ -1879,6 +1891,8 @@
                 }
 
                 return true
+
+
 
             },
             validateInstitutionRegister() {
