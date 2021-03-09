@@ -671,9 +671,9 @@
                     let domain = null
                     console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
 
-                    if(this.isURL(this.selected_institution.website.toLowerCase()) == true){
+                    try{
                         domain = new URL(this.selected_institution.website.toLowerCase()).hostname
-                    }else{
+                    }catch{
 
                         this.domain = this.selected_institution.website.toLowerCase()
 
