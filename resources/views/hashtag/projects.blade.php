@@ -19,10 +19,9 @@
 
                     <!---------------------iconos------------------->
                     <div>
-                        <span class="hover-tol">
-                        <span class="tooltip-nav">Incubator</span>
+                        <span class="menu-icon_hover">
+                            <span class="tooltip-nav-info_last">Incubator</span>
                             <img alt='icon' class="login_icon mr-3 " src="http://imgfz.com/i/DmsV3CK.png">
-                            
                         </span>
                         <!---------------------icono1------------------->
                         <span>
