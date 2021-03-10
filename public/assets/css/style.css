@@ -1360,6 +1360,7 @@ right: 17px;
     padding: 10px 0px;
     flex-direction: inherit;
     justify-content: space-between;
+  
 }
 .main-wikis p{
     margin: 0;
@@ -1368,7 +1369,7 @@ right: 17px;
     fill: #4674b8;
 }
 .line_{
-    border-bottom: 1px solid #4674b8;
+   /* border-bottom: 1px solid #4674b8;*/
 }
 .card-proyectos .card{
     margin-bottom: 16px;
@@ -1445,3 +1446,18 @@ right: 17px;
   .contente_item .card{
     margin-bottom: 12px;
   }
+  .main-profile_dates  i{
+    margin-left: 15px;
+  }
+.card-proyectos .btn-info{
+ 
+    height: 34px!important;
+}
+.card-proyectos .card{
+    display: grid;
+    grid-template-columns: 50% 30% 20%;
+}
+.incubator{
+    width: 37px;
+    margin-top: 15px;
+}
