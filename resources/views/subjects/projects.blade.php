@@ -19,6 +19,12 @@
 
                 <!---------------------iconos------------------->
                 <div>
+
+                    <span class="menu-icon_hover" v-if="project.is_incubator">
+                        <span class="tooltip-nav-info_last">Incubator</span>
+                        <img alt='icon' class="login_icon mr-3 " src="http://imgfz.com/i/DmsV3CK.png">
+                    </span>
+
                         <!---------------------icono1------------------->
                     <span>
                         @{{ project.likes.length }}
