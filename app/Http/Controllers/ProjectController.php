@@ -39,7 +39,7 @@ class ProjectController extends Controller
     function showCreateOwnTemplate($id){
 
         $project = Project::find($id);
-        return view("projects.ownTemplateCreate", ["project" => $project]);
+        return view("projects.ownTemplateCreate", ["project" => $project, "action" => "create"]);
     }
 
     function createWikiTemplate(){
@@ -52,7 +52,7 @@ class ProjectController extends Controller
     function showCreateWikiTemplate($id){
 
         $project = Project::find($id);
-        return view("projects.wikiPBLTemplateCreate", ["project" => $project]);
+        return view("projects.wikiPBLTemplateCreate", ["project" => $project, "action" => "create"]);
     }
 
 
@@ -725,7 +725,8 @@ class ProjectController extends Controller
                     "calendarActivities" => str_replace("'", "\'", $calendarActivities),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
-                    "project" => $project
+                    "project" => $project,
+                    "action" => "edit"
 
                 ]
             );
@@ -779,7 +780,8 @@ class ProjectController extends Controller
                     "fieldWorkTitle" => $fieldWorkTitle,
                     "fieldWork" => $fieldWork,
                     "globalConnectionsTitle" => $globalConnectionsTitle,
-                    "globalConnections" => $globalConnections
+                    "globalConnections" => $globalConnections,
+                    "action" => "edit"
                 ]
             );
         }
@@ -1589,6 +1591,34 @@ class ProjectController extends Controller
 
         ])
         ->send();
+    }
+
+    function delete(Request $request){
+
+        try{
+
+            $project = Project::find($request->id);
+
+            if(\Auth::user()->id == $project->user_id){
+
+                $project->delete();
+                return response()->json(["success" => true, "msg" => "Project deleted"]);
+
+            }else{
+
+                return response()->json(["success" => false, "msg" => "Permission denied"]);
+
+            }
+                
+
+            
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
     }
 
 
