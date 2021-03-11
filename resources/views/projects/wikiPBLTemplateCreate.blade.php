@@ -66,7 +66,7 @@
                     <!--------------------general--------------------------->
                     <ul style="list-style:none" class="content_template content_template-general">
 
-                        <li class="content_template-general-item" >
+                        <li class="content_template-general-item" @mouseleave="testChange()">
                             <p>Incubator Features</p>
                             <img alt='icon' class="login_icon incubator "
                             src="http://imgfz.com/i/DmsV3CK.png">
@@ -77,7 +77,7 @@
                             </label>
                         </li>
 
-                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
+                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p" @mouseleave="testChange()">
                             <h3 class="titulo-templates">
                                 
                                 <span v-if="editSection != 'title'">@{{ title }}</span> 
@@ -93,7 +93,7 @@
 
                         </li>
 
-                        <li class="content_template-general-item" id="driving">
+                        <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
                             <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                             <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('drivingQuestionTitle')">
@@ -107,7 +107,7 @@
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
                         </li>
-                        <li class="content_template-general-item" id="subjecttitle">
+                        <li class="content_template-general-item" id="subjecttitle" @mouseleave="testChange()">
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
@@ -131,7 +131,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="time">
+                        <li class="content_template-general-item" id="time" @mouseleave="testChange()">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">@{{ timeFrameTitle }}</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
@@ -148,12 +148,12 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="projectsumary">
+                        <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
                             <h3 class="titulo-templates">Project summary</h3>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                         </li>
 
-                        <li class="content_template-general-item" id="publictitle">
+                        <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
@@ -167,7 +167,7 @@
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                         </li>
 
-                        <li class="content_template-general-item" id="leveltitle">
+                        <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                             <h3 class="titulo-templates"  v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
@@ -280,7 +280,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="hashtags-menu">
+                        <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                             <h3 class="titulo-templates">#hashtags</h3>
                             <div class="row">
                                 <div class="col-md-6">
@@ -300,8 +300,8 @@
                             </div>
                         </li>
 
-                        <div class="row">
-                            <div class="col-12" id="toolstitle">
+                        <div class="row" @mouseleave="testChange()">
+                            <div class="col-12" id="toolstitle" @mouseleave="testChange()">
                                 <button class="btn btn-info" @click="toggleShowSection('tools')">+</button>
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
@@ -336,7 +336,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="leargoals">
                                 <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
@@ -378,7 +378,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id=resoustitle">
                                 <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
                                 <small v-if="showResources">Feel free to remove this section</small>
@@ -401,7 +401,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="projectmiles">
                                 <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
@@ -446,7 +446,7 @@
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div class="content_template mt-5 mb-5">
+                    <div class="content_template mt-5 mb-5" @mouseleave="testChange()">
 
                         <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10"></textarea>
 
@@ -510,7 +510,7 @@
                         </div>
 
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="experttitle">
                                 <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
@@ -534,7 +534,7 @@
                             </div>
                         </div>
                         
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="fielwork">
                                 <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
@@ -558,7 +558,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()"> 
                             <div class="col-12" id="globalconnections">
                                 <button class="btn btn-info" @click="toggleShowSection('globalConnection')">+</button>
                                 <small v-if="showGlobalConnections">Feel free to remove this section</small>
@@ -583,12 +583,12 @@
                         </div>
 
 
-                        <div class="contente_item">
+                        <div class="contente_item" @mouseleave="testChange()">
                             <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                             <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                         </div>
 
-                        <div class="container-fluid">
+                        <div class="container-fluid" @mouseleave="testChange()">
                             <div class="row">
                                 <div class="col-12">
                                     <h1 class="mt-5">Which Upvote System
