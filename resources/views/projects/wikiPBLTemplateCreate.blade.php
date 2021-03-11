@@ -1270,7 +1270,18 @@
 
                     }
 
-                }
+                },
+                showProjectPrivacyAlert(){
+
+                    window.setTimeout(() => {
+
+                        if(this.private == 1){
+                            $("#privacyModalAlert").modal("show")
+                        }
+
+                    }, 500);
+
+                },
             },
             mounted(){
 

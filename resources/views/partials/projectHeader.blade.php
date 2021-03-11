@@ -4,6 +4,25 @@
     <div class="loader-cover-custom" v-if="loading == true">
         <div class="loader-custom"></div>
     </div>
+
+    <div class="modal fade" tabindex="-1" id="privacyModalAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Hey! Launching your wikiPBL project means you will have input from teachers all over the world, so once you launch it you will no longer be able to delete it</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="header-shadow">
         <nav class='navbar navbar-expand-md navbar-fixed-js container'>
             <div class='flex-custom'>
@@ -71,29 +90,31 @@
                             <!-- Iconos temlate option-->
                             <div class="header-icons">
                             <li class="nav-item  flex-main">
-                            @if(\Auth::user()->id == $project[0]->user_id)
-                                <svg class="login_icon mt-2 " xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="24" height="24" viewBox="0 0 24 24"><path d="M12 14c1.381 0 2.631-.56 3.536-1.465C16.44 11.631 17 10.381 17 9s-.56-2.631-1.464-3.535C14.631 4.56 13.381 4 12 4s-2.631.56-3.536 1.465C7.56 6.369 7 7.619 7 9s.56 2.631 1.464 3.535A4.985 4.985 0 0 0 12 14zm8 1a2.495 2.495 0 0 0 2.5-2.5c0-.69-.279-1.315-.732-1.768A2.492 2.492 0 0 0 20 10a2.495 2.495 0 0 0-2.5 2.5A2.496 2.496 0 0 0 20 15zm0 .59c-1.331 0-2.332.406-2.917.968C15.968 15.641 14.205 15 12 15c-2.266 0-3.995.648-5.092 1.564C6.312 15.999 5.3 15.59 4 15.59c-2.188 0-3.5 1.09-3.5 2.182 0 .545 1.312 1.092 3.5 1.092.604 0 1.146-.051 1.623-.133l-.04.27c0 1 2.406 2 6.417 2 3.762 0 6.417-1 6.417-2l-.02-.255c.463.073.995.118 1.603.118 2.051 0 3.5-.547 3.5-1.092 0-1.092-1.373-2.182-3.5-2.182zM4 15c.69 0 1.315-.279 1.768-.732A2.492 2.492 0 0 0 6.5 12.5 2.495 2.495 0 0 0 4 10a2.496 2.496 0 0 0-2.5 2.5A2.495 2.495 0 0 0 4 15z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="group" dc:description="group" dc:publisher="Iconscout" dc:date="2017-09-24" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Typicons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
-                                <span class="tooltip-nav">Shared wikiPBL</span>
-                                </li>
+                            @if($action == "create" || \Auth::user()->id == $project[0]->user_id)
+                           
+                                    <svg class="login_icon mt-2 " xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="24" height="24" viewBox="0 0 24 24"><path d="M12 14c1.381 0 2.631-.56 3.536-1.465C16.44 11.631 17 10.381 17 9s-.56-2.631-1.464-3.535C14.631 4.56 13.381 4 12 4s-2.631.56-3.536 1.465C7.56 6.369 7 7.619 7 9s.56 2.631 1.464 3.535A4.985 4.985 0 0 0 12 14zm8 1a2.495 2.495 0 0 0 2.5-2.5c0-.69-.279-1.315-.732-1.768A2.492 2.492 0 0 0 20 10a2.495 2.495 0 0 0-2.5 2.5A2.496 2.496 0 0 0 20 15zm0 .59c-1.331 0-2.332.406-2.917.968C15.968 15.641 14.205 15 12 15c-2.266 0-3.995.648-5.092 1.564C6.312 15.999 5.3 15.59 4 15.59c-2.188 0-3.5 1.09-3.5 2.182 0 .545 1.312 1.092 3.5 1.092.604 0 1.146-.051 1.623-.133l-.04.27c0 1 2.406 2 6.417 2 3.762 0 6.417-1 6.417-2l-.02-.255c.463.073.995.118 1.603.118 2.051 0 3.5-.547 3.5-1.092 0-1.092-1.373-2.182-3.5-2.182zM4 15c.69 0 1.315-.279 1.768-.732A2.492 2.492 0 0 0 6.5 12.5 2.495 2.495 0 0 0 4 10a2.496 2.496 0 0 0-2.5 2.5A2.495 2.495 0 0 0 4 15z"/><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="group" dc:description="group" dc:publisher="Iconscout" dc:date="2017-09-24" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Typicons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+                                    <span class="tooltip-nav">Shared wikiPBL</span>
+                                    </li>
 
 
 
-                                <li class="nav-item  flex-main">
-                                    
-                                    <!-- Rounded switch -->
-                                    <label class="switch" >
-                                        <input type="checkbox" v-model="private">
-                                        <span class="slider slider-nav round"></span>
-                                    </label>
+                                    <li class="nav-item  flex-main">
+                                        
+                                        <!-- Rounded switch -->
+                                        <label class="switch" @change="showProjectPrivacyAlert()">
+                                            <input type="checkbox" v-model="private">
+                                            <span class="slider slider-nav round"></span>
+                                        </label>
 
-                                    
-                                </li>
-                                <li class="nav-item  flex-main">
+                                        
+                                    </li>
+                                    <li class="nav-item  flex-main">
 
-                                    <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/eye.svg') }}">
-                                    <span class="tooltip-nav">View Only</span>
+                                        <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/eye.svg') }}">
+                                        <span class="tooltip-nav">View Only</span>
 
-                                </li>
+                                    </li>
+                        
                             @endif
                                 {{--<li class="nav-item   flex-main">
                                     <img alt='icon' class="login_icon "

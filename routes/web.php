@@ -110,6 +110,7 @@ Route::post("project/follow", "ProjectController@followProject");
 Route::post("project/like", "ProjectController@likeProject");
 Route::post("project/report", "ProjectController@reportProject");
 Route::post("project/assestment-point", "ProjectController@upvoteAssestmentPoint");
+Route::post("project/delete", "ProjectController@delete")->middleware("auth");
 
 Route::get("project/public/my-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");
 Route::get("project/public/my-public-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");

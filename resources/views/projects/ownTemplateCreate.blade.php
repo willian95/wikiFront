@@ -780,6 +780,17 @@
                     } 
                     return true
                 },
+                showProjectPrivacyAlert(){
+
+                    window.setTimeout(() => {
+
+                        if(this.private == 1){
+                            $("#privacyModalAlert").modal("show")
+                        }
+
+                    }, 500);
+
+                },
                 checkTest(age){
                     var exists = false
                     this.ages.forEach((data) => {

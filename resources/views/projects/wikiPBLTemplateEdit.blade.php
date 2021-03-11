@@ -1475,7 +1475,41 @@
 
                 }
 
-            }
+            },
+            erase(){
+
+                axios.post("{{ url('/project/delete') }}", {id: this.projectId}).then(res => {
+
+                    if(res.data.success == true){
+
+                        swal({
+                            "text": res.data.msg,
+                            "icon": "success"
+                        })
+
+                    }else{
+
+                        swal({
+                            "text": res.data.msg,
+                            "icon": "error"
+                        })
+
+                    }
+
+                })
+
+            },
+            showProjectPrivacyAlert(){
+
+                window.setTimeout(() => {
+
+                    if(this.private == 1){
+                        $("#privacyModalAlert").modal("show")
+                    }
+
+                }, 500);
+
+            },
 
 
         },
