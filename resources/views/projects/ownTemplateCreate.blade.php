@@ -42,7 +42,7 @@
                                 <li><a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != '' || incubatorFeature == true"></i>Project Summary</a></li>
                                 <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || incubatorFeature == true"></i>@{{ publicProductTitle }}</a> </li>
                                 <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || incubatorFeature == true"></i>@{{ levelTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtag == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtag != '' || incubatorFeature == true"></i>#hashtags</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || incubatorFeature == true"></i>#hashtags</a></li>
 
                                 </ul>
                             </div>
