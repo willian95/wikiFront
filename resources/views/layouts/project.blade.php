@@ -54,6 +54,10 @@
             }
         }
 
+        .swal-overlay{
+            z-index: 10000000000 !important;
+        }
+
     </style>
 
     @stack("css")

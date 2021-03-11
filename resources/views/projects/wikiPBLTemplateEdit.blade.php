@@ -1438,6 +1438,20 @@
                     scrollTop: distance
                 }, 50);
 
+            },
+            showCKEditorAlert(){
+
+                if(window.localStorage.getItem("showCKEditorMsg") != null){
+
+                    swal({
+                        "text": window.localStorage.getItem("showCKEditorMsg"),
+                        "icon": "success"
+                    })
+
+                    window.localStorage.removeItem("showCKEditorMsg")
+
+                }
+
             }
 
 
@@ -1533,6 +1547,10 @@
             window.setInterval(() => {
                 this.saveEditionProject()
             }, 120000)
+
+            window.setInterval(() => {
+                this.showCKEditorAlert()
+            }, 1000)
 
         }
 

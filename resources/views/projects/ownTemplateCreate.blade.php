@@ -804,6 +804,20 @@
                     this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
                     this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
 
+                },
+                showCKEditorAlert(){
+
+                    if(window.localStorage.getItem("showCKEditorMsg") != null){
+
+                        swal({
+                            "text": window.localStorage.getItem("showCKEditorMsg"),
+                            "icon": "success"
+                        })
+
+                        window.localStorage.removeItem("showCKEditorMsg")
+
+                    }
+
                 }
                 
             },
@@ -823,7 +837,13 @@
                 this.saveProject()
                 window.setInterval(() =>{
                     this.saveProject()
+
                 }, 120000)
+
+                window.setInterval(() => {
+                    this.showCKEditorAlert()
+                }, 1000)
+
             }
         })
     
