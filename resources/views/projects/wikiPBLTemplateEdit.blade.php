@@ -69,8 +69,22 @@
                 </div>
                 <!----------------info----------------->
                 <div class="col-md-9 info-template">
+
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
+
+                        @if(\Auth::user()->id == $project[0]->user_id)
+                            <li class="content_template-general-item">
+                                <p>Incubator Features</p>
+                                <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
+                                <!-- Rounded switch -->
+                                <label class="switch" >
+                                    <input type="checkbox" v-model="isIncubator">
+                                    <span class="slider slider-nav round"></span>
+                                </label>
+                            </li>
+                        @endif
+
                         <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
 
                             <h3 class="titulo-templates">
@@ -1099,6 +1113,7 @@
                 formData.append("upvoteSystem", JSON.stringify(this.upvoteSystems))
                 formData.append("is_private", this.private)
                 formData.append("number_of_weeks", this.weeks)
+                formData.append("isIncubator", this.isIncubator)
 
                 if (this.showTools == true) {
                     formData.append("toolsTitle", this.toolsTitle)
