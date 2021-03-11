@@ -1162,7 +1162,15 @@
             validateLaunch() {
 
                 if(this.isIncubator == 1){
-                    return true;
+                    if(CKEDITOR.instances.projectSummaryEditor.getData() == ""){
+                        swal({
+                            text: "Project summary is required",
+                            icon:"error"
+                        })
+                        return false
+                    }
+
+                    return true
                 }
 
                 if (this.title == "") {
