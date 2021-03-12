@@ -106,7 +106,7 @@
                             <p v-if="project.titles[0]">@{{ project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
                         </a>
                         <!---------------------iconos------------------->
-                        <div>
+                        <div class="grupo-iconos">
 
                             <span class="menu-icon_hover" v-if="project.is_incubator == 1">
                                 <span class="tooltip-nav-info_last">Incubator</span>

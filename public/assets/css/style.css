@@ -1455,13 +1455,12 @@ right: 17px;
 }
 .card-proyectos .card{
     display: grid;
-    grid-template-columns: 50% 30% 20%;
+    grid-template-columns: 40% 40% 20%;
 }
 .incubator{
     width: 37px;
     margin-top: 15px;
 }
-
 
 
 
@@ -1508,4 +1507,10 @@ right: 17px;
 }
 .menu-icon_hover{
     position: relative;
+}
+.grupo-iconos{
+    font-size: 12px;  
+}
+.hover-trash:hover{
+    fill: red;
 }
