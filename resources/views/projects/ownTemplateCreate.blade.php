@@ -467,7 +467,7 @@
                     weeks:4,
                     calendarDay:"",
                     lastSave:"",
-                    private:0,
+                    private:1,
                     calendarWeek:"",
                     upvoteSystems:[],
                     editSection:"",
@@ -784,7 +784,7 @@
 
                     window.setTimeout(() => {
 
-                        if(this.private == 1){
+                        if(this.private == 0){
                             $("#privacyModalAlert").modal("show")
                         }
 

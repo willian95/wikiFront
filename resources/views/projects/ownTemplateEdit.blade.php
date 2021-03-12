@@ -899,24 +899,41 @@
             },
             erase(){
 
-                axios.post("{{ url('/project/delete') }}", {id: this.projectId}).then(res => {
+                swal({
+                    title: "Are you sure?",
+                    text: "You will delete this project!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
 
-                    if(res.data.success == true){
+                        axios.post("{{ url('/project/delete') }}", {id: this.projectId}).then(res => {
 
-                        swal({
-                            "text": res.data.msg,
-                            "icon": "success"
-                        })
+                            if(res.data.success == true){
 
-                    }else{
+                                swal({
+                                    "text": res.data.msg,
+                                    "icon": "success"
+                                }).then(res => {
 
-                        swal({
-                            "text": res.data.msg,
-                            "icon": "error"
+                                    window.location.href="{{ url('teacher/profile') }}"
+
+                                })
+
+                            }else{
+
+                                swal({
+                                    "text": res.data.msg,
+                                    "icon": "error"
+                                })
+
+                            }
+
                         })
 
                     }
-
                 })
 
             },
