@@ -675,7 +675,7 @@
                     globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
                     showGlobalConnections:true,
                     lastSave:"",
-                    private:0,
+                    private:1,
                     loading:false,
                     incubatorFeature:false
                 }
@@ -1275,7 +1275,7 @@
 
                     window.setTimeout(() => {
 
-                        if(this.private == 1){
+                        if(this.private == 0){
                             $("#privacyModalAlert").modal("show")
                         }
 
