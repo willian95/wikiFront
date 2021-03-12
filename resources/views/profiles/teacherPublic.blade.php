@@ -150,7 +150,7 @@
                         </a>
                         
                         <!---------------------iconos------------------->
-                        <div>
+                        <div class="grupo-iconos">
 
                             <span class="menu-icon_hover" v-if="project.project.is_incubator">
                                 <span class="tooltip-nav-info_last">Incubator</span>
