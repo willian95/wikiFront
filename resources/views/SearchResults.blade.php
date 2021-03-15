@@ -118,7 +118,7 @@
                 </a>
                 
                 <!---------------------iconos------------------->
-                {{--<div>
+                <div>
 
                     <span class="menu-icon_hover" v-if="project[0].is_incubator == 1">
                         <span class="tooltip-nav-info_last">Incubator</span>
@@ -142,7 +142,7 @@
                         <span class="line_">@{{ dateFormatter(project[0].updated_at) }}</span>
                 </div>
 
-                <a :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>--}}
+                {{--<a :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>--}}
             </div>
         </div>
 
