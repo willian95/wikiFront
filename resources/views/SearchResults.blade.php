@@ -4,9 +4,9 @@
 
 
 <div class="main-results" id="dev-search">
-    <div class="home-present">
+    <div class="home-present mt-5 mb-5">
         <!---------------->
-        <div>
+        <div class="">
             <div>
                 <i class="fa fa-search icon-sear "></i>
                 <input type="text" class="search-home " placeholder="PBL names, teachers, #Hashtags!" v-on:keyup.enter="search()" v-model="query">
@@ -106,19 +106,18 @@
             wikiPBL’s Projects
             </a></h3>
         </div>
-
-        <div class="col-md-12">
+        <div class="col-md-12 card-proyectos ">
             {{--<a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
                 <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.name }} @{{ project[0].user.lastname }}</p>
             </a>--}}
-            <div class="card" v-for="(project,index) in projects" v-if="project[0].type != 'following'">
+            <div class="card border-0" v-for="(project,index) in projects" v-if="project[0].type != 'following'">
                 <a :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
                     
                     <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>
                 </a>
                 
                 <!---------------------iconos------------------->
-                <div>
+                <div class="grupo-iconos">
 
                     <span class="menu-icon_hover" v-if="project[0].is_incubator == 1">
                         <span class="tooltip-nav-info_last">Incubator</span>
