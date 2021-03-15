@@ -1000,6 +1000,8 @@
                 this.hashtags = []
             }
 
+            this.testChange()
+
             window.setInterval(() => {
                 this.saveEditionProject()
             }, 120000)
