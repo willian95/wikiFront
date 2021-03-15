@@ -111,13 +111,14 @@
             {{--<a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
                 <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.name }} @{{ project[0].user.lastname }}</p>
             </a>--}}
-            <div class="card" v-for="(project,index) in projects" v-if="project.type != 'following'">
-                <a :href="'{{ url('/project/show/') }}'+'/'+project.id">
-                    <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>
+            <div class="card" v-for="(project,index) in projects" v-if="project[0].type != 'following'">
+                <a :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
+                    <p>@{{ project[0].titles[0].title }}</p>
+                    {{--<p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>--}}
                 </a>
                 
                 <!---------------------iconos------------------->
-                <div>
+                {{--<div>
 
                     <span class="menu-icon_hover" v-if="project[0].is_incubator == 1">
                         <span class="tooltip-nav-info_last">Incubator</span>
@@ -141,7 +142,7 @@
                         <span class="line_">@{{ dateFormatter(project[0].updated_at) }}</span>
                 </div>
 
-                <a :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                <a :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>--}}
             </div>
         </div>
 
