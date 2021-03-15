@@ -481,7 +481,7 @@ class SearchController extends Controller
                 $projectModel = Project::where("id", $key)->with(["titles" => function($q){
                     $q->orderBy("id", "desc")->where("status", "launched")->take(1);
                     }
-                ])->with("user")->first(); 
+                ])->with("user")->with("likes")->first(); 
 
                 $projectsResults[] = [
                     $projectModel
