@@ -35,14 +35,14 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('subject')">@{{ subjectTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || isIncubator == true"></i>@{{ title }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || isIncubator == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('subject')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || isIncubator == true"></i>@{{ subjectTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || isIncubator == true"></i>@{{ timeFrameTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || isIncubator == true"></i>@{{ publicProductTitle }}</a> </li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || isIncubator == true"></i>@{{ levelTitle }}</a></li>
+                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
                                 <li v-if="showTools"> <a style="cursor: pointer;" @click="scrollTo('toolstitle')">@{{ toolsTitle }}</a></li>
                                 <li v-if="showLearningGoals"><a style="cursor: pointer;" @click="scrollTo('leargoals')">@{{ learningGoalsTitle }}</a></li>
                                 <li v-if="showResources"><a style="cursor: pointer;" @click="scrollTo('resoustitle')">@{{ resourcesTitle }}</a></li>
@@ -85,7 +85,7 @@
                             </li>
                         @endif
 
-                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p">
+                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p" @mouseleave="testChange()">
 
                             <h3 class="titulo-templates">
 
@@ -113,7 +113,7 @@
 
                         </li>
 
-                        <li class="content_template-general-item" id="driving">
+                        <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
@@ -139,7 +139,7 @@
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! htmlspecialchars_decode($drivingQuestion) !!}</textarea>
 
                         </li>
-                        <li class="content_template-general-item" id="subject">
+                        <li class="content_template-general-item" id="subject" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -180,7 +180,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="time">
+                        <li class="content_template-general-item" id="time" @mouseleave="testChange()">
                             <div class="flex-edit">
 
                                 <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
@@ -209,12 +209,12 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="projectsumary">
+                        <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
                             <h3 class="titulo-templates">Project summary</h3>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! htmlspecialchars_decode($projectSumary) !!}</textarea>
                         </li>
 
-                        <li class="content_template-general-item" id="publictitle">
+                        <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
@@ -238,7 +238,7 @@
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                         </li>
 
-                        <li class="content_template-general-item" id="leveltitle">
+                        <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -361,7 +361,7 @@
                             </div>
                         </li>
 
-                        <li class="content_template-general-item" id="hashtags-menu">
+                        <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                             <h3 class="titulo-templates">#hashtags</h3>
 
                             <div class="row">
@@ -385,7 +385,7 @@
                         </li>
 
                         <div class="row">
-                            <div class="col-12" id="toolstitle">
+                            <div class="col-12" id="toolstitle" @mouseleave="testChange()">
                               
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
@@ -431,7 +431,7 @@
                             </div>
                         </div>
 
-                        <div class="row" id="leargoals">
+                        <div class="row" id="leargoals" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
@@ -484,7 +484,7 @@
                             </div>
                         </div>
 
-                        <div class="row" id="resoustitle">
+                        <div class="row" id="resoustitle" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
                                 <small v-if="showResources">Feel free to remove this section</small>
@@ -518,7 +518,7 @@
                             </div>
                         </div>
 
-                        <div class="row" id="projectmiles">
+                        <div class="row" id="projectmiles" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
@@ -577,7 +577,7 @@
 
                         <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10">{!! $mainInfo !!}</textarea>
 
-                        <div class="contente_item mt-5 mb-5">
+                        <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
                             <h3 class="titulo-templates">Calendar of activities </h3>
 
                             <div class="row">
@@ -613,7 +613,7 @@
 
                         </div>
 
-                        <div class="row" id="experttitle">
+                        <div class="row" id="experttitle" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
@@ -649,7 +649,7 @@
                             </div>
                         </div>
 
-                        <div class="row" id="fielwork">
+                        <div class="row" id="fielwork" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
@@ -684,7 +684,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" @mouseleave="testChange()">
                             <div class="col-12">
                                 <button class="btn btn-info" @click="toggleShowSection('globalConnection')">+</button>
                                 <small v-if="showGlobalConnections">Feel free to remove this section</small>
@@ -718,7 +718,7 @@
                             </div>
                         </div>
 
-                        <div class="contente_item">
+                        <div class="contente_item" @mouseleave="testChange()">
                             <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                             <textarea placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
                         </div>
@@ -774,6 +774,9 @@
                 projectId: "{{ $id }}",
                 title: "{!! htmlspecialchars_decode($title) !!}",
                 drivingQuestionTitle: "{!! htmlspecialchars_decode($drivingQuestionTitle) !!}",
+                drivingQuestion:"",
+                projectSumary:"",
+                publicProduct:"",
                 subjectTitle: "{!! htmlspecialchars_decode($subjectTitle) !!}",
                 subject: "",
                 subjects: "",
@@ -1078,6 +1081,14 @@
                 })
 
                 return exists
+            },
+            testChange(){
+    
+                this.drivingQuestion = CKEDITOR.instances.drivingQuestionEditor.getData()
+                this.projectSumary = CKEDITOR.instances.projectSummaryEditor.getData()
+                this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
+                this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
+
             },
             setFormData() {
 
@@ -1520,7 +1531,7 @@
 
                 window.setTimeout(() => {
 
-                    if(this.private == 1){
+                    if(this.private == 0){
                         $("#privacyModalAlert").modal("show")
                     }
 
@@ -1617,6 +1628,8 @@
             if ("{{ $globalConnections }}" == "") {
                 this.showGlobalConnections = false
             }
+
+            this.testChange()
 
             window.setInterval(() => {
                 this.saveEditionProject()

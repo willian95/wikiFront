@@ -12,8 +12,7 @@
                             <div class="info-regrister">
                                 <img class="mr-1" src="{{ url('assets/img/iconos/like.svg') }}" alt="">
                                 <p>The institution: {{ \Auth::user()->institution->name }} was
-                                    approved! Thanks for your time, please fill ' out the following info and your are good to go!
-
+                                    approved! Thanks for your time, please fill out the following info and your are good to go!
                                 </p>
                             </div>
                         </div>

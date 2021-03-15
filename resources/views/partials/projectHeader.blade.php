@@ -6,15 +6,16 @@
     </div>
 
     <div class="modal fade" tabindex="-1" id="privacyModalAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h5 class="modal-title">Shared wikiPBL</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Hey! Launching your wikiPBL project means you will have input from teachers all over the world, so once you launch it you will no longer be able to delete it</p>
+                    <p>Hey! Launching your wikiPBL project means you will have input from teachers all over the world, so once you launch it you will no longer be able to delete it.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

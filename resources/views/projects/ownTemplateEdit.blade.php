@@ -36,14 +36,14 @@
                     <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                         <ul>
                             <p>Main info</p>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"> @{{ title }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('driving')">@{{ drivingQuestionTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')">@{{ subjectTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('time')">@{{ timeFrameTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')">Project Summary</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || isIncubator == true"></i> @{{ title }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || isIncubator == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || isIncubator == true"></i>@{{ subjectTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || isIncubator == true"></i>@{{ timeFrameTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || isIncubator == true"></i>@{{ publicProductTitle }}</a> </li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || isIncubator == true"></i>@{{ levelTitle }}</a></li>
+                            <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
 
                         </ul>
                     </div>
@@ -80,7 +80,7 @@
                         </li>
                     @endif
 
-                    <li class="content_template-general-item" style="margin-top: 100px;">
+                    <li class="content_template-general-item" style="margin-top: 100px;" @mouseleave="testChange()">
                         <h3 class="titulo-templates">
 
                             <span id="title-p" v-if="editSection != 'title'">@{{ title }}</span>
@@ -103,7 +103,7 @@
 
                     </li>
 
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item" @mouseleave="testChange()">
 
                         <div class="flex-edit">
                             <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
@@ -128,7 +128,7 @@
                         <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! $drivingQuestion !!}</textarea>
 
                     </li>
-                    <li class="content_template-general-item" id="subjecttitle">
+                    <li class="content_template-general-item" id="subjecttitle" @mouseleave="testChange()">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -169,7 +169,7 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item" id="time">
+                    <li class="content_template-general-item" id="time" @mouseleave="testChange()">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
@@ -197,12 +197,12 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item" id="projectsumary">
+                    <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
                         <h3 class="titulo-templates">Project summary</h3>
                         <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! $projectSumary !!}</textarea>
                     </li>
 
-                    <li class="content_template-general-item" id="publictitle">
+                    <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
@@ -227,7 +227,7 @@
                         <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                     </li>
 
-                    <li class="content_template-general-item" id="leveltitle">
+                    <li class="content_template-general-item" id="leveltitle"@mouseleave="testChange()">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
@@ -352,7 +352,7 @@
                         </div>
                     </li>
 
-                    <li class="content_template-general-item" id="hashtags-menu">
+                    <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                         <h3 class="titulo-templates">#hashtags</h3>
 
                         <div class="row">
@@ -478,6 +478,9 @@
                 subjectTitle: "{!! htmlspecialchars_decode($subjectTitle) !!}",
                 subject: "",
                 subjects: "",
+                drivingQuestion:"",
+                projectSumary:"",
+                publicProduct:"",
                 timeFrameTitle: "{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                 timeFrame: "{!! htmlspecialchars_decode($timeFrame) !!}",
                 publicProductTitle: "{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -897,6 +900,14 @@
                 }
 
             },
+            testChange(){
+    
+                this.drivingQuestion = CKEDITOR.instances.drivingQuestionEditor.getData()
+                this.projectSumary = CKEDITOR.instances.projectSummaryEditor.getData()
+                this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
+                this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
+
+            },
             erase(){
 
                 swal({
@@ -941,7 +952,7 @@
 
                 window.setTimeout(() => {
 
-                    if(this.private == 1){
+                    if(this.private == 0){
                         $("#privacyModalAlert").modal("show")
                     }
 
