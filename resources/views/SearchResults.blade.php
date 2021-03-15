@@ -113,20 +113,20 @@
             </a>--}}
             <div class="card" v-for="(project,index) in projects" v-if="project.type != 'following'">
                 <a :href="'{{ url('/project/show/') }}'+'/'+project.id">
-                    <p v-if="project.titles[0]">@{{ project.titles[0].title }}, @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution_name }}</p>
+                    <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>
                 </a>
                 
                 <!---------------------iconos------------------->
                 <div>
 
-                    <span class="menu-icon_hover" v-if="project.is_incubator == 1">
+                    <span class="menu-icon_hover" v-if="project[0].is_incubator == 1">
                         <span class="tooltip-nav-info_last">Incubator</span>
                         <img alt='icon' class="login_icon mr-3 " src="http://imgfz.com/i/DmsV3CK.png">
                     </span>
 
                         <!---------------------icono1------------------->
                     <span>
-                        @{{ project.likes.length }}
+                        @{{ project[0].likes.length }}
                         <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
                         </svg>
@@ -138,10 +138,10 @@
                         </svg>
                     </span>
                         <!---------------------icono3------------------->
-                        <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
+                        <span class="line_">@{{ dateFormatter(project[0].updated_at) }}</span>
                 </div>
 
-                <a :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                <a :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>
             </div>
         </div>
 
