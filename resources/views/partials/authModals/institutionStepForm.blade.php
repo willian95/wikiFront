@@ -39,6 +39,16 @@
                                     <option v-for="age in 100" :value="age">@{{ age }}</option>
                                 </select>
                             </div>
+                            
+                         
+                            <div class="form-group">
+                                <label for="inputinstitutioe"></label>
+                                <select id="inputinstitutio" class="form-control" v-model="highest_age">
+                                    <option selected value="">Highest Age</option>
+                                    <option v-for="age in 100" :value="age">@{{ age }}</option>
+                                </select>
+                            </div>
+
                             <div class="form-group" v-if="institution_type == 'school' || institution_type == 'university'">
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="gender_institution_type">
@@ -46,14 +56,6 @@
                                     <option value="mixed">Mixed</option>
                                     <option value="boys">Boys</option>
                                     <option value="girls">Girls</option>
-                                </select>
-                            </div>
-                         
-                            <div class="form-group">
-                                <label for="inputinstitutioe"></label>
-                                <select id="inputinstitutio" class="form-control" v-model="highest_age">
-                                    <option selected value="">Highest Age</option>
-                                    <option v-for="age in 100" :value="age">@{{ age }}</option>
                                 </select>
                             </div>
                         </div>
