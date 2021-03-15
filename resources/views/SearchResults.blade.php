@@ -111,7 +111,7 @@
             {{--<a class="card" v-for="(project,index) in projects" :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
                 <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.name }} @{{ project[0].user.lastname }}</p>
             </a>--}}
-            <div class="card" v-for="(project,index) in projects" v-if="type != 'following'">
+            <div class="card" v-for="(project,index) in projects" v-if="project.type != 'following'">
                 <a :href="'{{ url('/project/show/') }}'+'/'+project.id">
                     <p v-if="project.titles[0]">@{{ project.titles[0].title }}, @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution_name }}</p>
                 </a>

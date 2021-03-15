@@ -506,8 +506,6 @@ class SearchController extends Controller
             }      
         })->get();
 
-        dd($titles);
-
         return $titles;
     }
 
