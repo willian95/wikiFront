@@ -368,7 +368,7 @@
                 }
 
                 return day + " " + month + " " + year
-                },
+            },
             update() {
 
                 this.loading = true
