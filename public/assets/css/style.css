@@ -63,7 +63,7 @@ Nav
 }
 
 .login_icon {
-    width: 30px;
+    width: 27px;
 }
 
 .header-icons {
@@ -1004,7 +1004,7 @@ input:checked + .slider:before {
 }
 
 .content_template-general-item {
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #00000014;
     padding-bottom: 30px;
     list-style: none;
@@ -1529,4 +1529,20 @@ right: 17px;
 }
 .menu-registro_xs{
     display: none;
+}
+.size-svg{
+    width: 26px;
+}
+#hashtags-menu .card-body{
+    display: flex;
+    justify-content: space-between;
+}
+.hast-trash{
+    width: 21px;
+    height: 20px;
+    fill: #4674b8;
+}
+.hast-trash:hover{
+   
+    fill: #ff0039;
 }
