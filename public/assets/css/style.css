@@ -68,7 +68,7 @@ Nav
 
 .header-icons {
     display: flex;
-    margin-right: 10rem;
+    margin-right: 2rem;
 }
 
 .header-shadow {
@@ -81,10 +81,9 @@ Nav
 }
 
 @media (max-width: 767px) {
-    /*.offcanvas-collapse {
+    .offcanvas-collapse {
         position: fixed;
         top: 56px;
-    
         bottom: 0;
         width: 100%;
         padding-right: 1rem;
@@ -97,7 +96,7 @@ Nav
             -webkit-transform 0.3s ease-in-out;
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
-    }*/
+    }
 
     /**navbaar */
     body.offcanvas-expanded {
@@ -591,7 +590,7 @@ h3 {
 }
 
 .abc-categories .abc-content {
-    width: 16%;
+    width: 22%;
 }
 
 /**********************profile*************** */
@@ -1513,4 +1512,21 @@ right: 17px;
 }
 .hover-trash:hover{
     fill: red;
+}
+.nav_1{
+    display: flex;
+    justify-content: flex-end;
+}
+.menu-flex_1{
+    width: 200px;
+}
+.verse-row{
+    flex-direction: row-reverse;
+    display: flex;
+}
+.new-a{
+    width: 120px;
+}
+.menu-registro_xs{
+    display: none;
 }
