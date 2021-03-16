@@ -1100,39 +1100,54 @@
 
                     if(this.validateLaunch()){
 
-                        this.loading = true
-                        let formData = this.setFormData()
-                        
-                        axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
-                            this.loading = false
-                            if(res.data.success == true){
+                        let string = this.private == 0 ? 'shared view ' : 'view only '
 
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "success"
-                                }).then(() => {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will launch this project in "+string+'mode',
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
 
-                                    window.location.href="{{ url('/teacher/profile') }}"
+                                this.loading = true
+                                let formData = this.setFormData()
+                                
+                                axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
+                                    this.loading = false
+                                    if(res.data.success == true){
 
-                                })
+                                        swal({
+                                            text: res.data.msg,
+                                            icon: "success"
+                                        }).then(() => {
 
-                            }else{
+                                            window.location.href="{{ url('/teacher/profile') }}"
 
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "error"
+                                        })
+
+                                    }else{
+
+                                        swal({
+                                            text: res.data.msg,
+                                            icon: "error"
+                                        })
+
+                                    }
+
+                                }).catch(err => {
+
+                                    this.loading = false
+                                    swal({
+                                        text: "Something went wrong",
+                                        icon: "error"
+                                    })
+
                                 })
 
                             }
-
-                        }).catch(err => {
-
-                            this.loading = false
-                            swal({
-                                text: "Something went wrong",
-                                icon: "error"
-                            })
-
                         })
 
                     }

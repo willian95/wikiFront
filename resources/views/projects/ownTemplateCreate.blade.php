@@ -558,33 +558,50 @@
                 },
                 launch(){
                     if(this.validateLaunch()){
-                        this.loading = true
-                        let formData = this.setFormData()
-                        
-                        axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
-                            this.loading = false
-                            if(res.data.success == true){
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "success"
-                                }).then(() => {
-                                    window.location.href="{{ url('/teacher/profile') }}"
-                                })
-                            }else{
-                                swal({
-                                    text: res.data.msg,
-                                    icon: "error"
-                                })
-                            }
-                        }).catch(err => {
-                            this.loading = false
-                            swal({
-                                text: "Something went wrong",
-                                icon: "error"
-                            })
+    
+                        let string = this.private == 0 ? 'shared view ' : 'view only '
+
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will launch this project in "+string+'mode',
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
                         })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                this.loading = true
+                                let formData = this.setFormData()
+                                
+                                axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
+                                    this.loading = false
+                                    if(res.data.success == true){
+                                        swal({
+                                            text: res.data.msg,
+                                            icon: "success"
+                                        }).then(() => {
+                                            window.location.href="{{ url('/teacher/profile') }}"
+                                        })
+                                    }else{
+                                        swal({
+                                            text: res.data.msg,
+                                            icon: "error"
+                                        })
+                                    }
+                                }).catch(err => {
+                                    this.loading = false
+                                    swal({
+                                        text: "Something went wrong",
+                                        icon: "error"
+                                    })
+                                })
+
+                            }
+                        })
+
                     }
-                },  
+                }, 
                 saveProject(){
                     let formData = this.setFormData()
                     axios.post("{{ url('project/creation/save') }}", formData).then(res => {
