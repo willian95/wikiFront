@@ -1578,10 +1578,10 @@
                         <div class="contente_item">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-md-9">
                                         <h3 class="titulo-templates">Bibliography</h3>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-md-3">
                                         <div class="mt--22" v-if="bibliographyHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
