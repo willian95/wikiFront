@@ -1061,7 +1061,7 @@
                     <div class="content_template">
 
                         <div class="contente_item">
-                            <div class="container-fluid">
+                            <div class="container-fluid mt-5">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <h3 class="titulo-templates">Bibliography</h3>

@@ -1531,7 +1531,7 @@ right: 17px;
     display: none;
 }
 .size-svg{
-    width: 26px;
+    width: 26px!important;
 }
 #hashtags-menu .card-body{
     display: flex;
