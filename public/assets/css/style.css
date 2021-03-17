@@ -1551,3 +1551,10 @@ right: 17px;
    
     fill: #ff0039;
 }
+.btn-miles{
+    position: absolute;
+    right: 5px;
+    top: -15px;
+    border: 0;
+    background: transparent;
+}
