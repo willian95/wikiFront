@@ -39,7 +39,7 @@
 
         <div class="main-profile">
             <div class="main-profile_content">
-                <h1 class="text-center">Institution profile</h1><a href="#" @click="copyLink()">Share this profile</a>
+                <h1 class="text-center mt-4">Institution profile</h1><a href="#" @click="copyLink()">Share this profile</a>
                 <input type="text" style="display: none" value="{{ url()->current() }}" id="myInput">
                 <p>Stats</p>
                 <a style="cursor:pointer;" @click="showReportConfirmation()">

@@ -13,7 +13,7 @@
 
         <div class="main-profile">
             <div class="main-profile_content">
-                <h1 class="text-center">Institution profile</h1>
+                <h1 class="text-center mt-4">Institution profile</h1>
                 <p>Stats</p>
             </div>
 

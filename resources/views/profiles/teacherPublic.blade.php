@@ -38,7 +38,7 @@
 
     <div class="main-profile">
         <div class="main-profile_content">
-            <h1 class="text-center">Educator profile</h1>
+            <h1 class="text-center mt-4">Educator profile</h1>
             <p>Stats</p>
 
             <a style="cursor:pointer;" @click="showReportConfirmation()">
