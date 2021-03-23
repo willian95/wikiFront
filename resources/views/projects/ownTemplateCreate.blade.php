@@ -808,6 +808,14 @@
 
                         if(this.private == 0){
                             $("#privacyModalAlert").modal("show")
+
+                            $("#shared-icon").css("fill", "#547EBD")
+                            $("#private-icon").css("fill", "black")
+                        }else{
+
+                            $("#shared-icon").css("fill", "black")
+                            $("#private-icon").css("fill", "#547EBD")
+
                         }
 
                     }, 500);
@@ -863,7 +871,9 @@
                 
             },
             mounted(){
-                
+
+                $("#private-icon").css("fill", "#547EBD")
+
                 let options = {
                     filebrowserUploadUrl:"{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
                     filebrowserUploadMethod: 'form',
