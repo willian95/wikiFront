@@ -144,6 +144,10 @@
     .btn-custom {
         margin-bottom: 20px;
     }
+    .calendario {
+        display: inline-flex;
+       
+    }
     .info-regrister--inst p {
         font-size: 13px;
     }
