@@ -151,6 +151,26 @@
     .info-regrister--inst p {
         font-size: 13px;
     }
+    .option-input {
+  
+        z-index: 1;
+    }
+    .days-none{
+        display: none;
+    }
+    .nav-box_li {
+        border-bottom: none;
+    }
+    .nav ul li ul li {
+      
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .teacher-icon {
+   
+        margin-right: 20px!important;
+    }
     .p50 {
         padding: 0 20px;
     }

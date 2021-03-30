@@ -399,7 +399,7 @@
                         <div class="container-fluid">
 
 
-                            <div class="row">
+                            <div class="row  days-none">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-2">Day 1</div>
                                 <div class="col-md-2">Day 2</div>
