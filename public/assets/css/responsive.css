@@ -123,8 +123,20 @@
     }
     .info-regrister {
         width: 100%;
-        display: flex;
+        display: block;
         margin-bottom: 4px;
+    }
+    .nav-fixed .dropdown-toggle {
+
+        white-space: initial;
+        line-height: inherit;
+      
+    }
+    .nav ul li ul {
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        top: 47px;
     }
     .content-modal_register .offset-2 {
         margin-left: 0;
@@ -132,8 +144,32 @@
     .btn-custom {
         margin-bottom: 20px;
     }
+    .calendario {
+        display: inline-flex;
+       
+    }
     .info-regrister--inst p {
         font-size: 13px;
+    }
+    .option-input {
+  
+        z-index: 1;
+    }
+    .days-none{
+        display: none;
+    }
+    .nav-box_li {
+        border-bottom: none;
+    }
+    .nav ul li ul li {
+      
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .teacher-icon {
+   
+        margin-right: 20px!important;
     }
     .p50 {
         padding: 0 20px;

@@ -952,7 +952,7 @@
                         <div class="carousel-inner">
                             <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides" v-if="slides > 0">
 
-                                <div class="row mt-2">
+                                <div class="row mt-2  days-none">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-2">
                                         <svg version="1.1" id="Capa_1" class="icon-calendar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 219.786 219.786" style="enable-background:new 0 0 219.786 219.786;" xml:space="preserve">
@@ -1040,6 +1040,7 @@
                                     <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
                                         <div class="card" style="cursor: pointer">
                                             <div class="card-body card-body_tarea">
+                                            
                                                 @{{ showActivity(week, day) }}
                                             </div>
                                         </div>
