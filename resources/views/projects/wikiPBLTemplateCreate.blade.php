@@ -415,7 +415,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="projectmiles">
-                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">
+                                    <span v-if="!showProjectMilestone">+</span>
+                                    <span v-if="showProjectMilestone">-</span>
+                                </button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
                                 <small v-if="!showProjectMilestone">Show @{{ projectMilestoneTitle }} section</small>
 
@@ -524,7 +527,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="experttitle">
-                                <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('expert')">
+                                    <span v-if="!showExpert">+</span>
+                                    <span v-if="showExpert">-</span>
+                                </button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
                                 <small v-if="!showExpert">Show @{{ expertTitle  }} section</small>
 
@@ -548,7 +554,10 @@
                         
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="fielwork">
-                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">
+                                    <span v-if="!showFieldWork">+</span>
+                                    <span v-if="showFieldWork">-</span>
+                                </button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
                                 <small v-if="!showFieldWork">Show @{{ fieldWorkTitle }} section</small>
 
@@ -572,7 +581,10 @@
 
                         <div class="row" @mouseleave="testChange()"> 
                             <div class="col-12" id="globalconnections">
-                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">
+                                    <span v-if="!showGlobalConnections">+</span>
+                                    <span v-if="showGlobalConnections">-</span>
+                                </button>
                                 <small v-if="showGlobalConnections">Feel free to remove this section</small>
                                 <small v-if="!showGlobalConnections">Show @{{ globalConnectionsTitle }} section</small>
 

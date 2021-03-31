@@ -389,7 +389,10 @@
                               
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
-                                <button class="btn btn-info" @click="toggleShowSection('tools')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('tools')">
+                                    <span v-if="!showTools">+</span>
+                                    <span v-if="showTools">-</span>
+                                </button>
                                 <li class="content_template-general-item" v-if="showTools">
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'toolsTitle'">@{{ toolsTitle }}</h3>
@@ -433,7 +436,10 @@
 
                         <div class="row" id="leargoals" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">
+                                    <span v-if="!showLearningGoals">+</span>
+                                    <span v-if="showLearningGoals">-</span>
+                                </button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
                                 <small v-if="!showLearningGoals">Show @{{ learningGoalsTitle }} section</small>
 
@@ -487,7 +493,10 @@
 
                         <div class="row" id="resoustitle" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('resources')">
+                                    <span v-if="!showResources">+</span>
+                                    <span v-if="showResources">-</span>
+                                </button>
                                 <small v-if="showResources">Feel free to remove this section</small>
                                 <small v-if="!showResources">Show @{{ resourcesTitle }} section</small>
 
@@ -521,7 +530,10 @@
 
                         <div class="row" id="projectmiles" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">
+                                    <span v-if="!showProjectMilestone">+</span>
+                                    <span v-if="showProjectMilestone">-</span>
+                                </button>
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
                                 <small v-if="!showProjectMilestone">Show @{{ projectMilestoneTitle }} section</small>
 
@@ -620,7 +632,10 @@
 
                         <div class="row" id="experttitle" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('expert')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('expert')">
+                                    <span v-if="!showExpert">+</span>
+                                    <span v-if="showExpert">-</span>
+                                </button>
                                 <small v-if="showExpert">Feel free to remove this section</small>
                                 <small v-if="!showExpert">Show @{{ expertTitle  }} section</small>
 
@@ -656,7 +671,10 @@
 
                         <div class="row" id="fielwork" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">
+                                    <span v-if="!showFieldWork">+</span>
+                                    <span v-if="showFieldWork">-</span>
+                                </button>
                                 <small v-if="showFieldWork">Feel free to remove this section</small>
                                 <small v-if="!showFieldWork">Show @{{ fieldWorkTitle }} section</small>
 
@@ -691,7 +709,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12">
-                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">
+                                    <span v-if="!showGlobalConnections">+</span>
+                                    <span v-if="showGlobalConnections">-</span>
+                                </button>
                                 <small v-if="showGlobalConnections">Feel free to remove this section</small>
                                 <small v-if="!showGlobalConnections">Show @{{ globalConnectionsTitle }} section</small>
 
