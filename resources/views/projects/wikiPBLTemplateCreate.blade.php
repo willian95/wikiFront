@@ -305,7 +305,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="toolstitle" @mouseleave="testChange()">
-                                <button class="btn btn-info" @click="toggleShowSection('tools')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('tools')">
+                                    <span v-if="!showTools">+</span>
+                                    <span v-if="showTools">-</span>
+                                </button>
                                 <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
 
@@ -341,7 +344,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id="leargoals">
-                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">
+                                    <span v-if="!showLearningGoals">+</span>
+                                    <span v-if="showLearningGoals">-</span>
+                                </button>
                                 <small v-if="showLearningGoals">Feel free to remove this section</small>
                                 <small v-if="!showLearningGoals">Show @{{ learningGoalsTitle }} section</small>
 
@@ -383,7 +389,10 @@
 
                         <div class="row" @mouseleave="testChange()">
                             <div class="col-12" id=resoustitle">
-                                <button class="btn btn-info" @click="toggleShowSection('resources')">+</button>
+                                <button class="btn btn-info" @click="toggleShowSection('resources')">
+                                    <span v-if="!showResources">+</span>
+                                    <span v-if="showResources">-</span>
+                                </button>
                                 <small v-if="showResources">Feel free to remove this section</small>
                                 <small v-if="!showResources">Show @{{ resourcesTitle }} section</small>
 
