@@ -65,10 +65,10 @@
                                 <li class="nav-box_li"><a href="{{ url('/teacher/all') }}">
                                         <div class="blue-box"></div>Educators
                                     </a></li>
-                                <li class="nav-box_li"><a href="#">
+                                <li class="nav-box_li"><a href="{{ url('/about') }}">
                                         <div class="blue-box"></div>About wikiPBL
                                     </a></li>
-                                <li class="nav-box_li"><a href="#">
+                                <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal" >
                                         <div class="blue-box"></div>FAQ'S
                                     </a></li>
                             </ul>
@@ -136,7 +136,7 @@
                                                     <path d="M16,11a5,5,0,1,0,5,5A5.006,5.006,0,0,0,16,11Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,16,19Z" />
                                                 </svg>
 
-                                                <p class="titulo-men">Shared wikiPBL</p>
+                                                <p class="titulo-men">View Only</p>
                                             </div>
                                             <span class="tooltip-nav">View Only</span>
 

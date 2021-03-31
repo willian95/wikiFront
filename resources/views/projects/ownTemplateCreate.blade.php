@@ -62,13 +62,17 @@
                     <ul class="content_template content_template-general">
 
                         <li class="content_template-general-item">
-                            <p>Incubator Features</p>
-                            <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
+                        <h3 class="titulo-templates">Incubator Features</h3>
+                        <div class="flex-custom--icon">
+                        <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
                             <label class="switch">
                                 <input type="checkbox" v-model="incubatorFeature">
                                 <span class="slider slider-nav round"></span>
                             </label>
+                            <div> <p><strong><small>Mark your <strong>wikiPBL</strong> as an “incubator” when you have an awesome idea but want help building upon your “ground floor” ideas. Think big!</small></strong></p></div>
+                        </div>
+                          
                         </li>
 
                         <li class="content_template-general-item" id="title-p" style="margin-top: 100px;" @mouseleave="testChange()">

@@ -135,7 +135,7 @@
                     </div>
 
 
-                    <div class="card" v-for="(project,index) in projects" v-if="type == 'following' && project.project">
+                    <div class="card card-grid__modif" v-for="(project,index) in projects" v-if="type == 'following' && project.project">
                         
                         <a  :href="'{{ url('/project/edit/') }}'+'/'+project.project.id" v-if="type == 'following' && project.project">
                             <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, {{ \Auth::user()->institution ? \Auth::user()->institution->name : \Auth::user()->pendingInstitution->name }}</p>
@@ -161,7 +161,7 @@
                                 </svg>
                             </span>
                             <!---------------------icono3------------------->
-                            <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
+                        <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
                             
                             <a :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
 
