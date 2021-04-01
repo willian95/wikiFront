@@ -921,12 +921,12 @@ input:checked + .slider:before {
 .flex-template {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
 }
 
 .main-creation {
-    height: 74vh;
+    height: auto;
     display: flex;
 }
 
@@ -1463,7 +1463,8 @@ right: 17px;
 }
 .incubator{
     width: 37px;
-    margin-top: 15px;
+    margin-top: 0px;
+    margin-right: 15px;
 }
 
 
@@ -1623,4 +1624,90 @@ right: 17px;
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
   stroke-width: 6;
+}
+.user-menu_xs{
+display: none!important;
+}
+.main-profile_dates strong{
+    margin-right: 10px;
+}
+.card-grid__modif{
+    grid-template-columns: 50% 50%!important;
+}
+.main-profile_dates .switch {
+   
+    height: 20px;
+}
+.main-profile_dates .slider:before {
+  
+    height: 14px;
+    width: 14px;
+    left: 13px;
+    bottom: 3px;
+ 
+}
+.seccion-btn .btn-info {
+    margin: 20px 0;
+ 
+  
+}
+.color-blue_icon-2 {
+    fill: #ffffff;
+    width: 20px;
+}
+.content_template-general-item__shadow{
+    box-shadow: 0px 0px 8px #0000003b;
+    border-radius: 10px;
+    padding: 12px;
+}
+.content_template-general-item__shadow .card-body {
+     margin-bottom: 20px;
+}
+.flex-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f7f747;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+.flex-section small{
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Inconsolata';
+}
+.flex-section .btn-info:hover {
+  
+    background: #ffffff;
+    border: 1px solid #9ec54c!important;
+  
+}
+.flex-section .btn-info{
+    padding: 6px 40px;
+    background: #9ec54c;
+}
+.flex-section .btn-info:hover .color-blue_icon-2 {
+    fill: #f44336;
+  
+}
+.btn-mas g{
+    stroke:#fff;
+}
+.flex-section .btn-info:hover g{
+    stroke:#9ec54c;
+}
+.btn-info.focus, .btn-info:focus {
+  
+    box-shadow: 0 0 0 0.2rem rgb(0 0 0 / 0%);
+}
+.flex-custom--icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.flex-custom--icon p{
+    width: 500px;
+    margin: 0;
+    margin-left: 30px;
 }

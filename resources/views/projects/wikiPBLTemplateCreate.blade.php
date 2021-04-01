@@ -67,14 +67,16 @@
                     <ul style="list-style:none" class="content_template content_template-general">
 
                         <li class="content_template-general-item" @mouseleave="testChange()">
-                            <p>Incubator Features</p>
-                            <img alt='icon' class="login_icon incubator "
-                            src="http://imgfz.com/i/DmsV3CK.png">
+                        <h3 class="titulo-templates">Incubator Features</h3>
+                           <div class="flex-custom--icon">
+                             <img alt='icon' class="login_icon incubator " src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
                             <label class="switch" >
                                 <input type="checkbox" v-model="incubatorFeature">
                                 <span class="slider slider-nav round"></span>
                             </label>
+                           <div> <p><strong><small>Mark your <strong>wikiPBL</strong>  as an “incubator” when you have an awesome idea but want help building upon your “ground floor” ideas. Think big!</small></strong></p></div>
+                        </div>
                         </li>
 
                         <li class="content_template-general-item" style="margin-top: 100px;" id="title-p" @mouseleave="testChange()">
@@ -303,16 +305,24 @@
                             </div>
                         </li>
 
-                        <div class="row" @mouseleave="testChange()">
+                        <div class="row seccion-btn" @mouseleave="testChange()">
                             <div class="col-12" id="toolstitle" @mouseleave="testChange()">
-                                <button class="btn btn-info" @click="toggleShowSection('tools')">
-                                    <span v-if="!showTools">+</span>
-                                    <span v-if="showTools">-</span>
-                                </button>
-                                <small v-if="showTools">Feel free to remove this section</small>
+                               <div class="flex-section">
+                               <small v-if="showTools">Feel free to remove this section</small>
                                 <small v-if="!showTools">Show @{{ toolsTitle }} section</small>
+                               <button class="btn btn-info" @click="toggleShowSection('tools')">
+                                    <span v-if="!showTools">
+                                    <svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+                                    </span>
+                                    <span v-if="showTools">
+                                        <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                        
+                               </div>
 
-                                <li class="content_template-general-item" v-if="showTools">
+                                <li class="content_template-general-item content_template-general-item__shadow" v-if="showTools">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'toolsTitle'">@{{ toolsTitle }}</h3>
                                     <input v-if="editSection == 'toolsTitle'" type="text" class="form-control" v-model="toolsTitle">
@@ -342,16 +352,23 @@
                             </div>
                         </div>
 
-                        <div class="row" @mouseleave="testChange()">
+                        <div class="row seccion-btn" @mouseleave="testChange()">
                             <div class="col-12" id="leargoals">
-                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">
-                                    <span v-if="!showLearningGoals">+</span>
-                                    <span v-if="showLearningGoals">-</span>
-                                </button>
-                                <small v-if="showLearningGoals">Feel free to remove this section</small>
+                            <div class="flex-section">
+                            <small v-if="showLearningGoals">Feel free to remove this section</small>
                                 <small v-if="!showLearningGoals">Show @{{ learningGoalsTitle }} section</small>
 
-                                <li class="content_template-general-item" v-if="showLearningGoals">
+                                <button class="btn btn-info" @click="toggleShowSection('learningGoals')">
+                                    <span v-if="!showLearningGoals"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg></span>
+                                    <span v-if="showLearningGoals"> <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                            </div>
+                               
+                             
+
+                                <li class="content_template-general-item content_template-general-item__shadow" v-if="showLearningGoals">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'learningGoalsTitle'">@{{ learningGoalsTitle }}</h3>
                                     <input v-if="editSection == 'learningGoalsTitle'" type="text" class="form-control" v-model="learningGoalsTitle">
@@ -387,16 +404,25 @@
                             </div>
                         </div>
 
-                        <div class="row" @mouseleave="testChange()">
-                            <div class="col-12" id=resoustitle">
-                                <button class="btn btn-info" @click="toggleShowSection('resources')">
-                                    <span v-if="!showResources">+</span>
-                                    <span v-if="showResources">-</span>
-                                </button>
-                                <small v-if="showResources">Feel free to remove this section</small>
-                                <small v-if="!showResources">Show @{{ resourcesTitle }} section</small>
+                        <div class="row seccion-btn" @mouseleave="testChange()">
+                            <div class="col-12" id="resoustitle">
 
-                                <li class="content_template-general-item" v-show="showResources">
+                            <div class="flex-section">
+                            <small v-if="showResources">Feel free to remove this section</small>
+                                <small v-if="!showResources">Show @{{ resourcesTitle }} section</small>
+                                <button class="btn btn-info" @click="toggleShowSection('resources')">
+                                    <span v-if="!showResources"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+</span>
+                                    <span v-if="showResources">    <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg>
+</span>
+                                </button>
+                            </div>
+
+                             
+                              
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showResources">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'resourcesTitle'">@{{ resourcesTitle }}</h3>
                                     <input v-if="editSection == 'resourcesTitle'" type="text" class="form-control" v-model="resourcesTitle">
@@ -413,16 +439,24 @@
                             </div>
                         </div>
 
-                        <div class="row" @mouseleave="testChange()">
+                        <div class="row seccion-btn" @mouseleave="testChange()">
                             <div class="col-12" id="projectmiles">
-                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">
-                                    <span v-if="!showProjectMilestone">+</span>
-                                    <span v-if="showProjectMilestone">-</span>
-                                </button>
+                                
+                                <div class="flex-section">
                                 <small v-if="showProjectMilestone">Feel free to remove this section</small>
                                 <small v-if="!showProjectMilestone">Show @{{ projectMilestoneTitle }} section</small>
+                                <button class="btn btn-info" @click="toggleShowSection('projectMilestone')">
+                                    <span v-if="!showProjectMilestone"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+</span>
+                                    <span v-if="showProjectMilestone">    <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                                </div>
+                            
+                          
 
-                                <li class="content_template-general-item" v-show="showProjectMilestone">
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showProjectMilestone">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'projectMilestoneTitle'">@{{ projectMilestoneTitle }}</h3>
                                     <input v-if="editSection == 'projectMilestoneTitle'" type="text" class="form-control" v-model="projectMilestoneTitle">
@@ -525,16 +559,23 @@
                         </div>
 
 
-                        <div class="row" @mouseleave="testChange()">
+                        <div class="row seccion-btn" @mouseleave="testChange()">
                             <div class="col-12" id="experttitle">
-                                <button class="btn btn-info" @click="toggleShowSection('expert')">
-                                    <span v-if="!showExpert">+</span>
-                                    <span v-if="showExpert">-</span>
-                                </button>
-                                <small v-if="showExpert">Feel free to remove this section</small>
+                            <div class="flex-section">
+                            <small v-if="showExpert">Feel free to remove this section</small>
                                 <small v-if="!showExpert">Show @{{ expertTitle  }} section</small>
+                                <button class="btn btn-info" @click="toggleShowSection('expert')">
+                                    <span v-if="!showExpert"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+</span>
+                                    <span v-if="showExpert">   <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                            </div>
+                             
+                              
 
-                                <li class="content_template-general-item" v-show="showExpert">
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showExpert">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'expertTitle'">@{{ expertTitle  }}</h3>
                                     <input v-if="editSection == 'expertTitle'" type="text" class="form-control" v-model="expertTitle">
@@ -552,16 +593,24 @@
                             </div>
                         </div>
                         
-                        <div class="row" @mouseleave="testChange()">
+                        <div class="row seccion-btn" @mouseleave="testChange()">
                             <div class="col-12" id="fielwork">
-                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">
-                                    <span v-if="!showFieldWork">+</span>
-                                    <span v-if="showFieldWork">-</span>
-                                </button>
-                                <small v-if="showFieldWork">Feel free to remove this section</small>
+                            <div class="flex-section">
+                            <small v-if="showFieldWork">Feel free to remove this section</small>
                                 <small v-if="!showFieldWork">Show @{{ fieldWorkTitle }} section</small>
 
-                                <li class="content_template-general-item" v-show="showFieldWork">
+                                <button class="btn btn-info" @click="toggleShowSection('fieldWork')">
+                                    <span v-if="!showFieldWork"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+</span>
+                                    <span v-if="showFieldWork"><svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                               
+                            </div>
+                             
+
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showFieldWork">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'fieldWorkTitle'">@{{ fieldWorkTitle }}</h3>
                                     <input v-if="editSection == 'fieldWorkTitle'" type="text" class="form-control" v-model="fieldWorkTitle">
@@ -579,16 +628,23 @@
                             </div>
                         </div>
 
-                        <div class="row" @mouseleave="testChange()"> 
+                        <div class="row seccion-btn" @mouseleave="testChange()"> 
                             <div class="col-12" id="globalconnections">
-                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">
-                                    <span v-if="!showGlobalConnections">+</span>
-                                    <span v-if="showGlobalConnections">-</span>
-                                </button>
-                                <small v-if="showGlobalConnections">Feel free to remove this section</small>
+                            <div class="flex-section">
+                            <small v-if="showGlobalConnections">Feel free to remove this section</small>
                                 <small v-if="!showGlobalConnections">Show @{{ globalConnectionsTitle }} section</small>
+                                <button class="btn btn-info" @click="toggleShowSection('globalConnection')">
+                                    <span v-if="!showGlobalConnections"><svg class="btn-mas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>plus</title><g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Artboard" transform="translate(-917.000000, -1941.000000)"  stroke-width="2"><g id="plus" transform="translate(918.000000, 1942.000000)"><path d="M7 0v14" id="Shape"/><path d="M0 7h14" id="Shape"/></g></g></g><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description about="https://iconscout.com/legal#licenses" dc:title="plus" dc:description="plus" dc:publisher="Iconscout" dc:date="2017-09-15" dc:format="image/svg+xml" dc:language="en"><dc:creator><rdf:Bag><rdf:li>Feather Icons</rdf:li></rdf:Bag></dc:creator></rdf:Description></rdf:RDF></metadata></svg>
+</span>
+                                    <span v-if="showGlobalConnections">    <svg class="login_icon color-blue_icon hover-trash color-blue_icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
+                                </button>
+                         
+                            </div>
+                               
 
-                                <li class="content_template-general-item" v-show="showGlobalConnections">
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showGlobalConnections">
 
                                     <h3 class="titulo-templates"  v-if="editSection != 'globalConnectionsTitle'">@{{ globalConnectionsTitle }}</h3>
                                     <input v-if="editSection == 'globalConnectionsTitle'" type="text" class="form-control" v-model="globalConnectionsTitle">

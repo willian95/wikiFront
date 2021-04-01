@@ -5,14 +5,20 @@
 <div class="about  pt-5">
 	<h3 class="text-center mb-5">
 		<img width="40px" src="{{ url('assets/img/iconos/care-about-planet.svg') }}" alt="">
-	About wikiPBL</h3>
+	About <strong>wikiPBL</strong> </h3>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+	<p>Lesson planning is now a shared global activity.</p>
 
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>
+<strong>wikiPBL</strong>  heralds a new era in lesson planning for Project-Based Learning (PBL), a major boost for new practitioners and PBL experts alike. Education professionals can now collaborate with their peers in a global shared project planning to crowd craft, refine, and improve PBL project plans. <strong>wikiPBL</strong> , the first global PBL community, creates opportunities for project improvement never seen before.</p>
+
+<p><strong>wikiPBL</strong>  is the world’s first interactive PBL project lesson planner, enticing practitioners to share their project plans for collaborators to edit, improve, and comment, in true “Wikipedia” manner. In doing so it creates a community of PBL project builders, crowd sourcing their ideas.
+</p>
+
+
+<p><strong>wikiPBL</strong>  has several unique features to assure integrity of PBL project plans and build stronger communities. It invites schools and districts to create their own folders to better align the practices of their educators, thus supporting school or district wide alignment. <strong>wikiPBL</strong>  also allows project originators to approve changes proposed by others, thus acknowledging authorship, and assuring continuing dialogue in the evolution of best practice.</p>
+<br><br>
+
 </div>
 
 

@@ -247,6 +247,26 @@
         height: auto;
      
     }
+    .flex-section small {
+        font-size: .9rem;
+    
+    }
+    .flex-custom--icon {
+    display: block;
+
+}
+.flex-custom--icon p {
+    width: auto;
+    margin: 0;
+    margin-left: 0;
+}
+.flex-wee .ml-5{
+    margin-left: 0rem!important;
+}
+.flex-wee {
+
+    margin-top: 20px;
+}
     .main-creation p {
         font-size: 12px;
         padding: 0 20px;
@@ -254,6 +274,10 @@
     }
     .user-menu_xs{
         display: flex!important;
+    }
+    .info_wikis {
+  
+        margin-bottom: 35px;
     }
     .categories-layout{
         margin-top: 2rem;

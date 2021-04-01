@@ -70,13 +70,17 @@
 
                     @if(\Auth::user()->id == $project[0]->user_id)
                         <li class="content_template-general-item">
-                            <p>Incubator Features</p>
-                            <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
+                        <h3 class="titulo-templates">Incubator Features</h3>
+                        <div class="flex-custom--icon">
+                        <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
                             <label class="switch" >
                                 <input type="checkbox" v-model="isIncubator">
                                 <span class="slider slider-nav round"></span>
                             </label>
+                            <div> <p><strong><small>Mark your <strong>wikiPBL</strong>  as an “incubator” when you have an awesome idea but want help building upon your “ground floor” ideas. Think big!</small></strong></p></div>
+                        </div>
+                           
                         </li>
                     @endif
 
