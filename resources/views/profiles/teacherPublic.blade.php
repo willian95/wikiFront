@@ -139,7 +139,7 @@
                                <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
                         </div>
 
-                        <a :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                        <a v-if="project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
                     </div>
 
                     <div class="card" v-for="(project,index) in projects"  v-if="type == 'following'">
@@ -174,7 +174,7 @@
                                <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
                         </div>
 
-                        <a :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                        <a v-if="project.project.status == 'lanuched'" :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
                     </div>
 
                     <div class="row">

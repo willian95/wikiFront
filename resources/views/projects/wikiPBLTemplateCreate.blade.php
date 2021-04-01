@@ -143,7 +143,7 @@
                             <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" placeholder="3 Week - 5 hours a week" v-model="timeFrame">
+                                    <input class="form-control" type="text" placeholder="3 Weeks - 5 hours a week" v-model="timeFrame">
                                 </div>
                             </div>
                         </li>

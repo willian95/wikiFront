@@ -130,7 +130,7 @@
                                <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
                         </div>
 
-                        <a :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                        <a v-if="project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
 
                     </div>
 
@@ -163,7 +163,7 @@
                             <!---------------------icono3------------------->
                             <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
                             
-                            <a :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
+                            <a v-if="project.project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
 
                         </div>
                         
@@ -175,8 +175,8 @@
                             <ul class="pagination">
                                 <li class="page-item" v-for="index in pages">
                                     <a class="page-link" style="cursor: pointer" :key="index" @click="fetchProjects(index)" v-if="type == 'my-projects'">@{{ index }}</a>
-                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchPulbicProjects(index)" v-if="type == 'following'">@{{ index }}</a>
-                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchSharedProjects(index)" v-if="type == 'public'">@{{ index }}</a>
+                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchPublicProjects(index)" v-if="type == 'public'">@{{ index }}</a>
+                                    <a class="page-link" style="cursor: pointer" :key="index" @click="fetchSharedProjects(index)" v-if="type == 'following'">@{{ index }}</a>
                                 </li>
                             </ul>
                         </div>

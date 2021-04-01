@@ -1117,10 +1117,9 @@ class ProjectController extends Controller
         $calendarActivitiesHistory = $this->secondaryFieldsHistory($project[0]->id, "calendarActivities");
         $projectSumaryHistory = $this->secondaryFieldsHistory($project[0]->id, "projectSumary");
             //$drivingQuestionHistory = $this->showProjectSection($project[0]->id, "upvoteSystem")
-
         
         if($project[0]->type == "own-template"){
-
+            
             return view("projects.ownTemplateShow", 
                 [
                     "id" => $project[0]->id, 
@@ -1496,12 +1495,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", $teacherId)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", $teacherId)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user")->with("user.institution")->with("likes");
 
-        $projectQueryCount = Project::where("user_id", $teacherId)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", $teacherId)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user")->with("user.institution");
@@ -1518,12 +1517,12 @@ class ProjectController extends Controller
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
 
-        $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQuery = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user")->with("user.institution")->with("likes");
 
-        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("id", "desc")->with(["titles" => function($q){
+        $projectQueryCount = Project::where("user_id", $teacherId)->where("is_private", 0)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ])->with("user")->with("user.institution");
