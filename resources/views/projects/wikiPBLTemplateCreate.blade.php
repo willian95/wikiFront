@@ -6,7 +6,7 @@
         @include("partials.projectHeader", ["projectAction" => "creation"])
         <div class="container  main-template mt-5" id="own-template">
 
-            <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -86,7 +86,7 @@
                                 <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
                                 
                                 <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('title')">
-                                    <span v-if="editSection != 'title'">Click to edit</span>
+                                    <span v-if="editSection != 'title'"></span>
                                     <span v-if="editSection == 'title'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="edit"><rect width="24" height="24" opacity="0"/><path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"/></g></g></svg>
 
@@ -545,7 +545,7 @@
                                             </g>
                                         </svg>    
                                     Week @{{ week }}</div>
-                                    <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
+                                    <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target=".calendarDescription">
                                         <div class="card" style="cursor: pointer">
                                             <div class="card-body card-body_tarea">
                                                 @{{ showActivity(week, day) }}
@@ -710,7 +710,7 @@
             data() {
                 return {
                     projectId:"{{ $project->id }}",
-                    title:"wikiPBL Title",
+                    title:"Click to edit your wikiPBL Title",
                     drivingQuestionTitle:"Driving question",
                     drivingQuestion:"",
                     subjectTitle:"Subject (s)",
@@ -899,7 +899,7 @@
                         this.activityDescription = ""
                         this.weeks = this.weeks
 
-                        $("#calendarDescription").modal('hide')
+                        $(".calendarDescription").modal('hide')
                         $('.modal-backdrop').remove();
 
                     }

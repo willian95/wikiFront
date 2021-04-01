@@ -98,7 +98,7 @@
                                 <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
 
                                 <a class="txt-edit" href="#" @click="setEditSection('title')">
-                                    <span v-if="editSection != 'title'">Click to edit</span>
+                                    <span v-if="editSection != 'title'"></span>
                                     <span v-if="editSection == 'title'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g data-name="Layer 2">

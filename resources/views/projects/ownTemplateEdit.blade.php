@@ -137,7 +137,7 @@
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
-                                <span v-if="editSection != 'subjectTitle'">Click to edit</span>
+                                <span v-if="editSection != 'subjectTitle'"></span>
                                 <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
                                 <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <g data-name="Layer 2">
