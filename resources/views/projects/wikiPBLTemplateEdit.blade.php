@@ -890,7 +890,7 @@
                 globalConnectionsTitle: "{!! htmlspecialchars_decode($globalConnectionsTitle) !!}",
                 showGlobalConnections: true,
                 lastSave: "",
-                isIncubator:"{{ $project[0]->is_incubator }}",
+                isIncubator:JSON.parse("{{ $project[0]->is_incubator }}"),
                 private: JSON.parse('{!! $project[0]->is_private !!}'),
                 loading: false
             }
@@ -1719,6 +1719,18 @@
             window.setInterval(() => {
                 this.showCKEditorAlert()
             }, 1000)
+
+            if (this.private == 0) {
+                $("#privacyModalAlert").modal("show")
+
+                $("#shared-icon").css("fill", "#547EBD")
+                $("#private-icon").css("fill", "black")
+            } else {
+
+                $("#shared-icon").css("fill", "black")
+                $("#private-icon").css("fill", "#547EBD")
+
+            }
 
         }
 

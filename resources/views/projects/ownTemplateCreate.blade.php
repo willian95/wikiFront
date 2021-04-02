@@ -985,6 +985,18 @@
             window.setInterval(() => {
                 this.showCKEditorAlert()
             }, 1000)
+            
+            if (this.private == 0) {
+                $("#privacyModalAlert").modal("show")
+
+                $("#shared-icon").css("fill", "#547EBD")
+                $("#private-icon").css("fill", "black")
+            } else {
+
+                $("#shared-icon").css("fill", "black")
+                $("#private-icon").css("fill", "#547EBD")
+
+            }
 
         }
     })
