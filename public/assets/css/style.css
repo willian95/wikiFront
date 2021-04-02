@@ -1322,11 +1322,14 @@ border-radius: 10px;
 box-shadow: 0px 0px 10px #00000052;
 text-align: start;
 padding: 10px 10px;
+width: 345px;
 }
 .drop-notificacion  .dropdown-item {
 
     border-bottom: 1px solid #00000017;
     margin-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .drop-notificacion .noti{
     position: absolute;
@@ -1635,14 +1638,15 @@ display: none!important;
     grid-template-columns: 50% 50%!important;
 }
 .main-profile_dates .switch {
-   
+    width: 40px;
     height: 20px;
+    margin-left: 15px;
 }
 .main-profile_dates .slider:before {
   
     height: 14px;
     width: 14px;
-    left: 13px;
+    left: 1px;
     bottom: 3px;
  
 }
@@ -1711,3 +1715,43 @@ display: none!important;
     margin: 0;
     margin-left: 30px;
 }
+.pl-90{
+    padding: 0 90px;
+}
+.mt-13{
+    margin-top: 12px;
+}
+.pt3 {
+    padding-top: 3rem;
+}
+
+.menu-template_option-btn li:hover {
+    background: transparent;
+
+}
+.menu-template_option-btn .btn-custom:hover {
+    border: 1px solid #9ec54c;
+    background: #9ec54d;
+    color: #fff!important;
+    padding: 6px 30px;
+}
+.switch-sms{
+    position: relative;
+}
+.sms-mail {
+    position: absolute;
+    top: -70px;
+    width: 300px;
+    background: #8b8c8e;
+    left: 56%;
+    z-index: 9;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 10px 10px 10px 0;
+    opacity: 0;
+    transition: .6s;
+}
+.switch-sms:hover .sms-mail {
+    opacity: 1;
+} 

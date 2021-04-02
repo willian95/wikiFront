@@ -46,8 +46,8 @@
                             <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
 
                         </ul>
-                    </div>
-                    <div class="menu-template_option">
+                    </div> 
+                    <div class="menu-template_option menu-template_option-btn">
                         <ul>
                             <p>Main info</p>
                             @if($project[0]->status == 'pending')
