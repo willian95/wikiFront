@@ -51,7 +51,7 @@
                                 <li v-if="showGlobalConnections"> <a style="cursor: pointer;" @click="scrollTo('globalconnections')">@{{ globalConnectionsTitle }}</a> </li>
                             </ul>
                         </div>
-                        <div class="menu-template_option">
+                        <div class="menu-template_option menu-template_option-btn">
                             <ul>
                                 <p>Main info</p>
                                 <li><button class="btn btn-custom" @click="launch()">Launch</button></li>

@@ -53,7 +53,7 @@
 
                             </ul>
                         </div>
-                        <div class="menu-template_option">
+                        <div class="menu-template_option menu-template_option-btn">
                             <ul>
                                 <p>Main info</p>
                                 @if($project[0]->status == 'pending')
