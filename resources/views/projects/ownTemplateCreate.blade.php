@@ -581,7 +581,7 @@
                 weeks: 4,
                 calendarDay: "",
                 lastSave: "",
-                private: 1,
+                private: 0,
                 calendarWeek: "",
                 upvoteSystems: [],
                 editSection: "",
@@ -676,9 +676,17 @@
                     let string = this.private == 0 ? 'shared view ' : 'view only '
 
                     swal({
+                            //icon: "warning",
+                            content: {
+                                element: "img",
+                                attributes: {
+                                    width:"100",
+                                    height:"100",
+                                    src: "https://images.pexels.com/photos/5673488/pexels-photo-5673488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                                },
+                            },
                             title: "Are you sure?",
                             text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! " + string + 'mode',
-                            icon: "warning",
                             buttons: true,
                             dangerMode: true,
                         })
@@ -987,7 +995,7 @@
             }, 1000)
             
             if (this.private == 0) {
-                $("#privacyModalAlert").modal("show")
+                //$("#privacyModalAlert").modal("show")
 
                 $("#shared-icon").css("fill", "#547EBD")
                 $("#private-icon").css("fill", "black")

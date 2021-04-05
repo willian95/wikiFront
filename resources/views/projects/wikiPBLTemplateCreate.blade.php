@@ -755,7 +755,7 @@
                     globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
                     showGlobalConnections:true,
                     lastSave:"",
-                    private:1,
+                    private:0,
                     loading:false,
                     incubatorFeature:false
                 }
@@ -1419,7 +1419,7 @@
                 }, 1000)
 
                 if (this.private == 0) {
-                    $("#privacyModalAlert").modal("show")
+                    //$("#privacyModalAlert").modal("show")
 
                     $("#shared-icon").css("fill", "#547EBD")
                     $("#private-icon").css("fill", "black")
