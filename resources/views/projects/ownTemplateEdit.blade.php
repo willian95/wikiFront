@@ -71,6 +71,15 @@
                     @if(\Auth::user()->id == $project[0]->user_id)
                         <li class="content_template-general-item">
                         <h3 class="titulo-templates">Incubator Features</h3>
+                        <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                                <p>If you have a project idea without all the details, don’t
+                                    hold back, be brave and get it out there. Our world of
+                                    wikiPBL educators love taking projects from idea to
+                                    Awesome!
+                                </p>
+                            </div>
                         <div class="flex-custom--icon">
                         <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
