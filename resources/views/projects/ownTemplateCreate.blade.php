@@ -677,7 +677,7 @@
 
                     swal({
                             title: "Are you sure?",
-                            text: "You will launch this project in " + string + 'mode',
+                            text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! " + string + 'mode',
                             icon: "warning",
                             buttons: true,
                             dangerMode: true,

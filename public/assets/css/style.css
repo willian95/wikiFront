@@ -690,16 +690,16 @@ input:checked + .slider:before {
 }
 
 .nav {
-    width: 100%;
+    width: auto;
     top: 11%;
-    left: -16%;
+    left: -50px;
     background-color: transparent;
     position: absolute;
     border-radius: 2px;
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    width: 300px;
+    
 }
 
 .nav ul li ul {
@@ -1755,3 +1755,15 @@ display: none!important;
 .switch-sms:hover .sms-mail {
     opacity: 1;
 } 
+.check-header .option-input.radio {
+    width: 10px;
+}
+.check-herader--info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-form-image {
+    width: 144px;
+    height: 144px;
+}
