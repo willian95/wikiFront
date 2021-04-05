@@ -62,7 +62,18 @@
                     <ul class="content_template content_template-general">
 
                         <li class="content_template-general-item">
-                        <h3 class="titulo-templates">Incubator Features</h3>
+                        <h3 class="titulo-templates">
+                        Incubator Features
+                        <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                                <p>If you have a project idea without all the details, don’t
+                                    hold back, be brave and get it out there. Our world of
+                                    wikiPBL educators love taking projects from idea to
+                                    Awesome!
+                                </p>
+                            </div>
+                        </h3>
                         <div class="flex-custom--icon">
                         <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
@@ -116,6 +127,15 @@
                                     </svg>
 
                                 </a>
+                                <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                                <p>An open-ended question that guides students'
+                                    thinking and learning, empowering their explorations
+                                    during PBL
+
+                                </p>
+                            </div>
                             </div>
 
                             <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
@@ -140,6 +160,11 @@
                                     </svg>
 
                                 </a>
+                                <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>What subjects (content areas) does your project address/emphasize?
+                                </p>
+                            </div>
                             </div>
 
                             <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
@@ -184,6 +209,11 @@
                                     </svg>
 
                                 </a>
+                                <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>How long do you think your project will take?
+                                </p>
+                            </div>
                             </div>
 
 
@@ -196,12 +226,20 @@
                         </li>
 
                         <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
+                        <div class="flex-edit">
                             <h3 class="titulo-templates">Project summary</h3>
+                            <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>Briefly summarize your project
+                                </p>
+                            </div>
+                        </div>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                         </li>
 
                         <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
-                            <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
+                        <div class="flex-edit">
+                        <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                 <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
@@ -216,6 +254,13 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>What artifacts, presentations, performances or compositions will your students produce?
+                                </p>
+                            </div>
+                        </div>
+                            
                             <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
@@ -238,6 +283,11 @@
                                     </svg>
 
                                 </a>
+                                 <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>For what age/grade level(s) is your project appropriate?
+                                </p>
+                            </div>
                             </div>
 
 
@@ -346,7 +396,16 @@
                         </li>
 
                         <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
+                        <div class="flex-edit">
                             <h3 class="titulo-templates">#hashtags</h3>
+                            <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>These are keywords to help others find your project in searches
+
+                                </p>
+                            </div>
+
+                        </div>
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -381,8 +440,16 @@
                         <div class="contente_item mt-5 mb-5">
                             <div class="row mb-5">
                                 <div class="col-md-6">
+                                <div class="flex-edit">
                                     <h3 class="titulo-templates">Calendar of activities </h3>
-                                </div>
+                                    <div class="help-icon">
+                                        <img src="{{ url('assets/img/help.png') }}" alt="">
+                                        <p>Share your schedule of activities
+
+                                        </p>
+                                    </div>
+
+                                </div>                                </div>
                                 <div class="col-md-6 flex-wee">
                                     <label class="ml-5 mr-4" for="inp">Weeks</label>
                                     <select id="inpt" class="form-control" v-model="weeks">
@@ -488,15 +555,29 @@
                         </div>
 
                         <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
+                        <div class="flex-edit">
                             <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                            <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <p>If you use someone else's stuff, give them credit </p>
+                            </div>
+                        </div>
                             <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                         </div>
 
                         <div class="mt-5 mb-5">
-                            <h1>Which Upvote System
-                                options will your wikiPBL
-                                have?
-                            </h1>
+                        <div class="flex-edit">
+                                    <h1 class="mt-5">Which Upvote System
+                                        options will your wikiPBL
+                                        have?
+                                    </h1>
+                                    <div class="help-icon">
+                                        <img src="{{ url('assets/img/help.png') }}" alt="">
+                                        <p>Identify the essential elements that you think your
+                                            project highlights, so your peers can like/upvote your
+                                            wikiPBL </p>
+                                    </div>
+                                </div>
 
                             <div class="row">
                                 @foreach(App\AssestmentPointType::get() as $point)

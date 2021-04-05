@@ -991,6 +991,7 @@ input:checked + .slider:before {
 .titulo-templates {
     text-transform: capitalize;
     font-weight: 600;
+    display: flex;
 }
 
 .txt-edit {
@@ -1766,4 +1767,31 @@ display: none!important;
 .contact-form-image {
     width: 144px;
     height: 144px;
+}
+.help-icon{
+    position: relative;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.help-icon p{
+    width: 260px;
+    opacity: 0;
+    position: absolute;
+    top: -5rem;
+    left: -7rem;
+    font-size: 12px;
+    background-color: #9a9a9a;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 11px 13px;
+    z-index: 99;
+    max-width: 500px;
+}
+.help-icon:hover p{
+    opacity: 1;
+}
+.help-icon img{
+   
+    margin-left: 12px;
 }
