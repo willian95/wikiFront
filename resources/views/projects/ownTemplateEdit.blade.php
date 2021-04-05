@@ -505,7 +505,8 @@
                 upvoteSystems: [],
                 editSection: "",
                 lastSave: "",
-                private: JSON.parse('{!! $project[0]->is_private !!}'),
+                //private: JSON.parse('{!! $project[0]->is_private !!}'),
+                private: 0,
                 isIncubator:JSON.parse("{{ $project[0]->is_incubator }}"),
                 loading: false
             }
@@ -1026,7 +1027,7 @@
             }, 1000)
 
             if (this.private == 0) {
-                $("#privacyModalAlert").modal("show")
+                //$("#privacyModalAlert").modal("show")
 
                 $("#shared-icon").css("fill", "#547EBD")
                 $("#private-icon").css("fill", "black")

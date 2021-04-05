@@ -1127,63 +1127,79 @@
 
 @push("script")
 
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
-<script>
-    const create = new Vue({
-        el: '#wiki-template',
-        data() {
-            return {
-                projectId: "{{ $project->id }}",
-                title: "Click to edit your wikiPBL Title",
-                drivingQuestionTitle: "Driving question",
-                drivingQuestion: "",
-                subjectTitle: "Subject (s)",
-                subject: "",
-                subjects: [],
-                timeFrameTitle: "Time Frame",
-                timeFrame: "",
-                publicProductTitle: "Public Product (Individual And In Groups)",
-                publicProduct: "",
-                levelTitle: "Level & age",
-                level: "",
-                ages: [],
-                projectSumary: "",
-                hashtag: "",
-                hashtags: [],
-                calendarActivities: [],
-                activityDescription: "",
-                days: 5,
-                weeks: 4,
-                calendarDay: "",
-                calendarWeek: "",
-                upvoteSystems: [],
-                editSection: "",
-                toolsTitle: "Tools/Software/Skills required",
-                showTools: true,
-                tool: "",
-                tools: [],
-                learningGoalsTitle: "Learning Goals",
-                showLearningGoals: true,
-                learningGoalObjectives: "",
-                learningGoals: [],
-                resourcesTitle: "Resources",
-                showResources: true,
-                showProjectMilestone: true,
-                projectMilestoneTitle: "Project Milestones",
-                projectMilestones: [],
-                milestoneTitle: "",
-                expertTitle: "Expert",
-                showExpert: true,
-                fieldWorkTitle: "Field Work",
-                showFieldWork: true,
-                globalConnectionsTitle: "Global connection/Groups of students needed/wanted",
-                showGlobalConnections: true,
-                lastSave: "",
-                private: 1,
-                loading: false,
-                incubatorFeature: false
-            }
+    <script>
+        const create = new Vue({
+            el: '#wiki-template',
+            data() {
+                return {
+                    projectId:"{{ $project->id }}",
+                    title:"Click to edit your wikiPBL Title",
+                    drivingQuestionTitle:"Driving question",
+                    drivingQuestion:"",
+                    subjectTitle:"Subject (s)",
+                    subject:"",
+                    subjects:[],
+                    timeFrameTitle:"Time Frame",
+                    timeFrame:"",
+                    publicProductTitle:"Public Product (Individual And In Groups)",
+                    publicProduct:"",
+                    levelTitle:"Level & age",
+                    level:"",
+                    ages:[],
+                    projectSumary:"",
+                    hashtag:"",
+                    hashtags:[],
+                    calendarActivities:[],
+                    activityDescription:"",
+                    days:5,
+                    weeks:4,
+                    calendarDay:"",
+                    calendarWeek:"",
+                    upvoteSystems:[],
+                    editSection:"",
+                    toolsTitle:"Tools/Software/Skills required",
+                    showTools:true,
+                    tool:"",
+                    tools:[],
+                    learningGoalsTitle:"Learning Goals",
+                    showLearningGoals:true,
+                    learningGoalObjectives:"",
+                    learningGoals:[],
+                    resourcesTitle:"Resources",
+                    showResources:true,
+                    showProjectMilestone:true,
+                    projectMilestoneTitle:"Project Milestones",
+                    projectMilestones:[],
+                    milestoneTitle:"",
+                    expertTitle:"Expert",
+                    showExpert:true,
+                    fieldWorkTitle:"Field Work",
+                    showFieldWork:true,
+                    globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
+                    showGlobalConnections:true,
+                    lastSave:"",
+                    private:0,
+                    loading:false,
+                    incubatorFeature:false
+                }
+                
+
+            },
+            methods:{
+                setEditSection(section){
+
+                    if(this.editSection != section){
+                        this.editSection = section
+                    }else{
+                        this.editSection = ""
+                    }
+
+                },
+                addOrPopAges(age){
+                
+                    if(!this.ages.includes(age)){
 
 
         },
@@ -1806,9 +1822,14 @@
                 this.saveProject()
             }, 120000)
 
+<<<<<<< HEAD
             window.setInterval(() => {
                 this.showCKEditorAlert()
             }, 1000)
+=======
+                if (this.private == 0) {
+                    //$("#privacyModalAlert").modal("show")
+>>>>>>> def88bc725fa421d3afe239848505e8c4a882418
 
             if (this.private == 0) {
                 $("#privacyModalAlert").modal("show")
