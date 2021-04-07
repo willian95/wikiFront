@@ -77,29 +77,31 @@
                 <div class="col-md-9 info-template">
 
                     @if(\Auth::check())
-                    <div class="container-fluid">
+                        @if(count($assestmentPoints) > 0)
+                        <div class="container-fluid">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-4">
-                                @foreach($assestmentPoints as $point)
-                                <p>
-                                    <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                        <i class="fa {{ $point->assestmentPointType->icon }}"></i>
-                                        {{ $point->assestmentPointType->name }}
-                                    </button>
-                                </p>
-                                @endforeach
-                            </div>
-                            <div class="col-md-8">
+                                <div class="col-md-4">
+                                    @foreach($assestmentPoints as $point)
+                                    <p>
+                                        <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                            <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                            {{ $point->assestmentPointType->name }}
+                                        </button>
+                                    </p>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-8">
 
-                                <canvas id="myChart"></canvas>
+                                    <canvas id="myChart"></canvas>
+
+                                </div>
 
                             </div>
 
                         </div>
-
-                    </div>
+                        @endif
                     @endif
 
                     <!--------------------general--------------------------->

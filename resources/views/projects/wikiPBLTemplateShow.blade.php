@@ -85,25 +85,27 @@
 
                     <div class="container-fluid">
                         @if(\Auth::check())
-                        <div class="row">
+                            @if(count($assestmentPoints) > 0)
+                            <div class="row">
 
-                            <div class="col-md-4 flex-icons">
-                                @foreach($assestmentPoints as $point)
-                                <p>
-                                    <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                        <i class="fa {{ $point->assestmentPointType->icon }}"></i>
-                                        {{ $point->assestmentPointType->name }}
-                                    </button>
-                                </p>
-                                @endforeach
+                                <div class="col-md-4 flex-icons">
+                                    @foreach($assestmentPoints as $point)
+                                    <p>
+                                        <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                            <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                            {{ $point->assestmentPointType->name }}
+                                        </button>
+                                    </p>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-8">
+
+                                    <canvas id="myChart"></canvas>
+
+                                </div>
+
                             </div>
-                            <div class="col-md-8">
-
-                                <canvas id="myChart"></canvas>
-
-                            </div>
-
-                        </div>
+                            @endif
                         @endif
 
                     </div>
