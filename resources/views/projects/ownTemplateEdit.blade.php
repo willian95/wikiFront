@@ -71,6 +71,15 @@
                     @if(\Auth::user()->id == $project[0]->user_id)
                         <li class="content_template-general-item">
                         <h3 class="titulo-templates">Incubator Features</h3>
+                        <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                                <p>If you have a project idea without all the details, don’t
+                                    hold back, be brave and get it out there. Our world of
+                                    wikiPBL educators love taking projects from idea to
+                                    Awesome!
+                                </p>
+                            </div>
                         <div class="flex-custom--icon">
                         <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
@@ -125,6 +134,15 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                                    <p>An open-ended question that guides students'
+                                        thinking and learning, empowering their explorations
+                                        during PBL
+
+                                    </p>
+                                </div>
                         </div>
 
                         <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
@@ -149,6 +167,11 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>What subjects (content areas) does your project address/emphasize?
+                                    </p>
+                                </div>
                         </div>
 
 
@@ -190,6 +213,11 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>How long do you think your project will take?
+                                    </p>
+                                </div>
                         </div>
 
 
@@ -202,7 +230,14 @@
                     </li>
 
                     <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
-                        <h3 class="titulo-templates">Project summary</h3>
+                    <div class="flex-edit">
+                                <h3 class="titulo-templates">Project summary</h3>
+                                <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>Briefly summarize your project
+                                    </p>
+                                </div>
+                            </div>
                         <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! $projectSumary !!}</textarea>
                     </li>
 
@@ -223,6 +258,11 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>What artifacts, presentations, performances or compositions will your students produce?
+                                    </p>
+                                </div>
                         </div>
 
 
@@ -248,6 +288,11 @@
                                 </svg>
 
                             </a>
+                            <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>For what age/grade level(s) is your project appropriate?
+                                    </p>
+                                </div>
                         </div>
 
 
@@ -357,7 +402,16 @@
                     </li>
 
                     <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
-                        <h3 class="titulo-templates">#hashtags</h3>
+                    <div class="flex-edit">
+                                <h3 class="titulo-templates">#hashtags</h3>
+                                <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>These are keywords to help others find your project in searches
+
+                                    </p>
+                                </div>
+
+                            </div>
 
                         <div class="row">
                             <div class="col-md-6">
@@ -389,7 +443,16 @@
                     <div class="contente_item mt-5 mb-5">
                     <div class="row mb-5">
                                 <div class="col-md-6">
-                                <h3 class="titulo-templates">Calendar of activities </h3>
+                                <div class="flex-edit">
+                                        <h3 class="titulo-templates">Calendar of activities </h3>
+                                        <div class="help-icon">
+                                            <img src="{{ url('assets/img/help.png') }}" alt="">
+                                            <p>Share your schedule of activities
+
+                                            </p>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
@@ -427,7 +490,13 @@
                     </div>
 
                     <div class="contente_item">
-                        <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                    <div class="flex-edit">
+                                <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                                <div class="help-icon">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                    <p>If you use someone else's stuff, give them credit </p>
+                                </div>
+                            </div>
                         <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
                     </div>
 
