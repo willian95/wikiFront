@@ -57,7 +57,7 @@
 
                 </div>
                 <!----------------info----------------->
-                <div class="col-md-9 info-template" id="title">
+                <div class="col-md-9 info-template" id="title" v-cloak>
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
 
@@ -114,7 +114,7 @@
                         <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
 
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
+                                <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                                 <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                     <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
