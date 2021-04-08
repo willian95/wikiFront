@@ -29,8 +29,8 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-md-3">
+        <div class="row" v-cloak>
+            <div class="col-md-3" v-cloak>
                 <div class="menu-template">
                     <p>Edit mode </p>
                     <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
@@ -62,7 +62,7 @@
 
             </div>
             <!----------------info----------------->
-            <div class="col-md-9 info-template">
+            <div class="col-md-9 info-template" v-cloak>
 
 
                 <!--------------------general--------------------------->
