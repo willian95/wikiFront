@@ -1807,14 +1807,9 @@
                 this.saveProject()
             }, 120000)
 
-<<<<<<< HEAD
             window.setInterval(() => {
                 this.showCKEditorAlert()
             }, 1000)
-=======
-                if (this.private == 0) {
-                    //$("#privacyModalAlert").modal("show")
->>>>>>> def88bc725fa421d3afe239848505e8c4a882418
 
             if (this.private == 0) {
                 $("#privacyModalAlert").modal("show")
