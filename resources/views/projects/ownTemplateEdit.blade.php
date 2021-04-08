@@ -36,14 +36,14 @@
                     <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                         <ul>
                             <p>Main info</p>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || isIncubator == true"></i> @{{ title }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || isIncubator == true"></i>@{{ drivingQuestionTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || isIncubator == true"></i>@{{ subjectTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || isIncubator == true"></i>@{{ timeFrameTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || isIncubator == true"></i>@{{ publicProductTitle }}</a> </li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || isIncubator == true"></i>@{{ levelTitle }}</a></li>
-                            <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || isIncubator == true"></i> @{{ title }}</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || isIncubator == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || isIncubator == true"></i>@{{ subjectTitle }}</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || isIncubator == true"></i>@{{ timeFrameTitle }}</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || isIncubator == true"></i>@{{ publicProductTitle }}</a> </li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || isIncubator == true"></i>@{{ levelTitle }}</a></li>
+                            <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
 
                         </ul>
                     </div> 
@@ -96,7 +96,7 @@
                     <li class="content_template-general-item" style="margin-top: 100px;" @mouseleave="testChange()">
                         <h3 class="titulo-templates">
 
-                            <span id="title-p" v-if="editSection != 'title'">@{{ title }}</span>
+                            <span id="title-p" v-if="editSection != 'title'" v-cloak>@{{ title }}</span>
                             <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
 
                             <a class="txt-edit" href="#" @click="setEditSection('title')">
@@ -119,7 +119,7 @@
                     <li class="content_template-general-item" @mouseleave="testChange()">
 
                         <div class="flex-edit">
-                            <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
+                            <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                             <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                 <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
@@ -152,7 +152,7 @@
                     </li>
                     <li class="content_template-general-item" id="subjecttitle" @mouseleave="testChange()">
                         <div class="flex-edit">
-                            <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
+                            <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'" v-cloak>@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                 <span v-if="editSection != 'subjectTitle'"></span>
@@ -186,7 +186,7 @@
                         <div class="row mt-3">
                             <div v-for="(subject, index) in subjects" class="col-md-3">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body" v-cloak>
 
                                         @{{ subject }}
                                         <span class="float: right;" style="cursor: pointer" @click="popSubject(index)">    <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg></span>
@@ -243,7 +243,7 @@
 
                     <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                         <div class="flex-edit">
-                            <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
+                            <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'" v-cloak>@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                 <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
@@ -273,7 +273,7 @@
 
                     <li class="content_template-general-item" id="leveltitle"@mouseleave="testChange()">
                         <div class="flex-edit">
-                            <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
+                            <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
                             <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                 <span v-if="editSection != 'levelTitle'">Click to edit</span>
@@ -322,7 +322,7 @@
                                     <div class="col-6" v-for="nurseryLevel in 4">
                                         <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)">
-                                            <label class="form-check-label">
+                                            <label class="form-check-label" v-cloak>
                                                 @{{ nurseryLevel - 1 }}
                                             </label>
                                         </div>
@@ -335,7 +335,7 @@
                                     <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
                                         <div class="form-check" @click="addOrPopAges(earlyLevel)">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel">
-                                            <label class="form-check-label">
+                                            <label class="form-check-label" v-cloak>
                                                 @{{ earlyLevel }}
                                             </label>
                                         </div>
@@ -348,7 +348,7 @@
                                     <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
                                         <div class="form-check" @click="addOrPopAges(primaryLevel)">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel">
-                                            <label class="form-check-label">
+                                            <label class="form-check-label" v-cloak>
                                                 @{{ primaryLevel }}
                                             </label>
                                         </div>
@@ -361,7 +361,7 @@
                                     <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
                                         <div class="form-check" @click="addOrPopAges(middleLevel)">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel">
-                                            <label class="form-check-label">
+                                            <label class="form-check-label" v-cloak>
                                                 @{{ middleLevel }}
                                             </label>
                                         </div>
@@ -374,7 +374,7 @@
                                     <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
                                         <div class="form-check" @click="addOrPopAges(highLevel)">
                                             <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel">
-                                            <label class="form-check-label">
+                                            <label class="form-check-label" v-cloak>
                                                 @{{ highLevel }}
                                             </label>
                                         </div>
@@ -422,7 +422,7 @@
                         <div class="row mt-3">
                             <div v-for="(hashtag, index) in hashtags" class="col-md-3">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body" v-cloak>
                                         #@{{ hashtag }}
 
                                         <span style="pointer" @click="popHashtag(index)">    <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg></span>
@@ -457,7 +457,7 @@
                                 <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
                                 <select id="inpt" class="form-control" v-model="weeks">
-                                    <option v-for="week in 18" :value="week" v-if="week > 0">@{{ week }} </option>
+                                    <option v-for="week in 18" :value="week" v-if="week > 0" v-cloak>@{{ week }} </option>
                                 </select> 
                                 </div>     
                             </div>
@@ -475,10 +475,10 @@
                                 <div class="col-md-2">Day 5</div>
                             </div>
                             <div class="row mt-1" v-for="week in weeks">
-                                <div class="col-md-2">Week @{{ week }}</div>
+                                <div class="col-md-2" v-cloak>Week @{{ week }}</div>
                                 <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
                                     <div class="card" style="cursor: pointer">
-                                        <div class="card-body card-body_tarea">
+                                        <div class="card-body card-body_tarea" v-cloak>
                                             @{{ showActivity(week, day) }}
                                         </div>
                                     </div>

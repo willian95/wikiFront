@@ -15,20 +15,20 @@
                 <div class="abc-content" v-for="letter in elements">
                     <strong>
                         @if($type == 'teacher')
-                            <a :href="'{{ url('/teacher/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                            <a :href="'{{ url('/teacher/show-by-letter/') }}'+'/'+letter.letter" v-cloak>@{{ letter.letter }}</a>
                         @elseif($type == 'school' || $type == 'university' || $type == 'organization')
-                            <a :href="'{{ url('/institution/'.$type.'/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                            <a :href="'{{ url('/institution/'.$type.'/show-by-letter/') }}'+'/'+letter.letter" v-cloak>@{{ letter.letter }}</a>
                         @else
-                            <a :href="'{{ url('/subject/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a>
+                            <a :href="'{{ url('/subject/show-by-letter/') }}'+'/'+letter.letter" v-cloak> @{{ letter.letter }}</a>
                         @endif
                     </strong>
                     <p v-for="element in letter.elements">
                         @if($type == 'teacher')
-                        <a :href="'{{ url($type) }}'+'/'+'show/'+element.id">@{{ element.name }}</a>
+                        <a :href="'{{ url($type) }}'+'/'+'show/'+element.id" v-cloak>@{{ element.name }}</a>
                         @elseif($type == 'school' || $type == 'university' || $type == 'organization')
-                        <a :href="'{{ url('/institution') }}'+'/show/'+element.id">@{{ element.name }}</a>
+                        <a :href="'{{ url('/institution') }}'+'/show/'+element.id" v-cloak>@{{ element.name }}</a>
                         @else
-                        <a :href="'{{ url('/subject') }}'+'/projects/'+element.id">@{{ element.name }}</a>
+                        <a :href="'{{ url('/subject') }}'+'/projects/'+element.id" v-cloak>@{{ element.name }}</a>
                         @endif
                     </p>
                    

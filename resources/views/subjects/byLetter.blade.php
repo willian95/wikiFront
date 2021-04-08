@@ -13,7 +13,7 @@
             <a :href="'{{ url('subject/projects/') }}'+'/'+subject.id" v-for="subject in subjects">
                 <div class="card">
                     <div class="card-body">
-                        <p>@{{ subject.name }}</p>
+                        <p v-cloak>@{{ subject.name }}</p>
                     </div>
                 </div>
             </a>
@@ -21,7 +21,7 @@
         </div>
 
     </div>
-    <div class="row">
+    <div class="row" v-cloak>
         <div class="col-12">
             <ul class="pagination">
                 <li class="page-item" v-for="index in pages">

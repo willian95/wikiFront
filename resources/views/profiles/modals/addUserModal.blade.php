@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label >Name</label>
                                 <input type="text" class="form-control" v-model="userName">
-                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_name')">@{{ errors['admin_institution_name'][0] }}</small>
+                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_name')" v-cloak>@{{ errors['admin_institution_name'][0] }}</small>
                             </div>
                         </div>
 
@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <label >Lastname</label>
                                 <input type="text" class="form-control" v-model="userLastname">
-                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_lastname')">@{{ errors['admin_institution_lastname'][0] }}</small>
+                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_lastname')" v-cloak>@{{ errors['admin_institution_lastname'][0] }}</small>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label >Phone</label>
                                 <input type="tel" class="form-control" v-model="userPhone" @keypress="isNumber($event)">
-                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_phone')">@{{ errors['admin_institution_phone'][0] }}</small>
+                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_phone')" v-cloak>@{{ errors['admin_institution_phone'][0] }}</small>
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label >Email</label>
                                 <input type="email" class="form-control" v-model="userEmail">
-                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_email')">@{{ errors['admin_institution_email'][0] }}</small>
+                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_email')" v-cloak>@{{ errors['admin_institution_email'][0] }}</small>
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label >Password</label>
                                 <input type="password" class="form-control" v-model="userPassword">
-                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_password')">@{{ errors['admin_institution_password'][0] }}</small>
+                                <small style="color:red" v-if="errors.hasOwnProperty('admin_institution_password')" v-cloak>@{{ errors['admin_institution_password'][0] }}</small>
                             </div>
                         </div>
 

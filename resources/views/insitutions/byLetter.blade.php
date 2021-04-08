@@ -13,7 +13,7 @@
             <a :href="'{{ url('institution/show/') }}'+'/'+institution.id" v-for="institution in institutions">
                 <div class="card">
                     <div class="card-body">
-                        <p>@{{ institution.name }}</p>
+                        <p v-cloak>@{{ institution.name }}</p>
                     </div>
                 </div>
             </a>
@@ -25,7 +25,7 @@
         <div class="col-12">
             <ul class="pagination">
                 <li class="page-item" v-for="index in pages">
-                    <a class="page-link" href="#" :key="index" @click="fetch(index)" >@{{ index }}</a>
+                    <a class="page-link" href="#" :key="index" @click="fetch(index)" v-cloak>@{{ index }}</a>
                 </li>
             </ul>
         </div>

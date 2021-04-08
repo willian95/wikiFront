@@ -27,7 +27,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row" v-cloak>
             <div class="col-md-3">
                 <div class="menu-template">
                     <p>Edit mode </p>

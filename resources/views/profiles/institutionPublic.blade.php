@@ -55,16 +55,16 @@
             <div class="row main-dates">
                 <div class="col-md-4">
                     <p>Registered Educators:</p>
-                    <span>@{{ registeredEducatorsCount }}</span>
+                    <span v-cloak>@{{ registeredEducatorsCount }}</span>
 
                 </div>
                 <div class="col-md-4">
                     <p>wikiPBL Pages (public):</p>
-                    <span>@{{ publicPBLCounts }}</span>
+                    <span v-cloak>@{{ publicPBLCounts }}</span>
                 </div>
                 <div class="col-md-4">
                     <p> Private wikiPBL Pages:</p>
-                    <span>@{{ privatePBLCounts }}</span>
+                    <span v-cloak>@{{ privatePBLCounts }}</span>
                 </div>
             </div>
 
@@ -72,24 +72,24 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div>
-                            <p><strong> Name:</strong>@{{ institutionName }} </p>
-                            <p><strong>Member since:</strong> @{{ memberSince }}</p>
-                            <p><strong> Country:</strong> @{{ country }}</p>
-                            <p><strong>City:</strong> @{{ state }}</p>
-                            <p><strong>Lowest Age:</strong>@{{ lowestAge }}</p>
-                            <p><strong>Highest Age:</strong>@{{ highestAge }}</p>
-                            <p v-if="type == 'school' || type == 'university'"><strong> Type:</strong> @{{ genderType }}</p>
-                            <p><strong>Type:</strong>@{{ privateOrPublicInstitution }}</p>
-                            <p v-if="type == 'school' || type == 'university'"><strong>PBL Network:</strong> @{{ whichNetwork }}</p>
-                            <p v-if="type == 'school' || type == 'university'"><strong> # students enrolled:</strong>@{{ studentsEnrolled }}</p>
-                            <p v-if="type == 'school' || type == 'university'"><strong> # faculty members:</strong>@{{ facultyMembers }}</p>
+                            <p v-cloak><strong> Name:</strong>@{{ institutionName }} </p>
+                            <p v-cloak><strong>Member since:</strong> @{{ memberSince }}</p>
+                            <p v-cloak><strong> Country:</strong> @{{ country }}</p>
+                            <p v-cloak><strong>City:</strong> @{{ state }}</p>
+                            <p v-cloak><strong>Lowest Age:</strong>@{{ lowestAge }}</p>
+                            <p v-cloak><strong>Highest Age:</strong>@{{ highestAge }}</p>
+                            <p v-cloak v-if="type == 'school' || type == 'university'"><strong> Type:</strong> @{{ genderType }}</p>
+                            <p v-cloak><strong>Type:</strong>@{{ privateOrPublicInstitution }}</p>
+                            <p v-cloak v-if="type == 'school' || type == 'university'"><strong>PBL Network:</strong> @{{ whichNetwork }}</p>
+                            <p v-cloak v-if="type == 'school' || type == 'university'"><strong> # students enrolled:</strong>@{{ studentsEnrolled }}</p>
+                            <p v-cloak v-if="type == 'school' || type == 'university'"><strong> # faculty members:</strong>@{{ facultyMembers }}</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div v-for="user in users">
                             <h3> Created by</h3>
-                            <p><strong> Name:</strong>@{{ user.name }} @{{ user.lastname }}</p>
-                            <p><strong> Email:</strong>@{{ user.email }}</p>
+                            <p v-cloak><strong> Name:</strong>@{{ user.name }} @{{ user.lastname }}</p>
+                            <p v-cloak><strong> Email:</strong>@{{ user.email }}</p>
 
                         </div>
                         

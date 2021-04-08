@@ -29,14 +29,14 @@
                     <input type="text" class="form-control" v-model="login_email" placeholder="Email"
                     autocomplete="off">
                     <small style="color:red"
-                    v-if="errors.hasOwnProperty('login_email')">@{{ errors['login_email'][0] }}</small>
+                    v-if="errors.hasOwnProperty('login_email')" v-cloak>@{{ errors['login_email'][0] }}</small>
                 </div>
 
                 <div class="form-group col-md">
                     <!--- <label for="email">Password</label>-->
                     <input type="password" class="form-control" v-model="login_password" placeholder="Password">
                     <small style="color:red"
-                    v-if="errors.hasOwnProperty('login_password')">@{{ errors['login_password'][0] }}</small>
+                    v-if="errors.hasOwnProperty('login_password')" v-cloak>@{{ errors['login_password'][0] }}</small>
                 </div>
                 <a class="col-md forgot" style="cursor: pointer;" @click="forgotPasswordShowModal()">Forgot password</a>
 

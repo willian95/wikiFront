@@ -35,14 +35,14 @@
                         <div class="menu-template_option" style="overflow-y: auto; height: 260px;">
                             <ul>
                                 <p>Main info</p>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || incubatorFeature == true"></i>@{{ title }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || incubatorFeature == true"></i>@{{ drivingQuestionTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || incubatorFeature == true"></i>@{{ subjectTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || incubatorFeature == true"></i>@{{ timeFrameTitle }}</a></li>
-                                <li><a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || incubatorFeature == true"></i>@{{ publicProductTitle }}</a> </li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || incubatorFeature == true"></i>@{{ levelTitle }}</a></li>
-                                <li> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || incubatorFeature == true"></i>#hashtags</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('title-p')"><i class="fa fa-times" aria-hidden="true" v-if="title == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="title != '' || incubatorFeature == true"></i>@{{ title }}</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('driving')"><i class="fa fa-times" aria-hidden="true" v-if="drivingQuestion == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="drivingQuestion != '' || incubatorFeature == true"></i>@{{ drivingQuestionTitle }}</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('subjecttitle')"><i class="fa fa-times" aria-hidden="true" v-if="subjects.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="subjects.length > 0 || incubatorFeature == true"></i>@{{ subjectTitle }}</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('time')"><i class="fa fa-times" aria-hidden="true" v-if="timeFrame == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="timeFrame != '' || incubatorFeature == true"></i>@{{ timeFrameTitle }}</a></li>
+                                <li v-cloak><a style="cursor: pointer;" @click="scrollTo('projectsumary')"><i class="fa fa-times" aria-hidden="true" v-if="projectSumary == ''"></i> <i class="fa fa-check" aria-hidden="true" v-if="projectSumary != ''"></i>Project Summary</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('publictitle')"><i class="fa fa-times" aria-hidden="true" v-if="publicProduct == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="publicProduct != '' || incubatorFeature == true"></i>@{{ publicProductTitle }}</a> </li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('leveltitle')"><i class="fa fa-times" aria-hidden="true" v-if="level == '' && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="level != '' || incubatorFeature == true"></i>@{{ levelTitle }}</a></li>
+                                <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && incubatorFeature == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || incubatorFeature == true"></i>#hashtags</a></li>
 
                             </ul>
                         </div>
@@ -91,7 +91,7 @@
                         <li class="content_template-general-item" id="title-p" style="margin-top: 100px;" @mouseleave="testChange()">
                             <h3 class="titulo-templates">
 
-                                <span v-if="editSection != 'title'">@{{ title }}</span>
+                                <span v-if="editSection != 'title'" v-cloak>@{{ title }}</span>
                                 <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
 
                                 <a class="txt-edit" href="#" @click="setEditSection('title')">
@@ -114,7 +114,7 @@
                         <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
 
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
+                                <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
                                 <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                     <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
@@ -147,7 +147,7 @@
                         </li>
                         <li class="content_template-general-item" id="subjecttitle">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
+                                <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'" v-cloak>@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                     <span v-if="editSection != 'subjectTitle'">Click to edit</span>
@@ -180,7 +180,7 @@
                             <div class="row mt-3">
                                 <div v-for="(subject, index) in subjects" class="col-md-3">
                                     <div class="card card-sub">
-                                        <div class="card-body">
+                                        <div class="card-body" v-cloak>
 
                                             @{{ subject }}
 
@@ -241,7 +241,7 @@
 
                         <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
+                                <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'" v-cloak>@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                     <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
@@ -270,7 +270,7 @@
 
                         <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
+                                <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                     <span v-if="editSection != 'levelTitle'">Click to edit</span>
@@ -319,7 +319,7 @@
                                         <div class="col-6" v-for="nurseryLevel in 4">
                                             <div class="form-check" @click="addOrPopAges(nurseryLevel - 1)">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(nurseryLevel-1)" value="" :id="'age-'+(nurseryLevel-1)">
-                                                <label class="form-check-label">
+                                                <label class="form-check-label" v-cloak>
                                                     @{{ nurseryLevel - 1 }}
                                                 </label>
                                             </div>
@@ -332,7 +332,7 @@
                                         <div class="col-6" v-for="earlyLevel in 6" v-if="earlyLevel > 3">
                                             <div class="form-check" @click="addOrPopAges(earlyLevel)">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(earlyLevel)" value="" :id="'age-'+earlyLevel">
-                                                <label class="form-check-label">
+                                                <label class="form-check-label" v-cloak>
                                                     @{{ earlyLevel }}
                                                 </label>
                                             </div>
@@ -345,7 +345,7 @@
                                         <div class="col-6" v-for="primaryLevel in 10" v-if="primaryLevel > 6">
                                             <div class="form-check" @click="addOrPopAges(primaryLevel)">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(primaryLevel)" value="" :id="'age-'+primaryLevel">
-                                                <label class="form-check-label">
+                                                <label class="form-check-label" v-cloak>
                                                     @{{ primaryLevel }}
                                                 </label>
                                             </div>
@@ -358,7 +358,7 @@
                                         <div class="col-6" v-for="middleLevel in 13" v-if="middleLevel > 10">
                                             <div class="form-check" @click="addOrPopAges(middleLevel)">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(middleLevel)" value="" :id="'age-'+middleLevel">
-                                                <label class="form-check-label">
+                                                <label class="form-check-label" v-cloak>
                                                     @{{ middleLevel }}
                                                 </label>
                                             </div>
@@ -371,7 +371,7 @@
                                         <div class="col-6" v-for="highLevel in 18" v-if="highLevel > 14">
                                             <div class="form-check" @click="addOrPopAges(highLevel)">
                                                 <input class="form-check-input check-age" type="checkbox" :checked="checkTest(highLevel)" value="" :id="'age-'+highLevel">
-                                                <label class="form-check-label">
+                                                <label class="form-check-label" v-cloak>
                                                     @{{ highLevel }}
                                                 </label>
                                             </div>
@@ -418,7 +418,7 @@
                             <div class="row mt-3">
                                 <div v-for="(hashtag, index) in hashtags" class="col-md-3">
                                     <div class="card card-sub">
-                                        <div class="card-body">
+                                        <div class="card-body" v-cloak>
                                             #@{{ hashtag }}
 
                                             <span class="close-tab" style="pointer" @click="popHashtag(index)"> <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -456,7 +456,7 @@
                                 <div class="col-md-6 flex-wee">
                                     <label class="ml-5 mr-4" for="inp">Weeks</label>
                                     <select id="inpt" class="form-control" v-model="weeks">
-                                        <option v-for="week in 18" :value="week" v-if="week > 0">@{{ week }} </option>
+                                        <option v-for="week in 18" :value="week" v-if="week > 0" v-cloak>@{{ week }} </option>
                                     </select>
                                 </div>
                             </div>
@@ -530,8 +530,9 @@
                                                 <path d="M109.889,51.518c-32.187,0-58.373,26.188-58.373,58.377c0,32.188,26.186,58.375,58.373,58.375 c32.19,0,58.378-26.187,58.378-58.375C168.267,77.706,142.078,51.518,109.889,51.518z M109.889,153.27 c-23.916,0-43.373-19.458-43.373-43.375c0-23.918,19.457-43.377,43.373-43.377c23.919,0,43.378,19.459,43.378,43.377 C153.267,133.812,133.808,153.27,109.889,153.27z" />
                                         </svg>Day 5</div>
                                 </div>
-                                <div class="row mt-1" v-for="week in weeks">
-                                    <div class="col-md-2"> <svg id="Capa_1" class="icon-calendar icon-calendar-blue" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                                <div class="row mt-1" v-for="week in weeks" v-cloak>
+                                    <div class="col-md-2"> 
+                                        <svg id="Capa_1" class="icon-calendar icon-calendar-blue" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
                                             <g>
                                                 <path d="m497 32h-46v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-60v-17c0-8.284-6.716-15-15-15s-15 6.716-15 15v17h-46c-8.284 0-15 6.716-15 15v450c0 8.284 6.716 15 15 15h482c8.284 0 15-6.716 15-15v-450c0-8.284-6.716-15-15-15zm-436 30v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h60v15c0 8.284 6.716 15 15 15s15-6.716 15-15v-15h31v60h-452v-60zm-31 420v-330h452v330z" />
                                                 <path d="m166 212h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
@@ -541,7 +542,8 @@
                                                 <path d="m406 331h-60c-8.284 0-15 6.716-15 15v60c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-60c0-8.284-6.716-15-15-15zm-15 60h-30v-30h30z" />
                                                 <path d="m175.462 345.161c-6.428-5.226-15.875-4.25-21.101 2.176l-30.498 37.513-8.352-6.849c-6.406-5.255-15.857-4.318-21.11 2.087-5.253 6.406-4.318 15.857 2.088 21.11l20 16.4c6.438 5.28 15.922 4.295 21.15-2.136l40-49.2c5.226-6.428 4.251-15.875-2.177-21.101z" />
                                             </g>
-                                        </svg> Week @{{ week }}</div>
+                                        </svg> Week @{{ week }}
+                                    </div>
                                     <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target=".calendarDescription">
                                         <div class="card days">
                                             <div class="card-body card-body_tarea">
@@ -559,7 +561,7 @@
 
                         <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                                <h3 class="titulo-templates" v-cloak>Bibliography (mandatory)</h3>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                     <p>If you use someone else's stuff, give them credit </p>

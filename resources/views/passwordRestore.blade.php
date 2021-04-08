@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="">New password</label>
                     <input type="password" class="form-control" v-model="password">
-                    <small style="color: red;" v-if="errors.hasOwnProperty('password')">@{{ errors['password'][0] }}</small>
+                    <small style="color: red;" v-if="errors.hasOwnProperty('password')" v-cloak>@{{ errors['password'][0] }}</small>
                 </div>
                 <div class="form-group">
                     <label for="">Repeat password</label>

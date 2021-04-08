@@ -11,14 +11,14 @@
                 <div class="form-group" v-if="modalField == 'country'">
                     <label >Countries</label>
                     <select  class="form-control" v-model="country" @change="onChangeCountry()">
-                        <option :value="country.id" v-for="country in countries">@{{ country.name }}</option>
+                        <option :value="country.id" v-for="country in countries" v-cloak>@{{ country.name }}</option>
                     </select>
                 </div>
 
                 <div class="form-group" v-if="modalField == 'state'">
                     <label >States</label>
                     <select  class="form-control" v-model="state" @change="onChangeState()">
-                        <option :value="state.id" v-for="state in states">@{{ state.name }}</option>
+                        <option :value="state.id" v-for="state in states" v-cloak>@{{ state.name }}</option>
                     </select>
                 </div>
 
@@ -35,7 +35,7 @@
                 <div class="form-group" v-if="modalField == 'institution'">
                     <label for="">Institutions:</label>
                     <select id="" class="form-control" v-model="institution" @change="onChangeInstitution()">
-                        <option :value="institution.id" v-for="institution in institutions">@{{ institution.name }}</option>
+                        <option :value="institution.id" v-for="institution in institutions" v-cloak>@{{ institution.name }}</option>
                     </select>
                 </div>
                 

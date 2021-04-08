@@ -13,12 +13,12 @@
 
         <div class="col-md-12">
             <a class="card" v-for="(teacher,index) in teachers" :href="'{{ url('/teacher/show/') }}'+'/'+teacher.id">
-                <p>@{{ teacher.name }}</p>
+                <p v-cloak>@{{ teacher.name }}</p>
             </a>
         </div>
 
 
-        <div class="row">
+        <div class="row" v-cloak>
             <div class="col-12">
                 <ul class="pagination">
                     <li class="page-item" v-for="index in pages">

@@ -18,7 +18,7 @@
                 <!---------------->
                 <p>9.000+ projects and counting!</p>
                 <div class="hashtag-home">
-                    <a :href="'{{ url('/hashtag/') }}'+'/'+hashtag.id" v-for="hashtag in hashtags"> <span>#@{{ hashtag.name }}</span></a>
+                    <a :href="'{{ url('/hashtag/') }}'+'/'+hashtag.id" v-for="hashtag in hashtags"> <span v-cloak>#@{{ hashtag.name }}</span></a>
                 </div>
 
             </div>
@@ -41,8 +41,8 @@
                     <h3>Find Categories/Subjects</h3>
                     <div class="abc-home">
                         <div class="abc-content" v-for="(letter, key) in subjects">
-                            <strong><a :href="'{{ url('subject/show-by-letter/') }}'+'/'+letter.letter">@{{ letter.letter }}</a></strong>
-                            <p v-for="subject in letter.subjects"><a :href="'{{ url('subject/projects/') }}'+'/'+subject.id">@{{ subject.name }}</a></p>
+                            <strong><a :href="'{{ url('subject/show-by-letter/') }}'+'/'+letter.letter" v-cloak>@{{ letter.letter }}</a></strong>
+                            <p v-for="subject in letter.subjects"><a :href="'{{ url('subject/projects/') }}'+'/'+subject.id" v-cloak>@{{ subject.name }}</a></p>
                         </div>
                         
 
@@ -60,7 +60,7 @@
                             <option v-if="categoryType == 'school'" value="primary">Primary/Elementary 7 - 10</option>
                             <option v-if="categoryType == 'school'" value="middle">Middle School 11 - 13</option>
                             <option v-if="categoryType == 'school'" value="high">High School 14 - 18</option>
-                            <option :value="i" v-for="i in 18" v-if="categoryType == 'university'">@{{ i }} Month</option>
+                            <option :value="i" v-for="i in 18" v-if="categoryType == 'university'" v-cloak>@{{ i }} Month</option>
                         </select>
 
                     </div>

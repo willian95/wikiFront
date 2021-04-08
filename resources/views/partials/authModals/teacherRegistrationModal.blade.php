@@ -26,7 +26,7 @@
                                     <label for="inputinstitutioe"></label>
                                     <select id="inputinstitutio" class="form-control" v-model="selected_institution" :disabled="institution_not_registered">
                                         <option value="">Choose your institution </option>
-                                        <option :value="institution" v-for="institution in institutions">@{{ institution.name }}</option>
+                                        <option :value="institution" v-for="institution in institutions" v-cloak>@{{ institution.name }}</option>
                                     </select>
 
                                 </div>
@@ -85,7 +85,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Name" v-model="name">
-                                            <small style="color:red" v-if="errors.hasOwnProperty('name')">@{{ errors['name'][0] }}</small>
+                                            <small style="color:red" v-if="errors.hasOwnProperty('name')" v-cloak>@{{ errors['name'][0] }}</small>
                                         </div>
 
                                     </div>
@@ -94,7 +94,7 @@
 
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Last name " v-model="lastname">
-                                            <small style="color:red" v-if="errors.hasOwnProperty('lastname')">@{{ errors['lastname'][0] }}</small>
+                                            <small style="color:red" v-if="errors.hasOwnProperty('lastname')" v-cloak>@{{ errors['lastname'][0] }}</small>
                                         </div>
 
                                     </div>
@@ -102,14 +102,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Institutional Email" v-model="institution_email">
-                                            <small style="color:red" v-if="errors.hasOwnProperty('institution_email')">@{{ errors['institution_email'][0] }}</small>
+                                            <small style="color:red" v-if="errors.hasOwnProperty('institution_email')" v-cloak>@{{ errors['institution_email'][0] }}</small>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Personal Email" v-model="email">
-                                            <small style="color:red" v-if="errors.hasOwnProperty('email')">@{{ errors['email'][0] }}</small>
+                                            <small style="color:red" v-if="errors.hasOwnProperty('email')" v-cloak>@{{ errors['email'][0] }}</small>
                                         </div>
 
                                     </div>
@@ -117,7 +117,7 @@
 
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Password" v-model="password">
-                                            <small style="color:red" v-if="errors.hasOwnProperty('password')">@{{ errors['password'][0] }}</small>
+                                            <small style="color:red" v-if="errors.hasOwnProperty('password')" v-cloak>@{{ errors['password'][0] }}</small>
                                         </div>
 
                                     </div>

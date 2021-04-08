@@ -22,21 +22,21 @@
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="selectedCountry" @change="fetchStates()">
                                     <option value="" selected>Country </option>
-                                    <option :value="country.id" v-for="country in countries">@{{ country.name }}</option>
+                                    <option :value="country.id" v-for="country in countries" v-cloak>@{{ country.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="selectedState">
                                     <option selected value="">City</option>
-                                    <option :value="state.id" v-for="state in states">@{{ state.name }}</option>
+                                    <option :value="state.id" v-for="state in states" v-cloak>@{{ state.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="lowest_age">
                                     <option selected value="">Lowest Age </option>
-                                    <option v-for="age in 100" :value="age">@{{ age }}</option>
+                                    <option v-for="age in 100" :value="age" v-cloak>@{{ age }}</option>
                                 </select>
                             </div>
                             
@@ -45,7 +45,7 @@
                                 <label for="inputinstitutioe"></label>
                                 <select id="inputinstitutio" class="form-control" v-model="highest_age">
                                     <option selected value="">Highest Age</option>
-                                    <option v-for="age in 100" :value="age">@{{ age }}</option>
+                                    <option v-for="age in 100" :value="age" v-cloak>@{{ age }}</option>
                                 </select>
                             </div>
 

@@ -16,14 +16,14 @@
                 <div class="form-group" v-show="modalField == 'lowestAge'">
                     <label >Lowest Age</label>
                     <select  class="form-control" v-model="lowestAge">
-                        <option v-for="age in 100" :value="age">@{{ age }}</option>
+                        <option v-for="age in 100" :value="age" v-cloak>@{{ age }}</option>
                     </select>
                 </div>
 
                 <div class="form-group" v-show="modalField == 'highestAge'">
                     <label >Highest Age</label>
                     <select  class="form-control" v-model="highestAge">
-                        <option v-for="age in 100" :value="age">@{{ age }}</option>
+                        <option v-for="age in 100" :value="age" v-cloak>@{{ age }}</option>
                     </select>
                 </div>
 

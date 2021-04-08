@@ -21,8 +21,8 @@
             <h3 class="text-center"><a :href="'{{ url('/search/only/subjects/') }}'+'/'+this.query">Subjects</a></h3>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="subject in subjects">
-                    <strong><a href="#">@{{ subject.letter }}</a></strong>
-                    <p v-for="word in subject.results"><a :href="'{{ url('/subject/projects/') }}'+'/'+word.id">@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ subject.letter }}</a></strong>
+                    <p v-for="word in subject.results"><a :href="'{{ url('/subject/projects/') }}'+'/'+word.id" v-cloak>@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -35,8 +35,8 @@
             </a>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="hashtag in hashtags">
-                    <strong><a href="#">@{{ hashtag.letter }}</a></strong>
-                    <p v-for="word in hashtag.results"><a :href="'{{ url('/hashtag/') }}'+'/'+word.id">#@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ hashtag.letter }}</a></strong>
+                    <p v-for="word in hashtag.results"><a :href="'{{ url('/hashtag/') }}'+'/'+word.id" v-cloak>#@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -49,8 +49,8 @@
             </a>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="teacher in teachers">
-                    <strong><a href="#">@{{ teacher.letter }}</a></strong>
-                    <p v-for="word in teacher.results"><a :href="'{{ url('/teacher/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ teacher.letter }}</a></strong>
+                    <p v-for="word in teacher.results"><a :href="'{{ url('/teacher/show') }}'+'/'+word.id" v-cloak>@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -63,8 +63,8 @@
             </a>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="school in schools">
-                    <strong><a href="#">@{{ school.letter }}</a></strong>
-                    <p v-for="word in school.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ school.letter }}</a></strong>
+                    <p v-for="word in school.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id" v-cloak>@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -77,8 +77,8 @@
             </a>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="university in universities">
-                    <strong><a href="#">@{{ university.letter }}</a></strong>
-                    <p v-for="word in university.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ university.letter }}</a></strong>
+                    <p v-for="word in university.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id" v-cloak>@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -91,8 +91,8 @@
             </a>
             <div class="abc-home abc-categories">
                 <div class="abc-content" v-for="organization in organizations">
-                    <strong><a href="#">@{{ organization.letter }}</a></strong>
-                    <p v-for="word in organization.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id">@{{ word.name }}</a></p>
+                    <strong><a href="#" v-cloak>@{{ organization.letter }}</a></strong>
+                    <p v-for="word in organization.results"><a :href="'{{ url('/institution/show') }}'+'/'+word.id" v-cloak>@{{ word.name }}</a></p>
 
                 </div>
             </div>
@@ -113,7 +113,7 @@
             <div class="card border-0" v-for="(project,index) in projects" v-if="project[0].type != 'following'">
                 <a :href="'{{ url('/project/show/') }}'+'/'+project[0].id">
                     
-                    <p v-if="project[0].titles[0]">@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>
+                    <p v-if="project[0].titles[0]" v-cloak>@{{ project[0].titles[0].title }}, @{{ project[0].user.institution ? project[0].user.institution.name : project[0].user.pending_institution_name }}</p>
                 </a>
                 
                 <!---------------------iconos------------------->
@@ -125,7 +125,7 @@
                     </span>
 
                         <!---------------------icono1------------------->
-                    <span>
+                    <span v-cloak>
                         @{{ project[0].likes.length }}
                         <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
@@ -144,7 +144,7 @@
                             </svg>
                         </span>
                         <!---------------------icono3------------------->
-                    <span class="line_">@{{ dateFormatter(project[0].updated_at) }}</span>
+                    <span class="line_" v-cloak>@{{ dateFormatter(project[0].updated_at) }}</span>
                 </div>
 
                 <a v-if="project[0].status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project[0].id" class="btn btn-info line_ mt-0 mb-0">Original</a>

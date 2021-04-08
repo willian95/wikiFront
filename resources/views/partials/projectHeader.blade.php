@@ -203,7 +203,7 @@
 
 
                                         <li class="nav-itm last-style" v-if="lastSave != ''">
-                                            <p>@{{ lastSave }}</p>
+                                            <p v-cloak>@{{ lastSave }}</p>
                                             <p>Last update</p>
                                         </li>
 

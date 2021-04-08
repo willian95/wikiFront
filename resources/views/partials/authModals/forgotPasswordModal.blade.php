@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <!--- <label for="email">Email</label>-->
                         <input type="text" class="form-control" v-model="forgotPasswordEmail" placeholder="Email" autocomplete="off">
-                        <small style="color:red" v-if="forgotPasswordErrors.hasOwnProperty('email')">@{{ forgotPasswordErrors['email'][0] }}</small>
+                        <small style="color:red" v-if="forgotPasswordErrors.hasOwnProperty('email')" v-cloak>@{{ forgotPasswordErrors['email'][0] }}</small>
                     </div>
 
                     <div class="text-lg-right mr-2">

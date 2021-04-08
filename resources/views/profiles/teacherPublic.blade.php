@@ -55,21 +55,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <div>
-                        <p><strong> Name:</strong> @{{ name }}</p>
-                        <p v-if="showMyEmail">
+                        <p v-cloak><strong> Name:</strong> @{{ name }}</p>
+                        <p v-if="showMyEmail" v-cloak>
                             <strong>Email:</strong> @{{ email }}
                         </p>
-                        <p><strong>Institution:</strong> @{{ institutionName }}</p>
-                        <p><strong>Member since: </strong> @{{ memberSince }}</p>
-                        <p><strong>Country:</strong> @{{ countryName }}</p>
-                        <p><strong>City: </strong>@{{ stateName }}</p>
-                        <p><strong>CV/Resume:</strong> @{{ cvResume }}</p>
-                        <p><strong>Portfolio:</strong>@{{ portfolio }}</p>
+                        <p v-cloak><strong>Institution:</strong> @{{ institutionName }}</p>
+                        <p v-cloak><strong>Member since: </strong> @{{ memberSince }}</p>
+                        <p v-cloak><strong>Country:</strong> @{{ countryName }}</p>
+                        <p v-cloak><strong>City: </strong>@{{ stateName }}</p>
+                        <p v-cloak><strong>CV/Resume:</strong> @{{ cvResume }}</p>
+                        <p v-cloak><strong>Portfolio:</strong>@{{ portfolio }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <h3> “Why do you educate?”</h3>
-                    <p>@{{ description }}</p>
+                    <p v-cloak>@{{ description }}</p>
 
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
         <div class="main-wikis mt-5">
             <div class="text-center">
-                <h3>@{{typeTitle}} - Dashboard</h3>
+                <h3 v-cloak>@{{typeTitle}} - Dashboard</h3>
             </div>
 
             <div class="row">
@@ -111,7 +111,7 @@
 
                     <div class="card" v-for="(project,index) in projects" v-if="type != 'following'">
                         <a :href="'{{ url('/project/show/') }}'+'/'+project.id">
-                            <p v-if="project.titles[0]">@{{ project.titles[0].title }}, @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution_name }}</p>
+                            <p v-if="project.titles[0]" v-cloak>@{{ project.titles[0].title }}, @{{ project.user.institution ? project.user.institution.name : project.user.pending_institution_name }}</p>
                         </a>
                         
                         <!---------------------iconos------------------->
@@ -123,7 +123,7 @@
                             </span>
 
                              <!---------------------icono1------------------->
-                            <span>
+                            <span v-cloak>
                                 @{{ project.likes.length }}
                                 <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
@@ -142,7 +142,7 @@
                                 </svg>
                             </span>
                                <!---------------------icono3------------------->
-                               <span class="line_">@{{ dateFormatter(project.updated_at) }}</span>
+                               <span class="line_" v-cloak>@{{ dateFormatter(project.updated_at) }}</span>
                         </div>
 
                         <a v-if="project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
@@ -152,7 +152,7 @@
              
                         <a :href="'{{ url('/project/show/') }}'+'/'+project.project.id">
                             
-                            <p v-if="project.project.titles[0]">@{{ project.project.titles[0].title }}, @{{ project.project.user.institution ? project.project.user.institution.name : project.project.user.pending_institution_name }}</p>
+                            <p v-if="project.project.titles[0]" v-cloak>@{{ project.project.titles[0].title }}, @{{ project.project.user.institution ? project.project.user.institution.name : project.project.user.pending_institution_name }}</p>
                         </a>
                         
                         <!---------------------iconos------------------->
@@ -164,7 +164,7 @@
                             </span>
 
                              <!---------------------icono1------------------->
-                            <span>
+                            <span v-cloak>
                                 @{{ project.project.likes.length }}
                                 <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
@@ -183,7 +183,7 @@
                                 </svg>
                             </span>
                                <!---------------------icono3------------------->
-                               <span class="line_">@{{ dateFormatter(project.project.updated_at) }}</span>
+                               <span class="line_" v-cloak>@{{ dateFormatter(project.project.updated_at) }}</span>
                         </div>
 
                         <a v-if="project.project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original</a>
@@ -191,7 +191,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <ul class="pagination">
+                            <ul class="pagination" v-cloak>
                                 <li class="page-item" v-for="index in pages">
                                     <a class="page-link" style="cursor: pointer" :key="index" @click="fetchProjects(index)" v-if="type == 'my-projects'">@{{ index }}</a>
                                     <a class="page-link" style="cursor: pointer" :key="index" @click="fetchPulbicProjects(index)" v-if="type == 'following'">@{{ index }}</a>
