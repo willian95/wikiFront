@@ -1187,22 +1187,7 @@
                 
 
             },
-            methods:{
-                setEditSection(section){
-
-                    if(this.editSection != section){
-                        this.editSection = section
-                    }else{
-                        this.editSection = ""
-                    }
-
-                },
-                addOrPopAges(age){
-                
-                    if(!this.ages.includes(age)){
-
-
-        },
+   
         methods: {
             setEditSection(section) {
 
