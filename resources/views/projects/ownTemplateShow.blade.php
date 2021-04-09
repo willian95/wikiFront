@@ -1462,7 +1462,7 @@
                 }
 
                 this.myChart = new Chart(ctx, {
-                    type: 'horizontalBar',
+                    type: 'doughnut',
                     data: {
                         labels: this.labels,
                         datasets: [{
@@ -1473,7 +1473,7 @@
                         legend: {
                             display: false,
                         },
-                        scales: {
+                        /*scales: {
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true
@@ -1490,7 +1490,7 @@
                                     stepSize: 1
                                 }
                             }]
-                        }
+                        }*/
                     }
                 });
 

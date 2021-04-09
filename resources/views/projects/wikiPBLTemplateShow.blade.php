@@ -88,21 +88,26 @@
                             @if(count($assestmentPoints) > 0)
                             <div class="row">
 
+                                
+                                <div class="col-md-12">
+
+                                    <canvas id="myChart"></canvas>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                @foreach($assestmentPoints as $point)
                                 <div class="col-md-4 flex-icons">
-                                    @foreach($assestmentPoints as $point)
+                                        
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                             <i class="fa {{ $point->assestmentPointType->icon }}"></i>
                                             {{ $point->assestmentPointType->name }}
                                         </button>
                                     </p>
-                                    @endforeach
                                 </div>
-                                <div class="col-md-8">
-
-                                    <canvas id="myChart"></canvas>
-
-                                </div>
+                                @endforeach
 
                             </div>
                             @endif
@@ -1804,6 +1809,7 @@
                 which_network: "",
                 forgotPasswordEmail: "",
                 likes: parseInt("{{ App\Like::where('project_id', $project[0]->id)->count() }}"),
+                backgroundColorChart:[],
 
                 titleHistory: "",
                 drivingQuestionHistory: "",
@@ -2007,13 +2013,25 @@
             },
             drawChart() {
 
+                const backgroundColorArray = [
+                    "#1abc9c",
+                    "#2ecc71",
+                    "#3498db",
+                    "#9b59b6",
+                    "#e74c3c",
+                    "#f1c40f",
+                    "#FDA7DF"
+                ]
+
                 this.labels = []
                 this.values = []
+                this.backgroundColorChart = []
 
-                this.assestmentArray.forEach((data) => {
+                this.assestmentArray.forEach((data, index) => {
 
                     this.labels.push(data.name)
                     this.values.push(data.value)
+                    this.backgroundColorChart.push(backgroundColorArray[index])
 
                 })
 
@@ -2024,35 +2042,20 @@
                 }
 
                 this.myChart = new Chart(ctx, {
-                    type: 'horizontalBar',
+                    type: 'doughnut',
                     data: {
                         labels: this.labels,
                         datasets: [{
                             data: this.values,
+                            backgroundColor: this.backgroundColorChart
                         }]
                     },
                     options: {
                         legend: {
                             display: false,
                         },
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }],
-                            xAxes: [{
-                                ticks: {
-                                    beginAtZero: true,
-                                    callback: function(value) {
-                                        if (Number.isInteger(value)) {
-                                            return value;
-                                        }
-                                    },
-                                    stepSize: 1
-                                }
-                            }]
-                        }
+                        responsive: true,
+                        
                     }
                 });
             },
