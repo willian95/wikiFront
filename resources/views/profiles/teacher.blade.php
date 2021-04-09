@@ -234,6 +234,12 @@
                 cvResume: "{{ strip_tags(\Auth::user()->cv_resume) }}",
                 portfolio: "{{ strip_tags(\Auth::user()->portfolio) }}",
                 showMyEmail: JSON.parse('{!! \Auth::user()->show_my_email !!}'),
+                institution_email:"",
+                institution_not_registered:false,
+                institution_website:"",
+                admin_institution_name:"",
+                admin_institution_email:"",
+                admin_institution_website:"",
                 loading: false,
                 page: 1,
                 pages: 0,
@@ -309,6 +315,7 @@
                     if (data.id == this.institution) {
 
                         this.institutionName = data.name
+                        this.institution_website = data.website
                     }
                 })
             },
@@ -390,6 +397,85 @@
                     this.errors = err.response.data.errors
 
                 })
+
+            },
+            validateEmail(){
+
+                if(!this.institution_not_registered){
+
+                    let domain = null
+                    try{
+                        domain = new URL(this.institution_website.toLowerCase()).hostname
+                    }catch{
+
+                        domain = this.institution_website.toLowerCase()
+
+                    }
+                    if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
+
+                        swal({
+                            text: "Institution website and your institution email doesn't match",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    }
+
+                }else{
+
+                    let domain = null
+                    //console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
+
+                    try{
+                        domain = new URL(this.institution_website.toLowerCase()).hostname
+                    }catch{
+
+                        domain = this.institution_website.toLowerCase()
+
+                    }
+
+                    if (this.institution_email.toLowerCase().indexOf(domain.toLowerCase().replace("www.", "").replace("https", "").replace("http", "").replace("://", "")) < 0) {
+
+                        swal({
+                            text: "Institution website and your institution email doesn't match",
+                            icon: "warning"
+                        })
+
+                        return false
+
+                    }
+
+                }
+
+                return true
+
+            },
+            institutionUpdate(){
+
+                if(this.validateEmail()){
+                    this.loading = true
+                    axios.post("{{ url('/teacher/profile/institution/update') }}", {"institution_not_registered": this.institution_not_registered, "institution": this.institution, "institution_email": this.institution_email, "admin_institution_name": this.admin_institution_name, "admin_institution_website": this.admin_institution_website, "admin_institution_email": this.admin_institution_email}).then(res => {
+                        this.loading = false
+                        if(res.data.success == true){
+
+                            swal({
+                                text:res.data.msg,
+                                icon:"success"
+                            })
+
+                        }else{
+
+                            swal({
+                                text:"Something went wrong",
+                                icon:"error"
+                            })
+
+                        }
+
+                    })
+
+                }
 
             },
             fetchProjects(page = 1) {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeacherProfileUpdateRequest;
 use App\User;
+use App\AdminMail;
+use App\PendingInstitution;
 use App\TeacherReport;
 
 class TeacherController extends Controller
@@ -34,6 +36,66 @@ class TeacherController extends Controller
         }catch(\Exception $e){
 
             return response()->json(["success" => false, "msg" => "Something went wrong", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function institutionUpdate(Request $request){
+
+        try{
+            //dd($request->institution_not_registered);
+            if($request->institution_not_registered == true){
+
+                $pendingInstitution = new PendingInstitution;
+                $pendingInstitution->name = $request->admin_institution_name;
+                $pendingInstitution->website = $request->admin_institution_name;
+                $pendingInstitution->email = $request->admin_institution_email;
+                $pendingInstitution->save();
+
+                $user = User::find(\Auth::user()->id);
+                $user->institution_id = null;
+                $user->pending_institution_id = $pendingInstitution->id;
+                $user->institution_email = $request->institution_email;
+                $user->update();
+
+                
+
+            }else{
+
+                $user = User::find(\Auth::user()->id);
+                $user->institution_id = $request->institution;
+                $user->institution_email = $request->institution_email;
+                $user->update();
+
+                
+
+            }
+
+            $this->sendAdminEmail("New pending institution registered", "The ".$pendingInstitution->name." has been registered", "", false);
+
+            return response()->json(["success" => true, "msg" => "Institution updated"]);
+
+        }catch(\Exception $e){
+            return response()->json(["success" => false, "msg" => $e->getMessage()]);
+        }
+
+    }
+
+    function sendAdminEmail($title, $description, $link, $showLink){
+
+        foreach(AdminMail::all() as $adminMail){
+
+            $to_name = "admin";
+            $to_email = $adminMail->email;
+            $data = ["title" => $title, "description" => $description, "link" => $link, "showLink" => $showLink];
+
+            \Mail::send("emails.adminMail", $data, function($message) use ($to_name, $to_email, $title) {
+
+                $message->to($to_email, $to_name)->subject($title);
+                $message->from(env("MAIL_FROM_ADDRESS"), env("MAIL_FROM_NAME"));
+
+            });
 
         }
 

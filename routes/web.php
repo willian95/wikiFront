@@ -64,6 +64,7 @@ Route::post("institution/report", "InstitutionController@reportInstitution");
 
 Route::get("teacher/profile", "TeacherController@profile")->middleware("auth")->middleware("teacher");
 Route::post("teacher/profile/update", "TeacherController@update")->middleware("auth");
+Route::post("teacher/profile/institution/update", "TeacherController@institutionUpdate")->middleware("auth");
 Route::get("teacher/show/{id}", "TeacherController@show");
 Route::get("teacher/all", "TeacherController@showAll");
 Route::get("teacher/fetch-all", "TeacherController@fetchAll");
@@ -113,7 +114,7 @@ Route::post("project/assestment-point", "ProjectController@upvoteAssestmentPoint
 Route::post("project/delete", "ProjectController@delete")->middleware("auth");
 
 Route::get("project/public/my-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");
-Route::get("project/public/my-public-projects/{page}/{teacherId}", "ProjectController@publicMyProjects");
+Route::get("project/public/my-public-projects/{page}/{teacherId}", "ProjectController@publicMyPublicProjects");
 Route::get("project/public/my-follow-projects/{page}/{teacherId}", "ProjectController@publicMyFollowProjects");
 
 Route::get("project/own-template/public", "ProjectController@publicOwnTemplate");

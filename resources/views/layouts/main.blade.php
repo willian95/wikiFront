@@ -166,6 +166,12 @@
 
             InititalizeFireBaseMessaging()
 
+            @if(\Auth::check())
+                window.setTimeout(() => {
+                    window.location.href="{{ url('logout') }}"
+                }, 900000);
+            @endif
+
         })
 
     </script>

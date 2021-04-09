@@ -33,16 +33,51 @@
                 </div>
 
                 <div class="form-group" v-if="modalField == 'institution'">
-                    <label for="">Institutions:</label>
-                    <select id="" class="form-control" v-model="institution" @change="onChangeInstitution()">
+                    <label for="" v-if="!institution_not_registered">Institutions:</label>
+                    <select id="" class="form-control" v-model="institution" @change="onChangeInstitution()" v-if="!institution_not_registered">
                         <option :value="institution.id" v-for="institution in institutions" v-cloak>@{{ institution.name }}</option>
                     </select>
+
+
+                    <div class="row" v-if="institution_not_registered">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Institution name" v-model="admin_institution_name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Contact email" v-model="admin_institution_email">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Webpage" v-model="admin_institution_website">
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="">Institution email</label>
+                        <input type="email" class="form-control" v-model="institution_email">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" v-model="institution_not_registered">
+                            <label class="form-check-label" for="gridCheck">
+                                My institution is not registered/listed
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
                 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
+                <button type="button" class="btn btn-primary" v-if="modalField == 'institution'" @click="institutionUpdate()">Update</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" v-else>Select</button>
             </div>
         </div>
     </div>

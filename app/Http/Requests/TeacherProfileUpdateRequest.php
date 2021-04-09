@@ -24,8 +24,6 @@ class TeacherProfileUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            "country" => "required",
-            "state" => "required",
             "institution" => "required"
         ];
     }
