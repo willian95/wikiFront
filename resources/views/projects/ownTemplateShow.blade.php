@@ -82,22 +82,27 @@
 
                             <div class="row">
 
+                                
+                                <div class="col-md-12">
+
+                                    <canvas id="myChart"></canvas>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                @foreach($assestmentPoints as $point)
                                 <div class="col-md-4">
-                                    @foreach($assestmentPoints as $point)
+                                    
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                             <i class="fa {{ $point->assestmentPointType->icon }}"></i>
                                             {{ $point->assestmentPointType->name }}
                                         </button>
                                     </p>
-                                    @endforeach
+                                    
                                 </div>
-                                <div class="col-md-8">
-
-                                    <canvas id="myChart"></canvas>
-
-                                </div>
-
+                                @endforeach
                             </div>
 
                         </div>
@@ -1212,6 +1217,7 @@
                 myChart: null,
                 labels: [],
                 values: [],
+                backgroundColorChart:[],
 
                 institutions: [],
                 selected_institution: "",
@@ -1444,14 +1450,23 @@
                 }
             },
             drawChart() {
-
+                const backgroundColorArray = [
+                    "#1abc9c",
+                    "#2ecc71",
+                    "#3498db",
+                    "#9b59b6",
+                    "#e74c3c",
+                    "#f1c40f",
+                    "#FDA7DF"
+                ]
                 this.labels = []
                 this.values = []
 
-                this.assestmentArray.forEach((data) => {
+                this.assestmentArray.forEach((data, index) => {
 
                     this.labels.push(data.name)
                     this.values.push(data.value)
+                    this.backgroundColorChart.push(backgroundColorArray[index])
 
                 })
 
@@ -1467,6 +1482,7 @@
                         labels: this.labels,
                         datasets: [{
                             data: this.values,
+                            backgroundColor: this.backgroundColorChart
                         }]
                     },
                     options: {
