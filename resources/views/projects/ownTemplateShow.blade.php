@@ -1272,7 +1272,11 @@
                 levelHistory: [],
                 hashtagHistory: [],
                 calendarActivitiesHistory: [],
-                projectSumaryHistory: []
+                projectSumaryHistory: [],
+
+
+                unseenNotificationsCount:0,
+                notifications:[]
 
             }
         },
@@ -1632,14 +1636,11 @@
                     this.loading = false
                     if (res.data.success == true) {
 
-                        swal({
-                            text: res.data.msg,
-                            icon: "success"
-                        }).then(res => {
+                        
 
-                            window.location.reload()
+                        window.location.reload()
 
-                        })
+                      
 
                     } else {
 
@@ -2250,7 +2251,33 @@
                 } else {
                     this.currentSlide = this.slides
                 }
-            }
+            },
+            setSeenNotifications(){
+
+                this.unseenNotificationsCount = 0
+                axios.post("{{ url('/notification/seen') }}").then(res => {
+
+
+                })
+
+            },
+            getNotifications(){
+                this.unseenNotificationsCount = 0
+                axios.get("{{ url('/notification/last') }}").then(res => {
+
+                    this.notifications = res.data.notifications
+
+                    this.notifications.forEach((data) => {
+
+                        if(data.is_seen == 0){
+                            this.unseenNotificationsCount++
+                        }
+
+                    })
+
+                })
+
+            },
 
         },
         mounted() {
@@ -2311,7 +2338,7 @@
             this.projectSumaryHistory = JSON.parse('{!! $projectSumaryHistory !!}')
             this.slides = Math.ceil("{{ $project[0]->number_of_weeks }}" / 4)
 
-
+            this.getNotifications()
 
         }
 

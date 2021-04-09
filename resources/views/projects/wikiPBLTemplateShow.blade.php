@@ -1828,7 +1828,10 @@
                 projectMilestoneHistory: "",
                 expertHistory: "",
                 fieldWorkHistory: "",
-                globalConnectionHistory: ""
+                globalConnectionHistory: "",
+
+                unseenNotificationsCount:0,
+                notifications:[]
             }
         },
         methods: {
@@ -2197,14 +2200,10 @@
                     this.loading = false
                     if (res.data.success == true) {
 
-                        swal({
-                            text: res.data.msg,
-                            icon: "success"
-                        }).then(res => {
+                        
 
                             window.location.reload()
-
-                        })
+                    
 
                     } else {
 
@@ -2796,7 +2795,33 @@
                     scrollTop: distance
                 }, 50);
 
-            }
+            },
+            setSeenNotifications(){
+
+                this.unseenNotificationsCount = 0
+                axios.post("{{ url('/notification/seen') }}").then(res => {
+
+
+                })
+
+            },
+            getNotifications(){
+                this.unseenNotificationsCount = 0
+                axios.get("{{ url('/notification/last') }}").then(res => {
+
+                    this.notifications = res.data.notifications
+
+                    this.notifications.forEach((data) => {
+
+                        if(data.is_seen == 0){
+                            this.unseenNotificationsCount++
+                        }
+
+                    })
+
+                })
+
+            },
 
 
         },
@@ -2903,6 +2928,8 @@
             this.globalConnectionHistory = JSON.parse('{!! $globalConnectionHistory !!}')
 
             this.slides = Math.ceil("{{ $project[0]->number_of_weeks }}" / 4)
+
+            this.getNotifications()
 
         }
 

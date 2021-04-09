@@ -42,7 +42,7 @@
                             </div>
                             <ul id="ul" class="nav-fixed">
                                 <li>
-                                    <p class="menu-titulo">MENÚ</p>
+                                    <p class="menu-titulo">MENU</p>
                                 </li>
                                 <li class="nav-box_li">
                                     <div class="blue-box"></div>

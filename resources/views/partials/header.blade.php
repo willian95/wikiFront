@@ -38,7 +38,7 @@
                         </div>
                         <ul id="ul" class="nav-fixed">
                             <li>
-                                <p class="menu-titulo">MENÚ</p>
+                                <p class="menu-titulo">MENU</p>
                             </li>
                             @if(\Auth::check() && \Auth::user()->id)
                             <li class="nav-box_li user-menu_xs"> 
