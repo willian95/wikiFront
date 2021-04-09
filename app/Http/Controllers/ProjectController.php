@@ -575,7 +575,7 @@ class ProjectController extends Controller
 
     }
 
-    function myProjects($page){
+    function myProjects($page, Request $request){
 
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
@@ -585,19 +585,74 @@ class ProjectController extends Controller
             }
         ])->with("likes");
 
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $projectQuery->orderBy("is_incubator", $request->orientation);
+        }
+
+        else if($request->field == "likes"){
+            $projectQuery->withCount('likes')->orderBy('likes_count', $request->orientation);
+        }
+
         $projectQueryCount = Project::where("user_id", \Auth::user()->id)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
 
-        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $projectQuery->orderBy("is_incubator", $request->orientation);
+        }
+
+        else if($request->field == "likes"){
+            $projectQuery->withCount('likes')->orderBy('likes_count', $request->orientation);
+        }
+
+        $projects = $projectQuery->get();
+        $projectsArray = [];
+        //return response()->json(["projects" => $projects]);
+        foreach($projects as $project){
+
+            if(count($project->titles) > 0)
+                $projectsArray[]=[
+                    "project" => $project,
+                    "title" => $project->titles[0]->title
+                ];
+            
+            
+
+        }
+        
+        if($request->field == "title"){
+
+            if($request->orientation == "desc"){
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount)->reverse();
+            }else{
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount);
+            }
+            
+            $projectsArray = $projectsArray->values()->all();
+
+        }else{
+
+            $projectsArray = collect($projectsArray)->skip($skip)->take($dataAmount);
+            $projectsArray = $projectsArray->values()->all();
+
+        }
+
         $projectsCount = $projectQueryCount->count();
 
-        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+        return response()->json(["success" => true, "projects" => $projectsArray, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
     }
 
-    function myPublicProjects($page){
+    function myPublicProjects($page, Request $request){
 
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
@@ -607,19 +662,71 @@ class ProjectController extends Controller
             }
         ])->with("likes");
 
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $projectQuery->orderBy("is_incubator", $request->orientation);
+        }
+
+        else if($request->field == "likes"){
+            $projectQuery->withCount('likes')->orderBy('likes_count', $request->orientation);
+        }
+
         $projectQueryCount = Project::where("user_id", \Auth::user()->id)->where("is_private", 0)->orderBy("updated_at", "desc")->with(["titles" => function($q){
                 $q->orderBy("id", "desc");
             }
         ]);
 
-        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $projectQuery->orderBy("is_incubator", $request->orientation);
+        }
+
+        else if($request->field == "likes"){
+            $projectQuery->withCount('likes')->orderBy('likes_count', $request->orientation);
+        }
+
+        $projects = $projectQuery->get();
+        $projectsArray = [];
+        foreach($projects as $project){
+
+            if(count($project->titles) > 0)
+            $projectsArray[]=[
+                "project" => $project,
+                "title" => $project->titles[0]->title
+            ];
+
+        }
+        
+        if($request->field == "title"){
+
+            if($request->orientation == "desc"){
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount)->reverse();
+            }else{
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount);
+            }
+            
+            $projectsArray = $projectsArray->values()->all();
+
+        }else{
+
+            $projectsArray = collect($projectsArray)->skip($skip)->take($dataAmount);
+            $projectsArray = $projectsArray->values()->all();
+
+        }
+
         $projectsCount = $projectQueryCount->count();
 
-        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+        return response()->json(["success" => true, "projects" => $projectsArray, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
     }
 
-    function myFollowProjects($page){
+    function myFollowProjects($page, Request $request){
 
         $dataAmount = 10;
         $skip = ($page-1) * $dataAmount;
@@ -632,6 +739,24 @@ class ProjectController extends Controller
                 }])->with("likes");
             }]);
 
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $orientation = $request->orientation;
+            $projectQuery->whereHas("project", function($q) use($orientation){
+                $q->orderBy("is_incubator", $orientation);
+            });
+        }
+
+        else if($request->field == "likes"){
+            $orientation = $request->orientation;
+            $projectQuery->whereHas("project", function($q) use($orientation){
+                $q->withCount('likes')->orderBy('likes_count', $orientation);
+            });
+        }
+
         $projectQueryCount = ProjectShare::where("user_id", \Auth::user()->id)
             ->orderBy("updated_at", "desc")
             ->with(["project" => function($q){
@@ -639,11 +764,57 @@ class ProjectController extends Controller
                     $q->orderBy("id", "desc");
                 }]);
             }]);
+
+        if($request->field == "update"){
+            $projectQuery->orderBy("updated_at", $request->orientation);
+        }
+
+        else if($request->field == "incubator"){
+            $orientation = $request->orientation;
+            $projectQuery->whereHas("project", function($q) use($orientation){
+                $q->orderBy("is_incubator", $orientation);
+            });
+        }
+
+        else if($request->field == "likes"){
+            $orientation = $request->orientation;
+            $projectQuery->whereHas("project", function($q) use($orientation){
+                $q->withCount('likes')->orderBy('likes_count', $orientation);
+            });
+        }
         
-        $projects = $projectQuery->skip($skip)->take($dataAmount)->get();
+        $projects = $projectQuery->get();
+        $projectsArray = [];
+        foreach($projects as $project){
+
+            $projectsArray[]=[
+                "project" => $project,
+                "title" => $project->project->titles[0]->title
+            ];
+
+        }
+
+        if($request->field == "title"){
+
+            if($request->orientation == "desc"){
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount)->reverse();
+            }else{
+                $projectsArray = collect($projectsArray)->sortBy("title")->skip($skip)->take($dataAmount);
+            }
+            
+            $projectsArray = $projectsArray->values()->all();
+
+        }else{
+
+            $projectsArray = collect($projectsArray)->skip($skip)->take($dataAmount);
+            $projectsArray = $projectsArray->values()->all();
+
+        }
+
+
         $projectsCount = $projectQueryCount->count();
 
-        return response()->json(["success" => true, "projects" => $projects, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
+        return response()->json(["success" => true, "projects" => $projectsArray, "projectsCount" => $projectsCount, "dataAmount" => $dataAmount]);
 
     }
 
@@ -1671,6 +1842,7 @@ class ProjectController extends Controller
                 $q->withCount('likes')->orderBy('likes_count', $orientation);
             });
         }
+
         $projectQueryCount = ProjectShare::where("user_id", $teacherId)
             ->whereHas("project", function($q){
                 $q->where("status", "launched");
