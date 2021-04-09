@@ -691,14 +691,11 @@
                     this.loading = false
                     if (res.data.success == true) {
 
-                        swal({
-                            text: res.data.msg,
-                            icon: "success"
-                        }).then(res => {
+                       
 
-                            window.location.reload()
+                        window.location.reload()
 
-                        })
+                    
 
                     } else {
 
