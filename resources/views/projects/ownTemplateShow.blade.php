@@ -1481,7 +1481,7 @@
                 }
 
                 this.myChart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'radar',
                     data: {
                         labels: this.labels,
                         datasets: [{
