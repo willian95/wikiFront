@@ -84,7 +84,7 @@
                 <div class="col-md-9 info-template">
 
                     <div class="container-fluid">
-                        @if(\Auth::check())
+                        
                             @if(count($assestmentPoints) > 0)
                             <div class="row">
 
@@ -96,19 +96,20 @@
                                 </div>
 
                             </div>
+                            @if(\Auth::check())
                             <div class="row">
                                 @foreach($assestmentPoints as $point)
-                                <div class="col-md-4 flex-icons">
-                                        
+                                <div class="col-md-4">
+                                    
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                             <i class="fa {{ $point->assestmentPointType->icon }}"></i>
                                             {{ $point->assestmentPointType->name }}
                                         </button>
                                     </p>
+                                    
                                 </div>
                                 @endforeach
-
                             </div>
                             @endif
                         @endif

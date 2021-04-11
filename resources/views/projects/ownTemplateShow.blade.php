@@ -76,7 +76,7 @@
                 <!----------------info----------------->
                 <div class="col-md-9 info-template">
 
-                    @if(\Auth::check())
+                    
                         @if(count($assestmentPoints) > 0)
                         <div class="container-fluid">
 
@@ -90,6 +90,7 @@
                                 </div>
 
                             </div>
+                            @if(\Auth::check())
                             <div class="row">
                                 @foreach($assestmentPoints as $point)
                                 <div class="col-md-4">
@@ -104,10 +105,11 @@
                                 </div>
                                 @endforeach
                             </div>
-
+                            @endif
+                            
                         </div>
                         @endif
-                    @endif
+                    
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
