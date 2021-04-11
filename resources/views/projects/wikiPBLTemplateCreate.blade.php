@@ -1576,9 +1576,16 @@
                     let string = this.private == 0 ? 'shared view ' : 'view only '
 
                     swal({
+                        content: {
+                                element: "img",
+                                attributes: {
+                                    width: "100",
+                                    height: "100",
+                                    src: "{{ asset('/assets/img/thumbs-up-black.png') }}",
+                                },
+                            },
                             title: "Are you sure?",
-                            text: "You will launch this project in " + string + 'mode',
-                            icon: "warning",
+                            text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! " + string + 'mode',
                             buttons: true,
                             dangerMode: true,
                         })

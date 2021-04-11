@@ -768,7 +768,7 @@
                                 attributes: {
                                     width: "100",
                                     height: "100",
-                                    src: "https://images.pexels.com/photos/5673488/pexels-photo-5673488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                                    src: "{{ asset('/assets/img/thumbs-up-black.png') }}",
                                 },
                             },
                             title: "Are you sure?",
