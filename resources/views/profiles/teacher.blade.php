@@ -120,7 +120,7 @@
                                 <tr v-for="(project,index) in projects">
                                     <td>
 
-                                        <a :href="'{{ url('/project/show/') }}'+'/'+project.project.id">
+                                        <a :href="'{{ url('/project/edit/') }}'+'/'+project.project.id">
                                             <p v-if="project.title" v-cloak>@{{ project.title }}</p>
                                         </a>
 
@@ -176,7 +176,7 @@
                                 <tr v-for="(project,index) in projects">
                                     <td>
                                         
-                                        <a :href="'{{ url('/project/show/') }}'+'/'+project.project.project_id">
+                                        <a :href="'{{ url('/project/edit/') }}'+'/'+project.project.project_id">
                                             <p v-if="project.title" v-cloak>@{{ project.title }}</p>
                                         </a>
 
