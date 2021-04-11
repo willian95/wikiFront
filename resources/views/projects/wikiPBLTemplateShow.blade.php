@@ -2903,10 +2903,11 @@
             if ("{{ \Auth::check() }}" == "1") {
 
                 this.institution_type = "{{ \Auth::user()->institution ? \Auth::user()->institution->type : ''  }}"
-                this.drawChart()
 
             }
             @endif
+
+            this.drawChart()
 
             this.titleHistory = JSON.parse('{!! $titleHistory !!}')
             this.drivingQuestionHistory = JSON.parse('{!! $drivingQuestionHistory !!}')
