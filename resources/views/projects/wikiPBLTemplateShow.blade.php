@@ -2026,16 +2026,14 @@
                     "#f1c40f",
                     "#FDA7DF"
                 ]
-
                 this.labels = []
                 this.values = []
-                this.backgroundColorChart = []
 
                 this.assestmentArray.forEach((data, index) => {
 
                     this.labels.push(data.name)
                     this.values.push(data.value)
-                    this.backgroundColorChart.push(backgroundColorArray[index])
+                    
 
                 })
 
@@ -2049,17 +2047,51 @@
                     type: 'radar',
                     data: {
                         labels: this.labels,
-                        datasets: [{
-                            data: this.values,
-                            backgroundColor: this.backgroundColorChart
-                        }]
+                        datasets: [
+                            {
+                                data: this.values,
+                                borderColor: "rgb(0,0,200)",
+                                backgroundColor: "rgba(0,0,200,0.2)",
+                            }
+                        ]
                     },
                     options: {
                         legend: {
                             display: false,
                         },
-                        responsive: true,
+                        scale: {
+                            ticks: {
+                                beginAtZero: true,
+                                min: 0,
+                                userCallback: function(label, index, labels) {
+                                    // when the floored value is the same as the value we have a whole number
+                                    if (Math.floor(label) === label) {
+                                        return label;
+                                    }else{
+                                        return "";
+                                    }
+                                },
+                            }
+                        }
                         
+                        /*scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    callback: function(value) {
+                                        if (Number.isInteger(value)) {
+                                            return value;
+                                        }
+                                    },
+                                    stepSize: 1
+                                }
+                            }]
+                        }*/
                     }
                 });
             },
