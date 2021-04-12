@@ -28,7 +28,11 @@ class TeacherController extends Controller
             $user->portfolio = $request->portfolio;
             $user->institution_id = $request->institution;
             $user->why_do_you_educate = $request->why_do_you_educate;
-            $user->show_my_email = boolval($request->show_my_email);
+            if($request->show_my_email == "false")
+                $user->show_my_email = 0;
+
+            if($request->show_my_email == "true")
+                $user->show_my_email = 1;
             $user->update();
 
             return response()->json(["success" => true, "msg" => "Profile updated"]);
