@@ -51,8 +51,8 @@
                 </div>
                 <div class="col-md-3">
                     <h3 v-if="categoryType == 'school'"> Age groups</h3>
-                    <h3 v-else>Months</h3>
-                    <div class="form-group">
+                   
+                    <div class="form-group" v-if="categoryType == 'school'">
                         <label for=""></label>
                         <select id="" class="form-control" v-model="level" @change="getSubjects()">
                             <option v-if="categoryType == 'school'" value="nursery">Nursery 0 - 3 </option>
@@ -60,7 +60,6 @@
                             <option v-if="categoryType == 'school'" value="primary">Primary/Elementary 7 - 10</option>
                             <option v-if="categoryType == 'school'" value="middle">Middle School 11 - 13</option>
                             <option v-if="categoryType == 'school'" value="high">High School 14 - 18</option>
-                            <option :value="i" v-for="i in 18" v-if="categoryType == 'university'" v-cloak>@{{ i }} Month</option>
                         </select>
 
                     </div>
@@ -138,7 +137,7 @@
 
                 getSubjects(){
 
-                    axios.post("{{ url('/home/get-subjects') }}", {"institution_type": this.categoryType, "level": this.level}).then(res => {
+                    axios.post("{{ url('/home/get-subjects') }}", {"institution_type": this.categoryType}).then(res => {
 
                         this.subjects = res.data.subjects
 
@@ -165,7 +164,7 @@
 
                         }else{
 
-                            this.level = "1"
+                            //this.level = "1"
                             this.getSubjects()
 
                         }

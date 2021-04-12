@@ -29,12 +29,25 @@ class HomeController extends Controller
             
             foreach($letters as $letter){
 
-                $subjects = Subject::where("institution_type", $request->institution_type)->where("level", $request->level)->where("name", "like", "{$letter}%")->limit(5)->get();
-                $results[] = [
-                    "letter" => $letter,
-                    "subjects" => $subjects
+                if($request->institution_type == "university"){
 
-                ];
+                    $subjects = Subject::where("institution_type", $request->institution_type)->where("name", "like", "{$letter}%")->limit(5)->get();
+                    $results[] = [
+                        "letter" => $letter,
+                        "subjects" => $subjects
+
+                    ];
+
+                }else{
+
+                    $subjects = Subject::where("institution_type", $request->institution_type)->where("level", $request->level)->where("name", "like", "{$letter}%")->limit(5)->get();
+                    $results[] = [
+                        "letter" => $letter,
+                        "subjects" => $subjects
+
+                    ];
+
+                }
 
             }
 
