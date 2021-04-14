@@ -339,9 +339,8 @@ Nav
 
 .info-regrister {
     width: 65%;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+
+    display: inline;
     margin-bottom: 30px;
 }
 .info-regrister p {
