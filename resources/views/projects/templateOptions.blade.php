@@ -11,7 +11,7 @@
         <div class="col-md-6 flex-template ">
             <img class="mt-4 mb-4" alt='icono' src="{{ url('assets/img/iconos/template2.svg') }}">
             <a href="{{ url('project/own-template/create') }}" class="btn btn-custom btn-custom-green mb-3">Awesome Project Idea? <br> Freeform <strong>wikiPBL</strong> Project Builder</a>
-            <p>If you have a project idea without all the details, don’t hold back, be brave and get it out there. Our world of wikiPBL educators love taking projects from idea to Awesome! Choosing this freeform builder will automatically engage the incubator feature.</p>
+            <p style="margin-top: 5px;">If you have a project idea without all the details, don’t hold back, be brave and get it out there. Our world of wikiPBL educators love taking projects from idea to Awesome! Choosing this freeform builder will automatically engage the incubator feature.</p>
         </div>
     </div>
 </div>

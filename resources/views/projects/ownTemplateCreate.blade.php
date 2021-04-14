@@ -131,20 +131,16 @@
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                    <p class="help-icon-p">An open-ended question that guides students'
-                                        thinking and learning, empowering their explorations
-                                        during PBL
-
-                                    </p>
+                                   
                                 </div>
                                 
-                                <p class="help-icon-p">An open-ended question that guides students'
+                             
+                            </div>
+                            <p class="help-icon-p">An open-ended question that guides students'
                                         thinking and learning, empowering their explorations
                                         during PBL
 
                                     </p>
-                            </div>
-
                             <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
 
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
@@ -237,10 +233,11 @@
                                 <h3 class="titulo-templates">Project summary</h3>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p class="help-icon-p"> Briefly summarize your project
-                                    </p>
+                                   
                                 </div>
                             </div>
+                            <p class="help-icon-p"> Briefly summarize your project
+                                    </p>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                         </li>
 
@@ -263,11 +260,11 @@
                                 </a>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>What artifacts, presentations, performances or compositions will your students produce?
-                                    </p>
+                                
                                 </div>
                             </div>
-
+                            <p class="help-icon-p">What artifacts, presentations, performances or compositions will your students produce?
+                                    </p>
                             <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
@@ -292,12 +289,11 @@
                                 </a>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>For what age/grade level(s) is your project appropriate?
-                                    </p>
+                                
                                 </div>
                             </div>
-
-
+                            <p class="help-icon-p">For what age/grade level(s) is your project appropriate?
+                                    </p>
                             <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
                             <div class="row">
@@ -407,13 +403,13 @@
                                 <h3 class="titulo-templates">#hashtags</h3>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>These are keywords to help others find your project in searches
-
-                                    </p>
+                                  
                                 </div>
 
                             </div>
+                            <p class="help-icon-p">These are keywords to help others find your project in searches
 
+</p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <input class="form-control" type="text" placeholder="Type and enter to add each #hashtag" v-model="hashtag" v-on:keyup.enter="addHashtag()">
@@ -451,12 +447,13 @@
                                         <h3 class="titulo-templates">Calendar of activities </h3>
                                         <div class="help-icon">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
-                                            <p>Share your schedule of activities
-
-                                            </p>
+                                         
                                         </div>
 
                                     </div>
+                                    <p class="help-icon-p">Share your schedule of activities
+
+</p>
                                 </div>
                                 <div class="col-md-6 flex-wee">
                                     <label class="ml-5 mr-4" for="inp">Weeks</label>
@@ -569,9 +566,10 @@
                                 <h3 class="titulo-templates" v-cloak>Bibliography (mandatory)</h3>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>If you use someone else's stuff, give them credit </p>
+                                 
                                 </div>
                             </div>
+                            <p class="help-icon-p">If you use someone else's stuff, give them credit </p>
                             <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                         </div>
 
@@ -583,12 +581,12 @@
                                 </h1>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>Identify the essential elements that you think your
-                                        project highlights, so your peers can like/upvote your
-                                        wikiPBL </p>
+                           
                                 </div>
                             </div>
-
+                            <p class="help-icon-p">Identify the essential elements that you think your
+                                        project highlights, so your peers can like/upvote your
+                                        wikiPBL </p>
                             <div class="row">
                                 @foreach(App\AssestmentPointType::get() as $point)
                                 <div class="col-md-6">

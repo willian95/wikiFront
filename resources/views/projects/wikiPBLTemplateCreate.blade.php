@@ -136,14 +136,14 @@
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                <p>An open-ended question that guides students'
+                              
+                            </div>
+                        </div>
+                        <p class="help-icon-p">An open-ended question that guides students'
                                     thinking and learning, empowering their explorations
                                     during PBL
 
                                 </p>
-                            </div>
-                        </div>
-
                         <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
 
                         <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
@@ -168,11 +168,11 @@
                             </a>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>What subjects (content areas) does your project address/emphasize?
-                                </p>
+                              
                             </div>
                         </div>
-
+                        <p class="help-icon-p">What subjects (content areas) does your project address/emphasize?
+                                </p>
                         <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
                         <input class="form-control" type="text" placeholder="Type and press enter to add your subject" v-model="subject" v-on:keyup.enter="addSubject()">
                         <div class="row mt-3">
@@ -209,11 +209,11 @@
                             </a>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>How long do you think your project will take?
-                                </p>
+                               
                             </div>
                         </div>
-
+                        <p class="help-icon-p">How long do you think your project will take?
+                                </p>
                         <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                         <div class="row">
                             <div class="col-md-6">
@@ -227,10 +227,11 @@
                             <h3 class="titulo-templates">Project summary</h3>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>Briefly summarize your project
-                                </p>
+                               
                             </div>
                         </div>
+                        <p class="help-icon-p">Briefly summarize your project
+                                </p>
                         <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                     </li>
 
@@ -253,11 +254,11 @@
                             </a>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>What artifacts, presentations, performances or compositions will your students produce?
-                                </p>
+                               
                             </div>
                         </div>
-
+                        <p class="help-icon-p">What artifacts, presentations, performances or compositions will your students produce?
+                                </p>
                         <p class="subtitule_txt">(you can edit this for whatever Title)
                         </p>
                         <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
@@ -282,11 +283,11 @@
                             </a>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>For what age/grade level(s) is your project appropriate?
-                                </p>
+                              
                             </div>
                         </div>
-
+                        <p class="help-icon-p">For what age/grade level(s) is your project appropriate?
+                                </p>
                         <p class="subtitule_txt">(you can edit this for whatever Title)
                         </p>
                         <div class="row">
@@ -396,13 +397,13 @@
                             <h3 class="titulo-templates">#hashtags</h3>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>These are keywords to help others find your project in searches
-
-                                </p>
+                               
                             </div>
 
                         </div>
+                        <p class="help-icon-p">These are keywords to help others find your project in searches
 
+</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <input class="form-control" type="text" placeholder="Type and enter to add each #hashtag" v-model="hashtag" v-on:keyup.enter="addHashtag()">
@@ -483,14 +484,14 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>What prerequisites will be required for the start of this
+                                      
+                                    </div>
+                                </div>
+                                <p class="help-icon-p">What prerequisites will be required for the start of this
                                             project (e.g. protractor, intermediate word processing
                                             skills, 4th grade reading ability)?
 
                                         </p>
-                                    </div>
-                                </div>
-
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
 
@@ -558,16 +559,16 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>What will your students learn from this project?
+                                     
+                                    </div>
+                                </div>
+
+                                <p class="help-icon-p">What will your students learn from this project?
                                             These can be formal learning objectives, essential
                                             skills, core competencies or developmental
                                             competencies
 
                                         </p>
-                                    </div>
-                                </div>
-
-
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
                                 <input type="text" placeholder="Type and enter to add each" v-model="learningGoalObjectives" class="form-control mb-2">
@@ -644,15 +645,15 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>What actual things (artifacts, books or bodies of
+                                      
+                                    </div>
+                                </div>
+
+                                <p class="help-icon-p">What actual things (artifacts, books or bodies of
                                             knowledge) will your students need to complete this
                                             project?
 
                                         </p>
-                                    </div>
-                                </div>
-
-
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
                                 <textarea name="" id="resourcesEditor" cols="30" rows="10"></textarea>
@@ -707,12 +708,12 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>What are the major project steps toward project completion?
-
-                                        </p>
+                                     
                                     </div>
                                 </div>
+                                <p class="help-icon-p">What are the major project steps toward project completion?
 
+</p>
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
                                 <input type="text" class="form-control mb-2" v-model="milestoneTitle">
@@ -755,13 +756,13 @@
                                     <h3 class="titulo-templates">Calendar of activities </h3>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>Share your schedule of activities
-
-                                        </p>
+                                       
                                     </div>
 
                                 </div>
+                                <p class="help-icon-p">Share your schedule of activities
 
+</p>
                             </div>
                             <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
@@ -920,12 +921,12 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>Will you invite experts outside of school to guide/critique/inspire your students' success on their projects?
-
-                                        </p>
+                                       
                                     </div>
                                 </div>
+                                <p class="help-icon-p">Will you invite experts outside of school to guide/critique/inspire your students' success on their projects?
 
+</p>
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
 
@@ -991,11 +992,11 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>Activities completed outside of the classroom such as taking water samples from a lake or interviewing Vietnam veterans
-                                        </p>
+                                      
                                     </div>
                                 </div>
-
+                                <p class="help-icon-p">Activities completed outside of the classroom such as taking water samples from a lake or interviewing Vietnam veterans
+                                        </p>
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
 
@@ -1060,10 +1061,10 @@
                                     </a>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>What individuals or groups from around the world would you like to be involved in your project? </p>
+                                  
                                     </div>
                                 </div>
-
+                                <p class="help-icon-p">What individuals or groups from around the world would you like to be involved in your project? </p>
                                 <p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>
 
@@ -1078,10 +1079,10 @@
                             <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                                <p>If you use someone else's stuff, give them credit </p>
+                                
                             </div>
                         </div>
-
+                        <p class="help-icon-p">If you use someone else's stuff, give them credit </p>
                         <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                     </div>
 
@@ -1095,12 +1096,12 @@
                                     </h1>
                                     <div class="help-icon">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
-                                        <p>Identify the essential elements that you think your
-                                            project highlights, so your peers can like/upvote your
-                                            wikiPBL </p>
+                                    
                                     </div>
                                 </div>
-
+                                <p class="help-icon-p">Identify the essential elements that you think your
+                                            project highlights, so your peers can like/upvote your
+                                            wikiPBL </p>
                             </div>
 
                             @foreach(App\AssestmentPointType::get() as $point)
