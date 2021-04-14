@@ -16,7 +16,7 @@
         <div class="div-coming">
             <div class="coming-soon">
                 <div>
-                    <img class="logo" src="{{ url('comingSoonAssets/img/logo.svg') }}" alt="logo wikipbl">
+                    <img class="logo" src="{{ url('comingSoonAssets/img/logo.png') }}" alt="logo wikipbl">
                 </div>
                 <div>
                     <h1>COMING SOON</h1>

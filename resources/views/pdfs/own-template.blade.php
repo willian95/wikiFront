@@ -6,7 +6,7 @@
     <body>
         
         <a href="{{ url('/') }}">
-            <img src="https://www.wikipbl.org/assets/img/logo.svg" alt="" style="150px;">
+            <img src="https://www.wikipbl.org/assets/img/logo.png" alt="" style="150px;">
         </a>
 
         <h3 class="titulo-templates">
