@@ -1872,3 +1872,24 @@ display: none!important;
 .dropdown-toggle:after{
     display: none;
 }
+.img-icon{
+    width: 30px;
+}
+.dflex-icon{
+    display: flex;
+    align-items: center;
+}
+.dflex-icon .form-check {
+
+    margin-left: 20px;
+    margin-top: 13px;
+}
+.dflex-icon  .form-check-label,.dflex-icon .form-check-input  {
+   
+    cursor: pointer;
+}
+
+.dflex-icon  .form-check-label:hover {
+ 
+    color: #9ec54c;
+}

@@ -512,9 +512,9 @@
                         </h1>
                         <div class="row">
                             @foreach(App\AssestmentPointType::get() as $point)
-                            <div class="col-md-6">
+                            <div class="col-md-6 dflex-icon">
 
-                                <i class="{{ $point->icon }}"></i>
+                                  <img src="{{ $point->icon }}" class="img-icon"></img>
                                 <div class="form-check">
 
                                     <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">

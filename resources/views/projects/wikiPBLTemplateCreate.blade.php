@@ -1105,8 +1105,8 @@
                             </div>
 
                             @foreach(App\AssestmentPointType::get() as $point)
-                            <div class="col-md-6">
-                                <i class="{{ $point->icon }}"></i>
+                            <div class="col-md-6 dflex-icon">
+                                <img src="{{ $point->icon }}" class="img-icon"></img>
                                 <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
 
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
