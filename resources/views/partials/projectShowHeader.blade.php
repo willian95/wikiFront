@@ -115,7 +115,7 @@
               <div class=' xs_show-edit' id='navbarNav'>
                     <ul class='navbar-nav container'>
                         <div class="row">
-                            <div class="col-md-12  mt-3">
+                            <div class="col-md-12  mt-13">
                                 <div class="menu-flex  " >
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons menu-botoom">
