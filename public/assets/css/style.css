@@ -350,6 +350,7 @@ Nav
 
 .info-regrister img {
     width: 30px;
+    margin-bottom: 10px;
 }
 
 .info-regrister {
@@ -1339,19 +1340,24 @@ input:checked + .slider:before {
 }
 
 .btn-votos {
-    color: #ffffff;
+    color: #4674b8;
     font-size: 14px;
     border: none;
     width: 200px;
     text-align: start;
     border-radius: 5px;
-    background: #4674b8;
+    background: #ffffff;
     text-align: center;
+    border: 1px solid #4674b8;
+}
+.btn-votos img{
+    width: 25px;
+    height: 100%;
 }
 .btn-votos:hover {
-    color: #4674b8;
+    color: #8cc63e;
 
-    border: 1px solid #4674b8;
+    border: 1px solid #8cc63e;
 
     background: #ffffff;
 }

@@ -97,7 +97,8 @@
                                     
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                            <i class="fa {{ $point->assestmentPointType->icon }}"></i>
+                                            <img src="{{ $point->assestmentPointType->icon }}" alt="">
+                                          
                                             {{ $point->assestmentPointType->name }}
                                         </button>
                                     </p>
