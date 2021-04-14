@@ -72,13 +72,14 @@
                             <div class="help-icon">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                <p>If you have a project idea without all the details, don’t
-                                    hold back, be brave and get it out there. Our world of
-                                    wikiPBL educators love taking projects from idea to
-                                    Awesome!
-                                </p>
+                             
                             </div>
                         </h3>
+                        <p class="help-icon-p">If you have a project idea without all the details, don’t
+                                        hold back, be brave and get it out there. Our world of
+                                        wikiPBL educators love taking projects from idea to
+                                        Awesome!
+                                    </p>
                         <div class="flex-custom--icon">
                             <img alt='icon' class="login_icon incubator " src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
@@ -173,7 +174,7 @@
                         </div>
 
                         <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
-                        <input class="form-control" type="text" placeholder="math" v-model="subject" v-on:keyup.enter="addSubject()">
+                        <input class="form-control" type="text" placeholder="Type and press enter to add your subject" v-model="subject" v-on:keyup.enter="addSubject()">
                         <div class="row mt-3">
                             <div v-for="(subject, index) in subjects" class="col-md-3">
                                 <div class="card">

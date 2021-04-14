@@ -12,7 +12,7 @@
                         <li class="menu" id="dropMenu">
                             <div class="drop-box">
                                 <a class="drop-text" href="#">
-                                <button class="menu-effect" style="    margin-left: 40px;" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                                <button class="menu-effect"  onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
       <svg width="100" height="100" viewBox="0 0 100 100">
         <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
         <path class="line line2" d="M 20,50 H 80" />
@@ -92,7 +92,7 @@
 
                                         <li class="nav-item  flex-main mr-0">
                                             <a target="_blank" href="{{ url('/project/pdf/'.$project[0]->id) }}">
-                                                <svg class="login_icon  hover-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <svg class="login_icon  hover-svg color-blue_icon " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path d="M20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.1,0A1.1,1.1,0,0,0,13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Zm-4.71-4.71-.29.3V12a1,1,0,0,0-2,0v2.59l-.29-.3a1,1,0,0,0-1.42,1.42l2,2a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l2-2a1,1,0,0,0-1.42-1.42Z" />
                                                 </svg>
                                                 <span class="tooltip-nav">Download file</span>
@@ -143,7 +143,7 @@
                                         <li class="nav-item  flex-main">
                                             <a style="cursor:pointer;" @click="followProject()">
                                                 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                                                <svg id="followIcon" class="login_icon  hover-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                                <svg id="followIcon " class="login_icon  hover-svg color-green_icon " version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                                     <path d="M492,127.5h-18v-18c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v18h-18c-11.046,0-20,8.954-20,20s8.954,20,20,20h18v18c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20v-18h18c11.046,0,20-8.954,20-20S503.046,127.5,492,127.5z" />
                                                     <path d="M315.409,249.231C345.854,225.711,365.5,188.86,365.5,147.5C365.5,76.645,307.855,19,237,19S108.5,76.645,108.5,147.5c0,41.359,19.646,78.211,50.091,101.731C68.293,280.793,0,367.427,0,473c0,11.046,8.954,20,20,20h434c11.046,0,20-8.954,20-20C474,367.401,405.656,280.775,315.409,249.231z M148.5,147.5c0-48.799,39.701-88.5,88.5-88.5s88.5,39.701,88.5,88.5S285.799,236,237,236S148.5,196.299,148.5,147.5z M41.008,453C51.061,353.73,135.123,276,237,276s185.939,77.73,195.992,177H41.008z" />
                                                 </svg>

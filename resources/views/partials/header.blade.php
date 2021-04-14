@@ -100,7 +100,7 @@
     @if(\Auth::check() && \Auth::user()->id)
     <ul class='navbar-nav container nav_1'>
         <div class="row">
-            <div class="col-md-12  mt-3">
+            <div class="col-md-12 mt-13">
                 <div class="menu-flex menu-flex_1">
                     <!-- Iconos temlate option-->
                     <div class="header-icons">

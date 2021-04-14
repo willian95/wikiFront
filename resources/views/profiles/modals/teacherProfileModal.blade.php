@@ -23,8 +23,8 @@
                 </div>
 
                 <div class="form-group" v-if="modalField == 'cvResume'">
-                    <label >CVResume</label>
-                    <input type="text" class="form-control" placeholder="https://www.linkedIn.com/cv/resume" v-model="cvResume">
+                    <label >CV Resume</label>
+                    <input type="text" class="form-control" placeholder="https://www.mypersonalpage.com " v-model="cvResume">
                 </div>
 
                 <div class="form-group" v-if="modalField == 'portfolio'">

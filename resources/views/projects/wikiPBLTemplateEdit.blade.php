@@ -190,7 +190,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" v-model="subject" class="form-control" v-on:keyup.enter="addSubject()">
+                                    <input type="text" v-model="subject" class="form-control" v-on:keyup.enter="addSubject()" placeholder="Type and press enter to add your subject">
                                 </div>
                             </div>
 

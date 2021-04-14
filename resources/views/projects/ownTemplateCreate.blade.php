@@ -66,14 +66,13 @@
                                 Incubator Features
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-
-                                    <p>If you have a project idea without all the details, don’t
+                                </div>
+                            </h3>
+                            <p class="help-icon-p">If you have a project idea without all the details, don’t
                                         hold back, be brave and get it out there. Our world of
                                         wikiPBL educators love taking projects from idea to
                                         Awesome!
                                     </p>
-                                </div>
-                            </h3>
                             <div class="flex-custom--icon">
                                 <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                                 <!-- Rounded switch -->
@@ -132,12 +131,18 @@
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                    <p>An open-ended question that guides students'
+                                    <p class="help-icon-p">An open-ended question that guides students'
                                         thinking and learning, empowering their explorations
                                         during PBL
 
                                     </p>
                                 </div>
+                                
+                                <p class="help-icon-p">An open-ended question that guides students'
+                                        thinking and learning, empowering their explorations
+                                        during PBL
+
+                                    </p>
                             </div>
 
                             <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
@@ -148,7 +153,7 @@
                         <li class="content_template-general-item" id="subjecttitle">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'" v-cloak>@{{ subjectTitle }}</h3>
-                                <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
+                                <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle" placeholder="Type and press enter to add your subject">
                                 <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                     <span v-if="editSection != 'subjectTitle'">Click to edit</span>
                                     <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
@@ -164,16 +169,16 @@
                                 </a>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>What subjects (content areas) does your project address/emphasize?
-                                    </p>
+                                 
                                 </div>
                             </div>
-
+                            <p class="help-icon-p">What subjects (content areas) does your project address/emphasize?
+                                    </p>
                             <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" v-model="subject" class="form-control" v-on:keyup.enter="addSubject()">
+                                    <input type="text" v-model="subject" class="form-control" v-on:keyup.enter="addSubject()" placeholder="Type and press enter to add your subject">
                                 </div>
                             </div>
 
@@ -213,12 +218,12 @@
                                 </a>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>How long do you think your project will take?
-                                    </p>
+                                   
                                 </div>
                             </div>
 
-
+                            <p class="help-icon-p">How long do you think your project will take?
+                                    </p>
                             <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                             <div class="row">
                                 <div class="col-md-6">
@@ -232,7 +237,7 @@
                                 <h3 class="titulo-templates">Project summary</h3>
                                 <div class="help-icon">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                    <p>Briefly summarize your project
+                                    <p class="help-icon-p"> Briefly summarize your project
                                     </p>
                                 </div>
                             </div>

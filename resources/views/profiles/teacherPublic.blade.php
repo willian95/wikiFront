@@ -63,7 +63,7 @@
                         <p v-cloak><strong>Member since: </strong> @{{ memberSince }}</p>
                         <p v-cloak><strong>Country:</strong> @{{ countryName }}</p>
                         <p v-cloak><strong>City: </strong>@{{ stateName }}</p>
-                        <p v-cloak><strong>CV/Resume:</strong> @{{ cvResume }}</p>
+                        <p v-cloak><strong>CV Resume:</strong> @{{ cvResume }}</p>
                         <p v-cloak><strong>Portfolio:</strong>@{{ portfolio }}</p>
                     </div>
                 </div>
@@ -142,8 +142,8 @@
                                     </td>
                                     <td>
 
-                                        <span v-cloak>
-                                            @{{ project.project.likes.length }}
+                                        <span class="menu-icon_hover" v-cloak>
+                                        <span class="tooltip-nav-info_last"> @{{ project.project.likes.length }}</span>
                                             <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                 <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
                                             </svg>
@@ -219,9 +219,9 @@
                                         </span>
                                     
                                     </td>
-                                    <td>
+                                    <td class="">
 
-                                        <span class="line_" v-cloak>@{{ dateFormatter(project.project.project.updated_at) }}</span>
+                                        <span class="line_ modif-last" v-cloak>@{{ dateFormatter(project.project.project.updated_at) }}</span>
 
                                     </td>
                                     <td>
