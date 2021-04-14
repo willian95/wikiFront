@@ -17,11 +17,11 @@ $(function () {
   });
 
 
-  $(".help-icon-p").hide();
+  /*$(".help-icon-p").hide();
   $(".help-icon").click(function(){
     $(".help-icon-p").toggle("show");
 
-  });
+  });*/
 
 
 

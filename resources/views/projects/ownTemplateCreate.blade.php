@@ -64,11 +64,11 @@
                         <li class="content_template-general-item">
                             <h3 class="titulo-templates">
                                 Incubator Features
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('incubator')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 </div>
                             </h3>
-                            <p class="help-icon-p">If you have a project idea without all the details, don’t
+                            <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
                                         hold back, be brave and get it out there. Our world of
                                         wikiPBL educators love taking projects from idea to
                                         Awesome!
@@ -128,7 +128,7 @@
                                     </svg>
 
                                 </a>
-                                <div class="help-icon">
+                                <div class="help-icon"  @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
                                    
@@ -136,7 +136,7 @@
                                 
                              
                             </div>
-                            <p class="help-icon-p">An open-ended question that guides students'
+                            <p class="help-icon-p" v-show="drivingQuestionHelp">An open-ended question that guides students'
                                         thinking and learning, empowering their explorations
                                         during PBL
 
@@ -163,12 +163,12 @@
                                     </svg>
 
                                 </a>
-                                <div class="help-icon">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <div class="help-icon" @click="showHelp('subjectTitle')">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="" >
                                  
                                 </div>
                             </div>
-                            <p class="help-icon-p">What subjects (content areas) does your project address/emphasize?
+                            <p class="help-icon-p" v-show="subjectTitleHelp">What subjects (content areas) does your project address/emphasize?
                                     </p>
                             <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
 
@@ -212,13 +212,13 @@
                                     </svg>
 
                                 </a>
-                                <div class="help-icon">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <div class="help-icon" @click="showHelp('timeFrame')">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="" >
                                    
                                 </div>
                             </div>
 
-                            <p class="help-icon-p">How long do you think your project will take?
+                            <p class="help-icon-p" v-show="timeFrameHelp">How long do you think your project will take?
                                     </p>
                             <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
                             <div class="row">
@@ -231,12 +231,12 @@
                         <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates">Project summary</h3>
-                                <div class="help-icon">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
+                                <div class="help-icon" @click="showHelp('projectSummary')">
+                                    <img src="{{ url('assets/img/help.png') }}" alt="" >
                                    
                                 </div>
                             </div>
-                            <p class="help-icon-p"> Briefly summarize your project
+                            <p class="help-icon-p" v-show="projectSummaryHelp"> Briefly summarize your project
                                     </p>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
                         </li>
@@ -258,12 +258,12 @@
                                     </svg>
 
                                 </a>
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('publicProductTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 
                                 </div>
                             </div>
-                            <p class="help-icon-p">What artifacts, presentations, performances or compositions will your students produce?
+                            <p class="help-icon-p" v-show="publicProductTitleHelp">What artifacts, presentations, performances or compositions will your students produce?
                                     </p>
                             <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
@@ -287,12 +287,12 @@
                                     </svg>
 
                                 </a>
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 
                                 </div>
                             </div>
-                            <p class="help-icon-p">For what age/grade level(s) is your project appropriate?
+                            <p class="help-icon-p" v-show="levelTitleHelp">For what age/grade level(s) is your project appropriate?
                                     </p>
                             <p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>
@@ -401,13 +401,13 @@
                         <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates">#hashtags</h3>
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('hashtag')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                   
                                 </div>
 
                             </div>
-                            <p class="help-icon-p">These are keywords to help others find your project in searches
+                            <p class="help-icon-p" v-show="hashtagHelp">These are keywords to help others find your project in searches
 
 </p>
                             <div class="row">
@@ -445,13 +445,13 @@
                                 <div class="col-md-6">
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates">Calendar of activities </h3>
-                                        <div class="help-icon">
+                                        <div class="help-icon" @click="showHelp('calendar')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
                                          
                                         </div>
 
                                     </div>
-                                    <p class="help-icon-p">Share your schedule of activities
+                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
 
 </p>
                                 </div>
@@ -564,12 +564,12 @@
                         <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-cloak>Bibliography (mandatory)</h3>
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('bibliography')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                  
                                 </div>
                             </div>
-                            <p class="help-icon-p">If you use someone else's stuff, give them credit </p>
+                            <p class="help-icon-p" v-show="bibliographyHelp">If you use someone else's stuff, give them credit </p>
                             <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
                         </div>
 
@@ -579,12 +579,12 @@
                                     options will your wikiPBL
                                     have?
                                 </h1>
-                                <div class="help-icon">
+                                <div class="help-icon" @click="showHelp('upvoteSystem')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                            
                                 </div>
                             </div>
-                            <p class="help-icon-p">Identify the essential elements that you think your
+                            <p class="help-icon-p" v-show="upvoteSystemHelp">Identify the essential elements that you think your
                                         project highlights, so your peers can like/upvote your
                                         wikiPBL </p>
                             <div class="row">
@@ -593,8 +593,8 @@
                                        <img src="{{ $point->icon }}" class="img-icon"></img>
                                     <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
 
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="assestment{{ $point->id }}">
+                                        <label class="form-check-label" for="assestment{{ $point->id }}">
                                             {{ $point->name }}
                                         </label>
                                     </div>
@@ -675,7 +675,19 @@
                 upvoteSystems: [],
                 editSection: "",
                 loading: false,
-                incubatorFeature: true
+                incubatorFeature: true,
+                incubatorHelp:false,
+                drivingQuestionHelp:false,
+                subjectTitleHelp:false,
+                timeFrameHelp:false,
+                projectSummaryHelp:false,
+                upvoteSystemHelp:false,
+                levelTitleHelp:false,
+                hashtagHelp:false,
+                calendarHelp:false,
+                bibliographyHelp:false,
+                upvoteSystemHelp:false,
+                publicProductTitleHelp:false,
             }
         },
         methods: {
@@ -1054,6 +1066,108 @@
                     window.localStorage.removeItem("showCKEditorMsg")
 
                 }
+
+            },
+            showHelp(section){
+
+                this.clearHelps(section)
+
+                if(section == "incubator"){
+                    this.incubatorHelp == true ? this.incubatorHelp = false : this.incubatorHelp = true
+                }
+
+                else if(section == "drivingQuestion"){
+                    this.drivingQuestionHelp == true ? this.drivingQuestionHelp = false : this.drivingQuestionHelp = true
+                }
+
+                else if(section == "subjectTitle"){
+       
+                    this.subjectTitleHelp == true ? this.subjectTitleHelp = false : this.subjectTitleHelp = true
+                }
+
+                else if(section == "timeFrame"){
+       
+                    this.timeFrameHelp == true ? this.timeFrameHelp = false : this.timeFrameHelp = true
+                }
+
+                else if(section == "projectSummary"){
+            
+                    this.projectSummaryHelp == true ? this.projectSummaryHelp = false : this.projectSummaryHelp = true
+                }
+
+                else if(section == "upvoteSystem"){
+              
+                    this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
+                }
+
+                else if(section == "levelTitle"){
+               
+                    this.levelTitleHelp == true ? this.levelTitleHelp = false : this.levelTitleHelp = true
+                }
+
+                else if(section == "hashtag"){
+                  
+                    this.hashtagHelp == true ? this.hashtagHelp = false : this.hashtagHelp = true
+                }
+
+                else if(section == "calendar"){
+          
+                    this.calendarHelp == true ? this.calendarHelp = false : this.calendarHelp = true
+                }
+
+                else if(section == "bibliography"){
+                    
+                    this.bibliographyHelp == true ? this.bibliographyHelp = false : this.bibliographyHelp = true
+                }
+
+                else if(section == "upvoteSystem"){
+              
+                    this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
+                }
+
+                else if(section == "publicProductTitle"){
+
+                    this.publicProductTitleHelp == true ? this.publicProductTitleHelp = false : this.publicProductTitleHelp = true
+                }
+
+            },
+            clearHelps(section){
+
+                if(section != "incubator")
+                this.incubatorHelp = false
+
+                if(section != "drivingQuestion")
+                this.drivingQuestionHelp = false
+
+                if(section != "subjectTitle")
+                this.subjectTitleHelp = false
+
+                if(section != "timeFrame")
+                this.timeFrameHelp = false
+
+                if(section != "projectSummary")
+                this.projectSummaryHelp = false
+
+                if(section != "upvoteSystem")
+                this.upvoteSystemHelp = false
+
+                if(section != "levelTitle")
+                this.levelTitleHelp = false
+
+                if(section != "hashtag")
+                this.hashtagHelp = false
+
+                if(section != "calendar")
+                this.calendarHelp = false
+
+                if(section != "bibliography")
+                this.bibliographyHelp = false
+
+                if(section != "upvoteSystem")
+                this.upvoteSystemHelp = false
+
+                if(section != "publicProductTitle")
+                this.publicProductTitleHelp = false
 
             }
 
