@@ -269,7 +269,7 @@ Nav
 
 .info-regrister {
     width: 65%;
-    display: flex;
+    display: inline-flex;
     margin-bottom: 30px;
 }
 .info-regrister p {
