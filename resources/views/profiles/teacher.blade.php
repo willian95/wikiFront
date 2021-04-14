@@ -109,10 +109,11 @@
                             <thead>
                                 <tr>
                                     <td style="cursor:pointer;" @click="orderByField('title')">Title <span v-if="orderByColumn == 'title' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'title' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
-                                    <td style="cursor:pointer;" @click="orderByField('incubator')">Incubator <span v-if="orderByColumn == 'incubator' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'incubator' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
+
                                     <td style="cursor:pointer;" @click="orderByField('likes')">Likes <span v-if="orderByColumn == 'likes' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'likes' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td>Project Type</td>
                                     <td style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
+                                    <td style="cursor:pointer;" @click="orderByField('incubator')">Incubator <span v-if="orderByColumn == 'incubator' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'incubator' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td>Status</td>
                                 </tr>
                             </thead>
@@ -125,19 +126,12 @@
                                         </a>
 
                                     </td>
+
                                     <td>
 
-                                        <span class="menu-icon_hover" v-if="project.project.is_incubator">
-                                            <span class="tooltip-nav-info_last">Incubator</span>
-                                            <img alt='icon' class="login_icon mr-3 " src="http://imgfz.com/i/DmsV3CK.png">
-                                        </span>
+                                        <span class="menu-icon_hover" v-cloak>
+                                            <span class="tooltip-nav-info_last"> @{{ project.project.likes.length }}</span>
 
-                                    </td>
-                                    <td>
-
-                                        <span class="menu-icon_hover" v-cloak >
-                                        <span class="tooltip-nav-info_last"> @{{ project.project.likes.length }}</span>
-                                           
                                             <svg class="login_icon mr-3  hover-svg fill-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                 <path d="M21.3,10.08A3,3,0,0,0,19,9H14.44L15,7.57A4.13,4.13,0,0,0,11.11,2a1,1,0,0,0-.91.59L7.35,9H5a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17.73a3,3,0,0,0,2.95-2.46l1.27-7A3,3,0,0,0,21.3,10.08ZM7,20H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H7Zm13-7.82-1.27,7a1,1,0,0,1-1,.82H9V10.21l2.72-6.12A2.11,2.11,0,0,1,13.1,6.87L12.57,8.3A2,2,0,0,0,14.44,11H19a1,1,0,0,1,.77.36A1,1,0,0,1,20,12.18Z" />
                                             </svg>
@@ -157,7 +151,7 @@
                                                 <path d="M16,11a5,5,0,1,0,5,5A5.006,5.006,0,0,0,16,11Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,16,19Z" />
                                             </svg>
                                         </span>
-                                    
+
                                     </td>
                                     <td>
 
@@ -166,17 +160,25 @@
                                     </td>
                                     <td>
 
+                                        <span class="menu-icon_hover" v-if="project.project.is_incubator">
+                                            <span class="tooltip-nav-info_last">Incubator</span>
+                                            <img alt='icon' class="login_icon mr-3 " src="http://imgfz.com/i/DmsV3CK.png">
+                                        </span>
+
+                                    </td>
+                                    <td>
+
                                         <a v-if="project.project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.project.id" class="btn btn-info line_ mt-0 mb-0">Original/Published</a>
 
                                         <span class="btn-edit" v-else>Editing</span>
-                                    
+
                                     </td>
                                 </tr>
                             </tbody>
                             <tbody v-if="type == 'following'">
                                 <tr v-for="(project,index) in projects">
                                     <td>
-                                        
+
                                         <a :href="'{{ url('/project/edit/') }}'+'/'+project.project.project_id">
                                             <p v-if="project.title" v-cloak>@{{ project.title }}</p>
                                         </a>
@@ -213,9 +215,9 @@
                                                 <path d="M16,11a5,5,0,1,0,5,5A5.006,5.006,0,0,0,16,11Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,16,19Z" />
                                             </svg>
                                         </span>
-                                    
+
                                     </td>
-                                    <td >
+                                    <td>
 
                                         <span class="line_ modif-last" v-cloak>@{{ dateFormatter(project.project.project.updated_at) }}</span>
 
@@ -223,8 +225,8 @@
                                     <td>
 
                                         <a v-if="project.project.project.status == 'launched'" :href="'{{ url('project/original/show/') }}'+'/'+project.project.project.id" class="btn btn-info line_ mt-0 mb-0">Original/Published</a>
-                                        
-                                    
+
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -242,8 +244,8 @@
                             </ul>
                         </div>
                     </div>
-                
-                
+
+
                 </div>
             </div>
         </div>
@@ -279,19 +281,19 @@
                 cvResume: "{{ strip_tags(\Auth::user()->cv_resume) }}",
                 portfolio: "{{ strip_tags(\Auth::user()->portfolio) }}",
                 showMyEmail: JSON.parse('{!! \Auth::user()->show_my_email !!}'),
-                institution_email:"",
-                institution_not_registered:false,
-                institution_website:"",
-                admin_institution_name:"",
-                admin_institution_email:"",
-                admin_institution_website:"",
+                institution_email: "",
+                institution_not_registered: false,
+                institution_website: "",
+                admin_institution_name: "",
+                admin_institution_email: "",
+                admin_institution_website: "",
                 loading: false,
                 page: 1,
                 pages: 0,
                 projects: [],
                 errors: [],
-                orderByColumn:"update",
-                orderOrientation:"desc"
+                orderByColumn: "update",
+                orderOrientation: "desc"
 
             }
         },
@@ -446,14 +448,14 @@
                 })
 
             },
-            validateEmail(){
+            validateEmail() {
 
-                if(!this.institution_not_registered){
+                if (!this.institution_not_registered) {
 
                     let domain = null
-                    try{
+                    try {
                         domain = new URL(this.institution_website.toLowerCase()).hostname
-                    }catch{
+                    } catch {
 
                         domain = this.institution_website.toLowerCase()
 
@@ -469,14 +471,14 @@
 
                     }
 
-                }else{
+                } else {
 
                     let domain = null
                     //console.log("test", this.isURL(this.selected_institution.website.toLowerCase()))
 
-                    try{
+                    try {
                         domain = new URL(this.institution_website.toLowerCase()).hostname
-                    }catch{
+                    } catch {
 
                         domain = this.institution_website.toLowerCase()
 
@@ -498,24 +500,31 @@
                 return true
 
             },
-            institutionUpdate(){
+            institutionUpdate() {
 
-                if(this.validateEmail()){
+                if (this.validateEmail()) {
                     this.loading = true
-                    axios.post("{{ url('/teacher/profile/institution/update') }}", {"institution_not_registered": this.institution_not_registered, "institution": this.institution, "institution_email": this.institution_email, "admin_institution_name": this.admin_institution_name, "admin_institution_website": this.admin_institution_website, "admin_institution_email": this.admin_institution_email}).then(res => {
+                    axios.post("{{ url('/teacher/profile/institution/update') }}", {
+                        "institution_not_registered": this.institution_not_registered,
+                        "institution": this.institution,
+                        "institution_email": this.institution_email,
+                        "admin_institution_name": this.admin_institution_name,
+                        "admin_institution_website": this.admin_institution_website,
+                        "admin_institution_email": this.admin_institution_email
+                    }).then(res => {
                         this.loading = false
-                        if(res.data.success == true){
+                        if (res.data.success == true) {
 
                             swal({
-                                text:res.data.msg,
-                                icon:"success"
+                                text: res.data.msg,
+                                icon: "success"
                             })
 
-                        }else{
+                        } else {
 
                             swal({
-                                text:"Something went wrong",
-                                icon:"error"
+                                text: "Something went wrong",
+                                icon: "error"
                             })
 
                         }
@@ -528,13 +537,13 @@
             fetchProjects(page = 1) {
 
                 this.typeTitle = "My projects",
-                this.type = "my-projects",
-                this.projects = []
+                    this.type = "my-projects",
+                    this.projects = []
                 this.page = page
-        
-                let orderBy = "?field="+this.orderByColumn+"&orientation="+this.orderOrientation
 
-                axios.get("{{ url('/project/my-projects') }}" + "/" + page+orderBy).then(res => {
+                let orderBy = "?field=" + this.orderByColumn + "&orientation=" + this.orderOrientation
+
+                axios.get("{{ url('/project/my-projects') }}" + "/" + page + orderBy).then(res => {
 
                     this.projects = res.data.projects
                     this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
@@ -545,13 +554,13 @@
             fetchPublicProjects(page = 1) {
 
                 this.typeTitle = "My public/shared wikiPBL",
-                this.type = "public",
-                this.projects = []
+                    this.type = "public",
+                    this.projects = []
                 this.page = page
 
-                let orderBy = "?field="+this.orderByColumn+"&orientation="+this.orderOrientation
+                let orderBy = "?field=" + this.orderByColumn + "&orientation=" + this.orderOrientation
 
-                axios.get("{{ url('/project/my-public-projects') }}" + "/" + page+orderBy).then(res => {
+                axios.get("{{ url('/project/my-public-projects') }}" + "/" + page + orderBy).then(res => {
 
                     this.projects = res.data.projects
                     this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
@@ -562,13 +571,13 @@
             fetchSharedProjects(page = 1) {
 
                 this.typeTitle = "Following projects",
-                this.type = "following",
-                this.projects = []
+                    this.type = "following",
+                    this.projects = []
                 this.page = page
 
-                let orderBy = "?field="+this.orderByColumn+"&orientation="+this.orderOrientation
+                let orderBy = "?field=" + this.orderByColumn + "&orientation=" + this.orderOrientation
 
-                axios.get("{{ url('/project/my-follow-projects') }}" + "/" + page+orderBy).then(res => {
+                axios.get("{{ url('/project/my-follow-projects') }}" + "/" + page + orderBy).then(res => {
 
                     this.projects = res.data.projects
                     this.pages = Math.ceil(res.data.projectsCount / res.data.dataAmount)
@@ -576,20 +585,16 @@
                 })
 
             },
-            orderByField(field){
- 
+            orderByField(field) {
+
                 this.orderByColumn = field
-                this.orderOrientation == "desc" ? this.orderOrientation = "asc" : this.orderOrientation = "desc" 
+                this.orderOrientation == "desc" ? this.orderOrientation = "asc" : this.orderOrientation = "desc"
 
-                if(this.type == "my-projects"){
+                if (this.type == "my-projects") {
                     this.fetchProjects(this.page)
-                }
-
-                else if(this.type == "public"){
+                } else if (this.type == "public") {
                     this.fetchPublicProjects(this.page)
-                }
-
-                else if(this.type == "following"){
+                } else if (this.type == "following") {
                     this.fetchSharedProjects(this.page)
                 }
 
