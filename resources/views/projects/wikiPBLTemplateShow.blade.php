@@ -2869,7 +2869,7 @@
 
             let learningGoals = '{!! $learningGoals !!}'
             if (learningGoals != '') {
-                this.learningGoals = JSON.parse(learningGoals);
+                this.learningGoals = learningGoals //JSON.parse(learningGoals);
             }
 
 
