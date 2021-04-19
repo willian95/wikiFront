@@ -787,7 +787,7 @@
                                 },
                             },
                             title: "Are you sure?",
-                            text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! " + string + 'mode',
+                            text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! ",
                             buttons: true,
                             dangerMode: true,
                         })
