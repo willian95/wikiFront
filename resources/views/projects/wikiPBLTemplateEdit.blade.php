@@ -1186,6 +1186,7 @@
                 upvoteSystemHelp:false,
                 publicProductTitleHelp:false,
                 toolsHelp:false,
+                expertHelp:false,
                 learningGoalsHelp:false,
                 resourcesHelp:false,
                 projectMilestoneHelp:false,
@@ -2103,10 +2104,13 @@
             let level = JSON.parse('{!! $level !!}')
             this.level = level.level
             this.ages = level.ages
-
+       
             let learningGoals = '{!! $learningGoals !!}'
-            if (learningGoals) {
+ 
+            if (learningGoals != '') {
+                
                 this.learningGoals = JSON.parse(learningGoals);
+        
             }
 
             let milestone = '{!! $projectMilestones !!}'

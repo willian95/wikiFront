@@ -2867,14 +2867,18 @@
             this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
-            let learningGoals = '{!! json_encode(htmlspecialchars_decode($learningGoals)) !!}'
+            let learningGoals = '{!! $learningGoals !!}'
+ 
             if (learningGoals != '') {
-                this.learningGoals = JSON.parse(JSON.stringify(learningGoals));
+                
+                this.learningGoals = JSON.parse(learningGoals);
+        
             }
 
 
             let milestone = '{!! $projectMilestones !!}'
-            if (milestone) {
+            console.log("mile", milestone)
+            if (milestone != '') {
                 this.projectMilestones = JSON.parse(milestone)
             }
 

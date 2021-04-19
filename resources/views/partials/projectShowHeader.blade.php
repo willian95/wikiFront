@@ -81,14 +81,14 @@
                                     <div class="header-icons mr-0">
 
 
-                                        @if($project[0]->is_private == 0)
+                                        
                                         <li class="nav-item   flex-main">
                                             <a href="{{ url('project/edit/'.$project[0]->id) }}">
                                                 <img alt='icon' class="login_icon  hover-svg" src="{{ url('assets/img/iconos/edit.svg') }}">
                                                 <span class="tooltip-nav">Edit</span>
                                             </a>
                                         </li>
-                                        @endif
+                                   
 
                                         <li class="nav-item  flex-main mr-0">
                                             <a target="_blank" href="{{ url('/project/pdf/'.$project[0]->id) }}">

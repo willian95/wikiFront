@@ -532,6 +532,12 @@ class ProjectController extends Controller
             $globalConnectionsTitle = $this->projectSection($project->id, "globalConnections")->title;
             $globalConnections = $this->projectSection($project->id, "globalConnections")->description;
 
+            $learningGoals = str_replace("'", "\'", $learningGoals);
+            $learningGoals = str_replace("\t", "", $learningGoals);
+
+            $projectMilestones = str_replace("'", "\'", $projectMilestones);
+            $projectMilestones = str_replace("\t", "", $projectMilestones);
+
             $pdf = PDF::loadView("pdfs.wiki-template", [
                     "id" => $project->id, 
                     "title" => $title, 
@@ -555,11 +561,11 @@ class ProjectController extends Controller
                     "toolsTitle" => $toolsTitle,
                     "tools" => $tools,
                     "learningGoalsTitle" => $learningGoalsTitle,
-                    "learningGoals" => str_replace("'", "\'", $learningGoals),
+                    "learningGoals" => json_decode(json_encode($learningGoals)),
                     "resourcesTitle" => $resourcesTitle,
                     "resources" => $resources,
                     "projectMilestonesTitle" => $projectMilestonesTitle,
-                    "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                    "projectMilestones" => json_decode(json_encode($projectMilestones)),
                     "expertTitle" => $expertTitle,
                     "expert" => $expert,
                     "fieldWorkTitle" => $fieldWorkTitle,
@@ -819,7 +825,7 @@ class ProjectController extends Controller
     }
 
     function editProject($id){
-
+      
         $project = Project::where("id", $id)->with(["titles" => function($q){
                 if($q->where("user_id", \Auth::user()->id)->where("status", "pending")->count() > 0){
                     $q->orderBy("id", "desc")->where("user_id", \Auth::user()->id)->where("status", "pending")->take(1);
@@ -833,10 +839,6 @@ class ProjectController extends Controller
             $q->groupBy('type')->orderBy('id', 'desc')->get(['type', 'title', 'description', DB::raw('MAX(id) as id')]);
 
         }])->get(); 
-
-        if($project[0]->is_private == 1 && $project[0]->user_id != \Auth::user()->id){
-           return redirect()->to("/project/show/".$project[0]->id);
-        }
 
 
         $title = "";
@@ -918,6 +920,12 @@ class ProjectController extends Controller
             $globalConnectionsTitle = $this->projectSection($project[0]->id, "globalConnections")->title;
             $globalConnections = $this->projectSection($project[0]->id, "globalConnections")->description;
 
+            $learningGoals = str_replace('"', '\"', $learningGoals);
+            $learningGoals = str_replace('\t', '', $learningGoals);
+
+            $projectMilestones = str_replace('"', '\"', $projectMilestones);
+            $projectMilestones = str_replace('\t', '', $projectMilestones);
+
             return view("projects.wikiPBLTemplateEdit", [
                     "id" => $project[0]->id, 
                     "title" => $title, 
@@ -941,11 +949,11 @@ class ProjectController extends Controller
                     "toolsTitle" => $toolsTitle,
                     "tools" => $tools,
                     "learningGoalsTitle" => $learningGoalsTitle,
-                    "learningGoals" => str_replace("'", "\'", $learningGoals),
+                    "learningGoals" => json_decode(json_encode($learningGoals)),
                     "resourcesTitle" => $resourcesTitle,
                     "resources" => $resources,
                     "projectMilestonesTitle" => $projectMilestonesTitle,
-                    "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                    "projectMilestones" => json_decode(json_encode($projectMilestones)),
                     "expertTitle" => $expertTitle,
                     "expert" => $expert,
                     "fieldWorkTitle" => $fieldWorkTitle,
@@ -1148,6 +1156,12 @@ class ProjectController extends Controller
             $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork");
             $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections");
 
+            $learningGoals = str_replace('"', '\"', $learningGoals);
+            $learningGoals = str_replace('\t', '', $learningGoals);
+
+            $projectMilestones = str_replace('"', '\"', $projectMilestones);
+            $projectMilestones = str_replace('\t', '', $projectMilestones);
+
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
                 "title" => $title, 
@@ -1171,11 +1185,11 @@ class ProjectController extends Controller
                 "toolsTitle" => $toolsTitle,
                 "tools" => $tools,
                 "learningGoalsTitle" => $learningGoalsTitle,
-                "learningGoals" => str_replace("'", "\'", $learningGoals),
+                "learningGoals" => json_decode(json_encode($learningGoals)),
                 "resourcesTitle" => $resourcesTitle,
                 "resources" => $resources,
                 "projectMilestonesTitle" => $projectMilestonesTitle,
-                "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                "projectMilestones" => json_decode(json_encode( $projectMilestones)),
                 "expertTitle" => $expertTitle,
                 "expert" => $expert,
                 "fieldWorkTitle" => $fieldWorkTitle,
@@ -1338,7 +1352,7 @@ class ProjectController extends Controller
             $projectMilestonesTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->title;
             $projectMilestones = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->description;
             $expertTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "expert")->first()->title;
-            $expert  = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "projectMilestone")->first()->description;
+            $expert  = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "expert")->first()->description;
             $fieldWorkTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "fieldWork")->first()->title;
             $fieldWork  = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "fieldWork")->first()->description;
             $globalConnectionsTitle = SecondaryField::where("project_id", $project[0]->id)->where("is_original", 1)->where("type", "globalConnections")->first()->title;
@@ -1360,6 +1374,13 @@ class ProjectController extends Controller
             $expertHistory  = $this->secondaryFieldsHistory($project[0]->id, "expert");
             $fieldWorkHistory  = $this->secondaryFieldsHistory($project[0]->id, "fieldWork");
             $globalConnectionHistory = $this->secondaryFieldsHistory($project[0]->id, "globalConnections");
+
+            
+            $learningGoals = str_replace('"', '\"', $learningGoals);
+            $learningGoals = str_replace('\t', '', $learningGoals);
+
+            $projectMilestones = str_replace('"', '\"', $projectMilestones);
+            $projectMilestones = str_replace('\t', '', $projectMilestones);
 
             return view("projects.wikiPBLTemplateShow", [
                 "id" => $project[0]->id, 
@@ -1384,11 +1405,11 @@ class ProjectController extends Controller
                 "toolsTitle" => $toolsTitle,
                 "tools" => $tools,
                 "learningGoalsTitle" => $learningGoalsTitle,
-                "learningGoals" => str_replace("'", "\'", $learningGoals),
+                "learningGoals" => json_decode(json_encode($learningGoals)),
                 "resourcesTitle" => $resourcesTitle,
                 "resources" => $resources,
                 "projectMilestonesTitle" => $projectMilestonesTitle,
-                "projectMilestones" => str_replace("'", "\'", $projectMilestones),
+                "projectMilestones" => json_decode(json_encode($projectMilestones)),
                 "expertTitle" => $expertTitle,
                 "expert" => $expert,
                 "fieldWorkTitle" => $fieldWorkTitle,
