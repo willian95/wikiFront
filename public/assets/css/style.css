@@ -2101,6 +2101,7 @@ input:checked + .slider:before {
 }
 .card-proyectos .login_icon {
     margin-right: 0 !important;
+    object-fit: contain;
 }
 .btn-primary {
     color: #fff;
