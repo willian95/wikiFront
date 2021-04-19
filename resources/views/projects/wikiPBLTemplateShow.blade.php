@@ -2867,7 +2867,7 @@
             this.calendarActivities = JSON.parse('{!! $calendarActivities !!}')
             this.upvoteSystems = JSON.parse('{!! $upvoteSystem !!}')
 
-            let learningGoals = '{!! htmlspecialchars_decode($learningGoals) !!}'
+            let learningGoals = '{!! json_encode(htmlspecialchars_decode($learningGoals)) !!}'
             if (learningGoals != '') {
                 this.learningGoals = JSON.parse(JSON.stringify(learningGoals));
             }
