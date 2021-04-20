@@ -158,7 +158,7 @@
                         @if(count($assestmentPoints) > 0)
                         <div class="container-fluid">
                         <h3 class="titulo-templates">
-                                    <span >Upvote systemssss</span>
+                                    <span >Upvote system</span>
                                 </h3>
                             <div class="row">
 
