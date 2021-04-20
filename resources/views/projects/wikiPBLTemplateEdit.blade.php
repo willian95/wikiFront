@@ -7,7 +7,7 @@
     <div class="container">
         <div class="container  main-template mt-5">
 
-            <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1339,7 +1339,7 @@
                 this.activityDescription = ""
                 this.weeks = this.weeks
 
-                $("#calendarDescription").modal('hide')
+                $(".calendarDescription").modal('hide')
                 $('.modal-backdrop').remove();
 
                 //}
