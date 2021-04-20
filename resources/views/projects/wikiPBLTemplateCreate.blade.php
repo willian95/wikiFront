@@ -67,13 +67,16 @@
                 <ul style="list-style:none" class="content_template content_template-general">
 
                     <li class="content_template-general-item" @mouseleave="testChange()">
-                        <h3 class="titulo-templates">
+                    <div class="flex-edit">
+                    <h3 class="titulo-templates">
                             Incubator Features
                             <div class="help-icon" @click="showHelp('incubator')">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
 
                              
                             </div>
+                    </div>
+                    
                         </h3>
                         <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
                                         hold back, be brave and get it out there. Our world of

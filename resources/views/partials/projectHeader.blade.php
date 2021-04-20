@@ -86,10 +86,10 @@
                 </button>
                 @if(\Auth::check() && \Auth::user()->id)
 
-                <div class='offcanvas-collapse fil' id='navbarNav'>
+                <div class='offcanvas-collapse fil flex-new' id='navbarNav'>
                     <ul class='navbar-nav container'>
                         <div class="row">
-                            <div class="col-md-12 flex-new">
+                            <div class="col-md-12 ">
                                 <div class="menu-flex">
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons">
@@ -144,7 +144,7 @@
                                     <li class="nav-item   flex-main">
                                         <a href="{{ url('logout') }}">
                                             <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
-                                            <span class="tooltip-nav"> logout</span>
+                                            <span class="tooltip-nav"> Logout</span>
                                         </a>
                                     </li>
 

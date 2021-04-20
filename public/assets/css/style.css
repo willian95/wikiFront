@@ -95,6 +95,8 @@ Nav
     top: 0;
     background: #fff;
     z-index: 99;
+    height: 12vh;
+    display: flex;
 }
 
 @media (max-width: 767px) {
@@ -263,6 +265,8 @@ Nav
 
 /****** */
 .brand img {
+    width: auto;
+    height: 100%;
 }
 
 .border-nav {
@@ -306,6 +310,10 @@ Nav
 }
 img{
     width: 100%;
+    height: auto;
+}
+.swal-content__img{
+    width: 55px;
 }
 .projectsumary ul ,#publictitle ul , .bibliography-ul ul{
     list-style: initial!important;
@@ -825,7 +833,7 @@ input:checked + .slider:before {
 
 .nav {
     width: auto;
-    top: 11%;
+    top: 0%;
     left: -50px;
     background-color: transparent;
     position: absolute;
@@ -2089,6 +2097,7 @@ input:checked + .slider:before {
 }
 .help-icon img {
     margin-left: 12px;
+        width: 16px;
 }
 .card-proyectos thead {
     font-weight: 700;
@@ -2171,4 +2180,14 @@ input:checked + .slider:before {
   
     padding: 0;
 
+}
+/*
+#own-template , #wiki-template{
+    margin-top: 6rem;
+}*/
+#driving{
+    margin-top: 6rem;
+}
+.txt-blue{
+    color: #1b75bc;
 }

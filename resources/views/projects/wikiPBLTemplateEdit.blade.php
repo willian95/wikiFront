@@ -75,12 +75,15 @@
 
                         @if(\Auth::user()->id == $project[0]->user_id)
                         <li class="content_template-general-item">
-                            <h3 class="titulo-templates">Incubator Features</h3>
+                        <div class="flex-edit">
+                    <h3 class="titulo-templates">
+                            Incubator Features
                             <div class="help-icon" @click="showHelp('incubator')">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
 
-
+                             
                             </div>
+                    </div>
                             <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
                                 hold back, be brave and get it out there. Our world of
                                 wikiPBL educators love taking projects from idea to
