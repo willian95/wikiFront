@@ -88,8 +88,8 @@ Nav
 }
 
 .header-shadow {
-    -webkit-box-shadow: 0px 0px 20px #00000008;
-    box-shadow: 0px 0px 20px #00000008;
+    -webkit-box-shadow: 0px 0px 20px #00000024;
+    box-shadow: 0px 0px 20px #00000024;
     position: fixed;
     width: 100%;
     top: 0;
@@ -1129,10 +1129,10 @@ input:checked + .slider:before {
 }*/
 
 .info-template ul {
-    list-style: none;
-    padding: 0;
+     list-style: initial;
+    /* padding: 12px; */
     margin: 0;
-    margin-top: 4rem;
+    /* margin-top: 4rem;*/
 }
 
 .content_template textarea {
