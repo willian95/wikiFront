@@ -89,7 +89,7 @@
                 <div class='offcanvas-collapse fil' id='navbarNav'>
                     <ul class='navbar-nav container'>
                         <div class="row">
-                            <div class="col-md-12  mt-3">
+                            <div class="col-md-12 flex-new">
                                 <div class="menu-flex">
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons">
@@ -174,7 +174,23 @@
                                         </li>--->
 
                                         @endif
-                            
+                                        {{--<li class="nav-item   flex-main ">
+                                    <img alt='icon' class="login_icon mt-1"
+                                    src="{{ url('assets/img/iconos/group.svg') }}">
+                                        <!-- Rounded switch -->
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider slider-nav round"></span>
+                                        </label>
+                                        </li>--}}
+
+                                        {{--@if($action == "edit")
+                                            @if(\Auth::user()->id == $project[0]->user_id && $project[0]->is_private == 1)
+                                            <li class="nav-itm last-style mb-2 mr-4 " style="cursor: pointer;" @click="erase()"><svg class="login_icon color-blue_icon hover-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                                </svg></li>
+                                            @endif
+                                        @endif--}}
 
                                         <li class="nav-item   flex-main ml-5" @if($projectAction=='creation' ) @click="saveProject()" @else @click="saveEditionProject()" @endif>
                                             <svg class="login_icon color-blue_icon " xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24">
@@ -202,11 +218,14 @@
                                     <li class='nav-item  flex-main'>
                                         <img alt='icon' class="teacher-icon " src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                         <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link'>{{ \Auth::user()->name }}
-                                            {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
+                                            {{ substr(\Auth::user()->lastname, 0, 1) }}.
+                                            <span class="tooltip-nav">profile</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item   flex-main">
                                         <a href="{{ url('logout') }}">
                                             <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
+                                            <span class="tooltip-nav"> logout</span>
                                         </a>
                                     </li>
 
