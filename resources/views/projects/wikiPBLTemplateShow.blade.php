@@ -83,38 +83,7 @@
                 <!----------------info----------------->
                 <div class="col-md-9 info-template">
 
-                    <div class="container-fluid">
-                        
-                            @if(count($assestmentPoints) > 0)
-                            <div class="row">
-
-                                
-                                <div class="col-md-12">
-
-                                    <canvas id="myChart"></canvas>
-
-                                </div>
-
-                            </div>
-                            @if(\Auth::check())
-                            <div class="row">
-                                @foreach($assestmentPoints as $point)
-                                <div class="col-md-4">
-                                    
-                                    <p>
-                                        <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
-                                        <img src="{{ $point->assestmentPointType->icon }}" alt="">
-                                            {{ $point->assestmentPointType->name }}
-                                        </button>
-                                    </p>
-                                    
-                                </div>
-                                @endforeach
-                            </div>
-                            @endif
-                        @endif
-
-                    </div>
+                
 
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
@@ -191,6 +160,41 @@
                             </div>
 
                         </li>
+
+                        <div class="container-fluid">
+                        <h3 class="titulo-templates">
+                                    <span >Upvote system</span>
+                                </h3>
+                        @if(count($assestmentPoints) > 0)
+                        <div class="row">
+
+                            
+                            <div class="col-md-12">
+
+                                <canvas id="myChart"></canvas>
+
+                            </div>
+
+                        </div>
+                        @if(\Auth::check())
+                        <div class="row">
+                            @foreach($assestmentPoints as $point)
+                            <div class="col-md-4">
+                                
+                                <p>
+                                    <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
+                                    <img src="{{ $point->assestmentPointType->icon }}" alt="">
+                                        {{ $point->assestmentPointType->name }}
+                                    </button>
+                                </p>
+                                
+                            </div>
+                            @endforeach
+                        </div>
+                        @endif
+                    @endif
+
+                </div>
 
                         <li class="content_template-general-item last-menu" id="driving">
                             <div>

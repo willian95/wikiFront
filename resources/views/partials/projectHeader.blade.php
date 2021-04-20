@@ -155,10 +155,10 @@
                 </div>
 
                 @else
-                <div class='offcanvas-collapse fil' id='navbarNav'>
+                <div class='offcanvas-collapse fil flex-new' id='navbarNav'>
                     <ul class='navbar-nav container'>
                         <div class="row">
-                            <div class="col-md-12  mt-3">
+                            <div class="col-md-12  ">
                                 <div class="menu-flex">
                                     <li class='nav-item  border-nav' data-toggle="modal" data-target=".login">
                                         <a class='nav-link '>Sign In</a>

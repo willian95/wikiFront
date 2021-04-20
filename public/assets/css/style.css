@@ -88,8 +88,8 @@ Nav
 }
 
 .header-shadow {
-    -webkit-box-shadow: 0px 0px 20px #00000008;
-    box-shadow: 0px 0px 20px #00000008;
+    -webkit-box-shadow: 0px 0px 20px #00000024;
+    box-shadow: 0px 0px 20px #00000024;
     position: fixed;
     width: 100%;
     top: 0;
@@ -304,7 +304,19 @@ Nav
     font-size: 14px;
   
 }
+img{
+    width: 100%;
+}
+.projectsumary ul ,#publictitle ul , .bibliography-ul ul{
+    list-style: initial!important;
+}
 
+#projectmiles .card{
+    margin-bottom: 4rem;
+}
+#projectmiles  .titulo-templates{
+    margin-bottom: 2rem;
+}
 .w-nav {
     /*width: 100px;*/
 }
@@ -1117,10 +1129,10 @@ input:checked + .slider:before {
 }*/
 
 .info-template ul {
-    list-style: none;
-    padding: 0;
+     list-style: initial;
+    /* padding: 12px; */
     margin: 0;
-    margin-top: 4rem;
+    /* margin-top: 4rem;*/
 }
 
 .content_template textarea {
@@ -1146,7 +1158,7 @@ input:checked + .slider:before {
 }
 
 .content_template-general-item {
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     border-bottom: 1px solid #00000014;
     padding-bottom: 30px;
     list-style: none;
@@ -1432,6 +1444,7 @@ input:checked + .slider:before {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    gap: 40px;
 }
 .last-meu_p {
     font-size: 12px;
@@ -1443,18 +1456,23 @@ input:checked + .slider:before {
 .last-menu {
 }
 .borde-calen {
-    padding: 10px;
+    padding: 4px 5px;
     margin: 0;
+    font-size: 12px;
 }
 .calendario {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    border: 1px solid #4674b8;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border: 1px solid #b5b5b5;
+    border-radius: 5px;
+    padding: 0px 0px;
     position: relative;
-    width: 150px;
+    width: 120px;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 .user_last {
     display: -webkit-box;
@@ -1462,10 +1480,11 @@ input:checked + .slider:before {
     display: flex;
     font-size: 13px;
     margin: 9px 0;
+    font-size: 11px;
 }
 .user_last svg {
-    width: 17px;
-    margin-right: 5px;
+    width: 14px;
+    margin-right: 3px;
 }
 
 /* tooltip-nav CSS 2.1 */
@@ -2143,4 +2162,13 @@ input:checked + .slider:before {
 .flex-new{
     display: flex;
     align-items: center;
+}
+
+#carouselExampleControls {
+    margin-bottom: 4rem;
+}
+#own-template .info-template ul {
+  
+    padding: 0;
+
 }
