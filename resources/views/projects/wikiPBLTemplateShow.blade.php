@@ -2063,6 +2063,7 @@
                         legend: {
                             display: false,
                         },
+                        responsive: true,
                         scale: {
                             ticks: {
                                 beginAtZero: true,
