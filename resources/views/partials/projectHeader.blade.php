@@ -89,7 +89,7 @@
                 <div class='offcanvas-collapse fil' id='navbarNav'>
                     <ul class='navbar-nav container'>
                         <div class="row">
-                            <div class="col-md-12  mt-3">
+                            <div class="col-md-12 flex-new">
                                 <div class="menu-flex">
                                     <!-- Iconos temlate option-->
                                     <div class="header-icons">
@@ -175,7 +175,7 @@
 
                                         @endif
                                         {{--<li class="nav-item   flex-main ">
-                                    <img alt='icon' class="login_icon "
+                                    <img alt='icon' class="login_icon mt-1"
                                     src="{{ url('assets/img/iconos/group.svg') }}">
                                         <!-- Rounded switch -->
                                         <label class="switch">
@@ -218,11 +218,14 @@
                                     <li class='nav-item  flex-main'>
                                         <img alt='icon' class="teacher-icon " src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                         <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link'>{{ \Auth::user()->name }}
-                                            {{ substr(\Auth::user()->lastname, 0, 1) }}.</a>
+                                            {{ substr(\Auth::user()->lastname, 0, 1) }}.
+                                            <span class="tooltip-nav">profile</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item   flex-main">
                                         <a href="{{ url('logout') }}">
                                             <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
+                                            <span class="tooltip-nav"> logout</span>
                                         </a>
                                     </li>
 

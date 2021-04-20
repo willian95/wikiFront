@@ -69,10 +69,10 @@ Nav
 }
 
 .teacher-icon {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     -o-object-fit: cover;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .login_icon {
@@ -302,7 +302,7 @@ Nav
 .navbar-expand-md .navbar-nav .nav-link {
     color: #000;
     font-size: 14px;
-    padding-left: 35px;
+  
 }
 
 .w-nav {
@@ -1772,7 +1772,7 @@ input:checked + .slider:before {
     justify-content: flex-end;
 }
 .menu-flex_1 {
-    width: 200px;
+      width: max-content;
 }
 .verse-row {
     -webkit-box-orient: horizontal;
@@ -2139,4 +2139,8 @@ input:checked + .slider:before {
 
 .dflex-icon .form-check-label:hover {
     color: #9ec54c;
+}
+.flex-new{
+    display: flex;
+    align-items: center;
 }
