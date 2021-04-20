@@ -2167,3 +2167,8 @@ input:checked + .slider:before {
 #carouselExampleControls {
     margin-bottom: 4rem;
 }
+#own-template .info-template ul {
+  
+    padding: 0;
+
+}
