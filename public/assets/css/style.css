@@ -304,7 +304,19 @@ Nav
     font-size: 14px;
   
 }
+img{
+    width: 100%;
+}
+.projectsumary ul ,#publictitle ul , .bibliography-ul ul{
+    list-style: initial!important;
+}
 
+#projectmiles .card{
+    margin-bottom: 4rem;
+}
+#projectmiles  .titulo-templates{
+    margin-bottom: 2rem;
+}
 .w-nav {
     /*width: 100px;*/
 }
