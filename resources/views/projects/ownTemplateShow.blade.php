@@ -172,9 +172,12 @@
                             </div>
                             @if(\Auth::check())
                             <div class="row mb-5">
+                            <div class="col-md-12 mb-3">
+                            <span class="txt-blue">Click to vote</span>
+                            </div>
                                 @foreach($assestmentPoints as $point)
-                                <div class="col-md-4">
-                                    
+                                <div class="col-md-3">
+                                  
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
                                             <img src="{{ $point->assestmentPointType->icon }}" alt="">

@@ -206,6 +206,7 @@
                                         <li class="nav-item   flex-main">
                                             <a href="{{ url('logout') }}">
                                                 <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
+                                                <span class="tooltip-nav"> Logout</span>
                                             </a>
                                         </li>
 
