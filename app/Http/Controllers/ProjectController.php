@@ -1064,9 +1064,16 @@ class ProjectController extends Controller
         $assestmentPointsArray = [];
 
         foreach($assestmentPoints as $point){
+
+            $value = UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count();
+
+            if($value == 0){
+                $value = 1;
+            }
+
             $assestmentPointsArray[] = [
                 "name" =>  $point->assestmentPointType->name,
-                "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                "value" => $value
             ];
         }
 
@@ -1142,9 +1149,16 @@ class ProjectController extends Controller
             $assestmentPointsArray = [];
 
             foreach($assestmentPoints as $point){
+
+                $value = UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count();
+    
+                if($value == 0){
+                    $value = 1;
+                }
+    
                 $assestmentPointsArray[] = [
                     "name" =>  $point->assestmentPointType->name,
-                    "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                    "value" => $value
                 ];
             }
 
@@ -1284,9 +1298,16 @@ class ProjectController extends Controller
         $assestmentPointsArray = [];
 
         foreach($assestmentPoints as $point){
+
+            $value = UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count();
+
+            if($value == 0){
+                $value = 1;
+            }
+
             $assestmentPointsArray[] = [
                 "name" =>  $point->assestmentPointType->name,
-                "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                "value" => $value
             ];
         }
 
@@ -1361,9 +1382,16 @@ class ProjectController extends Controller
             $assestmentPointsArray = [];
 
             foreach($assestmentPoints as $point){
+
+                $value = UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count();
+    
+                if($value == 0){
+                    $value = 1;
+                }
+    
                 $assestmentPointsArray[] = [
                     "name" =>  $point->assestmentPointType->name,
-                    "value" => UpvoteSystemProjectVote::where("project_id", $project[0]->id)->where("assestment_point_type_id", $point->assestmentPointType->id)->count()
+                    "value" => $value
                 ];
             }
 
