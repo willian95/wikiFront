@@ -2,6 +2,13 @@
 
 @section("content")
 
+<style>
+    .modal-backdrop.show{
+        opacity:0 !important;
+        z-index: 0 !important;
+    }
+</style>
+
 <div id="wiki-template">
     @include("partials.projectHeader", ["projectAction" => "creation"])
     <div class="container  main-template mt-5" id="own-template">

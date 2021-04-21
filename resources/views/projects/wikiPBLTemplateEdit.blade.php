@@ -2,6 +2,13 @@
 
 @section("content")
 
+<style>
+    .modal-backdrop.show{
+        opacity:0 !important;
+        z-index: 0 !important;
+    }
+</style>
+
 <div id="own-template">
     @include("partials.projectHeader", ["projectAction" => "edition"])
     <div class="container">
