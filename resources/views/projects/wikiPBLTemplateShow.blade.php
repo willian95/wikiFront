@@ -71,6 +71,7 @@
                                 <li v-if="showLearningGoals"><a style="cursor: pointer;" @click="scrollTo('leargoals')">@{{ learningGoalsTitle }}</a></li>
                                 <li v-if="showResources"><a style="cursor: pointer;" @click="scrollTo('resoustitle')">@{{ resourcesTitle }}</a></li>
                                 <li v-if="showProjectMilestone"><a style="cursor: pointer;" @click="scrollTo('projectmiles')">@{{ projectMilestoneTitle }}</a></li>
+                                <li><a style="cursor: pointer;" @click="scrollTo('projectcalendar')">Calendar</a></li>
                                 <li v-if="showExpert"><a style="cursor: pointer;" @click="scrollTo('experttitle')">@{{ expertTitle }}</a></li>
                                 <li v-if="showFieldWork"> <a style="cursor: pointer;" @click="scrollTo('fielwork')">@{{ fieldWorkTitle }}</a></li>
                                 <li v-if="showGlobalConnections"> <a style="cursor: pointer;" @click="scrollTo('globalconnections')">@{{ globalConnectionsTitle }}</a> </li>
@@ -1252,8 +1253,8 @@
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div class="content_template">
-
+                    <div class="content_template" id="projectcalendar">
+                        <h3 class="titulo-templates">Calendar of Activities</h3>
                         <div id="carouselExampleControls" class="carousel slide" data-ride="false">
                             <div class="carousel-inner">
                                 <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides">

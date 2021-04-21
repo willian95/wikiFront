@@ -67,6 +67,7 @@
                                 <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('publictitle')">@{{ publicProductTitle }}</a> </li>
                                 <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('leveltitle')">@{{ levelTitle }}</a></li>
                                 <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')">#hashtags</a></li>
+                                <li><a style="cursor: pointer;" @click="scrollTo('projectcalendar')">Calendar</a></li>
 
                             </ul>
                         </div>
@@ -966,7 +967,8 @@
 
                         </div>
 
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" id="projectcalendar">
+                            <h3 class="titulo-templates">Calendar of Activities</h3>
                             <div :class=" index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(slide, index) in slides" v-if="slides > 0">
 
                                 <div class="row mt-2  days-none">
