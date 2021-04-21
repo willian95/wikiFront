@@ -104,13 +104,14 @@
                                         </label>
                                         </li>--}}
 
-                                        {{--@if($action == "edit")
-                                            @if(\Auth::user()->id == $project[0]->user_id && $project[0]->is_private == 1)
-                                            <li class="nav-itm last-style mb-2 mr-4 " style="cursor: pointer;" @click="erase()"><svg class="login_icon color-blue_icon hover-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        @if($action == "edit")
+                                            @if(\Auth::user()->id == $project[0]->user_id)
+                                            <li class="nav-itm last-style mb-2 mr-4 " style="cursor: pointer;" @click="erase()" v-if="!isIncubator"><svg class="login_icon color-blue_icon hover-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
-                                                </svg></li>
+                                                </svg>
+                                            </li>
                                             @endif
-                                        @endif--}}
+                                        @endif
                                         
                       
                                         <li class="nav-item   flex-main ml-5" @if($projectAction=='creation' ) @click="saveProject()" @else @click="saveEditionProject()" @endif>
