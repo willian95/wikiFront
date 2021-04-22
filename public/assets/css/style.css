@@ -2195,3 +2195,8 @@ input:checked + .slider:before {
 .txt-blue{
     color: #1b75bc;
 }
+.form-check {
+
+    padding-left: 0;
+    width: 100%;
+}
