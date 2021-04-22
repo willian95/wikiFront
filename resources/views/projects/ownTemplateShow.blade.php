@@ -896,7 +896,6 @@
 
                     <div id="carouselExampleControls" class="carousel slide" data-ride="false">
                         <div class="button-groups">
-                            <h3 class="titulo-templates"> Calendar Of Activities</h3>
 
                             <div>
                                 <div v-if="calendarActivitiesHistory.length > 0">
