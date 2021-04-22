@@ -1496,6 +1496,7 @@ input:checked + .slider:before {
 .user_last svg {
     width: 14px;
     margin-right: 3px;
+    height: auto;
 }
 
 /* tooltip-nav CSS 2.1 */

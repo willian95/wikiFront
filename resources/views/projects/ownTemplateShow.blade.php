@@ -177,7 +177,7 @@
                             <span class="txt-blue">Click to vote</span>
                             </div>
                                 @foreach($assestmentPoints as $point)
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                   
                                     <p>
                                         <button class="btn btn-votos" @click="upvoteAssestment({{$point->assestmentPointType->id}}, '{!! htmlspecialchars_decode($point->assestmentPointType->name) !!}')">
