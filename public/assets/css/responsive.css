@@ -9,7 +9,7 @@
         display: block;
     }
     .titulo-templates {
-        font-size: 24px;
+        font-size: 23px;
     }
     .card {
         margin-bottom: 10px;
@@ -136,6 +136,7 @@
         height: 100vh;
         top: 45px;
         box-shadow: none;
+        padding: 25% 0;
     }
     .content-modal_register .offset-2 {
         margin-left: 0;
@@ -298,11 +299,14 @@
         margin-right: 28px !important;
     }
     .menu-show_xs {
-        margin: 0 3rem 0 0rem;
+        margin: 0 4rem 0 0rem;
     }
 
     .menu-botoom .flex-main {
-        margin: 0 40px !important;
+        margin: 0 14px !important;
+    }
+    .menu-botoom  .mr-4{
+        margin-right: 0rem!important;
     }
     .help-icon p {
         width: auto;
@@ -317,6 +321,22 @@
     }
     .sms-mail {
         width: auto;
+    }
+    .user_last {
+        display: block;
+     
+    }
+    .menu-botoom .nav-item:nth-child(5){
+        display: none;
+    }
+    .navbar-nav {
+  
+        padding: 0;
+    }
+    .btn-votos {
+    
+        width: 100%;
+       
     }
 }
 
