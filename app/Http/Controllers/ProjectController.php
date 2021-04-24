@@ -1620,7 +1620,7 @@ class ProjectController extends Controller
                 $projectReport->user_id = \Auth::user()->id;
                 $projectReport->save();
                 
-                if(ProjectReport::where("project_id", $request->project_id)->count() == 10){
+                if(ProjectReport::where("project_id", $request->project_id)->count() == 1){
                     $this->banProject($request);
                 }
 

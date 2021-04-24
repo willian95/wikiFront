@@ -186,7 +186,7 @@ class TeacherController extends Controller
                 $teacherReport->save();
                 
                 
-                if(TeacherReport::where("teacher_id", $request->teacher_id)->count() == 10){
+                if(TeacherReport::where("teacher_id", $request->teacher_id)->count() == 1){
                     $this->banTeacher($request);
                 }
                 

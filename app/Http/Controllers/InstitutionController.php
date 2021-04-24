@@ -280,7 +280,7 @@ class InstitutionController extends Controller
                 $institutionReport->user_id = \Auth::user()->id;
                 $institutionReport->save();
                 
-                if(InstitutionReport::where("institution_id", $request->institution_id)->count() == 10){
+                if(InstitutionReport::where("institution_id", $request->institution_id)->count() == 1){
                     $this->banInstitution($request);
                 }
 
