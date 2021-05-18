@@ -16,6 +16,12 @@ class AuthController extends Controller
             $user = User::where("email", $request->login_email)->first();
             if($user){
                 
+                if($user->is_banned == 1){
+
+                    return response()->json(["success" => false, "msg" => "You are banned"]);
+
+                }
+
                 if($user->email_verified_at == null){
 
                     return response()->json(["success" => false, "msg" => "You haven't validate your email"]);
