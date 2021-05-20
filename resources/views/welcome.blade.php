@@ -70,19 +70,22 @@
 
         @php
 
-            $project = App\Like::select('project_id', \DB::raw('COUNT(project_id) as project_count'))->groupBy('project_id')->orderBy("project_count", "desc")->first();
+            if(App\Project::count() > 0){
+                $project = App\Like::select('project_id', \DB::raw('COUNT(project_id) as project_count'))->groupBy('project_id')->orderBy("project_count", "desc")->first();
 
-            $project = App\Project::where("id", $project->project_id)->with(["titles" => function($q){
-                $q->orderBy("id", "desc")->where("status", "launched")->take(1);
-                }
-            ])->with("user")->first();
+                $project = App\Project::where("id", $project->project_id)->with(["titles" => function($q){
+                    $q->orderBy("id", "desc")->where("status", "launched")->take(1);
+                    }
+                ])->with("user")->first();
 
-            $drivingQuestion = App\SecondaryField::where("project_id", $project->id)->where("type", "drivingQuestion")->orderBy("id", "desc")->where("status", "launched")->first();
-            
+                $drivingQuestion = App\SecondaryField::where("project_id", $project->id)->where("type", "drivingQuestion")->orderBy("id", "desc")->where("status", "launched")->first();
+                
+            }
 
 
         @endphp
-
+        
+        @if(App\Project::count() > 0)
         <div class="feactured-home">
             <h3 class="ml-3 mb-4 font-titulos text-center pt-4">Today’s featured wikiPBL!</h3>
             <div class="feactured-one">
@@ -112,6 +115,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     </section>
