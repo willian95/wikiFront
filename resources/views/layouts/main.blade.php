@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/new.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
 
     <!-- CSS -->
@@ -69,8 +70,12 @@
             @yield("content")
             <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                    <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> - <a href="#">About wikiPBL</a> - 2021
-                    Copyrights - Contact us! </p>
+              
+                    <p class="items-footer"> 
+                     <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
+                    <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> 
+                     <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
+                     <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
                 </div>
             </footer>
         </div>

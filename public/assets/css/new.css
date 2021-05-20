@@ -1,0 +1,142 @@
+.signin-btn {
+    background: #1b75bc;
+    border-radius: 10px;
+    border: 1px solid #1b75bc;
+    transition: 0.4s;
+    padding: 0px 5px;
+    margin-left: 11px;
+}
+.signin-btn a {
+    color: #fff !important;
+}
+.signin-btn svg {
+    fill: #fff;
+    margin-top: -6px;
+}
+.signin-btn:hover {
+    background: #ffffff;
+}
+.signin-btn:hover a {
+    color: #000 !important;
+}
+.signin-btn:hover svg {
+    fill: #000 !important;
+}
+.instituto-icon {
+    width: 26px;
+    margin-left: 10px;
+    margin-top: -12px;
+}
+.rregistro-icon {
+    margin-top: -7px;
+}
+.nav-link:hover {
+    color: #1b75bc !important;
+}
+.nav-link:hover svg {
+    fill: #1b75bc;
+}
+.items-footer a{
+  margin-left: 50px;
+  color: #1b75bc!important;
+  cursor: pointer;
+}
+
+.tooltip-nav_wiki {
+  left: 0;
+  width: 100%;
+}
+.copy-footer{
+  color: #9c9c9c;
+  padding-bottom: 20px;
+}
+.items-footer{
+  border-bottom: 1px solid whitesmoke;
+  padding-bottom: 10px;
+}
+/**mediasquery */
+@media only screen and (max-width: 600px) {
+    .check-inst input {
+        width: auto;
+    }
+    .check-inst-home {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .word h3 {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+    .feactured-home {
+        margin: 0rem 0;
+    }
+    .signin-btn svg {
+        margin-top: 0;
+    }
+    .signin-btn {
+        padding: 0px 9px !important;
+    }
+    .register-modal .form-check {
+        padding-left: 1.25rem;
+    }
+    .pl-90 {
+        padding: 0 25px;
+    }
+    .p14 {
+      padding: 0 1rem;
+  }
+  .main-modal .form-check-label {
+    font-size: 13px;
+}
+.home{
+  margin-top: 4.5rem;
+}
+}
+/*tablet*/
+@media (max-width: 768px) {
+    .feactured-home .btn-custom {
+        font-size: 0.6rem;
+    }
+    .register-modal .form-check {
+        padding-left: 1.25rem;
+    }
+    .pl-90 {
+        padding: 0 25px;
+    }
+    .signin-btn {
+        padding-bottom: 0 !important;
+        padding-right: 0;
+    }
+    .signin-btn .nav-link {
+        padding-right: 0 !important;
+    }
+}
+
+/*IPHONE x */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .header-shadow {
+        height: 9vh;
+    }
+}
+
+/*ipad PRO*/
+@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+    .header-shadow {
+        height: 7vh;
+    }
+    .nav {
+        left: -38px;
+    }
+}
+/*ipad*/
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+    .header-shadow {
+        height: 7vh;
+    }
+}
+/*galaxy*/
+@media only screen and (device-width: 280px) and (device-height: 653px) {
+  .brand img {
+    width: 85px!important;
+}
+}

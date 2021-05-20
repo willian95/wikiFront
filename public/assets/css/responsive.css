@@ -39,7 +39,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
+       /* flex-wrap: wrap;*/
+    }
+    .none-menu{
+        display: none;
     }
     .menu-flex_1 {
         margin-top: -50px;
@@ -54,8 +57,6 @@
         display: inline-table;
     }
     .check-inst-home {
-        display: -webkit-inline-box;
-
         text-align: -webkit-auto;
         margin: 0 0 20px;
     }
@@ -115,8 +116,9 @@
         width: 100%;
     }
     .brand img {
-        width: 130px;
+        width: 114px;
         padding: 10px;
+        object-fit: contain;
     }
     .titulo {
         font-size: 20px;
@@ -136,13 +138,16 @@
         height: 100vh;
         top: 45px;
         box-shadow: none;
-        padding: 25% 0;
+        padding: 5% 0;
+        line-height: 2.5;
     }
     .content-modal_register .offset-2 {
         margin-left: 0;
     }
     .btn-custom {
+        margin-top: 10px;
         margin-bottom: 20px;
+        width: 100%;
     }
     .calendario {
         display: inline-flex;
@@ -199,17 +204,17 @@
         margin-right: 0;
     }
     .nav_menu1 {
-        top: 11%;
+        top: 6px;
         left: auto;
         background-color: transparent;
         position: absolute;
         border-radius: 2px;
         display: inline-block;
         height: 50px;
-        line-height: 50px;
-        width: 15%;
+        line-height: 0;
+        width: auto;
         z-index: 9999;
-        right: 0;
+        right: 2px;
     }
     .menu-registro_xs {
         display: block;
@@ -221,7 +226,7 @@
         display: none;
     }
     .menu-registro_xs .menu-flex {
-        margin-right: 35px;
+        margin-right: 50px;
     }
     .menu-registro_xs .nav-item {
         width: auto;
@@ -229,7 +234,7 @@
     .menu-registro_xs .border-nav {
         border-right: 1px solid #0c0c0c26;
         /* padding-right: 22px; */
-        padding: 13px 10px;
+        padding: 4px 10px;
     }
     h1 {
         font-size: 22px;

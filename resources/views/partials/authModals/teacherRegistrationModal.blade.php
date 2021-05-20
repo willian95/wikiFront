@@ -21,7 +21,7 @@
                     </div>
                     <div action="">
                         <div class="row">
-                            <div class="col-md-6 offset-2">
+                            <div class="col-md-12 p14">
                                 <div class="form-group">
                                     <label for="inputinstitutioe"></label>
                                     <select id="inputinstitutio" class="form-control" v-model="selected_institution" :disabled="institution_not_registered">
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 center-flex">
+                            <div class="col-md-12 center-flex mt-13 mb-4">
                                 <!--bnt--->
                                 <button type="button" class="btn btn-custom" @click="next()" :disabled="selected_institution == '' && institution_not_registered == false">Continue</button>
                             </div>
@@ -66,16 +66,19 @@
                                 <div class="row" v-if="institution_not_registered">
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="name" >Institution name</label>
                                             <input type="text" class="form-control" placeholder="Institution name" v-model="institution_name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="">Contact email</label>
                                             <input type="text" class="form-control" placeholder="Contact email" v-model="institution_contact_email">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label for="">Webpage</label>
                                             <input type="text" class="form-control" placeholder="Webpage" v-model="institution_website">
                                         </div>
                                     </div>
@@ -84,6 +87,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="">Name</label>
                                             <input type="text" class="form-control" placeholder="Name" v-model="name">
                                             <small style="color:red" v-if="errors.hasOwnProperty('name')" v-cloak>@{{ errors['name'][0] }}</small>
                                         </div>
@@ -93,6 +97,7 @@
                                     <div class="col-md-6">
 
                                         <div class="form-group">
+                                            <label for="">Last name </label>
                                             <input type="text" class="form-control" placeholder="Last name " v-model="lastname">
                                             <small style="color:red" v-if="errors.hasOwnProperty('lastname')" v-cloak>@{{ errors['lastname'][0] }}</small>
                                         </div>
@@ -101,6 +106,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="">Institutional Email</label>
                                             <input type="text" class="form-control" placeholder="Institutional Email" v-model="institution_email">
                                             <small style="color:red" v-if="errors.hasOwnProperty('institution_email')" v-cloak>@{{ errors['institution_email'][0] }}</small>
                                         </div>
@@ -108,6 +114,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="">Personal Email</label>
                                             <input type="text" class="form-control" placeholder="Personal Email" v-model="email">
                                             <small style="color:red" v-if="errors.hasOwnProperty('email')" v-cloak>@{{ errors['email'][0] }}</small>
                                         </div>
@@ -116,6 +123,7 @@
                                     <div class="col-md-6">
 
                                         <div class="form-group">
+                                            <label for="">Password</label>
                                             <input type="password" class="form-control" placeholder="Password" v-model="password">
                                             <small style="color:red" v-if="errors.hasOwnProperty('password')" v-cloak>@{{ errors['password'][0] }}</small>
                                         </div>
@@ -123,6 +131,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="">Repeat Password</label>
                                             <input type="password" class="form-control" placeholder="Repeat Password" v-model="password_confirmation">
                                         </div>
                                     </div>

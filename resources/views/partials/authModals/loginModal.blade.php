@@ -17,15 +17,15 @@
                 <div class="text-center d-flex align-content-center justify-content-center">
                     <div class="info-regrister">
                         <img class="mr-1" src="{{ url('assets/img/iconos/login.svg') }}" alt="">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quos
+                      <!---  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quos
 
-                        </p>
+                        </p>--->
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="form-group col-md">
-                    <!--- <label for="email">Email</label>-->
+                  <label for="email">Email</label>
                     <input type="text" class="form-control" v-model="login_email" placeholder="Email"
                     autocomplete="off">
                     <small style="color:red"
@@ -33,14 +33,14 @@
                 </div>
 
                 <div class="form-group col-md">
-                    <!--- <label for="email">Password</label>-->
+                  <label for="email">Password</label>
                     <input type="password" class="form-control" v-model="login_password" placeholder="Password">
                     <small style="color:red"
                     v-if="errors.hasOwnProperty('login_password')" v-cloak>@{{ errors['login_password'][0] }}</small>
                 </div>
                 <a class="col-md forgot" style="cursor: pointer;" @click="forgotPasswordShowModal()">Forgot password</a>
 
-                <div class="text-lg-right mr-2">
+                <div class="text-lg-right mr-2 text-sm-center">
                     <button class="btn btn-custom" @click="login()">Login</button>
                 </div>
 

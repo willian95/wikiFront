@@ -76,7 +76,7 @@ Nav
 }
 
 .login_icon {
-    width: 27px;
+    width: 30px;
     height: 100%;
 }
 
@@ -265,8 +265,15 @@ Nav
 
 /****** */
 .brand img {
-    width: auto;
+    width: 34%;
     height: 100%;
+    object-fit: cover;
+    object-fit: scale-down;
+}
+.brand {
+    width: 100%;
+    height: max-content;
+    text-align: start;   
 }
 
 .border-nav {
@@ -285,9 +292,7 @@ Nav
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+ 
     position: relative;
 }
 
@@ -362,7 +367,7 @@ img{
     width: 65%;
 
     display: inline;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .info-regrister p {
     margin: 0;
@@ -1543,8 +1548,8 @@ input:checked + .slider:before {
     display: inline-grid;
 }
 .notificacion {
-    width: 25px;
-    margin-top: -6px;
+    width: 30px;
+    margin-top: -4px;
 }
 
 .drop-notificacion .dropdown-menu {
@@ -1814,9 +1819,7 @@ input:checked + .slider:before {
     display: -ms-flexbox;
     display: flex;
 }
-.new-a {
-    width: 120px;
-}
+
 .menu-registro_xs {
     display: none;
 }
@@ -2199,4 +2202,22 @@ input:checked + .slider:before {
 
     padding-left: 0;
     width: 100%;
+}
+.register-modal .form-check {
+    padding-left: 1.5em;
+}
+.p14{
+    padding: 0 8rem;
+}
+.icon-mas{
+    width: 35px!important;
+}
+.menu-desk_registres .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+   
 }
