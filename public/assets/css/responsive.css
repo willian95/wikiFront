@@ -44,10 +44,7 @@
     .none-menu{
         display: none;
     }
-    .menu-flex_1 {
-        margin-top: -50px;
-        width: auto;
-    }
+   
     .nav-item {
         position: relative;
         width: 32%;
@@ -191,7 +188,7 @@
         display: none;
     }
     .notificacion {
-        width: 19px;
+        width: 25px;
     }
     .drop-notificacion .noti {
         top: 8px;

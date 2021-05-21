@@ -11,8 +11,10 @@
 
     <div class="main-profile">
         <div class="main-profile_content">
-            <h1 class="text-center mt-4">Educator profile</h1>
-            <p>Stats</p>
+            <h1 class="text-center mt-4 mb-3">Educator profile</h1>
+            <div class="text-center mb-3 ">
+                        <button class="btn btn-custom" @click="update()">Update</button>
+                    </div>
         </div>
         <div class="main-profile_dates mt-5">
             <div class="row">
@@ -42,9 +44,7 @@
                     <h3> “Why do you educate?”</h3>
                     <textarea class="form-control" v-model="description"></textarea>
 
-                    <div class="text-right mt-5">
-                        <button class="btn btn-custom" @click="update()">Update</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>

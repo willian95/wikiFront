@@ -72,3 +72,6 @@ $(window).scroll(function() {
 }) 
 
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

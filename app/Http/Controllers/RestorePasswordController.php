@@ -31,7 +31,7 @@ class RestorePasswordController extends Controller
             });
         }
 
-        return response()->json(["success" => true, "msg" => "Email sended"]);
+        return response()->json(["success" => true, "msg" => "Email sent"]);
 
     }
 

@@ -292,7 +292,7 @@ Nav
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
- 
+    align-items: center;
     position: relative;
 }
 
@@ -510,6 +510,7 @@ img{
 }
 
 .option-input.radio {
+    z-index: 1;
 }
 
 .option-input.radio::after {

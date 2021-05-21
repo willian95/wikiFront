@@ -36,23 +36,26 @@
 .nav-link:hover svg {
     fill: #1b75bc;
 }
-.items-footer a{
-  margin-left: 50px;
-  color: #1b75bc!important;
-  cursor: pointer;
+.items-footer a {
+    margin-left: 50px;
+    color: #1b75bc !important;
+    cursor: pointer;
 }
 
 .tooltip-nav_wiki {
-  left: 0;
-  width: 100%;
+    left: 0;
+    width: 100%;
 }
-.copy-footer{
-  color: #9c9c9c;
-  padding-bottom: 20px;
+.copy-footer {
+    color: #9c9c9c;
+    padding-bottom: 20px;
 }
-.items-footer{
-  border-bottom: 1px solid whitesmoke;
-  padding-bottom: 10px;
+.items-footer {
+    border-bottom: 1px solid whitesmoke;
+    padding-bottom: 10px;
+}
+.about img {
+    width: 35px;
 }
 /**mediasquery */
 @media only screen and (max-width: 600px) {
@@ -83,14 +86,22 @@
         padding: 0 25px;
     }
     .p14 {
-      padding: 0 1rem;
+        padding: 0 1rem;
+    }
+    .main-modal .form-check-label {
+        font-size: 13px;
+    }
+    .home {
+        margin-top: 4.5rem;
+    }
+    .items-footer a {
+      margin-left: 0;
+      display: grid;
+      margin-bottom: 10px;
   }
-  .main-modal .form-check-label {
-    font-size: 13px;
-}
-.home{
-  margin-top: 4.5rem;
-}
+  .option-none_menu{
+    display: none;
+  }
 }
 /*tablet*/
 @media (max-width: 768px) {
@@ -136,7 +147,7 @@
 }
 /*galaxy*/
 @media only screen and (device-width: 280px) and (device-height: 653px) {
-  .brand img {
-    width: 85px!important;
-}
+    .brand img {
+        width: 85px !important;
+    }
 }

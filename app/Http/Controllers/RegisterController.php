@@ -102,7 +102,7 @@ class RegisterController extends Controller
 
         if($user->register_hash){
             $this->sendEmail($user);
-            return response()->json(["success" => true, "msg" => "Email sended"]);
+            return response()->json(["success" => true, "msg" => "Email sent"]);
         }else{
             return response()->json(["success" => false, "msg" => "Register code already used"]);
         }
