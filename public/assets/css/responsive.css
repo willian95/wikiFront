@@ -2,6 +2,15 @@
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
+    .cerrar_sesion-xs{
+        display: block!important;
+    }
+    .icon-mas {
+      width: 30px!important;
+  }
+    .option-none_menu p , .cerrar_sesion{
+        display: none;
+      }
     .menu-template {
         display: none;
     }
@@ -40,6 +49,11 @@
         justify-content: center;
         align-items: center;
        /* flex-wrap: wrap;*/
+       margin-right: 20px;
+       gap: 20px;
+    }
+    .cerrar_sesion-xs a{
+        color: #e91e1e;
     }
     .none-menu{
         display: none;
@@ -47,7 +61,7 @@
    
     .nav-item {
         position: relative;
-        width: 32%;
+        margin-right: 0!important;
     }
     .hashtag-home span {
         margin-right: 15px;
@@ -59,7 +73,7 @@
     }
     .new-a {
         width: auto;
-        margin-right: 14px;
+        margin-right: 3px;
     }
 
     /***************/
@@ -201,7 +215,7 @@
         margin-right: 0;
     }
     .nav_menu1 {
-        top: 6px;
+        top: 8px;
         left: auto;
         background-color: transparent;
         position: absolute;
@@ -322,7 +336,7 @@
         right: 0;
     }
     .sms-mail {
-        width: auto;
+        width: 200px;
     }
     .user_last {
         display: block;

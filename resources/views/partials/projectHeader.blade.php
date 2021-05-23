@@ -75,18 +75,8 @@
                         </li>
                     </ul>
                 </div>
-
-                <a class='brand ' href='{{ url('/front-test') }}'>
-                    <img alt='redes' src="{{ url('assets/img/logo.png') }}">
-                </a>
-                <button class='navbar-toggler p-2 border-0 hamburger hamburger--elastic d-none-lg' data-toggle='offcanvas' type='button'>
-                    <span class='hamburger-box'>
-                        <span class='hamburger-inner'></span>
-                    </span>
-                </button>
                 @if(\Auth::check() && \Auth::user()->id)
-
-                <div class='offcanvas-collapse fil flex-new' id='navbarNav'>
+                <div class='offcanvas-collapse fil flex-new'>
                     <ul class='navbar-nav container'>
                         <div class="row">
                             <div class="col-md-12 ">

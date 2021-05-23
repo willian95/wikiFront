@@ -41,22 +41,6 @@
                                 <li>
                                     <p class="menu-titulo">MENU</p>
                                 </li>
-                                @if(\Auth::check() && \Auth::user()->id)
-                                <li class="nav-box_li user-menu_xs">
-                                    <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2 verse-row'> <p class="mb-0">{{ \Auth::user()->name }}
-                                        {{ substr(\Auth::user()->lastname, 0, 1) }}.</p>
-                                         <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}"></a>
-
-                                    <a href="{{ url('logout') }}">
-                                        <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
-                                        <span class="tooltip-nav"> Logout</span>
-                                    </a>
-                                </li>
-
-                                @else
-
-                                @endif
-
                                 <li class="nav-box_li">
                                     <div class="blue-box"></div>
                                     <div class="dropdown">
@@ -84,6 +68,11 @@
                                 <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal">
                                         <div class="blue-box"></div>FAQ'S
                                     </a></li>
+                                    <li class="nav-item   flex-main cerrar_sesion-xs" >
+                                        <a href="{{ url('logout') }}">
+                                        Logout
+                                        </a>
+                                    </li>
                             </ul>
                         </li>
                     </ul>
@@ -102,9 +91,9 @@
                     <div class="row">
                         <div class="col-md-12 flex-new">
                             <div class="menu-flex menu-flex_1">
+
                                 <!-- Iconos temlate option-->
                                 <div class="header-icons">
-
                                     @if(\Auth::user()->role_id == 2)
                                     <li class="nav-item  flex-main mr-0 new_wiki">
 
@@ -124,19 +113,15 @@
                                         </a>
                                     </li>
                                     @endif
-
-
-
                                 </div>
                                 <!-- Iconos temlate option-->
+                                <div class="dropdown drop-notificacion mr-4 nav-item ">
 
-                                <div class="dropdown drop-notificacion mr-4 nav-item " data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
-
-                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="setSeenNotifications()" >
+                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="setSeenNotifications()">
                                         <svg class="notificacion" id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
                                             <path d="m450.201 407.453c-1.505-.977-12.832-8.912-24.174-32.917-20.829-44.082-25.201-106.18-25.201-150.511 0-.193-.004-.384-.011-.576-.227-58.589-35.31-109.095-85.514-131.756v-34.657c0-31.45-25.544-57.036-56.942-57.036h-4.719c-31.398 0-56.942 25.586-56.942 57.036v34.655c-50.372 22.734-85.525 73.498-85.525 132.334 0 44.331-4.372 106.428-25.201 150.511-11.341 24.004-22.668 31.939-24.174 32.917-6.342 2.935-9.469 9.715-8.01 16.586 1.473 6.939 7.959 11.723 15.042 11.723h109.947c.614 42.141 35.008 76.238 77.223 76.238s76.609-34.097 77.223-76.238h109.947c7.082 0 13.569-4.784 15.042-11.723 1.457-6.871-1.669-13.652-8.011-16.586zm-223.502-350.417c0-14.881 12.086-26.987 26.942-26.987h4.719c14.856 0 26.942 12.106 26.942 26.987v24.917c-9.468-1.957-19.269-2.987-29.306-2.987-10.034 0-19.832 1.029-29.296 2.984v-24.914zm29.301 424.915c-25.673 0-46.614-20.617-47.223-46.188h94.445c-.608 25.57-21.549 46.188-47.222 46.188zm60.4-76.239c-.003 0-213.385 0-213.385 0 2.595-4.044 5.236-8.623 7.861-13.798 20.104-39.643 30.298-96.129 30.298-167.889 0-63.417 51.509-115.01 114.821-115.01s114.821 51.593 114.821 115.06c0 .185.003.369.01.553.057 71.472 10.25 127.755 30.298 167.286 2.625 5.176 5.267 9.754 7.861 13.798z" />
                                         </svg>
-                                       <!--- <span class="tooltip-nav"> Notifications</span>--->
+                                        <span class="tooltip-nav"> Notifications</span>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a v-for="notification in notifications" class="dropdown-item" :href="notification.url" v-cloak>@{{ notification.body }}</a>
@@ -145,46 +130,32 @@
 
                                     <span class="noti" v-cloak>@{{ unseenNotificationsCount }}</span>
                                 </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </ul>
-                <div class=' fil flex-new ml-auto' id='navbarNav'>
-                    <ul class='navbar-nav container'>
-                        <div class="row">
-                            <div class="col-md-12 ">
                                 <div class="menu-flex menu-flex_1">
-
-                                    <li class='nav-item  flex-main option-none_menu'>
-
+                                    <li class='nav-item  flex-main option-none_menu' >
                                         <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2 verse-row'><p class="mb-0">{{ \Auth::user()->name }}
-                                            {{ substr(\Auth::user()->lastname, 0, 1) }}</p> <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}">
+                                                {{ substr(\Auth::user()->lastname, 0, 1) }}
+                                            </p> <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                             <span class="tooltip-nav"> Profile</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item   flex-main option-none_menu">
+                                    <li class="nav-item   flex-main cerrar_sesion" >
                                         <a href="{{ url('logout') }}">
                                             <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
                                             <span class="tooltip-nav"> Logout</span>
                                         </a>
                                     </li>
-
                                 </div>
                             </div>
                         </div>
-                    </ul>
-                </div>
+                    </div>
+                </ul>
 
                 @else
-
                 <div class='menu-registro_xs ml-auto'>
                     <ul class='navbar-nav container'>
                         <div class="row">
                             <div class="col-md-12  mt-3">
                                 <div class="menu-flex">
-                                 
                                     <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal" @click="resetRegistrationForm()">
                                         <a class='nav-link  '>
                                             <svg height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
@@ -356,29 +327,28 @@
                                     </li>
                                 </div>
                             </div>
-
                     </ul>
                 </div>
                 <ul class='navbar-nav container none-menu menu-desk_registres'>
-                        <div class="row">
-                            <div class="col-md-12  flex-new">
-                                <div class="menu-flex">
-                                  
-                                    <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal" @click="resetRegistrationForm()">
-                                        <a class='nav-link  '>
-                                            <svg class="rregistro-icon" height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m192 213.339844c-58.816406 0-106.667969-47.847656-106.667969-106.664063 0-58.816406 47.851563-106.6679685 106.667969-106.6679685s106.667969 47.8515625 106.667969 106.6679685c0 58.816407-47.851563 106.664063-106.667969 106.664063zm0-181.332032c-41.171875 0-74.667969 33.492188-74.667969 74.667969 0 41.171875 33.496094 74.664063 74.667969 74.664063s74.667969-33.492188 74.667969-74.664063c0-41.175781-33.496094-74.667969-74.667969-74.667969zm0 0" />
-                                                <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
+                    <div class="row">
+                        <div class="col-md-12  flex-new">
+                            <div class="menu-flex">
+
+                                <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal" @click="resetRegistrationForm()">
+                                    <a class='nav-link  '>
+                                        <svg class="rregistro-icon" height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m192 213.339844c-58.816406 0-106.667969-47.847656-106.667969-106.664063 0-58.816406 47.851563-106.6679685 106.667969-106.6679685s106.667969 47.8515625 106.667969 106.6679685c0 58.816407-47.851563 106.664063-106.667969 106.664063zm0-181.332032c-41.171875 0-74.667969 33.492188-74.667969 74.667969 0 41.171875 33.496094 74.664063 74.667969 74.664063s74.667969-33.492188 74.667969-74.664063c0-41.175781-33.496094-74.667969-74.667969-74.667969zm0 0" />
+                                            <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
 
 
-                                            </svg> Register</a>
-                                    </li>
-                                    <li class='nav-item w-nav ' data-toggle="modal" data-target=".institution-modal">
-                                        <a class='nav-link'>
-                                            <svg class="instituto-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 464 464" style="enable-background:new 0 0 464 464;" xml:space="preserve">
+                                        </svg> Register</a>
+                                </li>
+                                <li class='nav-item w-nav ' data-toggle="modal" data-target=".institution-modal">
+                                    <a class='nav-link'>
+                                        <svg class="instituto-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 464 464" style="enable-background:new 0 0 464 464;" xml:space="preserve">
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <path d="M456,217.12H353.68v-19.76c-0.005-2.886-1.564-5.546-4.08-6.96L240,128.8V97.44h21.68v11.92c0,4.418,3.582,8,8,8h65.36
+                                                    <path d="M456,217.12H353.68v-19.76c-0.005-2.886-1.564-5.546-4.08-6.96L240,128.8V97.44h21.68v11.92c0,4.418,3.582,8,8,8h65.36
                                         c4.418-0.002,7.998-3.585,7.997-8.003c0-0.926-0.162-1.845-0.477-2.717L336,88l6.64-18.24c1.502-4.155-0.648-8.741-4.803-10.243
                                         c-0.871-0.315-1.79-0.476-2.717-0.477h-29.76v-11.6c0-4.418-3.582-8-8-8H240v-9.76c0-4.418-3.582-8-8-8s-8,3.582-8,8v99.12
                                         l-109.6,61.52c-2.516,1.414-4.075,4.074-4.08,6.96v19.76H8c-4.418,0-8,3.582-8,8v209.28c0,4.418,3.582,8,8,8h448
@@ -387,153 +357,152 @@
                                         v11.92v14.08H240V55.44z M110.32,426.32H16v-193.2h94.32V426.32z M224,426.32h-42v-91.36h42V426.32z M282,426.32h-42v-91.36h42
                                         V426.32z M338,426.32h-40v-99.36c0-4.418-3.582-8-8-8H174c-4.418,0-8,3.582-8,8v99.36h-40v-224l106-59.68L337.68,202l0.32,23.04
                                         V426.32z M448,426.32h-94.32v-193.2H448V426.32z" />
-                                                    </g>
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <path d="M232,167.12c-18.526,0.044-33.52,15.074-33.52,33.6c0.044,18.513,15.087,33.484,33.6,33.44
+                                                    <path d="M232,167.12c-18.526,0.044-33.52,15.074-33.52,33.6c0.044,18.513,15.087,33.484,33.6,33.44
                                         c18.513-0.044,33.484-15.087,33.44-33.6C265.476,182.079,250.481,167.12,232,167.12z M232,218.16
                                         c-9.676-0.044-17.484-7.924-17.44-17.6c0.044-9.613,7.826-17.396,17.44-17.44c9.689,0.044,17.52,7.911,17.52,17.6h0.08
                                         C249.556,210.396,241.676,218.204,232,218.16z" />
-                                                    </g>
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="35.28" y="250.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="35.28" y="250.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="74.72" y="250.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="74.72" y="250.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="150.32" y="250.72" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="150.32" y="250.72" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="216" y="250.72" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="216" y="250.72" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="281.68" y="250.72" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="281.68" y="250.72" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="150.32" y="288" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="150.32" y="288" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="216" y="288" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="216" y="288" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="281.68" y="288" width="32" height="16" />
-                                                    </g>
+                                                    <rect x="281.68" y="288" width="32" height="16" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="35.28" y="313.68" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="35.28" y="313.68" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="74.72" y="313.68" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="74.72" y="313.68" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="35.28" y="376.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="35.28" y="376.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="74.72" y="376.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="74.72" y="376.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="373.28" y="250.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="373.28" y="250.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="412.72" y="250.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="412.72" y="250.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="373.28" y="313.68" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="373.28" y="313.68" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="412.72" y="313.68" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="412.72" y="313.68" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="373.28" y="376.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="373.28" y="376.72" width="16" height="32" />
                                                 </g>
+                                            </g>
+                                            <g>
                                                 <g>
-                                                    <g>
-                                                        <rect x="412.72" y="376.72" width="16" height="32" />
-                                                    </g>
+                                                    <rect x="412.72" y="376.72" width="16" height="32" />
                                                 </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                            </svg>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg>
 
-                                            Institution Registration</a>
-                                    </li>
-                                    <li class='nav-item  border-nav signin-btn' data-toggle="modal" data-target=".login">
-                                        <a class='nav-link '><svg height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m192 213.339844c-58.816406 0-106.667969-47.847656-106.667969-106.664063 0-58.816406 47.851563-106.6679685 106.667969-106.6679685s106.667969 47.8515625 106.667969 106.6679685c0 58.816407-47.851563 106.664063-106.667969 106.664063zm0-181.332032c-41.171875 0-74.667969 33.492188-74.667969 74.667969 0 41.171875 33.496094 74.664063 74.667969 74.664063s74.667969-33.492188 74.667969-74.664063c0-41.175781-33.496094-74.667969-74.667969-74.667969zm0 0" />
-                                                <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
-                                                <path d="m496 218.675781h-181.332031c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h181.332031c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
-                                                <path d="m410.667969 304.007812c-4.097657 0-8.191407-1.558593-11.308594-4.691406-6.25-6.253906-6.25-16.386718 0-22.636718l74.027344-74.027344-74.027344-74.027344c-6.25-6.25-6.25-16.382812 0-22.632812s16.382813-6.25 22.636719 0l85.332031 85.332031c6.25 6.25 6.25 16.386719 0 22.636719l-85.332031 85.332031c-3.136719 3.15625-7.234375 4.714843-11.328125 4.714843zm0 0" />
-                                            </svg> Sign In</a>
-                                    </li>
-                                </div>
+                                        Institution Registration</a>
+                                </li>
+                                <li class='nav-item  border-nav signin-btn' data-toggle="modal" data-target=".login">
+                                    <a class='nav-link '><svg height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m192 213.339844c-58.816406 0-106.667969-47.847656-106.667969-106.664063 0-58.816406 47.851563-106.6679685 106.667969-106.6679685s106.667969 47.8515625 106.667969 106.6679685c0 58.816407-47.851563 106.664063-106.667969 106.664063zm0-181.332032c-41.171875 0-74.667969 33.492188-74.667969 74.667969 0 41.171875 33.496094 74.664063 74.667969 74.664063s74.667969-33.492188 74.667969-74.664063c0-41.175781-33.496094-74.667969-74.667969-74.667969zm0 0" />
+                                            <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
+                                            <path d="m496 218.675781h-181.332031c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h181.332031c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                                            <path d="m410.667969 304.007812c-4.097657 0-8.191407-1.558593-11.308594-4.691406-6.25-6.253906-6.25-16.386718 0-22.636718l74.027344-74.027344-74.027344-74.027344c-6.25-6.25-6.25-16.382812 0-22.632812s16.382813-6.25 22.636719 0l85.332031 85.332031c6.25 6.25 6.25 16.386719 0 22.636719l-85.332031 85.332031c-3.136719 3.15625-7.234375 4.714843-11.328125 4.714843zm0 0" />
+                                        </svg> Sign In</a>
+                                </li>
                             </div>
+                        </div>
 
-                    </ul>
-              
+                </ul>
                 @endif
             </div>
         </nav>

@@ -57,6 +57,12 @@
 .about img {
     width: 35px;
 }
+ .cerrar_sesion-xs{
+    display: none!important;
+}
+.table  .login_icon {
+    height:auto;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
     .check-inst input {
@@ -99,9 +105,15 @@
       display: grid;
       margin-bottom: 10px;
   }
-  .option-none_menu{
+  .option-none_menu p , .cerrar_sesion{
     display: none;
   }
+  .cerrar_sesion-xs{
+      display: block!important;
+  }
+  .icon-mas {
+    width: 30px!important;
+}
 }
 /*tablet*/
 @media (max-width: 768px) {

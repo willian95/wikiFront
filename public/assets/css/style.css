@@ -839,8 +839,8 @@ input:checked + .slider:before {
 
 .nav {
     width: auto;
-    top: 0%;
-    left: -50px;
+    top: 8px;
+    left: -40px;
     background-color: transparent;
     position: absolute;
     border-radius: 2px;
@@ -1886,7 +1886,7 @@ input:checked + .slider:before {
     padding: 0;
 }
 .menu-effect svg {
-    width: 34px;
+    width: 40px;
     height: auto;
 }
 .line {
@@ -2133,7 +2133,7 @@ input:checked + .slider:before {
     border: 1px solid #a2a2a2;
     border-radius: 5px;
     color: #a2a2a2;
-    cursor: none;
+    cursor: pointer;
 }
 .card-proyectos .login_icon {
     margin-right: 0 !important;
@@ -2221,4 +2221,17 @@ input:checked + .slider:before {
     -ms-flex-pack: end;
     justify-content: flex-end;
    
+}
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
+    border-bottom-color: red !important;
+    display: none;
+}
+.bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
+    border-top-color: red !important;
+}
+.bs-tooltip-auto[x-placement^=left] .arrow::before, .bs-tooltip-left .arrow::before {
+    border-left-color: red !important;
+}
+.bs-tooltip-auto[x-placement^=right] .arrow::before, .bs-tooltip-right .arrow::before {
+    border-right-color: red !important;
 }
