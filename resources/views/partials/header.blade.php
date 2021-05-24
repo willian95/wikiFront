@@ -79,7 +79,7 @@
                 </div>
 
                 <a class='brand ' href="{{ url('/front-test') }}">
-                    <img alt='redes' src="{{ url('assets/img/logo.png') }}">
+                    <img alt='logo wikipbl' src="{{ url('assets/img/logo.png') }}">
                 </a>
                 <button class='navbar-toggler p-2 border-0 hamburger hamburger--elastic d-none-lg' data-toggle='offcanvas' type='button'>
                     <span class='hamburger-box'>

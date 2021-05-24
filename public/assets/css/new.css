@@ -117,6 +117,15 @@
   .icon-mas {
     width: 30px!important;
 }
+.nones-xs-show{
+    display: block;
+}
+.nones-xs-show .teacher-icon {
+    margin-right: 0px !important;
+}
+.nones-xs-show{
+    margin-right: 0!important;
+}
 }
 /*tablet*/
 @media (max-width: 768px) {

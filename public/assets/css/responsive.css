@@ -106,7 +106,9 @@
         color: #fff;
         line-height: 1.2;
         margin-left: -5px;
+        justify-content: center;
     }
+   
     .mt--22 {
         margin-top: 0;
     }
@@ -182,9 +184,8 @@
         justify-content: center;
         align-items: center;
     }
-    .teacher-icon {
-        margin-right: 20px !important;
-    }
+
+   
     .p50 {
         padding: 0 20px;
     }
@@ -253,7 +254,7 @@
         font-size: 22px;
     }
     .p5 {
-        padding-top: 3rem;
+        padding-top: 6rem;
     }
     .main-creation {
         height: auto;
@@ -312,12 +313,20 @@
         background: #ffffff;
         box-shadow: 0px 0px 12px #00000054;
         padding: 7px 0;
+        left: 0;
+    }
+    .arrow-up svg{
+        display: none;
+    }
+    .menu-botoom{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .none-no-desk{
+        display: none;
     }
     .menu-show_xs .flex-main {
-        margin-right: 28px !important;
-    }
-    .menu-show_xs {
-        margin: 0 4rem 0 0rem;
+        margin-right: 20px !important;
     }
 
     .menu-botoom .flex-main {
@@ -335,13 +344,15 @@
     }
     .help-icon{
         position: absolute;
-        right: 0;
+    
+        right: 10px;
     }
     .sms-mail {
         width: 200px;
     }
     .user_last {
         display: block;
+        font-size: 10px;
      
     }
     .menu-botoom .nav-item:nth-child(5){
@@ -355,6 +366,29 @@
     
         width: 100%;
        
+    }
+    .xs-margin{
+        margin-right: 0!important;
+    }
+    .menu-botoom .drop-notificacion .dropdown-menu {
+        position: absolute !important;
+        top: -4rem;
+        left: -7rem;
+        width: 170px;
+        overflow-y: scroll;
+        height: 12vh;
+    }
+    .xs_show-edit .navbar-nav {
+     
+        flex-direction: column;
+    }
+    .main-profile{
+        margin-top: 4rem;
+    }
+    #driving img {
+        width: 100%!important;
+        object-fit: contain;
+    
     }
 }
 

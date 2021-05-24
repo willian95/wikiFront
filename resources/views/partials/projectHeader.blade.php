@@ -138,19 +138,22 @@
 
                                     </div>
                                     <!-- Iconos temlate option-->
-                                    <li class='nav-item  flex-main'>
-                                        <img alt='icon' class="teacher-icon " src="{{ url('assets/img/iconos/user-teacher.png') }}">
-                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link'>{{ \Auth::user()->name }}
-                                            {{ substr(\Auth::user()->lastname, 0, 1) }}.
-                                            <span class="tooltip-nav">profile</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item   flex-main">
-                                        <a href="{{ url('logout') }}">
-                                            <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
-                                            <span class="tooltip-nav"> Logout</span>
-                                        </a>
-                                    </li>
+                                    <div class="menu-flex menu-flex_1 ">
+                                                <li class='nav-item  flex-main option-none_menu'>
+                                                    <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2 verse-row'><p class="mb-0">{{ \Auth::user()->name }}
+                                                            {{ substr(\Auth::user()->lastname, 0, 1) }}
+                                                        </p> <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}">
+                                                      
+                                                    </a>
+                                                    <span class="tooltip-nav"> Profile</span>
+                                                </li>
+                                                <li class="nav-item   flex-main cerrar_sesion">
+                                                    <a href="{{ url('logout') }}">
+                                                        <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
+                                                        <span class="tooltip-nav"> Logout</span>
+                                                    </a>
+                                                </li>
+                                            </div>
 
                                 </div>
                             </div>
