@@ -65,6 +65,9 @@
 }
 /**mediasquery */
 @media only screen and (max-width: 600px) {
+    .last-menu {
+        display: block;
+    }
     .check-inst input {
         width: auto;
     }
@@ -133,8 +136,27 @@
     .signin-btn .nav-link {
         padding-right: 0 !important;
     }
+   
 }
-
+@media (min-width: 992px) and (max-width: 1199px) {
+    .menu-template {
+        left: 50px;
+        width: 200px;
+        margin-top: 0px;
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav {
+        top: 1px;
+    }
+    .icon-calendar {
+        width: 15px;
+        margin-right: 1px;
+    }
+}
 /*IPHONE x */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     .header-shadow {

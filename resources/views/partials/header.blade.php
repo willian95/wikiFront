@@ -68,11 +68,11 @@
                                 <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal">
                                         <div class="blue-box"></div>FAQ'S
                                     </a></li>
-                                    <li class="nav-item   flex-main cerrar_sesion-xs" >
-                                        <a href="{{ url('logout') }}">
+                                <li class="nav-item   flex-main cerrar_sesion-xs">
+                                    <a href="{{ url('logout') }}">
                                         Logout
-                                        </a>
-                                    </li>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -131,14 +131,14 @@
                                     <span class="noti" v-cloak>@{{ unseenNotificationsCount }}</span>
                                 </div>
                                 <div class="menu-flex menu-flex_1">
-                                    <li class='nav-item  flex-main option-none_menu' >
+                                    <li class='nav-item  flex-main option-none_menu'>
                                         <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2 verse-row'><p class="mb-0">{{ \Auth::user()->name }}
                                                 {{ substr(\Auth::user()->lastname, 0, 1) }}
                                             </p> <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                             <span class="tooltip-nav"> Profile</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item   flex-main cerrar_sesion" >
+                                    <li class="nav-item   flex-main cerrar_sesion">
                                         <a href="{{ url('logout') }}">
                                             <img alt='icon' class="login_icon " src="{{ url('assets/img/iconos/logout.svg') }}">
                                             <span class="tooltip-nav"> Logout</span>

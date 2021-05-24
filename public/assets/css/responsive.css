@@ -14,9 +14,7 @@
     .menu-template {
         display: none;
     }
-    .last-menu {
-        display: block;
-    }
+  
     .titulo-templates {
         font-size: 23px;
     }
@@ -50,7 +48,11 @@
         align-items: center;
        /* flex-wrap: wrap;*/
        margin-right: 20px;
-       gap: 20px;
+   
+    }
+    .nav-link svg {
+
+        margin-left: 0!important;
     }
     .cerrar_sesion-xs a{
         color: #e91e1e;
