@@ -388,8 +388,25 @@
     #driving img {
         width: 100%!important;
         object-fit: contain;
-    
     }
+    .tooltip-nav, .tooltip-nav_wiki{
+        display: none!important;
+    }
+    .help-icon img {
+        width: 16px!important;
+    }
+    .last-style {
+        font-size: 9px;
+        line-height: 0;
+        padding-top: 10px;
+        margin-right: 15px;
+        margin-left: 13px;
+    }
+    .drop-notificacion .dropdown-menu {
+
+    width: 100%;
+    left: -40px;
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

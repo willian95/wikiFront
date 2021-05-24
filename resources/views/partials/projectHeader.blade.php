@@ -125,7 +125,7 @@
                                         </li>
 
 
-                                        <li class="nav-itm last-style" v-if="lastSave != ''">
+                                        <li class="nav-itm last-style last-xs" v-if="lastSave != ''">
                                             <p v-cloak>@{{ lastSave }}</p>
                                             <p>Last update</p>
                                         </li>

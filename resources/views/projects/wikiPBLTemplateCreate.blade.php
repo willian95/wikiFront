@@ -69,7 +69,7 @@
 
             </div>
             <!----------------info----------------->
-            <div class="col-md-9 info-template">
+            <div class="col-md-12 col-lg-9 info-template">
                 <!--------------------general--------------------------->
                 <ul style="list-style:none" class="content_template content_template-general">
 
