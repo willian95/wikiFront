@@ -25,39 +25,45 @@
         .ajs-message.ajs-custom { color: #31708f;  background-color: #d9edf7;  border-color: #31708f; }
     </style>
 
-    <style>
-        .loader-cover-custom {
-            position: fixed;
-            left: 0;
-            right: 0;
-            z-index: 99999999;
-            background-color: rgba(0, 0, 0, 0.6);
-            top: 0;
-            bottom: 0;
-        }
+    <style>.elipse {
+    background: #fff;
+    position: fixed;
+    z-index: 9999999;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .loader-custom {
-            margin-top: 45vh;
-            margin-left: 45%;
-            border: 16px solid #f3f3f3;
-            /* Light grey */
-            border-top: 16px solid #3498db;
-            /* Blue */
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-        }
+.elipse img {
+    opacity: 0.3;
+    width: 15rem;
+    position: absolute;
+    animation-name: animates;
+    animation-duration: 2s;
+    /* or: Xms */
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    /* or: normal */
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    /* or: backwards, both, none */
+    animation-delay: 1s;
+}
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+
+@-webkit-keyframes animates {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
 
     </style>
     @stack("css")

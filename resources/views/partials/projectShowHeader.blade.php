@@ -1,7 +1,10 @@
 <div id="auth">
     <link rel="stylesheet" href="{{ url('assets/css/new.css') }}">
-    <div class="loader-cover-custom" v-if="loading == true">
+    <!---<div class="loader-cover-custom" v-if="loading == true">
         <div class="loader-custom"></div>
+    </div>--->
+        <div class="elipse loader-cover-custom" v-if="loading == true">
+        <img src="{{ url('assets/img/logo.png') }}" alt="">
     </div>
     <header class="header-shadow">
         <nav class='navbar navbar-expand-md navbar-fixed-js container'>

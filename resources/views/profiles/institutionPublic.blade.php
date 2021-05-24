@@ -4,10 +4,13 @@
 
     <div class="container" id="institutionProfile">
 
-        <div class="loader-cover-custom" v-if="loading == true">
+        <!---<div class="loader-cover-custom" v-if="loading == true">
             <div class="loader-custom"></div>
-        </div>
+        </div>--->
 
+        <div class="elipse loader-cover-custom" v-if="loading == true">
+        <img src="{{ url('assets/img/logo.png') }}" alt="">
+    </div>
         <div class="modal fade" id="reportConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

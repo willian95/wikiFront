@@ -4,9 +4,12 @@
 
     <div class="container" id="institutionProfile">
 
-        <div class="loader-cover-custom" v-if="loading == true">
+        <!----<div class="loader-cover-custom" v-if="loading == true">
             <div class="loader-custom"></div>
-        </div>
+        </div>--->
+        <div class="elipse loader-cover-custom" v-if="loading == true">
+        <img src="{{ url('assets/img/logo.png') }}" alt="">
+    </div>
 
         @include("profiles.modals.institutionProfileModal")
         @include("profiles.modals.addUserModal")
