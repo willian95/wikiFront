@@ -71,11 +71,14 @@
                                 <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal">
                                         <div class="blue-box"></div>FAQ'S
                                     </a></li>
-                                <li class="nav-item   flex-main cerrar_sesion-xs">
+                                    @if(\Auth::check())
+                                    <li class="nav-item   flex-main cerrar_sesion-xs">
                                     <a href="{{ url('logout') }}">
                                         Logout
                                     </a>
                                 </li>
+                                @endif
+                               
                             </ul>
                         </li>
                     </ul>
