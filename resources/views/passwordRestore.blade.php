@@ -46,6 +46,7 @@
             methods: {
 
                 restore(){
+                    this.errors = []
                     this.loading = true
                     axios.post("{{ url('/password/change') }}", {password: this.password, password_confirmation: this.passwordConfirmation, recoveryHash: '{{ $user->recovery_hash }}'}).then(res => {
                         this.loading = false
@@ -72,11 +73,6 @@
                     .catch(err => {
 
                         this.loading = false
-                        swal({
-                            text: "Something went wrong",
-                            icon: "error"
-                        })
-
                         this.errors = err.response.data.errors
                     })
 

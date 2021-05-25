@@ -682,6 +682,7 @@
             },
             login() {
 
+                this.errors = []
                 this.loading = true
                 let token = window.localStorage.getItem("fcm_token")
 
@@ -711,11 +712,6 @@
 
                 }).catch(err => {
 
-                    swal({
-                        text: "Check some fields, please",
-                        icon: "error"
-                    });
-
                     this.loading = false
                     this.errors = err.response.data.errors
                 })
@@ -724,7 +720,7 @@
                 alert("hey")
             },
             teacherRegister() {
-
+                this.errors = []
                 if (this.validateTeacherRegister()) {
 
                     let form = new FormData
@@ -777,13 +773,6 @@
                         }
 
                     }).catch(err => {
-
-                        swal({
-                            text: "Check some fields, please",
-                            icon: "error"
-                        });
-
-
                         this.loading = false
                         this.errors = err.response.data.errors
                     })
@@ -791,6 +780,8 @@
 
             },
             institutionRegister() {
+
+                this.errors = []
 
                 if (this.validateInstitutionRegister()) {
 
@@ -843,12 +834,6 @@
                         }
 
                     }).catch(err => {
-
-                        swal({
-                            text: "Check some fields, please",
-                            icon: "error"
-                        });
-
 
                         this.loading = false
                         this.errors = err.response.data.errors
@@ -1243,7 +1228,7 @@
 
             },
             restorePassword() {
-
+                this.errors = []
                 axios.post("{{ url('/password/send-email') }}", {
                     "email": this.forgotPasswordEmail
                 }).then(res => {
@@ -1263,11 +1248,6 @@
                     }
 
                 }).catch(err => {
-
-                    swal({
-                        text: "Check some fields, please",
-                        icon: "error"
-                    });
 
                     this.loading = false
                     this.forgotPasswordErrors = err.response.data.errors

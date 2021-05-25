@@ -179,12 +179,6 @@
 
                     }).catch(err => {
 
-                        swal({
-                            text: "Check some fields, please",
-                            icon: "error"
-                        });
-
-
                         this.loading = false
                         this.errors = err.response.data.errors
                     })
