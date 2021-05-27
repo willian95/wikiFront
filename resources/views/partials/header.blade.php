@@ -66,12 +66,12 @@
                                 <li class="nav-box_li"><a href="{{ url('/teacher/all') }}">
                                         <div class="blue-box"></div>Educators
                                     </a></li>
-                                <li class="nav-box_li"><a href="{{ url('/about') }}">
+                                <!---<li class="nav-box_li"><a href="{{ url('/about') }}">
                                         <div class="blue-box"></div>About wikiPBL
                                     </a></li>
                                 <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal">
                                         <div class="blue-box"></div>FAQ'S
-                                    </a></li>
+                                    </a></li>-->
                                 @if(\Auth::check())
                                 <li class="nav-item   flex-main cerrar_sesion-xs">
                                     <a href="{{ url('logout') }}">

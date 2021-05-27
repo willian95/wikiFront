@@ -1117,7 +1117,7 @@
               
                     <p class="items-footer"> 
                      <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
-                    <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> 
+                       <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> 
                      <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
                      <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
                 </div>

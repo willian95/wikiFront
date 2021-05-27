@@ -66,7 +66,7 @@
 
         <footer class="footer-estyle">
             <div class="footer container mt-5 text-center">
-                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> - <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> - <a href="#">About wikiPBL</a> - 2021
+                <p> <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> -    <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> - <a href="#">About wikiPBL</a> - 2021
                 Copyrights - Contact us! </p>
             </div>
         </footer>
