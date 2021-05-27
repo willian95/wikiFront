@@ -57,11 +57,25 @@
 .about img {
     width: 35px;
 }
- .cerrar_sesion-xs{
-    display: none!important;
+.cerrar_sesion-xs {
+    display: none !important;
 }
-.table  .login_icon {
-    height:auto;
+.table .login_icon {
+    height: auto;
+}
+.navbar-nav {
+    justify-content: flex-end;
+}
+.drop-notificacion .tooltip-nav {
+    left: -21px;
+}
+.option-none_menu .tooltip-nav {
+    left: 0px;
+}
+.tooltip-nav_wiki {
+    left: 0;
+    width: 139px;
+    top: 45px;
 }
 /**mediasquery */
 @media only screen and (max-width: 600px) {
@@ -104,28 +118,43 @@
         margin-top: 4.5rem;
     }
     .items-footer a {
-      margin-left: 0;
-      display: grid;
-      margin-bottom: 10px;
-  }
-  .option-none_menu p , .cerrar_sesion{
-    display: none;
-  }
-  .cerrar_sesion-xs{
-      display: block!important;
-  }
-  .icon-mas {
-    width: 30px!important;
-}
-.nones-xs-show{
-    display: block;
-}
-.nones-xs-show .teacher-icon {
-    margin-right: 0px !important;
-}
-.nones-xs-show{
-    margin-right: 0!important;
-}
+        margin-left: 0;
+        display: grid;
+        margin-bottom: 10px;
+    }
+    .option-none_menu p,
+    .cerrar_sesion {
+        display: none;
+    }
+    .cerrar_sesion-xs {
+        display: block !important;
+    }
+    .icon-mas {
+        width: 30px !important;
+    }
+    .nones-xs-show {
+        display: block;
+    }
+    .nones-xs-show .teacher-icon {
+        margin-right: 0px !important;
+    }
+    .nones-xs-show {
+        margin-right: 0 !important;
+    }
+    .feactured-one {
+        overflow: hidden;
+    }
+    #wiki-template{
+        margin-top: 6rem;
+    }
+    .last-style {
+
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .save-option{
+        margin-left: 0rem!important;
+    }
 }
 /*tablet*/
 @media (max-width: 768px) {
@@ -145,7 +174,6 @@
     .signin-btn .nav-link {
         padding-right: 0 !important;
     }
-   
 }
 @media (min-width: 992px) and (max-width: 1199px) {
     .menu-template {
@@ -172,7 +200,23 @@
         height: 9vh;
     }
 }
-
+@media (min-width: 769px) and (max-width: 991px) {
+    .menu-template {
+        display: none;
+    }
+    .launch-xs{
+        display: block!important;
+        position: fixed;
+        z-index: 9;
+        bottom: 0;
+        /* border-radius: 50%; */
+        width: 60px;
+        height: 38px;
+        right: 12px;
+        font-size: 11px;
+        padding: 5px 5px;
+    }
+}
 /*ipad PRO*/
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
     .header-shadow {

@@ -66,7 +66,12 @@
                         </ul>
                     </div>
                 </div>
+                @if($project[0]->status == 'pending')
+                    <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
+                    @else
+                    <button class="btn btn-custom launch-xs" @click="launch()">Update</button>
 
+                    @endif
             </div>
             <!----------------info----------------->
             <div class="col-md-12 col-lg-9 info-template" v-cloak>

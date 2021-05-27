@@ -66,7 +66,7 @@
                         </ul>
                     </div>
                 </div>
-
+                <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
             </div>
             <!----------------info----------------->
             <div class="col-md-12 col-lg-9 info-template">
