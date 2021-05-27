@@ -2277,3 +2277,6 @@ input:checked + .slider:before {
     text-align: center;
     margin-right: 20px;
 }
+  .launch-xs{
+        display: none!important;
+    }

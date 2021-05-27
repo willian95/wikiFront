@@ -65,12 +65,12 @@
                                 <li class="nav-box_li"><a href="{{ url('/teacher/all') }}">
                                         <div class="blue-box"></div>Educators
                                     </a></li>
-                                <li class="nav-box_li"><a href="{{ url('/about') }}">
+                               <!----<li class="nav-box_li"><a href="{{ url('/about') }}">
                                         <div class="blue-box"></div>About wikiPBL
                                     </a></li>
                                 <li class="nav-box_li"><a data-toggle="modal" data-target=".faq-modal">
                                         <div class="blue-box"></div>FAQ'S
-                                    </a></li>
+                                    </a></li>-->
                                     @if(\Auth::check())
                                     <li class="nav-item   flex-main cerrar_sesion-xs">
                                     <a href="{{ url('logout') }}">
@@ -120,7 +120,7 @@
                                         @endif
 
 
-                                        <li class="nav-item   flex-main ml-5" @if($projectAction=='creation' ) @click="saveProject()" @else @click="saveEditionProject()" @endif>
+                                        <li class="nav-item   flex-main ml-5 save-option" @if($projectAction=='creation' ) @click="saveProject()" @else @click="saveEditionProject()" @endif>
                                             <svg class="login_icon color-blue_icon " xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24">
                                                 <path d="M20.71,9.29l-6-6a1,1,0,0,0-.32-.21A1.09,1.09,0,0,0,14,3H6A3,3,0,0,0,3,6V18a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10A1,1,0,0,0,20.71,9.29ZM9,5h4V7H9Zm6,14H9V16a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1Zm4-1a1,1,0,0,1-1,1H17V16a3,3,0,0,0-3-3H10a3,3,0,0,0-3,3v3H6a1,1,0,0,1-1-1V6A1,1,0,0,1,6,5H7V8A1,1,0,0,0,8,9h6a1,1,0,0,0,1-1V6.41l4,4Z" />
                                             </svg>

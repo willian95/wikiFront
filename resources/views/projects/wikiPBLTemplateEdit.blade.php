@@ -3,8 +3,8 @@
 @section("content")
 
 <style>
-    .modal-backdrop.show{
-        opacity:0 !important;
+    .modal-backdrop.show {
+        opacity: 0 !important;
         z-index: 0 !important;
     }
 </style>
@@ -72,6 +72,12 @@
                             </ul>
                         </div>
                     </div>
+                    @if($project[0]->status == 'pending')
+                    <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
+                    @else
+                    <button class="btn btn-custom launch-xs" @click="launch()">Update</button>
+
+                    @endif
 
                 </div>
                 <!----------------info----------------->
@@ -82,15 +88,15 @@
 
                         @if(\Auth::user()->id == $project[0]->user_id)
                         <li class="content_template-general-item">
-                        <div class="flex-edit">
-                    <h3 class="titulo-templates">
-                            Incubator Features
-                            <div class="help-icon" @click="showHelp('incubator')">
-                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                            <div class="flex-edit">
+                                <h3 class="titulo-templates">
+                                    Incubator Features
+                                    <div class="help-icon" @click="showHelp('incubator')">
+                                        <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                             
+
+                                    </div>
                             </div>
-                    </div>
                             <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
                                 hold back, be brave and get it out there. Our world of
                                 wikiPBL educators love taking projects from idea to
@@ -428,7 +434,7 @@
                         <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates">#hashtags</h3>
-                                <div class="help-icon"  @click="showHelp('hashtag')">
+                                <div class="help-icon" @click="showHelp('hashtag')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
                                 </div>
@@ -981,11 +987,11 @@
 
                                         <div class="help-icon" @click="showHelp('fieldWork')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
-                                          
+
                                         </div>
                                     </div>
                                     <p class="help-icon-p" v-show="fieldWorkHelp">Activities completed outside of the classroom such as taking water samples from a lake or interviewing Vietnam veterans
-                                            </p>
+                                    </p>
 
                                     <p class="subtitule_txt">(you can edit this for whatever Title)
                                     </p>
@@ -1050,7 +1056,7 @@
                                         </a>
                                         <div class="help-icon" @click="showHelp('globalConnections')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
-                                          
+
                                         </div>
                                     </div>
                                     <p class="help-icon-p" v-show="globalConnectionsHelp">What individuals or groups from around the world would you like to be involved in your project? </p>
@@ -1068,7 +1074,7 @@
                                 <h3 class="titulo-templates">Bibliography (mandatory)</h3>
                                 <div class="help-icon" @click="showHelp('bibliography')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                                
+
                                 </div>
                             </div>
                             <p class="help-icon-p" v-show="bibliographyHelp">If you use someone else's stuff, give them credit </p>
@@ -1084,12 +1090,12 @@
                                 </h1>
                                 <div class="help-icon" @click="showHelp('upvoteSystem')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
-                            
+
                                 </div>
                             </div>
                             <p class="help-icon-p" v-show="upvoteSystemHelp">Identify the essential elements that you think your
-                                        project highlights, so your peers can like/upvote your
-                                        wikiPBL </p>
+                                project highlights, so your peers can like/upvote your
+                                wikiPBL </p>
                             <div class="row">
                                 @foreach(App\AssestmentPointType::get() as $point)
                                 <div class="col-md-6 dflex-icon">
@@ -1113,15 +1119,16 @@
             </div>
         </div>
         <footer class="footer-estyle">
-                <div class="footer container mt-5 text-center">
-              
-                    <p class="items-footer"> 
-                     <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
-                    <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> 
-                     <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
-                     <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
-                </div>
-            </footer>
+            <div class="footer container mt-5 text-center">
+
+                <p class="items-footer">
+                    <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a>
+                    <a data-toggle="modal" data-target=".faq-modal">FAQ'S</a>
+                    <a href="{{ url('/about') }}">About wikiPBL</a>
+                </p>
+                <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
+            </div>
+        </footer>
     </div>
 </div>
 
@@ -1186,26 +1193,26 @@
                 //private: JSON.parse('{!! $project[0]->is_private !!}'),
                 private: 0,
                 loading: false,
-                incubatorFeature:false,
-                incubatorHelp:false,
-                drivingQuestionHelp:false,
-                subjectTitleHelp:false,
-                timeFrameHelp:false,
-                projectSummaryHelp:false,
-                upvoteSystemHelp:false,
-                levelTitleHelp:false,
-                hashtagHelp:false,
-                calendarHelp:false,
-                bibliographyHelp:false,
-                upvoteSystemHelp:false,
-                publicProductTitleHelp:false,
-                toolsHelp:false,
-                expertHelp:false,
-                learningGoalsHelp:false,
-                resourcesHelp:false,
-                projectMilestoneHelp:false,
-                fieldWorkHelp:false,
-                globalConnectionsHelp:false
+                incubatorFeature: false,
+                incubatorHelp: false,
+                drivingQuestionHelp: false,
+                subjectTitleHelp: false,
+                timeFrameHelp: false,
+                projectSummaryHelp: false,
+                upvoteSystemHelp: false,
+                levelTitleHelp: false,
+                hashtagHelp: false,
+                calendarHelp: false,
+                bibliographyHelp: false,
+                upvoteSystemHelp: false,
+                publicProductTitleHelp: false,
+                toolsHelp: false,
+                expertHelp: false,
+                learningGoalsHelp: false,
+                resourcesHelp: false,
+                projectMilestoneHelp: false,
+                fieldWorkHelp: false,
+                globalConnectionsHelp: false
             }
         },
         methods: {
@@ -1934,159 +1941,123 @@
                 }, 500);
 
             },
-            showHelp(section){
+            showHelp(section) {
 
                 this.clearHelps(section)
 
-                if(section == "incubator"){
+                if (section == "incubator") {
                     this.incubatorHelp == true ? this.incubatorHelp = false : this.incubatorHelp = true
-                }
-
-                else if(section == "drivingQuestion"){
+                } else if (section == "drivingQuestion") {
                     this.drivingQuestionHelp == true ? this.drivingQuestionHelp = false : this.drivingQuestionHelp = true
-                }
-
-                else if(section == "subjectTitle"){
+                } else if (section == "subjectTitle") {
 
                     this.subjectTitleHelp == true ? this.subjectTitleHelp = false : this.subjectTitleHelp = true
-                }
-
-                else if(section == "timeFrame"){
+                } else if (section == "timeFrame") {
 
                     this.timeFrameHelp == true ? this.timeFrameHelp = false : this.timeFrameHelp = true
-                }
-
-                else if(section == "projectSummary"){
+                } else if (section == "projectSummary") {
 
                     this.projectSummaryHelp == true ? this.projectSummaryHelp = false : this.projectSummaryHelp = true
-                }
-
-                else if(section == "upvoteSystem"){
+                } else if (section == "upvoteSystem") {
 
                     this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
-                }
-
-                else if(section == "levelTitle"){
+                } else if (section == "levelTitle") {
 
                     this.levelTitleHelp == true ? this.levelTitleHelp = false : this.levelTitleHelp = true
-                }
-
-                else if(section == "hashtag"){
+                } else if (section == "hashtag") {
 
                     this.hashtagHelp == true ? this.hashtagHelp = false : this.hashtagHelp = true
-                }
-
-                else if(section == "calendar"){
+                } else if (section == "calendar") {
 
                     this.calendarHelp == true ? this.calendarHelp = false : this.calendarHelp = true
-                }
+                } else if (section == "bibliography") {
 
-                else if(section == "bibliography"){
-                    
                     this.bibliographyHelp == true ? this.bibliographyHelp = false : this.bibliographyHelp = true
-                }
-
-                else if(section == "upvoteSystem"){
+                } else if (section == "upvoteSystem") {
 
                     this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
-                }
-
-                else if(section == "publicProductTitle"){
+                } else if (section == "publicProductTitle") {
 
                     this.publicProductTitleHelp == true ? this.publicProductTitleHelp = false : this.publicProductTitleHelp = true
-                }
-
-                else if(section == "tools"){
+                } else if (section == "tools") {
                     this.toolsHelp == true ? this.toolsHelp = false : this.toolsHelp = true
-                }
-
-                else if(section == "learningGoals"){
+                } else if (section == "learningGoals") {
                     this.learningGoalsHelp == true ? this.learningGoalsHelp = false : this.learningGoalsHelp = true
-                }
-
-                else if(section == "resources"){
+                } else if (section == "resources") {
                     this.resourcesHelp == true ? this.resourcesHelp = false : this.resourcesHelp = true
-                }
-
-                else if(section == "projectMilestone"){
+                } else if (section == "projectMilestone") {
                     this.projectMilestoneHelp == true ? this.projectMilestoneHelp = false : this.projectMilestoneHelp = true
-                }
-
-                else if(section == "expert"){
+                } else if (section == "expert") {
                     this.expertHelp == true ? this.expertHelp = false : this.expertHelp = true
-                }
-
-                else if(section == "fieldWork"){
+                } else if (section == "fieldWork") {
                     this.fieldWorkHelp == true ? this.fieldWorkHelp = false : this.fieldWorkHelp = true
-                }
-
-                else if(section == "globalConnections"){
+                } else if (section == "globalConnections") {
                     this.globalConnectionsHelp == true ? this.globalConnectionsHelp = false : this.globalConnectionsHelp = true
                 }
 
             },
-            clearHelps(section){
+            clearHelps(section) {
 
-                if(section != "incubator")
-                this.incubatorHelp = false
+                if (section != "incubator")
+                    this.incubatorHelp = false
 
-                if(section != "drivingQuestion")
-                this.drivingQuestionHelp = false
+                if (section != "drivingQuestion")
+                    this.drivingQuestionHelp = false
 
-                if(section != "subjectTitle")
-                this.subjectTitleHelp = false
+                if (section != "subjectTitle")
+                    this.subjectTitleHelp = false
 
-                if(section != "timeFrame")
-                this.timeFrameHelp = false
+                if (section != "timeFrame")
+                    this.timeFrameHelp = false
 
-                if(section != "projectSummary")
-                this.projectSummaryHelp = false
+                if (section != "projectSummary")
+                    this.projectSummaryHelp = false
 
-                if(section != "upvoteSystem")
-                this.upvoteSystemHelp = false
+                if (section != "upvoteSystem")
+                    this.upvoteSystemHelp = false
 
-                if(section != "levelTitle")
-                this.levelTitleHelp = false
+                if (section != "levelTitle")
+                    this.levelTitleHelp = false
 
-                if(section != "hashtag")
-                this.hashtagHelp = false
+                if (section != "hashtag")
+                    this.hashtagHelp = false
 
-                if(section != "calendar")
-                this.calendarHelp = false
+                if (section != "calendar")
+                    this.calendarHelp = false
 
-                if(section != "bibliography")
-                this.bibliographyHelp = false
+                if (section != "bibliography")
+                    this.bibliographyHelp = false
 
-                if(section != "upvoteSystem")
-                this.upvoteSystemHelp = false
+                if (section != "upvoteSystem")
+                    this.upvoteSystemHelp = false
 
-                if(section != "publicProductTitle")
-                this.publicProductTitleHelp = false
+                if (section != "publicProductTitle")
+                    this.publicProductTitleHelp = false
 
-                if(section != "tools")
-                this.toolsHelp = false
+                if (section != "tools")
+                    this.toolsHelp = false
 
-                if(section != "learningGoals")
-                this.learningGoalsHelp = false
+                if (section != "learningGoals")
+                    this.learningGoalsHelp = false
 
-                if(section != "resources")
-                this.resourcesHelp = false
+                if (section != "resources")
+                    this.resourcesHelp = false
 
-                if(section != "projectMilestone"){
+                if (section != "projectMilestone") {
                     this.projectMilestoneHelp = false
                 }
 
-                if(section != "expert"){
+                if (section != "expert") {
                     this.expertHelp = false
                 }
 
-                if(section != "fieldWork"){
+                if (section != "fieldWork") {
 
                     this.fieldWorkHelp = false
 
                 }
 
-                if(section != "globalConnections"){
+                if (section != "globalConnections") {
                     this.globalConnectionsHelp = false
                 }
 
@@ -2118,13 +2089,13 @@
             let level = JSON.parse('{!! $level !!}')
             this.level = level.level
             this.ages = level.ages
-       
+
             let learningGoals = '{!! $learningGoals !!}'
- 
+
             if (learningGoals != '') {
-                
+
                 this.learningGoals = JSON.parse(learningGoals);
-        
+
             }
 
             let milestone = '{!! $projectMilestones !!}'
@@ -2212,75 +2183,75 @@
 
     })
 </script>
-   <!-- Modal FAQ -->
-   <div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="text-center">
-                        <h3>FAQ’S </h3>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Can i delete my projects once I have started the development project?</strong></p>
-                        <p>any project you develop lives initially in your personal folder. You can delete these projects at any time. However, once you have published your project for shared development and use by others it lives in two distinct and independent places : your personal folder and the public space. Once published to the public space. you will be unable to delete this version of the project. However, you can still delete the version of the project that lives in your personal folder. In other words, once you share a project, the shared version cannot be deleted.</p>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Will I retain ownership of my project once I publish it?</strong></p>
-                        <p>you will always be credited as the originator of any project you initiate or publish (including incubator projects). However, “open-source” and resource-sharing in education is a core philosophy at <strong>wikiPBL</strong> . As such, once a project is published (in any stage of compltion), it will become free to use and edit by our the <strong>wikiPBL</strong>  community..</p>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Do i have to be associated with a school to use <strong>wikiPBL</strong> ? What if I am a freelance educator or private tutor?</strong></p>
-                        <p><strong>wikiPBL</strong>  is a closed community (for safety reasons) intended for educators. You don’t have to be a associated with a school so if you are an educator outside of a school please send us an email at <a href="mailto:info@wikipbl.org">info@wikipbl.org</a>.</p>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Can I share my <strong>wikiPBL</strong>  without letting people edit it?</strong></p>
-                        <p>In short, no (but with a caveat). The goal of wikiPBL is to encourage shared project development and open resource sharing. However, you will always have access to your original version of your project (which will live in your personal folder), which you can edit on your own. In this way, you can use the ideas others suggest for your project for your own personal version, which can remain unpublished (but we encourage you to share your genius with others as well).</p>
-                    </div>
+<!-- Modal FAQ -->
+<div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="text-center">
+                    <h3>FAQ’S </h3>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Can i delete my projects once I have started the development project?</strong></p>
+                    <p>any project you develop lives initially in your personal folder. You can delete these projects at any time. However, once you have published your project for shared development and use by others it lives in two distinct and independent places : your personal folder and the public space. Once published to the public space. you will be unable to delete this version of the project. However, you can still delete the version of the project that lives in your personal folder. In other words, once you share a project, the shared version cannot be deleted.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Will I retain ownership of my project once I publish it?</strong></p>
+                    <p>you will always be credited as the originator of any project you initiate or publish (including incubator projects). However, “open-source” and resource-sharing in education is a core philosophy at <strong>wikiPBL</strong> . As such, once a project is published (in any stage of compltion), it will become free to use and edit by our the <strong>wikiPBL</strong> community..</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Do i have to be associated with a school to use <strong>wikiPBL</strong> ? What if I am a freelance educator or private tutor?</strong></p>
+                    <p><strong>wikiPBL</strong> is a closed community (for safety reasons) intended for educators. You don’t have to be a associated with a school so if you are an educator outside of a school please send us an email at <a href="mailto:info@wikipbl.org">info@wikipbl.org</a>.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Can I share my <strong>wikiPBL</strong> without letting people edit it?</strong></p>
+                    <p>In short, no (but with a caveat). The goal of wikiPBL is to encourage shared project development and open resource sharing. However, you will always have access to your original version of your project (which will live in your personal folder), which you can edit on your own. In this way, you can use the ideas others suggest for your project for your own personal version, which can remain unpublished (but we encourage you to share your genius with others as well).</p>
+                </div>
 
 
-                    <div class="mt-5 mb-5">
-                        <p><strong>Why will my <strong>wikiPBL</strong>  make my projects better?</strong></p>
-                        <p>If by better you mean that your project ideas will benefit from the ideas and suggestions of millions of users around the world with varying levels of expertise, and a variety of experiences, then yes it will.</p>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Can I have a private <strong>wikiPBL</strong>  that no one can see?</strong></p>
-                        <p>any project you develop lives initially in your personal folder. You can edit and delete these projects at any time..</p>
-                    </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Why will my <strong>wikiPBL</strong> make my projects better?</strong></p>
+                    <p>If by better you mean that your project ideas will benefit from the ideas and suggestions of millions of users around the world with varying levels of expertise, and a variety of experiences, then yes it will.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Can I have a private <strong>wikiPBL</strong> that no one can see?</strong></p>
+                    <p>any project you develop lives initially in your personal folder. You can edit and delete these projects at any time..</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal -->
-    <div class="modal fade tyc " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal -->
+<div class="modal fade tyc " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="text-center">
-                <h3>Terms & Conditions - Privacy Policy </h3>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="text-center">
+                    <h3>Terms & Conditions - Privacy Policy </h3>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
             </div>
         </div>
-    </div>
-@endpush
+        @endpush

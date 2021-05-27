@@ -66,7 +66,12 @@
                         </ul>
                     </div>
                 </div>
+                @if($project[0]->status == 'pending')
+                    <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
+                    @else
+                    <button class="btn btn-custom launch-xs" @click="launch()">Update</button>
 
+                    @endif
             </div>
             <!----------------info----------------->
             <div class="col-md-12 col-lg-9 info-template" v-cloak>
@@ -553,7 +558,7 @@
               
                     <p class="items-footer"> 
                      <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
-                    <a data-toggle="modal" data-target=".tyc" >Terms & Conditions</a> 
+                       <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> 
                      <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
                      <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
                 </div>
