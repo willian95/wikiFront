@@ -149,7 +149,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                                <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
+                                <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                     <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
                                     <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon" @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -174,7 +174,7 @@
                                 during PBL
 
                             </p>
-                            <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
+                            <!--<p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>-->
 
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! htmlspecialchars_decode($drivingQuestion) !!}</textarea>
 
@@ -183,7 +183,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
+                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                     <span v-if="editSection != 'subjectTitle'">Click to edit</span>
                                     <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon" @click="showHelp('subjectTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -204,7 +204,7 @@
 
                             <p class="help-icon-p" v-show="subjectTitleHelp">What subjects (content areas) does your project address/emphasize?
                             </p>
-                            <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
+                            <!--<p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>-->
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -232,7 +232,7 @@
 
                                 <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                                 <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
+                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
                                     <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
                                     <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -244,7 +244,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon" @click="showHelp('timeFrame')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -253,7 +253,7 @@
                             <p class="help-icon-p" v-show="timeFrameHelp">How long do you think your project will take?
                             </p>
 
-                            <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
+                            <!--<p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>-->
                             <div class="row">
                                 <div class="col-md-6">
                                     <input class="form-control" type="text" placeholder="3 Weeks - 5 hours a week" v-model="timeFrame">
@@ -278,7 +278,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
+                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
                                     <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
                                     <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon" @click="showHelp('publicProductTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -298,8 +298,8 @@
                             </div>
                             <p class="help-icon-p" v-show="publicProductTitleHelp">What artifacts, presentations, performances or compositions will your students produce?
                             </p>
-                            <p class="subtitule_txt">(you can edit this for whatever Title)
-                            </p>
+                            <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                            </p>-->
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                         </li>
 
@@ -307,7 +307,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
+                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                     <span v-if="editSection != 'levelTitle'">Click to edit</span>
                                     <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -319,7 +319,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -327,8 +327,8 @@
                             </div>
                             <p class="help-icon-p" v-show="levelTitleHelp">For what age/grade level(s) is your project appropriate?
                             </p>
-                            <p class="subtitule_txt">(you can edit this for whatever Title)
-                            </p>
+                            <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                            </p>-->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -504,7 +504,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'toolsTitle'">@{{ toolsTitle }}</h3>
                                         <input v-if="editSection == 'toolsTitle'" type="text" class="form-control" v-model="toolsTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('toolsTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('toolsTitle')">
                                             <span v-if="editSection != 'toolsTitle'">Click to edit</span>
                                             <span v-if="editSection == 'toolsTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -516,7 +516,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('tools')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -529,8 +529,8 @@
                                         skills, 4th grade reading ability)?
 
                                     </p>
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
 
                                     <input class="form-control" type="text" placeholder="Type and enter to add each tool" v-model="tool" v-on:keyup.enter="addTool()">
 
@@ -586,11 +586,11 @@
 
                                 </div>
 
-                                <li class="content_template-general-item content_template-general-item__shadow" v-if="showLearningGoals">
+                                <li class="content_template-general-item content_template-general-item__shadow" v-show="showLearningGoals">
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'learningGoalsTitle'">@{{ learningGoalsTitle }}</h3>
                                         <input v-if="editSection == 'learningGoalsTitle'" type="text" class="form-control" v-model="learningGoalsTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('learningGoalsTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('learningGoalsTitle')">
                                             <span v-if="editSection != 'learningGoalsTitle'">Click to edit</span>
                                             <span v-if="editSection == 'learningGoalsTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -602,7 +602,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('learningGoals')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -615,15 +615,15 @@
                                         competencies
 
                                     </p>
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
                                     <input type="text" placeholder="Type and enter to add each" v-model="learningGoalObjectives" class="form-control mb-2">
 
                                     <textarea name="" id="learningGoalEditor" cols="30" rows="10"></textarea>
 
 
                                     <p class="text-center mt-4">
-                                        <button class="btn btn-customs" @click="addLearningGoal()">Add</button>
+                                        <button class="btn btn-custom" @click="addLearningGoal()">Add</button>
                                     </p>
 
                                     <div class="row">
@@ -685,7 +685,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'resourcesTitle'">@{{ resourcesTitle }}</h3>
                                         <input v-if="editSection == 'resourcesTitle'" type="text" class="form-control" v-model="resourcesTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('resourcesTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('resourcesTitle')">
                                             <span v-if="editSection != 'resourcesTitle'">Click to edit</span>
                                             <span v-if="editSection == 'resourcesTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -697,7 +697,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('resources')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -710,8 +710,8 @@
                                         project?
 
                                     </p>
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
                                     <textarea name="" id="resourcesEditor" cols="30" rows="10">{!! $resources !!}</textarea>
                                 </li>
                             </div>
@@ -757,7 +757,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'projectMilestoneTitle'">@{{ projectMilestoneTitle }}</h3>
                                         <input v-if="editSection == 'projectMilestoneTitle'" type="text" class="form-control" v-model="projectMilestoneTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('projectMilestoneTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('projectMilestoneTitle')">
                                             <span v-if="editSection != 'projectMilestoneTitle'">Click to edit</span>
                                             <span v-if="editSection == 'projectMilestoneTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -769,7 +769,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('projectMilestone')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -779,13 +779,13 @@
                                     <p class="help-icon-p" v-show="projectMilestoneHelp">What are the major project steps toward project completion?
 
                                     </p>
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)-->
                                     </p>
                                     <input type="text" class="form-control mb-2" v-model="milestoneTitle">
                                     <textarea cols="30" rows="10" id="projectMilestoneEditor"></textarea>
 
                                     <p class="text-center">
-                                        <button class="btn btn-success" @click="addProjectMilestone()">Add</button>
+                                        <button class="btn btn-custom" @click="addProjectMilestone()">Add</button>
                                     </p>
 
                                     <div class="row">
@@ -847,7 +847,7 @@
                                 </div>
                                 <div class="row mt-1" v-for="week in weeks">
                                     <div class="col-md-2">Week @{{ week }}</div>
-                                    <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
+                                    <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target=".calendarDescription">
                                         <div class="card" style="cursor: pointer">
                                             <div class="card-body card-body_tarea">
                                                 @{{ showActivity(week, day) }}
@@ -900,7 +900,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'expertTitle'">@{{ expertTitle  }}</h3>
                                         <input v-if="editSection == 'expertTitle'" type="text" class="form-control" v-model="expertTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('expertTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('expertTitle')">
                                             <span v-if="editSection != 'expertTitle'">Click to edit</span>
                                             <span v-if="editSection == 'expertTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -912,7 +912,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('expert')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -923,8 +923,8 @@
 
                                     </p>
 
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
 
                                     <textarea cols="30" rows="10" id="expertEditor">{!! $expert !!}</textarea>
                                 </li>
@@ -971,7 +971,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'fieldWorkTitle'">@{{ fieldWorkTitle }}</h3>
                                         <input v-if="editSection == 'fieldWorkTitle'" type="text" class="form-control" v-model="fieldWorkTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('fieldWorkTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('fieldWorkTitle')">
                                             <span v-if="editSection != 'fieldWorkTitle'">Click to edit</span>
                                             <span v-if="editSection == 'fieldWorkTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -983,7 +983,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
 
                                         <div class="help-icon" @click="showHelp('fieldWork')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
@@ -993,8 +993,8 @@
                                     <p class="help-icon-p" v-show="fieldWorkHelp">Activities completed outside of the classroom such as taking water samples from a lake or interviewing Vietnam veterans
                                     </p>
 
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
 
                                     <textarea cols="30" rows="10" id="fieldWorkEditor">{!! $fieldWork !!}</textarea>
                                 </li>
@@ -1041,7 +1041,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'globalConnectionsTitle'">@{{ globalConnectionsTitle }}</h3>
                                         <input v-if="editSection == 'globalConnectionsTitle'" type="text" class="form-control" v-model="globalConnectionsTitle">
-                                        <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('globalConnectionsTitle')">
+                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('globalConnectionsTitle')">
                                             <span v-if="editSection != 'globalConnectionsTitle'">Click to edit</span>
                                             <span v-if="editSection == 'globalConnectionsTitle'">Click to finish editing</span>
                                             <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -1053,7 +1053,7 @@
                                                 </g>
                                             </svg>
 
-                                        </a>
+                                        </a>-->
                                         <div class="help-icon" @click="showHelp('globalConnections')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -1061,8 +1061,8 @@
                                     </div>
                                     <p class="help-icon-p" v-show="globalConnectionsHelp">What individuals or groups from around the world would you like to be involved in your project? </p>
 
-                                    <p class="subtitule_txt">(you can edit this for whatever Title)
-                                    </p>
+                                    <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                                    </p>-->
 
                                     <textarea cols="30" rows="10" id="globalConnectionEditor">{!! $globalConnections !!}</textarea>
                                 </li>
@@ -1212,7 +1212,11 @@
                 resourcesHelp: false,
                 projectMilestoneHelp: false,
                 fieldWorkHelp: false,
-                globalConnectionsHelp: false
+                globalConnectionsHelp: false,
+                problemErrors:[],
+                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription:""
             }
         },
         methods: {
@@ -2061,7 +2065,43 @@
                     this.globalConnectionsHelp = false
                 }
 
-            }
+            },
+            reportProblem(){
+
+                this.loading = true
+                this.problemErrors = []
+                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                    this.loading = false
+                    if(res.data.success == true){
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
+
+                        this.problemEmail = ""
+                        this.problemName = ""
+                        this.problemDescription= ""
+
+                        $(".problems-modal").modal("hide")
+                        $('.modal-backdrop').remove();
+
+                    }else{
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+                    this.loading = false
+                    this.problemErrors = err.response.data.errors
+                })
+
+
+            },
 
 
         },

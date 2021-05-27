@@ -75,6 +75,15 @@
                         <span class='hamburger-inner'></span>
                     </span>
                 </button>
+                <li class="nav-item  flex-main mr-0 new_wiki">
+
+                <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
+                    <button class='btn btn-success' data-toggle="modal" data-target=".problems-modal">
+
+                        Problems with this page?
+                        
+                    </button>
+                </li>
                 @if(\Auth::check() && \Auth::user()->id)
                 <div class="contem-nav">
                     <div class='menu-show_xs'>
@@ -580,4 +589,54 @@
     @include("partials.authModals.forgotPasswordModal")
 
     <!------------------------------mensaje de confimacion de regitro instituto------------------------------------------->
+
+
+    <!-- problems modal -->
+    <div class="modal fade problems-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="btn-cerrar">
+                        <button type="button" class="modalClose btn text-right" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                
+                        <div class="content-titulo mb-3">
+                            <p class="titulo m-0">Got problems?</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" v-model="problemEmail">
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{ problemErrors['email'][0] }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" v-model="problemName">
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('name')" v-cloak>@{{ problemErrors['name'][0] }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <textarea name="" id="" class="form-control" cols="30" rows="6" v-model="problemDescription"></textarea>
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{ problemErrors['description'][0] }}</small>
+                        </div>
+
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="reportProblem()">Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- problems modal -->
+
 </div>

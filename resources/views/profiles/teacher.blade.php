@@ -44,11 +44,13 @@
                 </div>
                 <div class="col-md-6">
 
-                    <p class="text-right">
-                        <button class="btn btn-danger" @click="showDeleteConfirmation()">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </p>
+                    @if(\Auth::check())
+                        <p class="text-right">
+                            <button class="btn btn-danger" @click="showDeleteConfirmation()">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </p>
+                    @endif
 
                     <h3> “Why do you educate?”</h3>
                     <textarea class="form-control" v-model="description"></textarea>
@@ -120,7 +122,7 @@
                                     <td style="cursor:pointer;" @click="orderByField('title')">Title <span v-if="orderByColumn == 'title' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'title' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
 
                                     <td style="cursor:pointer;" @click="orderByField('likes')">Likes <span v-if="orderByColumn == 'likes' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'likes' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
-                                    <td>Project Type</td>
+                                    <!--<td>Project Type</td>-->
                                     <td style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td style="cursor:pointer;" @click="orderByField('incubator')">Incubator <span v-if="orderByColumn == 'incubator' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'incubator' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td>Status</td>
@@ -142,7 +144,7 @@
                                         @{{ project.project.likes.length }}
                                         </span>
                                     </td>
-                                    <td>
+                                    <!--<td>
 
                                         <span v-if="project.project.is_private == 0">
                                             <svg class="login_icon   mr-3 " xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="24" height="24" viewBox="0 0 24 24">
@@ -156,7 +158,7 @@
                                             </svg>
                                         </span>
 
-                                    </td>
+                                    </td>-->
                                     <td>
 
                                         <span class="line_" v-cloak>@{{ dateFormatter(project.project.updated_at) }}</span>
@@ -605,7 +607,43 @@
             },
             showDeleteConfirmation(){
 
-                
+                swal({
+                        icon: "warning",
+                        title: "Are you sure?",
+                        text: "You will delete your profile and all your projects! ",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            this.loading = true
+
+                            axios.post("{{ url('delete-profile') }}").then(res => {
+                                this.loading = false
+                                if (res.data.success == true) {
+                                    swal({
+                                        text: res.data.msg,
+                                        icon: "success"
+                                    }).then(() => {
+                                        window.location.href = "{{ url('/') }}"
+                                    })
+                                } else {
+                                    swal({
+                                        text: res.data.msg,
+                                        icon: "error"
+                                    })
+                                }
+                            }).catch(err => {
+                                this.loading = false
+                                swal({
+                                    text: "Something went wrong",
+                                    icon: "error"
+                                })
+                            })
+
+                        }
+                    })
 
             }
         },

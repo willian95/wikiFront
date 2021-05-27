@@ -1844,7 +1844,11 @@
                 globalConnectionHistory: "",
 
                 unseenNotificationsCount:0,
-                notifications:[]
+                notifications:[],
+                problemErrors:[],
+                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription:""
             }
         },
         methods: {
@@ -2848,6 +2852,42 @@
                     })
 
                 })
+
+            },
+            reportProblem(){
+
+                this.loading = true
+                this.problemErrors = []
+                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                    this.loading = false
+                    if(res.data.success == true){
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
+
+                        this.problemEmail = ""
+                        this.problemName = ""
+                        this.problemDescription= ""
+
+                        $(".problems-modal").modal("hide")
+                        $('.modal-backdrop').remove();
+
+                    }else{
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+                    this.loading = false
+                    this.problemErrors = err.response.data.errors
+                })
+
 
             },
 

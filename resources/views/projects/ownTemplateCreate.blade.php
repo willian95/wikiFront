@@ -122,7 +122,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                                <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
+                                <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                     <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
                                     <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
                                     <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@
                                         </g>
                                     </svg>
 
-                                </a>
+                                </a>-->
                                 <div class="help-icon"  @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -148,7 +148,7 @@
                                         during PBL
 
                                     </p>
-                            <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
+                            <!--<p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>-->
 
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
@@ -177,7 +177,7 @@
                             </div>
                             <p class="help-icon-p" v-show="subjectTitleHelp">What subjects (content areas) does your project address/emphasize?
                                     </p>
-                            <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
+                            <!--<p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>-->
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -272,8 +272,8 @@
                             </div>
                             <p class="help-icon-p" v-show="publicProductTitleHelp">What artifacts, presentations, performances or compositions will your students produce?
                                     </p>
-                            <p class="subtitule_txt">(you can edit this for whatever Title)
-                            </p>
+                            <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                            </p>-->
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
                         </li>
 
@@ -301,8 +301,8 @@
                             </div>
                             <p class="help-icon-p" v-show="levelTitleHelp">For what age/grade level(s) is your project appropriate?
                                     </p>
-                            <p class="subtitule_txt">(you can edit this for whatever Title)
-                            </p>
+                            <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                            </p>-->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -699,6 +699,10 @@
                 bibliographyHelp:false,
                 upvoteSystemHelp:false,
                 publicProductTitleHelp:false,
+                problemErrors:[],
+                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription:""
             }
         },
         methods: {
@@ -755,6 +759,7 @@
                         this.activityDescription = data.description
                     }
                 })
+
             },
             addCalendarDescription() {
                 if (this.activityDescription != "") {
@@ -788,51 +793,51 @@
                     let string = this.private == 0 ? 'shared view ' : 'view only '
 
                     swal({
-                            //icon: "warning",
-                            content: {
-                                element: "img",
-                                attributes: {
-                                    width: "100",
-                                    height: "100",
-                                    src: "{{ asset('/assets/img/thumbs-up-black.png') }}",
-                                },
+                        //icon: "warning",
+                        content: {
+                            element: "img",
+                            attributes: {
+                                width: "100",
+                                height: "100",
+                                src: "{{ asset('/assets/img/thumbs-up-black.png') }}",
                             },
-                            title: "Are you sure?",
-                            text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! ",
-                            buttons: true,
-                            dangerMode: true,
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
+                        },
+                        title: "Are you sure?",
+                        text: "Your wikiPBL is about to be published for the world to see and edit. Are you sure? This cannot be undone. Thanks for sharing! ",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
 
-                                this.loading = true
-                                let formData = this.setFormData()
+                            this.loading = true
+                            let formData = this.setFormData()
 
-                                axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
-                                    this.loading = false
-                                    if (res.data.success == true) {
-                                        swal({
-                                            text: res.data.msg,
-                                            icon: "success"
-                                        }).then(() => {
-                                            window.location.href = "{{ url('/teacher/profile') }}"
-                                        })
-                                    } else {
-                                        swal({
-                                            text: res.data.msg,
-                                            icon: "error"
-                                        })
-                                    }
-                                }).catch(err => {
-                                    this.loading = false
+                            axios.post("{{ url('project/creation/launch') }}", formData).then(res => {
+                                this.loading = false
+                                if (res.data.success == true) {
                                     swal({
-                                        text: "Something went wrong",
+                                        text: res.data.msg,
+                                        icon: "success"
+                                    }).then(() => {
+                                        window.location.href = "{{ url('/teacher/profile') }}"
+                                    })
+                                } else {
+                                    swal({
+                                        text: res.data.msg,
                                         icon: "error"
                                     })
+                                }
+                            }).catch(err => {
+                                this.loading = false
+                                swal({
+                                    text: "Something went wrong",
+                                    icon: "error"
                                 })
+                            })
 
-                            }
-                        })
+                        }
+                    })
 
                 }
             },
@@ -1180,7 +1185,43 @@
                 if(section != "publicProductTitle")
                 this.publicProductTitleHelp = false
 
-            }
+            },
+            reportProblem(){
+
+                this.loading = true
+                this.problemErrors = []
+                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                    this.loading = false
+                    if(res.data.success == true){
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
+
+                        this.problemEmail = ""
+                        this.problemName = ""
+                        this.problemDescription= ""
+
+                        $(".problems-modal").modal("hide")
+                        $('.modal-backdrop').remove();
+
+                    }else{
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+                    this.loading = false
+                    this.problemErrors = err.response.data.errors
+                })
+
+
+                },
 
         },
         mounted() {

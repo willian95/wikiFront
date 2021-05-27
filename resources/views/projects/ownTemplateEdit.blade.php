@@ -134,7 +134,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                            <a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
+                            <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
                                 <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
                                 <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
                                 <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@
                                     </g>
                                 </svg>
 
-                            </a>
+                            </a>-->
                             <div class="help-icon" @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -158,7 +158,7 @@
                                         during PBL
 
                                     </p>
-                        <p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>
+                        <!--<p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>-->
 
                         <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! $drivingQuestion !!}</textarea>
 
@@ -167,7 +167,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'" v-cloak>@{{ subjectTitle }}</h3>
                             <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
-                            <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
+                            <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
                                 <span v-if="editSection != 'subjectTitle'"></span>
                                 <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
                                 <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@
                                     </g>
                                 </svg>
 
-                            </a>
+                            </a>-->
                             <div class="help-icon" @click="showHelp('subjectTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 
@@ -188,7 +188,7 @@
 
                         <p class="help-icon-p" v-show="subjectTitleHelp">What subjects (content areas) does your project address/emphasize?
                                     </p>
-                        <p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>
+                        <!--<p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>-->
 
                         <div class="row">
                             <div class="col-md-6">
@@ -213,7 +213,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                            <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
+                            <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
                                 <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
                                 <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
                                 <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -225,7 +225,7 @@
                                     </g>
                                 </svg>
 
-                            </a>
+                            </a>-->
                             <div class="help-icon" @click="showHelp('timeFrame')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                    
@@ -234,7 +234,7 @@
 
                         <p class="help-icon-p" v-show="timeFrameHelp">How long do you think your project will take?
                                     </p>
-                        <p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>
+                        <!--<p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>-->
                         <div class="row">
                             <div class="col-md-6">
                                 <input class="form-control" type="text" placeholder="3 Weeks - 5 hours a week" v-model="timeFrame">
@@ -280,8 +280,8 @@
 
                         <p class="help-icon-p" v-show="publicProductTitleHelp">What artifacts, presentations, performances or compositions will your students produce?
                                     </p>
-                        <p class="subtitule_txt">(you can edit this for whatever Title)
-                        </p>
+                        <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                        </p>-->
                         <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                     </li>
 
@@ -289,7 +289,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                            <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
+                            <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
                                 <span v-if="editSection != 'levelTitle'">Click to edit</span>
                                 <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
                                 <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -301,7 +301,7 @@
                                     </g>
                                 </svg>
 
-                            </a>
+                            </a>-->
                             <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                   
@@ -310,8 +310,8 @@
                         <p class="help-icon-p" v-show="levelTitleHelp">For what age/grade level(s) is your project appropriate?
                                     </p>
 
-                        <p class="subtitule_txt">(you can edit this for whatever Title)
-                        </p>
+                        <!--<p class="subtitule_txt">(you can edit this for whatever Title)
+                        </p>-->
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -491,7 +491,7 @@
                             </div>
                             <div class="row mt-1" v-for="week in weeks">
                                 <div class="col-md-2" v-cloak>Week @{{ week }}</div>
-                                <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target="#calendarDescription">
+                                <div class="col-md-2" v-for="day in days" @click="setWeekAndDay(week, day)" data-toggle="modal" data-target=".calendarDescription">
                                     <div class="card" style="cursor: pointer">
                                         <div class="card-body card-body_tarea" v-cloak>
                                             @{{ showActivity(week, day) }}
@@ -619,6 +619,10 @@
                 bibliographyHelp:false,
                 upvoteSystemHelp:false,
                 publicProductTitleHelp:false,
+                problemErrors:[],
+                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription:""
             }
         },
         methods: {
@@ -1186,7 +1190,43 @@
                 if(section != "publicProductTitle")
                 this.publicProductTitleHelp = false
 
-            }
+            },
+            reportProblem(){
+
+                this.loading = true
+                this.problemErrors = []
+                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                    this.loading = false
+                    if(res.data.success == true){
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "success"
+                        })
+
+                        this.problemEmail = ""
+                        this.problemName = ""
+                        this.problemDescription= ""
+
+                        $(".problems-modal").modal("hide")
+                        $('.modal-backdrop').remove();
+
+                    }else{
+
+                        swal({
+                            text: res.data.msg,
+                            icon: "error"
+                        })
+
+                    }
+
+                }).catch(err => {
+                    this.loading = false
+                    this.problemErrors = err.response.data.errors
+                })
+
+
+            },
 
 
         },

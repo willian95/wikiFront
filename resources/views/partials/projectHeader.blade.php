@@ -91,6 +91,15 @@
                         <span class='hamburger-inner'></span>
                     </span>
                 </button>
+                <li class="nav-item  flex-main mr-0 new_wiki">
+
+                <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
+                    <button class='btn btn-success' data-toggle="modal" data-target=".problems-modal">
+
+                        Problems with this page?
+                        
+                    </button>
+                </li>
                 @if(\Auth::check() && \Auth::user()->id)
              
                     <ul class='navbar-nav container container nav_1'>
@@ -170,6 +179,7 @@
                         <div class="row">
                             <div class="col-md-12  mt-3">
                                 <div class="menu-flex">
+                                    
                                     <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal" @click="resetRegistrationForm()">
                                         <a class='nav-link  '>
                                             <svg height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
@@ -521,6 +531,54 @@
             </div>
         </nav>
     </header>
+
+    <!-- problems modal -->
+    <div class="modal fade problems-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="btn-cerrar">
+                        <button type="button" class="modalClose btn text-right" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                
+                        <div class="content-titulo mb-3">
+                            <p class="titulo m-0">Got problems?</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" v-model="problemEmail">
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{ problemErrors['email'][0] }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" v-model="problemName">
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('name')" v-cloak>@{{ problemErrors['name'][0] }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <textarea name="" id="" class="form-control" cols="30" rows="6" v-model="problemDescription"></textarea>
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{ problemErrors['description'][0] }}</small>
+                        </div>
+
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="reportProblem()">Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- problems modal -->
 
 
 </div>

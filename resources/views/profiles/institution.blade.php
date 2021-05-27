@@ -17,7 +17,6 @@
         <div class="main-profile">
             <div class="main-profile_content">
                 <h1 class="text-center mt-4">Institution profile</h1>
-                <p>Stats</p>
             </div>
 
             <div class="row main-dates">
@@ -54,6 +53,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        @if(\Auth::check())
+                            <p class="text-right">
+                                <button class="btn btn-danger" @click="showDeleteConfirmation()">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </p>
+                        @endif
                         <div v-for="user in users">
                             <h3> Created by</h3>
                             <p v-cloak><strong> Name:</strong>@{{ user.name }} @{{ user.lastname }}</p>
@@ -234,6 +240,47 @@
                     } else {
                         return true;
                     }
+                },
+                showDeleteConfirmation(){
+
+                    swal({
+                        icon: "warning",
+                        title: "Are you sure?",
+                        text: "You will delete your profile! ",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            this.loading = true
+
+                            axios.post("{{ url('delete-profile') }}").then(res => {
+                                this.loading = false
+                                if (res.data.success == true) {
+                                    swal({
+                                        text: res.data.msg,
+                                        icon: "success"
+                                    }).then(() => {
+                                        window.location.href = "{{ url('/') }}"
+                                    })
+                                } else {
+                                    swal({
+                                        text: res.data.msg,
+                                        icon: "error"
+                                    })
+                                }
+                            }).catch(err => {
+                                this.loading = false
+                                swal({
+                                    text: "Something went wrong",
+                                    icon: "error"
+                                })
+                            })
+
+                        }
+                    })
+
                 }
 
             },

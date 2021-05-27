@@ -54,6 +54,8 @@ Route::get("/register/validate/{registerHash}", "RegisterController@verify")->mi
 Route::post("resend-email", "RegisterController@resendEmail")->middleware("guest");
 Route::get("/logout", "AuthController@logout");
 
+Route::post("delete-profile", "ProfileController@delete")->middleware("auth");
+
 Route::get("/institution/profile", "InstitutionController@institutionProfile")->middleware("auth")->middleware("institution");
 Route::post("/institution/first-update", "InstitutionController@firstUpdate")->middleware("auth");
 Route::post("/institution/profile/update", "InstitutionController@updateInstitutionProfile")->middleware("auth");
@@ -147,3 +149,5 @@ Route::post("/ckeditor/upload", "CKEditorController@upload")->name("ckeditor.upl
 
 Route::get("/notification/last", "NotificationController@fetchLast");
 Route::post("/notification/seen", "NotificationController@seen");
+
+Route::post("/problem-report", "ProblemReportController@report");
