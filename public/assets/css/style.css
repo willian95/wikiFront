@@ -83,7 +83,7 @@ Nav
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-right: 2rem;
+  
 }
 
 .header-shadow {
@@ -830,7 +830,7 @@ input:checked + .slider:before {
 }
 
 .header-icons .flex-main {
-    margin-right: 40px;
+    margin-right: 29px;
 }
 
 .wiki-accordion .card {
@@ -1101,7 +1101,7 @@ input:checked + .slider:before {
 }
 
 .menu-template {
-    margin-top: 60px;
+    margin-top: 90px;
     left: 80px;
     position: fixed;
     border: 1px solid #f000;
@@ -1113,7 +1113,9 @@ input:checked + .slider:before {
     width: 250px;
     overflow: hidden;
 }
-
+.menu-template--show{
+    margin-top: 0px;
+}
 .menu-template_option ul {
     padding: 0;
     margin: 0;
@@ -2246,6 +2248,7 @@ input:checked + .slider:before {
 .menu-show_xs {
     margin-right: 40px;
     gap: 45px;
+    margin-left: 20px;
 }
 .contem-nav {
     display: flex;
@@ -2278,19 +2281,27 @@ input:checked + .slider:before {
 }
 .launch-xs {
     display: none !important;
-}
+}/*
 .mr-probelm {
     margin-right: 9rem !important;
 }
 .mr_ml-probelm {
     margin-right: 2rem !important;
     margin-left: 2rem;
-}
+}*/
 .problem-btn {
     width: 200px;
     border: 1px solid #1b75bc;
     color: #277cc0;
     font-size: 14px;
+    position: absolute;
+    top: -15px;
+    right: 0;
+}
+.problem-btn:hover {
+  
+    background: #1b75bc;
+    color: #fff!important;
 }
 .elipse {
     background: #fff;

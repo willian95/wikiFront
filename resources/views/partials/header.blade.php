@@ -79,18 +79,18 @@
                                     </a>
                                 </li>
                                 @endif
-                               
+
                             </ul>
                         </li>
                     </ul>
                 </div>
 
-                <a class='brand ' href="{{ url('/front-test') }}">
-                    <img alt='logo wikipbl' src="{{ url('assets/img/logo.png') }}">
+                <a class="brand" href="{{ url('/front-test') }}">
+                    <img alt="logo wikipbl" src="{{ url('assets/img/logo.png') }}">
                 </a>
-                <button class='navbar-toggler p-2 border-0 hamburger hamburger--elastic d-none-lg' data-toggle='offcanvas' type='button'>
-                    <span class='hamburger-box'>
-                        <span class='hamburger-inner'></span>
+                <button class="navbar-toggler p-2 border-0 hamburger hamburger--elastic d-none-lg" data-toggle="offcanvas" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
                     </span>
                 </button>
 
@@ -98,9 +98,9 @@
 
                     <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
                     <button class='btn problem-btn' data-toggle="modal" data-target=".problems-modal">
-                    
-                        Problems with this page?
-                        
+
+                   <p>     Problems with this page?</p>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
                 </li>
 
@@ -131,9 +131,9 @@
                                         </a>
                                     </li>
                                     @endif
-                                    
-                                    
-                                   
+
+
+
                                 </div>
                                 <!-- Iconos temlate option-->
                                 <div class="dropdown drop-notificacion mr-4 nav-item ">
@@ -153,7 +153,9 @@
                                 </div>
                                 <div class="menu-flex menu-flex_1">
                                     <li class='nav-item  flex-main option-none_menu'>
-                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2 verse-row'><p class="mb-0">{{ \Auth::user()->name }}
+                                        <a @if(\Auth::user()->role_id == 2) href="{{ url('/teacher/profile') }}" @else
+                                            href="{{ url('/institution/profile') }}" @endif class='nav-link pl-2
+                                            verse-row'><p class="mb-0">{{ \Auth::user()->name }}
                                                 {{ substr(\Auth::user()->lastname, 0, 1) }}
                                             </p> <img alt='icon' class="teacher-icon mr-2" src="{{ url('assets/img/iconos/user-teacher.png') }}">
                                             <span class="tooltip-nav"> Profile</span>
@@ -354,7 +356,6 @@
                     <div class="row">
                         <div class="col-md-12  flex-new">
                             <div class="menu-flex">
-
                                 <li class='nav-item  border-nav' data-toggle="modal" data-target=".register-modal" @click="resetRegistrationForm()">
                                     <a class='nav-link  '>
                                         <svg class="rregistro-icon" height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
@@ -362,7 +363,7 @@
                                             <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
 
 
-                                        </svg> Register</a>
+                                        </svg> <span>Register</span></a>
                                 </li>
                                 <li class='nav-item w-nav ' data-toggle="modal" data-target=".institution-modal">
                                     <a class='nav-link'>
@@ -510,7 +511,7 @@
                                             </g>
                                         </svg>
 
-                                        Institution Registration</a>
+                                       <span> Institution Registration</span></a>
                                 </li>
                                 <li class='nav-item  border-nav signin-btn' data-toggle="modal" data-target=".login">
                                     <a class='nav-link '><svg height="512pt" viewBox="0 -32 512.016 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
@@ -518,7 +519,7 @@
                                             <path d="m368 448.007812h-352c-8.832031 0-16-7.167968-16-16v-74.667968c0-55.871094 45.460938-101.332032 101.332031-101.332032h181.335938c55.871093 0 101.332031 45.460938 101.332031 101.332032v74.667968c0 8.832032-7.167969 16-16 16zm-336-32h320v-58.667968c0-38.226563-31.105469-69.332032-69.332031-69.332032h-181.335938c-38.226562 0-69.332031 31.105469-69.332031 69.332032zm0 0" />
                                             <path d="m496 218.675781h-181.332031c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h181.332031c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
                                             <path d="m410.667969 304.007812c-4.097657 0-8.191407-1.558593-11.308594-4.691406-6.25-6.253906-6.25-16.386718 0-22.636718l74.027344-74.027344-74.027344-74.027344c-6.25-6.25-6.25-16.382812 0-22.632812s16.382813-6.25 22.636719 0l85.332031 85.332031c6.25 6.25 6.25 16.386719 0 22.636719l-85.332031 85.332031c-3.136719 3.15625-7.234375 4.714843-11.328125 4.714843zm0 0" />
-                                        </svg> Sign In</a>
+                                        </svg> <span>Sign In</span></a>
                                 </li>
                             </div>
                         </div>
@@ -538,35 +539,38 @@
                 <div class="modal-body">
                     <div class="text-center">
                         <div class="btn-cerrar">
-                        <button type="button" class="modalClose btn text-right" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <button type="button" class="modalClose btn text-right" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                
+
                         <div class="content-titulo mb-3">
                             <p class="titulo m-0">Got problems?</p>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="">Email</label>
                             <input type="email" class="form-control" v-model="problemEmail">
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{ problemErrors['email'][0] }}</small>
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{
+                                problemErrors['email'][0] }}</small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Name</label>
                             <input type="text" class="form-control" v-model="problemName">
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('name')" v-cloak>@{{ problemErrors['name'][0] }}</small>
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('name')" v-cloak>@{{
+                                problemErrors['name'][0] }}</small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Description</label>
                             <textarea name="" id="" class="form-control" cols="30" rows="6" v-model="problemDescription"></textarea>
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{ problemErrors['description'][0] }}</small>
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{
+                                problemErrors['description'][0] }}</small>
                         </div>
 
                     </div>
-                   
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -615,7 +619,7 @@
         el: '#auth',
         data() {
             return {
-                
+
                 institutions: [],
                 selected_institution: "",
                 institution_not_registered: false,
@@ -659,10 +663,10 @@
                 forgotPasswordEmail: "",
                 notifications: [],
                 unseenNotificationsCount: 0,
-                problemErrors:[],
-                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
-                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
-                problemDescription:""
+                problemErrors: [],
+                problemEmail: "{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemName: "{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription: ""
 
             }
         },
@@ -849,13 +853,18 @@
 
             },
 
-            reportProblem(){
+            reportProblem() {
 
                 this.loading = true
                 this.problemErrors = []
-                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                axios.post("{{ url('/problem-report') }}", {
+                    "email": this.problemEmail,
+                    "name": this.problemName,
+                    "description": this.problemDescription,
+                    "url": "{{ url()->current() }}"
+                }).then(res => {
                     this.loading = false
-                    if(res.data.success == true){
+                    if (res.data.success == true) {
 
                         swal({
                             text: res.data.msg,
@@ -864,12 +873,12 @@
 
                         this.problemEmail = ""
                         this.problemName = ""
-                        this.problemDescription= ""
+                        this.problemDescription = ""
 
                         $(".problems-modal").modal("hide")
                         $('.modal-backdrop').remove();
 
-                    }else{
+                    } else {
 
                         swal({
                             text: res.data.msg,
@@ -882,7 +891,7 @@
                     this.loading = false
                     this.problemErrors = err.response.data.errors
                 })
-                
+
 
             },
             institutionRegister() {

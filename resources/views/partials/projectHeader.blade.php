@@ -95,9 +95,8 @@
 
                 <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
                     <button class='btn problem-btn' data-toggle="modal" data-target=".problems-modal">
-
-                        Problems with this page?
-                        
+                    <p>     Problems with this page?</p>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>                   
                     </button>
                 </li>
                 @if(\Auth::check() && \Auth::user()->id)

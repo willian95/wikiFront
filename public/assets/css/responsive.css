@@ -2,6 +2,9 @@
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
+    .menu-desk_registres span{
+        display: none;
+    }
   
     .cerrar_sesion-xs{
         display: block!important;
