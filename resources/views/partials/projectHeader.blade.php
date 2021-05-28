@@ -91,10 +91,10 @@
                         <span class='hamburger-inner'></span>
                     </span>
                 </button>
-                <li class="nav-item  flex-main mr-0 new_wiki">
+                <li class="nav-item  flex-main mr-0 new_wiki mr-probelm">
 
                 <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
-                    <button class='btn btn-success' data-toggle="modal" data-target=".problems-modal">
+                    <button class='btn problem-btn' data-toggle="modal" data-target=".problems-modal">
 
                         Problems with this page?
                         

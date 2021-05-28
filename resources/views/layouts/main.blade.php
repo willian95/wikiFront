@@ -35,6 +35,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    left: 0;
+    right: 0;
 }
 
 .elipse img {
