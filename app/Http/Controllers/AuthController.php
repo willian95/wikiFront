@@ -18,7 +18,8 @@ class AuthController extends Controller
                 
                 if($user->is_banned == 1){
 
-                    return response()->json(["success" => false, "msg" => "You are banned"]);
+                    return response()->json(["success" => false, "msg" => "Your account has been flagged by
+                    another user. Please contact wikiPBL customer support"]);
 
                 }
 

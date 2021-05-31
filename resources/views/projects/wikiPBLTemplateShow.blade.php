@@ -1846,7 +1846,7 @@
                 unseenNotificationsCount:0,
                 notifications:[],
                 problemErrors:[],
-                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemEmail:"",
                 problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
                 problemDescription:""
             }

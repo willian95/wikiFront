@@ -112,19 +112,7 @@
                             <span id="title-p" v-if="editSection != 'title'" v-cloak>@{{ title }}</span>
                             <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
 
-                            <a class="txt-edit" href="#" @click="setEditSection('title')">
-                                <span v-if="editSection != 'title'">Click to edit</span>
-                                <span v-if="editSection == 'title'">Click to finish editing</span>
-                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g data-name="Layer 2">
-                                        <g data-name="edit">
-                                            <rect width="24" height="24" opacity="0" />
-                                            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </a>
+                            
                         </h3>
 
                     </li>
@@ -134,19 +122,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                            <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
-                                <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
-                                <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
-                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g data-name="Layer 2">
-                                        <g data-name="edit">
-                                            <rect width="24" height="24" opacity="0" />
-                                            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </a>-->
+                            
                             <div class="help-icon" @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -213,19 +189,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                            <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
-                                <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
-                                <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
-                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g data-name="Layer 2">
-                                        <g data-name="edit">
-                                            <rect width="24" height="24" opacity="0" />
-                                            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </a>-->
+                            
                             <div class="help-icon" @click="showHelp('timeFrame')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                    
@@ -259,19 +223,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'" v-cloak>@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
-                            <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
-                                <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
-                                <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
-                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g data-name="Layer 2">
-                                        <g data-name="edit">
-                                            <rect width="24" height="24" opacity="0" />
-                                            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </a>
+                            
                             <div class="help-icon" @click="showHelp('publicProductTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                   
@@ -289,19 +241,7 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                            <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
-                                <span v-if="editSection != 'levelTitle'">Click to edit</span>
-                                <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
-                                <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g data-name="Layer 2">
-                                        <g data-name="edit">
-                                            <rect width="24" height="24" opacity="0" />
-                                            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </a>-->
+                            
                             <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                   
@@ -620,7 +560,7 @@
                 upvoteSystemHelp:false,
                 publicProductTitleHelp:false,
                 problemErrors:[],
-                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemEmail:"",
                 problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
                 problemDescription:""
             }

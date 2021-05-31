@@ -25,7 +25,7 @@ class RegisterController extends Controller
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->role_id = 2;
-            $user->show_my_email = 1;
+            $user->show_my_email = 0;
             $user->register_hash = Str::random(40);
             
             if($request->institution_not_registered == "false" || $request->institution_not_registered == "false"){

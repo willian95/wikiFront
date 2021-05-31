@@ -24,9 +24,8 @@ class ProblemReportRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required",
-            "email" => "required|email",
-            "description" => "required"
+            "description" => "required",
+            "email" => "nullable|email"
         ];
     }
 }
