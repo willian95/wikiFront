@@ -470,3 +470,33 @@
 
 @media (min-width: 2560px) and (max-width: 2560px) {
 }
+@media (min-width:490px) and (max-width:769px) {
+    .problem-btn {
+        width: max-content;
+        border: 1px solid #1b75bc;
+        color: #277cc0;
+        font-size: 13px;
+        position: absolute;
+        top: -12px;
+        right: 27px;
+        background: #fff;
+        padding: 4px 6px;
+    }
+    .problem-btn p {
+        display: block;
+    }
+    .problem-btn i {
+        display: none!important;
+    }
+}
+@media (min-width:0px) and (max-width:489px) {
+    .problem-btn p {
+        position: absolute;
+        right: 3rem;
+        width: 100px;
+        display: none;
+    }
+    .problem-btn:hover p {
+        display: block;
+    }
+}

@@ -83,7 +83,8 @@ Nav
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  
+    align-items: center;
+    justify-content: center;
 }
 
 .header-shadow {
@@ -96,6 +97,7 @@ Nav
     z-index: 99;
     height: 12vh;
     display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 767px) {

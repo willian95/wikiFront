@@ -65,6 +65,8 @@
 }
 .navbar-nav {
     justify-content: flex-end;
+    align-items: flex-end;
+    width: inherit;
 }
 .drop-notificacion .tooltip-nav {
     left: -21px;
@@ -76,6 +78,9 @@
     left: 0;
     width: 139px;
     top: 45px;
+}
+.main-profile_dates i{
+    margin-left: 0;
 }
 /**mediasquery */
 @media only screen and (max-width: 600px) {
@@ -155,6 +160,7 @@
     .save-option{
         margin-left: 0rem!important;
     }
+ 
 }
 /*tablet*/
 @media (max-width: 768px) {
@@ -255,16 +261,23 @@
       font-size: 14px;
       position: fixed;
       top: 15%;
-      right: 10px;
+      right: 5px;
       background: #fff;
   }
   .problem-btn i{
       display: block!important;
     
   }
+  .navbar-nav {
+    width: auto;
+}
+#wiki-template{
+    margin-top: 6rem;
+}
  
   }
   @media only screen and (device-width: 1024px) and (device-height: 576px) {
    
   }
 
+ 
