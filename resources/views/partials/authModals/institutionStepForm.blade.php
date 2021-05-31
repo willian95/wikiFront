@@ -10,7 +10,7 @@
                         <div class="content-titulo">
                             <p class="titulo"> Welcome back {{ \Auth::user()->name }}! <span>Step 1/2</span></p>
                             <div class="info-regrister mt-4">
-                                <img class="mr-1 " src="{{ url('assets/img/iconos/like.svg') }}" alt="">
+                         
                                 <p>The institution: {{ \Auth::user()->institution->name }} was
                                     approved! Thanks for your time, please fill out the following info and your are good to go!
                                 </p>

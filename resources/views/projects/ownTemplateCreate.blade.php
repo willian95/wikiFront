@@ -621,6 +621,7 @@
                 <div class="footer container mt-5 text-center">
               
                     <p class="items-footer"> 
+                    <a data-toggle="modal" data-target="."> Terms and conditions</a> 
                      <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
                        <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> 
                      <a href="{{ url('/about') }}">About wikiPBL</a>  </p>

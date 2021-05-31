@@ -1034,6 +1034,17 @@
                 </div>
             </div>
         </div>
+        <footer class="footer-estyle">
+                <div class="footer container mt-5 text-center">
+                <a data-toggle="modal" data-target="."> Terms and conditions</a> 
+                    <p class="items-footer"> 
+                    <a data-toggle="modal" data-target="."> Terms and conditions</a> 
+                     <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
+                       <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> 
+                     <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
+                     <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
+                </div>
+            </footer>
     </div>
 </div>
 
