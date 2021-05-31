@@ -157,6 +157,7 @@
                                                     </span>
                                                 </a>
                                             </li>
+                                            @if(\Auth::user()->id != $project[0]->user_id)
                                             <li class="nav-item  flex-main">
                                                 <a style="cursor:pointer;" @click="showReportConfirmation()">
                                                     <svg id="reportIcon" class="login_icon  hover-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -169,6 +170,8 @@
                                                     </span>
                                                 </a>
                                             </li>
+
+                                            @endif
 
                                             <li class="nav-item  flex-main">
                                                 <div class="dropdown drop-notificacion mr-4">
