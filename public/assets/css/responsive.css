@@ -2,6 +2,9 @@
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
+    .menu-desk_registres span{
+        display: none;
+    }
   
     .cerrar_sesion-xs{
         display: block!important;
@@ -420,9 +423,28 @@
     font-size: 11px;
     padding: 5px 5px;
 }
+.problem-btn p{
+    display: none;
+}
+.problem-btn {
+  
+    width: 42px;
+    border: 1px solid #1b75bc;
+    color: #277cc0;
+    font-size: 14px;
+    position: fixed;
+    top: 15%;
+    right: 10px;
+    background: #fff;
+}
+.problem-btn i{
+    display: block!important;
+  
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+    
 }
 
 @media (min-width: 1440px) and (max-width: 1199px) {

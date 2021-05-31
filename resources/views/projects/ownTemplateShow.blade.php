@@ -54,7 +54,7 @@
 
             <div class="row" v-cloak>
                 <div class="col-md-3">
-                    <div class="menu-template">
+                    <div class="menu-template menu-template--show">
                         <p>Edit mode </p>
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
