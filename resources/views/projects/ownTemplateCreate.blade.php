@@ -115,6 +115,10 @@
                                 </a>
                             </h3>
 
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'title'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="driving" @mouseleave="testChange()">
@@ -122,19 +126,6 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                                <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
-                                    <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
                                 <div class="help-icon"  @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -152,24 +143,16 @@
 
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10"></textarea>
 
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'driving question'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
                         <li class="content_template-general-item" id="subjecttitle">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'" v-cloak>@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle" placeholder="Type and press enter to add your subject">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
-                                    <span v-if="editSection != 'subjectTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>
+                                
                                 <div class="help-icon" @click="showHelp('subjectTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="" >
                                  
@@ -200,25 +183,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'subjecttitle'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </li>
 
                         <li class="content_template-general-item" id="time">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                                 <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
-                                    <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
 
-                                </a>
                                 <div class="help-icon" @click="showHelp('timeFrame')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="" >
                                    
@@ -233,6 +207,10 @@
                                     <input class="form-control" type="text" placeholder="3 Weeks - 5 hours a week" v-model="timeFrame">
                                 </div>
                             </div>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'time'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </li>
 
                         <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
@@ -246,25 +224,17 @@
                             <p class="help-icon-p" v-show="projectSummaryHelp"> Briefly summarize your project
                                     </p>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10"></textarea>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'project summary'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </li>
 
                         <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'" v-cloak>@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
-                                    <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>
+  
                                 <div class="help-icon" @click="showHelp('publicProductTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 
@@ -275,25 +245,16 @@
                             <!--<p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>-->
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10"></textarea>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'public product'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </li>
 
                         <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                                <a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
-                                    <span v-if="editSection != 'levelTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>
+      
                                 <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                 
@@ -403,6 +364,9 @@
 
                                 </div>
                             </div>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'level'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </li>
 
                         <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
@@ -438,20 +402,28 @@
                                 </div>
                             </div>
 
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'hashtag'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div class="content_template">
+                    <div class="content_template" id="mainContentEditor">
 
                         <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10"></textarea>
+
+                        <div v-if="localErrors.length > 0">
+                            <small class="text-danger" v-if="localErrors[0].name == 'mainEditor'">@{{ localErrors[0].message }}</small>
+                        </div>
 
                         <div class="contente_item mt-5 mb-5">
                             <div class="row mb-5">
                                 <div class="col-md-6">
                                     <div class="flex-edit">
-                                        <h3 class="titulo-templates">Calendar of activities </h3>
+                                        <h3 class="titulo-templates" id="calendarActivities">Calendar of activities </h3>
                                         <div class="help-icon" @click="showHelp('calendar')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
                                          
@@ -468,6 +440,8 @@
                                         <option v-for="week in 18" :value="week" v-if="week > 0" v-cloak>@{{ week }} </option>
                                     </select>
                                 </div>
+
+                                
                             </div>
 
 
@@ -565,6 +539,10 @@
 
                             </div>
 
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
+                            </div>
+
 
                         </div>
 
@@ -578,6 +556,9 @@
                             </div>
                             <p class="help-icon-p" v-show="bibliographyHelp">If you use someone else's stuff, give them credit </p>
                             <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10"></textarea>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'bibliography'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </div>
 
                         <div class="mt-5 mb-5">
@@ -610,7 +591,9 @@
 
                             </div>
 
-
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
+                            </div>
 
 
                         </div>
@@ -700,9 +683,10 @@
                 upvoteSystemHelp:false,
                 publicProductTitleHelp:false,
                 problemErrors:[],
-                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemEmail:"",
                 problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
-                problemDescription:""
+                problemDescription:"",
+                localErrors:[]
             }
         },
         methods: {
@@ -901,6 +885,12 @@
                             text: "Project summary is required",
                             icon: "error"
                         })
+
+                        this.localErrors.push({"name": "project summary", "message": "Project summary is required"})
+                        this.scrollTo('projectsumary')
+
+                        return false
+
                         return false
                     }
 
@@ -912,6 +902,10 @@
                         text: "Title is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "title", "message": "Title is required"})
+                    this.scrollTo('title-p')
+
                     return false
                 } else if (this.drivingQuestionTitle == "") {
                     swal({
@@ -924,6 +918,10 @@
                         text: "Driving question is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "driving question", "message": "Driving question title is required"})
+                    this.scrollTo('driving')
+
                     return false
                 } else if (this.subjectTitle == "") {
                     swal({
@@ -936,6 +934,10 @@
                         text: "You have to add subjects to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "subjecttitle", "message": "You have to add subjects to continue"})
+                    this.scrollTo('subjecttitle')
+
                     return false
                 } else if (this.timeFrameTitle == "") {
                     swal({
@@ -948,12 +950,20 @@
                         text: "Time frame is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "time", "message": "Time frame is required"})
+                    this.scrollTo('time')
+
                     return false
                 } else if (CKEDITOR.instances.projectSummaryEditor.getData() == "") {
                     swal({
                         text: "Project summary is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "project summary", "message": "Project summary is required"})
+                    this.scrollTo('projectsumary')
+
                     return false
                 } else if (this.publicProductTitle == "") {
                     swal({
@@ -966,6 +976,10 @@
                         text: "Public product is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "public product", "message": "Public product is required"})
+                    this.scrollTo('publictitle')
+
                     return false
                 } else if (this.levelTitle == "") {
                     swal({
@@ -978,42 +992,70 @@
                         text: "Level is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "level", "message": "You have to add ages to continue"})
+                    this.scrollTo('leveltitle')
+
                     return false
                 } else if (this.ages.length == 0) {
                     swal({
                         text: "You have to add ages to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "level", "message": "Level is required"})
+                    this.scrollTo('leveltitle')
+
                     return false
                 } else if (this.hashtags.length == 0) {
                     swal({
                         text: "You have to add hashtags to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "hashtag", "message": "You have to add hashtags to continue"})
+                    this.scrollTo('hashtags-menu')
+
                     return false
                 } else if (CKEDITOR.instances.mainEditor.getData() == "") {
                     swal({
                         text: "Main info is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "mainEditor", "message": "Main info is required"})
+                    this.scrollTo('mainContentEditor')
+
                     return false
                 } else if (this.calendarActivities.length == 0) {
                     swal({
                         text: "You have to add activities to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "calendar", "message": "You have to add activities to continue"})
+                    this.scrollTo('calendarActivities')
+
                     return false
                 } else if (CKEDITOR.instances.bibliographyEditor.getData() == "") {
                     swal({
                         text: "Bibliography is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "bibliography", "message": "Bibliography is required"})
+                    this.scrollTo('bibliography')
+
                     return false
                 } else if (this.upvoteSystems.length == 0) {
                     swal({
                         text: "You have to add upvote systems to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "upvote", "message": "You have to add upvote systems to continue"})
+                    this.scrollTo('upvote')
+
                     return false
                 }
                 return true

@@ -75,6 +75,7 @@
                         <span class='hamburger-inner'></span>
                     </span>
                 </button>
+                @if(\Auth::check() && \Auth::user()->id)
                 <li class="nav-item  flex-main mr-0 new_wiki mr_ml-probelm">
 
                 <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
@@ -85,6 +86,7 @@
 
                     </button>
                 </li>
+                @endif
                 @if(\Auth::check() && \Auth::user()->id)
                 <div class="contem-nav">
                     <div class='menu-show_xs'>
@@ -158,6 +160,7 @@
                                                     </span>
                                                 </a>
                                             </li>
+                                            @if(\Auth::user()->id != $project[0]->user_id)
                                             <li class="nav-item  flex-main">
                                                 <a style="cursor:pointer;" @click="showReportConfirmation()">
                                                     <svg id="reportIcon" class="login_icon  hover-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -170,6 +173,8 @@
                                                     </span>
                                                 </a>
                                             </li>
+
+                                            @endif
 
                                             <li class="nav-item  flex-main">
                                                 <div class="dropdown drop-notificacion mr-4">
@@ -609,23 +614,19 @@
                         <div class="content-titulo mb-3">
                             <p class="titulo m-0">Got problems?</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" v-model="problemEmail">
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{ problemErrors['email'][0] }}</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Name</label>
-                            <input type="text" class="form-control" v-model="problemName">
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('name')" v-cloak>@{{ problemErrors['name'][0] }}</small>
-                        </div>
+                    
 
                         <div class="form-group">
                             <label for="">Description</label>
                             <textarea name="" id="" class="form-control" cols="30" rows="6" v-model="problemDescription"></textarea>
                             <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{ problemErrors['description'][0] }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" v-model="problemEmail">
+                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{
+                                problemErrors['email'][0] }}</small>
                         </div>
 
                     </div>

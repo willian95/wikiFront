@@ -149,19 +149,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'drivingQuestionTitle'">@{{ drivingQuestionTitle }}</h3>
                                 <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                                <!--<a class="txt-edit" href="#" @click="setEditSection('drivingQuestionTitle')">
-                                    <span v-if="editSection != 'drivingQuestionTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'drivingQuestionTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
+                                
                                 <div class="help-icon" @click="showHelp('drivingQuestion')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -183,19 +171,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
-                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('subjectTitle')">
-                                    <span v-if="editSection != 'subjectTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'subjectTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
+                                
                                 <div class="help-icon" @click="showHelp('subjectTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -232,19 +208,7 @@
 
                                 <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                                 <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('timeFrameTitle')">
-                                    <span v-if="editSection != 'timeFrameTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'timeFrameTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
+                                
                                 <div class="help-icon" @click="showHelp('timeFrame')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -278,19 +242,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'">@{{ publicProductTitle }}</h3>
                                 <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
-                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('publicProductTitle')">
-                                    <span v-if="editSection != 'publicProductTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'publicProductTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
+                                
                                 <div class="help-icon" @click="showHelp('publicProductTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -307,19 +259,7 @@
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'levelTitle'">@{{ levelTitle }}</h3>
                                 <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                                <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('levelTitle')">
-                                    <span v-if="editSection != 'levelTitle'">Click to edit</span>
-                                    <span v-if="editSection == 'levelTitle'">Click to finish editing</span>
-                                    <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <g data-name="Layer 2">
-                                            <g data-name="edit">
-                                                <rect width="24" height="24" opacity="0" />
-                                                <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                </a>-->
+                                
                                 <div class="help-icon" @click="showHelp('levelTitle')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -504,19 +444,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'toolsTitle'">@{{ toolsTitle }}</h3>
                                         <input v-if="editSection == 'toolsTitle'" type="text" class="form-control" v-model="toolsTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('toolsTitle')">
-                                            <span v-if="editSection != 'toolsTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'toolsTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('tools')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -590,19 +518,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'learningGoalsTitle'">@{{ learningGoalsTitle }}</h3>
                                         <input v-if="editSection == 'learningGoalsTitle'" type="text" class="form-control" v-model="learningGoalsTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('learningGoalsTitle')">
-                                            <span v-if="editSection != 'learningGoalsTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'learningGoalsTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('learningGoals')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -685,19 +601,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'resourcesTitle'">@{{ resourcesTitle }}</h3>
                                         <input v-if="editSection == 'resourcesTitle'" type="text" class="form-control" v-model="resourcesTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('resourcesTitle')">
-                                            <span v-if="editSection != 'resourcesTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'resourcesTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('resources')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -757,19 +661,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'projectMilestoneTitle'">@{{ projectMilestoneTitle }}</h3>
                                         <input v-if="editSection == 'projectMilestoneTitle'" type="text" class="form-control" v-model="projectMilestoneTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('projectMilestoneTitle')">
-                                            <span v-if="editSection != 'projectMilestoneTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'projectMilestoneTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('projectMilestone')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -900,19 +792,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'expertTitle'">@{{ expertTitle  }}</h3>
                                         <input v-if="editSection == 'expertTitle'" type="text" class="form-control" v-model="expertTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('expertTitle')">
-                                            <span v-if="editSection != 'expertTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'expertTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('expert')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -971,19 +851,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'fieldWorkTitle'">@{{ fieldWorkTitle }}</h3>
                                         <input v-if="editSection == 'fieldWorkTitle'" type="text" class="form-control" v-model="fieldWorkTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('fieldWorkTitle')">
-                                            <span v-if="editSection != 'fieldWorkTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'fieldWorkTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
 
                                         <div class="help-icon" @click="showHelp('fieldWork')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
@@ -1041,19 +909,7 @@
                                     <div class="flex-edit">
                                         <h3 class="titulo-templates" v-if="editSection != 'globalConnectionsTitle'">@{{ globalConnectionsTitle }}</h3>
                                         <input v-if="editSection == 'globalConnectionsTitle'" type="text" class="form-control" v-model="globalConnectionsTitle">
-                                        <!--<a class="txt-edit" style="cursor: pointer;" @click="setEditSection('globalConnectionsTitle')">
-                                            <span v-if="editSection != 'globalConnectionsTitle'">Click to edit</span>
-                                            <span v-if="editSection == 'globalConnectionsTitle'">Click to finish editing</span>
-                                            <svg class="color-icon icnon-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <g data-name="Layer 2">
-                                                    <g data-name="edit">
-                                                        <rect width="24" height="24" opacity="0" />
-                                                        <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-
-                                        </a>-->
+                                        
                                         <div class="help-icon" @click="showHelp('globalConnections')">
                                             <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -1214,7 +1070,7 @@
                 fieldWorkHelp: false,
                 globalConnectionsHelp: false,
                 problemErrors:[],
-                problemEmail:"{{ \Auth::check() ? \Auth::user()->email : '' }}",
+                problemEmail:"",
                 problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
                 problemDescription:""
             }
