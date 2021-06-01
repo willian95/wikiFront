@@ -653,6 +653,10 @@
                                 <input type="text" class="form-control mb-2" v-model="milestoneTitle">
                                 <textarea cols="30" rows="10" id="projectMilestoneEditor"></textarea>
 
+                                <div v-if="localErrors.length > 0">
+                                    <small class="text-danger" v-if="localErrors[0].name == 'milestones'">@{{ localErrors[0].message }}</small>
+                                </div>
+
                                 <p class="text-center">
                                     <button class="btn btn-success btn-custom mt-4" @click="addProjectMilestone()">Add</button>
                                 </p>
@@ -670,6 +674,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                
+                                
 
 
                             </li>
@@ -698,15 +705,18 @@
                                     </div>
 
                                 </div>
-                                <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
-
-</p>
+                                <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities</p>
+                                <div v-if="localErrors.length > 0">
+                                    <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
+                                </div>
                             </div>
                             <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
                                 <select id="inpt" class="form-control" v-model="weeks">
                                     <option v-for="week in 18" :value="week" v-if="week > 0">@{{ week }} </option>
                                 </select>
+
+                                
                             </div>
                         </div>
 
@@ -797,10 +807,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div v-if="localErrors.length > 0">
-                            <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
                         </div>
                         
 
@@ -1013,22 +1019,25 @@
                                             project highlights, so your peers can like/upvote your
                                             wikiPBL </p>
                             </div>
+                            <div class="col-12">
+                                <div v-if="localErrors.length > 0">
+                                    <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
+                                </div>
+                            </div>
 
                             @foreach(App\AssestmentPointType::get() as $point)
-                            <div class="col-md-6 dflex-icon">
+                            <div class="col-md-6 dflex-icon" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                 <img src="{{ $point->icon }}" class="img-icon"></img>
-                                <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
+                                <div class="form-check" >
 
                                     <input class="form-check-input" type="checkbox" value="" id="assestment{{ $point->id }}">
-                                    <label class="form-check-label" for="assestment{{ $point->id }}">
+                                    <label class="form-check-label" for="assestment{{ $point->id }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                         {{ $point->name }}
                                     </label>
                                 </div>
                             </div>
                             @endforeach
-                            <div v-if="localErrors.length > 0">
-                                <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -1100,6 +1109,7 @@
                     milestoneTitle:"",
                     expertTitle:"Expert",
                     showExpert:true,
+                    expertHelp:true,
                     fieldWorkTitle:"Field Work",
                     showFieldWork:true,
                     globalConnectionsTitle:"Global connection/Groups of students needed/wanted",
@@ -1236,7 +1246,7 @@
             },
 
             addProjectMilestone() {
-
+                this.localErrors = []
                 if (this.milestoneTitle != "" && CKEDITOR.instances.projectMilestoneEditor.getData()) {
                     this.projectMilestones.push({
                         "title": this.milestoneTitle,
@@ -1244,6 +1254,10 @@
                     })
                     this.milestoneTitle = ""
                     CKEDITOR.instances.projectMilestoneEditor.setData("")
+                }else{
+
+                    this.localErrors.push({"name":"milestones", "message":"Title and description required"})
+
                 }
 
 

@@ -138,9 +138,9 @@
                                 </a>
                             </h3>
 
-
-
-
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'title'">@{{ localErrors[0].message }}</small>
+                            </div>
 
 
                         </li>
@@ -166,8 +166,12 @@
 
                             <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! htmlspecialchars_decode($drivingQuestion) !!}</textarea>
 
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'driving question'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
-                        <li class="content_template-general-item" id="subject" @mouseleave="testChange()">
+                        <li class="content_template-general-item" id="subjecttitle" @mouseleave="testChange()">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates" v-if="editSection != 'subjectTitle'">@{{ subjectTitle }}</h3>
                                 <input v-if="editSection == 'subjectTitle'" type="text" class="form-control" v-model="subjectTitle">
@@ -201,6 +205,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'subjecttitle'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="time" @mouseleave="testChange()">
@@ -223,6 +232,11 @@
                                     <input class="form-control" type="text" placeholder="3 Weeks - 5 hours a week" v-model="timeFrame">
                                 </div>
                             </div>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'time'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
@@ -236,6 +250,11 @@
                             <p class="help-icon-p" v-show="projectSummaryHelp">Briefly summarize your project
                             </p>
                             <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! htmlspecialchars_decode($projectSumary) !!}</textarea>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'project summary'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="publictitle" @mouseleave="testChange()">
@@ -253,6 +272,11 @@
                             <!--<p class="subtitule_txt">(you can edit this for whatever Title)
                             </p>-->
                             <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'public product'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
@@ -369,6 +393,11 @@
 
                                 </div>
                             </div>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'level'">@{{ localErrors[0].message }}</small>
+                            </div>
+
                         </li>
 
                         <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
@@ -401,6 +430,10 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'hashtag'">@{{ localErrors[0].message }}</small>
                             </div>
 
                         </li>
@@ -676,6 +709,10 @@
                                     <input type="text" class="form-control mb-2" v-model="milestoneTitle">
                                     <textarea cols="30" rows="10" id="projectMilestoneEditor"></textarea>
 
+                                    <div v-if="localErrors.length > 0">
+                                        <small class="text-danger" v-if="localErrors[0].name == 'milestones'">@{{ localErrors[0].message }}</small>
+                                    </div>
+
                                     <p class="text-center">
                                         <button class="btn btn-custom" @click="addProjectMilestone()">Add</button>
                                     </p>
@@ -702,7 +739,7 @@
                     </ul>
                     <!-----------------------END general------------------------>
 
-                    <div class="content_template">
+                    <div class="content_template" id="mainContentEditor">
 
                         <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10">{!! $mainInfo !!}</textarea>
 
@@ -713,9 +750,10 @@
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
 
                                     </div>
-                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
-
-                                    </p>
+                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities </p>
+                                    <div v-if="localErrors.length > 0">
+                                        <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 flex-wee">
                                     <label class="ml-5 mr-4" for="inp">Weeks</label>
@@ -927,7 +965,7 @@
 
                         <div class="contente_item" @mouseleave="testChange()">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                                <h3 class="titulo-templates" id="bibliography">Bibliography (mandatory)</h3>
                                 <div class="help-icon" @click="showHelp('bibliography')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
 
@@ -935,12 +973,15 @@
                             </div>
                             <p class="help-icon-p" v-show="bibliographyHelp">If you use someone else's stuff, give them credit </p>
                             <textarea placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'bibliography'">@{{ localErrors[0].message }}</small>
+                            </div>
                         </div>
 
                         @if($project[0]->status == 'pending')
                         <div>
                             <div class="flex-edit">
-                                <h1 class="mt-5">Which Upvote System
+                                <h1 class="mt-5" id="upvote">Which Upvote System
                                     options will your wikiPBL
                                     have?
                                 </h1>
@@ -949,18 +990,21 @@
 
                                 </div>
                             </div>
+                            <div v-if="localErrors.length > 0">
+                                <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
+                            </div>
                             <p class="help-icon-p" v-show="upvoteSystemHelp">Identify the essential elements that you think your
                                 project highlights, so your peers can like/upvote your
                                 wikiPBL </p>
                             <div class="row">
                                 @foreach(App\AssestmentPointType::get() as $point)
-                                <div class="col-md-6 dflex-icon">
+                                <div class="col-md-6 dflex-icon" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
 
                                     <img src="{{ $point->icon }}" class="img-icon"></img>
                                     <div class="form-check">
 
-                                        <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
-                                        <label class="form-check-label" for="index-{{ $loop->index }}">
+                                        <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}" >
+                                        <label class="form-check-label" for="index-{{ $loop->index }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                             {{ $point->name }}
                                         </label>
                                     </div>
@@ -1073,7 +1117,8 @@
                 problemErrors:[],
                 problemEmail:"",
                 problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
-                problemDescription:""
+                problemDescription:"",
+                localErrors:[]
             }
         },
         methods: {
@@ -1441,12 +1486,18 @@
             },
             validateLaunch() {
 
+                this.localErrors = []
+
                 if (this.isIncubator == 1) {
                     if (CKEDITOR.instances.projectSummaryEditor.getData() == "") {
                         swal({
                             text: "Project summary is required",
                             icon: "error"
                         })
+
+                        this.localErrors.push({"name": "project summary", "message": "Project summary is required"})
+                        this.scrollTo('projectsumary')
+
                         return false
                     }
 
@@ -1458,6 +1509,10 @@
                         text: "Title is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "title", "message": "Title is required"})
+                    this.scrollTo('title-p')
+
                     return false
                 } else if (this.drivingQuestionTitle == "") {
                     swal({
@@ -1470,6 +1525,10 @@
                         text: "Driving question is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "driving question", "message": "Driving question title is required"})
+                    this.scrollTo('driving')
+
                     return false
                 } else if (this.subjectTitle == "") {
                     swal({
@@ -1482,6 +1541,10 @@
                         text: "You have to add subjects to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "subjecttitle", "message": "You have to add subjects to continue"})
+                    this.scrollTo('subjecttitle')
+
                     return false
                 } else if (this.timeFrameTitle == "") {
                     swal({
@@ -1494,12 +1557,20 @@
                         text: "Time frame is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "time", "message": "Time frame is required"})
+                    this.scrollTo('time')
+
                     return false
                 } else if (CKEDITOR.instances.projectSummaryEditor.getData() == "") {
                     swal({
                         text: "Project summary is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "project summary", "message": "Project summary is required"})
+                    this.scrollTo('projectsumary')
+
                     return false
                 } else if (this.publicProductTitle == "") {
                     swal({
@@ -1512,6 +1583,10 @@
                         text: "Public product is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "public product", "message": "Public product is required"})
+                    this.scrollTo('publictitle')
+
                     return false
                 } else if (this.levelTitle == "") {
                     swal({
@@ -1524,42 +1599,70 @@
                         text: "Level is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "level", "message": "Level is required"})
+                    this.scrollTo('leveltitle')
+
                     return false
                 } else if (this.ages.length == 0) {
                     swal({
                         text: "You have to add ages to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "level", "message": "You have to add ages to continue"})
+                    this.scrollTo('leveltitle')
+
                     return false
                 } else if (this.hashtags.length == 0) {
                     swal({
                         text: "You have to add hashtags to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "hashtag", "message": "You have to add hashtags to continue"})
+                    this.scrollTo('hashtags-menu')
+
                     return false
                 } else if (CKEDITOR.instances.mainEditor.getData() == "") {
                     swal({
                         text: "Main info is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "mainEditor", "message": "Main info is required"})
+                    this.scrollTo('mainContentEditor')
+
                     return false
                 } else if (this.calendarActivities.length == 0) {
                     swal({
                         text: "You have to add activities to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "calendar", "message": "You have to add activities to continue"})
+                    this.scrollTo('calendarActivities')
+
                     return false
                 } else if (CKEDITOR.instances.bibliographyEditor.getData() == "") {
                     swal({
                         text: "Bibliography is required",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "bibliography", "message": "Bibliography is required"})
+                    this.scrollTo('bibliography')
+
                     return false
                 } else if (this.upvoteSystems.length == 0) {
                     swal({
                         text: "You have to add upvote systems to continue",
                         icon: "error"
                     })
+
+                    this.localErrors.push({"name": "upvote", "message": "You have to add upvote systems to continue"})
+                    this.scrollTo('upvote')
+
                     return false
                 }
 
@@ -1668,6 +1771,10 @@
                     CKEDITOR.instances.projectMilestoneEditor.setData("")
 
 
+                }else{
+
+                    this.localErrors.push({"name":"milestones", "message":"Title and description required"})
+
                 }
 
             },
@@ -1688,7 +1795,7 @@
                         if (res.data.success == true) {
 
                             swal({
-                                text: res.data.msg,
+                                text: "Project succesfully updated",
                                 icon: "success"
                             }).then(() => {
 

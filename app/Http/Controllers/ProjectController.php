@@ -235,7 +235,7 @@ class ProjectController extends Controller
             $project = Project::find($request->projectId);
             $project->is_private = boolval($request->is_private);
             $project->number_of_weeks = $request->number_of_weeks;
-            $project->is_incubator = $request->isIncubator == "false" ? 0 : 1;
+            $project->is_incubator = $request->isIncubator;
             $project->update();
 
             $this->storeTitle($request, "creation");

@@ -430,9 +430,10 @@
                                         </div>
 
                                     </div>
-                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
-
-</p>
+                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities</p>
+                                    <div v-if="localErrors.length > 0">
+                                        <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 flex-wee">
                                     <label class="ml-5 mr-4" for="inp">Weeks</label>
@@ -539,16 +540,14 @@
 
                             </div>
 
-                            <div v-if="localErrors.length > 0">
-                                <small class="text-danger" v-if="localErrors[0].name == 'calendar'">@{{ localErrors[0].message }}</small>
-                            </div>
+                           
 
 
                         </div>
 
                         <div class="contente_item mt-5 mb-5" @mouseleave="testChange()">
                             <div class="flex-edit">
-                                <h3 class="titulo-templates" v-cloak>Bibliography (mandatory)</h3>
+                                <h3 class="titulo-templates" id="bibliography" v-cloak>Bibliography (mandatory)</h3>
                                 <div class="help-icon" @click="showHelp('bibliography')">
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                                  
@@ -563,7 +562,7 @@
 
                         <div class="mt-5 mb-5">
                             <div class="flex-edit">
-                                <h1 class="mt-5">Which Upvote System
+                                <h1 class="mt-5" id="upvote">Which Upvote System
                                     options will your wikiPBL
                                     have?
                                 </h1>
@@ -571,18 +570,22 @@
                                     <img src="{{ url('assets/img/help.png') }}" alt="">
                            
                                 </div>
+                               
                             </div>
+                            <div v-if="localErrors.length > 0">
+                                    <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
+                                </div>
                             <p class="help-icon-p" v-show="upvoteSystemHelp">Identify the essential elements that you think your
                                         project highlights, so your peers can like/upvote your
                                         wikiPBL </p>
                             <div class="row">
                                 @foreach(App\AssestmentPointType::get() as $point)
-                                <div class="col-md-6 dflex-icon">
+                                <div class="col-md-6 dflex-icon" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                        <img src="{{ $point->icon }}" class="img-icon"></img>
-                                    <div class="form-check" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
+                                    <div class="form-check" >
 
                                         <input class="form-check-input" type="checkbox" value="" id="assestment{{ $point->id }}">
-                                        <label class="form-check-label" for="assestment{{ $point->id }}">
+                                        <label class="form-check-label" for="assestment{{ $point->id }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                             {{ $point->name }}
                                         </label>
                                     </div>
@@ -590,11 +593,6 @@
                                 @endforeach
 
                             </div>
-
-                            <div v-if="localErrors.length > 0">
-                                <small class="text-danger" v-if="localErrors[0].name == 'upvote'">@{{ localErrors[0].message }}</small>
-                            </div>
-
 
                         </div>
                     </div>
@@ -878,6 +876,8 @@
                 return formData
             },
             validateLaunch() {
+
+                this.localErrors = []
 
                 if (this.incubatorFeature == true) {
 
