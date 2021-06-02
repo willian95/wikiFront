@@ -11,7 +11,8 @@
 }
 .signin-btn svg {
     fill: #fff;
-    margin-top: -6px;
+    margin-right: 8px;
+    width: 19px;
 }
 .signin-btn:hover {
     background: #ffffff;
@@ -22,14 +23,23 @@
 .signin-btn:hover svg {
     fill: #000 !important;
 }
+.rregistro-icon {
+    margin-right: 7px;
+}
+.instituto-icon {
+    margin-right: 8px;
+    margin-left: 13px;
+}
+/*
 .instituto-icon {
     width: 26px;
     margin-left: 10px;
     margin-top: -12px;
-}
+}*/
+/*
 .rregistro-icon {
     margin-top: -7px;
-}
+}*/
 .nav-link:hover {
     color: #1b75bc !important;
 }
@@ -79,11 +89,19 @@
     width: 139px;
     top: 45px;
 }
-.main-profile_dates i{
+.main-profile_dates i {
     margin-left: 0;
 }
-.button-launch{
+.button-launch {
     display: none;
+}
+.center__icons p {
+    margin-bottom: 0;
+}
+.center__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /**mediasquery */
 @media only screen and (max-width: 600px) {
@@ -106,6 +124,7 @@
     }
     .signin-btn svg {
         margin-top: 0;
+        margin-right: 0;
     }
     .signin-btn {
         padding: 0px 9px !important;
@@ -152,7 +171,7 @@
     .feactured-one {
         overflow: hidden;
     }
-    #wiki-template{
+    #wiki-template {
         margin-top: 6rem;
     }
     .last-style {
@@ -160,11 +179,9 @@
         margin-right: 5px;
         margin-left: 5px;
     }
-    .save-option{
-        margin-left: 0rem!important;
+    .save-option {
+        margin-left: 0rem !important;
     }
-    
- 
 }
 /*tablet*/
 @media (max-width: 768px) {
@@ -184,8 +201,6 @@
     .signin-btn .nav-link {
         padding-right: 0 !important;
     }
-    
-    
 }
 @media (min-width: 992px) and (max-width: 1199px) {
     .menu-template {
@@ -205,7 +220,6 @@
         width: 15px;
         margin-right: 1px;
     }
-   
 }
 /*IPHONE x */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -214,10 +228,13 @@
     }
 }
 @media (min-width: 769px) and (max-width: 991px) {
+    .brand {
+        width: 31%;
+    }
     .menu-template {
         display: none;
     }
-    .launch-xs{
+    .launch-xs {
         display: none;
         position: fixed;
         z-index: 9;
@@ -229,13 +246,13 @@
         font-size: 11px;
         padding: 5px 5px;
     }
-    .button-launch{
-        font-size: .8rem;
-    width: 70px;
-    padding: 4px 0px;
-    margin-right: 12px;
-    margin-top: 17px;
-    display: block!important;
+    .button-launch {
+        font-size: 0.8rem;
+        width: 70px;
+        padding: 4px 0px;
+        margin-right: 12px;
+        margin-top: 17px;
+        display: block !important;
     }
 }
 /*ipad PRO*/
@@ -246,15 +263,12 @@
     .nav {
         left: -38px;
     }
- 
 }
 /*ipad*/
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
     .header-shadow {
         height: 7vh;
     }
-       
-
 }
 /*galaxy*/
 @media only screen and (device-width: 280px) and (device-height: 653px) {
@@ -263,34 +277,30 @@
     }
 }
 @media (max-width: 992px) and (max-width: 1199px) {
-    .problem-btn p{
-      display: none;
-  }
-  .problem-btn {
-    
-      width: 42px;
-      border: 1px solid #1b75bc;
-      color: #fff;
-      font-size: 14px;
-      position: fixed;
-      top: 15%;
-      right: 5px;
-      background: #1b75bc;
-  }
-  .problem-btn i{
-      display: block!important;
-    
-  }
-  .navbar-nav {
-    width: auto;
-}
-#wiki-template{
-    margin-top: 6rem;
-}
- 
-  }
-  @media only screen and (device-width: 1024px) and (device-height: 576px) {
-   
-  }
+    .navbar-nav {
+        width: auto;
+    }
+    #wiki-template {
+        margin-top: 6rem;
+    }
+    .problem-btn {
+        position: revert;
+    }
+    .problem-btn p {
 
- 
+        font-size: 11px;
+    }
+}
+@media only screen and (device-width: 1024px) and (device-height: 519px) {
+    .instituto-icon {
+        margin-top: 0;
+        margin-right: 10px;
+    }
+}
+@media only screen and (device-width: 320px) and (device-height: 568px) {
+    .problem-btn {
+        position: fixed;
+        top: 15%;
+    }
+
+}

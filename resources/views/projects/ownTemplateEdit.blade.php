@@ -3,8 +3,8 @@
 @section("content")
 
 <style>
-    .modal-backdrop.show{
-        opacity:0 !important;
+    .modal-backdrop.show {
+        opacity: 0 !important;
         z-index: 0 !important;
     }
 </style>
@@ -53,7 +53,7 @@
                             <li v-cloak> <a style="cursor: pointer;" @click="scrollTo('hashtags-menu')"><i class="fa fa-times" aria-hidden="true" v-if="hashtags.length == 0 && isIncubator == false"></i> <i class="fa fa-check" aria-hidden="true" v-if="hashtags.length > 0 || isIncubator == true"></i>#hashtags</a></li>
 
                         </ul>
-                    </div> 
+                    </div>
                     <div class="menu-template_option menu-template_option-btn">
                         <ul>
                             <p>Main info</p>
@@ -67,11 +67,11 @@
                     </div>
                 </div>
                 @if($project[0]->status == 'pending')
-                    <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
-                    @else
-                    <button class="btn btn-custom launch-xs" @click="launch()">Update</button>
+                <button class="btn btn-custom launch-xs" @click="launch()">Launch</button>
+                @else
+                <button class="btn btn-custom launch-xs" @click="launch()">Update</button>
 
-                    @endif
+                @endif
             </div>
             <!----------------info----------------->
             <div class="col-md-12 col-lg-9 info-template" v-cloak>
@@ -81,29 +81,31 @@
                 <ul class="content_template content_template-general">
 
                     @if(\Auth::user()->id == $project[0]->user_id)
-                        <li class="content_template-general-item">
+                    <li class="content_template-general-item">
                         <h3 class="titulo-templates">Incubator Features</h3>
                         <div class="help-icon" @click="showHelp('incubator')">
-                                <img src="{{ url('assets/img/help.png') }}" alt="">
+                            <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                
-                            </div>
-                            <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
-                                    hold back, be brave and get it out there. Our world of
-                                    wikiPBL educators love taking projects from idea to
-                                    Awesome!
-                                </p>
+
+                        </div>
+                        <p class="help-icon-p" v-show="incubatorHelp">If you have a project idea without all the details, don’t
+                            hold back, be brave and get it out there. Our world of
+                            wikiPBL educators love taking projects from idea to
+                            Awesome!
+                        </p>
                         <div class="flex-custom--icon">
-                        <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
+                            <img alt='icon' class="login_icon incubator" src="http://imgfz.com/i/DmsV3CK.png">
                             <!-- Rounded switch -->
-                            <label class="switch" >
+                            <label class="switch">
                                 <input type="checkbox" v-model="isIncubator">
                                 <span class="slider slider-nav round"></span>
                             </label>
-                            <div> <p><strong><small>Mark your <strong>wikiPBL</strong>  as an “incubator” when you have an awesome idea but want help building upon your “ground floor” ideas. Think big!</small></strong></p></div>
+                            <div>
+                                <p><strong><small>Mark your <strong>wikiPBL</strong> as an “incubator” when you have an awesome idea but want help building upon your “ground floor” ideas. Think big!</small></strong></p>
+                            </div>
                         </div>
-                           
-                        </li>
+
+                    </li>
                     @endif
 
                     <li class="content_template-general-item" style="margin-top: 100px;" @mouseleave="testChange()">
@@ -111,7 +113,7 @@
 
                             <span id="title-p" v-if="editSection != 'title'" v-cloak>@{{ title }}</span>
                             <input v-if="editSection == 'title'" type="text" class="form-control" v-model="title">
-                            
+
                             <a class="txt-edit" style="cursor:pointer;" @click="setEditSection('title')">
                                 <span v-if="editSection != 'title'"></span>
                                 <span v-if="editSection == 'title'">Click to finish editing</span>
@@ -125,7 +127,7 @@
                                 </svg>
 
                             </a>
-                            
+
                         </h3>
 
                     </li>
@@ -135,18 +137,18 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" id="driving" v-if="editSection != 'drivingQuestionTitle'" v-cloak>@{{ drivingQuestionTitle }}</h3>
                             <input v-if="editSection == 'drivingQuestionTitle'" type="text" class="form-control" v-model="drivingQuestionTitle">
-                            
-                            <div class="help-icon" @click="showHelp('drivingQuestion')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
 
-                                   
-                                </div>
+                            <div class="help-icon" @click="showHelp('drivingQuestion')">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+
+                            </div>
                         </div>
                         <p class="help-icon-p" v-show="drivingQuestionHelp">An open-ended question that guides students'
-                                        thinking and learning, empowering their explorations
-                                        during PBL
+                            thinking and learning, empowering their explorations
+                            during PBL
 
-                                    </p>
+                        </p>
                         <!--<p class="subtitule_txt">(you can edit Driving question for whatever Title)</p>-->
 
                         <textarea name="" id="drivingQuestionEditor" cols="30" rows="10">{!! $drivingQuestion !!}</textarea>
@@ -170,13 +172,13 @@
 
                             </a>-->
                             <div class="help-icon" @click="showHelp('subjectTitle')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                
-                                </div>
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                            </div>
                         </div>
 
                         <p class="help-icon-p" v-show="subjectTitleHelp">What subjects (content areas) does your project address/emphasize?
-                                    </p>
+                        </p>
                         <!--<p class="subtitule_txt">(you can edit Subject(s) for whatever Title)</p>-->
 
                         <div class="row">
@@ -191,7 +193,9 @@
                                     <div class="card-body" v-cloak>
 
                                         @{{ subject }}
-                                        <span class="float: right;" style="cursor: pointer" @click="popSubject(index)">    <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg></span>
+                                        <span class="float: right;" style="cursor: pointer" @click="popSubject(index)"> <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
                                     </div>
                                 </div>
                             </div>
@@ -202,15 +206,15 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'timeFrameTitle'">Time Frame</h3>
                             <input v-if="editSection == 'timeFrameTitle'" type="text" class="form-control" v-model="timeFrameTitle">
-                            
+
                             <div class="help-icon" @click="showHelp('timeFrame')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                   
-                                </div>
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                            </div>
                         </div>
 
                         <p class="help-icon-p" v-show="timeFrameHelp">How long do you think your project will take?
-                                    </p>
+                        </p>
                         <!--<p class="subtitule_txt">(you can edit Time Frame for whatever Title) </p>-->
                         <div class="row">
                             <div class="col-md-6">
@@ -220,15 +224,15 @@
                     </li>
 
                     <li class="content_template-general-item" id="projectsumary" @mouseleave="testChange()">
-                    <div class="flex-edit">
-                                <h3 class="titulo-templates">Project summary</h3>
-                                <div class="help-icon" @click="showHelp('projectSummary')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                   
-                                </div>
+                        <div class="flex-edit">
+                            <h3 class="titulo-templates">Project summary</h3>
+                            <div class="help-icon" @click="showHelp('projectSummary')">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
                             </div>
-                            <p class="help-icon-p" v-show="projectSummaryHelp" >Briefly summarize your project
-                                    </p>
+                        </div>
+                        <p class="help-icon-p" v-show="projectSummaryHelp">Briefly summarize your project
+                        </p>
                         <textarea id="projectSummaryEditor" name="" placeholder="This will be shown as a preview of your wikiPBL project........." cols="30" rows="10">{!! $projectSumary !!}</textarea>
                     </li>
 
@@ -236,32 +240,32 @@
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'publicProductTitle'" v-cloak>@{{ publicProductTitle }}</h3>
                             <input v-if="editSection == 'publicProductTitle'" type="text" class="form-control" v-model="publicProductTitle">
-                            
+
                             <div class="help-icon" @click="showHelp('publicProductTitle')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                  
-                                </div>
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                            </div>
                         </div>
 
                         <p class="help-icon-p" v-show="publicProductTitleHelp">What artifacts, presentations, performances or compositions will your students produce?
-                                    </p>
+                        </p>
                         <!--<p class="subtitule_txt">(you can edit this for whatever Title)
                         </p>-->
                         <textarea id="publicProductEditor" name="" placeholder="What will be the product that students will show to an audience? " cols="30" rows="10">{!! $publicProduct !!}</textarea>
                     </li>
 
-                    <li class="content_template-general-item" id="leveltitle"@mouseleave="testChange()">
+                    <li class="content_template-general-item" id="leveltitle" @mouseleave="testChange()">
                         <div class="flex-edit">
                             <h3 class="titulo-templates" v-if="editSection != 'levelTitle'" v-cloak>@{{ levelTitle }}</h3>
                             <input v-if="editSection == 'levelTitle'" type="text" class="form-control" v-model="levelTitle">
-                            
+
                             <div class="help-icon" @click="showHelp('levelTitle')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                  
-                                </div>
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
+                            </div>
                         </div>
                         <p class="help-icon-p" v-show="levelTitleHelp">For what age/grade level(s) is your project appropriate?
-                                    </p>
+                        </p>
 
                         <!--<p class="subtitule_txt">(you can edit this for whatever Title)
                         </p>-->
@@ -369,17 +373,17 @@
                     </li>
 
                     <li class="content_template-general-item" id="hashtags-menu" @mouseleave="testChange()">
-                    <div class="flex-edit">
-                                <h3 class="titulo-templates">#hashtags</h3>
-                                <div class="help-icon" @click="showHelp('hashtag')">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                  
-                                </div>
+                        <div class="flex-edit">
+                            <h3 class="titulo-templates">#hashtags</h3>
+                            <div class="help-icon" @click="showHelp('hashtag')">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
 
                             </div>
-                            <p class="help-icon-p" v-show="hashtag">These are keywords to help others find your project in searches
 
-</p>
+                        </div>
+                        <p class="help-icon-p" v-show="hashtag">These are keywords to help others find your project in searches
+
+                        </p>
                         <div class="row">
                             <div class="col-md-6">
                                 <input class="form-control" type="text" placeholder="Type and enter to add each #hashtag" v-model="hashtag" v-on:keyup.enter="addHashtag()">
@@ -392,7 +396,9 @@
                                     <div class="card-body" v-cloak>
                                         #@{{ hashtag }}
 
-                                        <span style="pointer" @click="popHashtag(index)">    <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg></span>
+                                        <span style="pointer" @click="popHashtag(index)"> <svg class="hast-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" />
+                                            </svg></span>
                                     </div>
                                 </div>
                             </div>
@@ -408,28 +414,28 @@
                     <textarea name="" placeholder="" id="mainEditor" cols="30" rows="10">{!! $mainInfo !!}</textarea>
 
                     <div class="contente_item mt-5 mb-5">
-                    <div class="row mb-5">
-                                <div class="col-md-6">
+                        <div class="row mb-5">
+                            <div class="col-md-6">
                                 <div class="flex-edit">
-                                        <h3 class="titulo-templates">Calendar of activities </h3>
-                                        <div class="help-icon" @click="showHelp('calendar')">
-                                            <img src="{{ url('assets/img/help.png') }}" alt="">
-                                       
-                                        </div>
+                                    <h3 class="titulo-templates">Calendar of activities </h3>
+                                    <div class="help-icon" @click="showHelp('calendar')">
+                                        <img src="{{ url('assets/img/help.png') }}" alt="">
 
                                     </div>
-                                    <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
 
-</p>
                                 </div>
-                                <div class="col-md-6 flex-wee">
+                                <p class="help-icon-p" v-show="calendarHelp">Share your schedule of activities
+
+                                </p>
+                            </div>
+                            <div class="col-md-6 flex-wee">
                                 <label class="ml-5 mr-4" for="inp">Weeks</label>
                                 <select id="inpt" class="form-control" v-model="weeks">
                                     <option v-for="week in 18" :value="week" v-if="week > 0" v-cloak>@{{ week }} </option>
-                                </select> 
-                                </div>     
+                                </select>
                             </div>
-                            
+                        </div>
+
 
                         <div class="container-fluid">
 
@@ -458,14 +464,14 @@
                     </div>
 
                     <div class="contente_item">
-                    <div class="flex-edit">
-                                <h3 class="titulo-templates">Bibliography (mandatory)</h3>
-                                <div class="help-icon">
-                                    <img src="{{ url('assets/img/help.png') }}" alt="">
-                                   
-                                </div>
+                        <div class="flex-edit">
+                            <h3 class="titulo-templates">Bibliography (mandatory)</h3>
+                            <div class="help-icon">
+                                <img src="{{ url('assets/img/help.png') }}" alt="">
+
                             </div>
-                            <p class="help-icon-p" v-show="bibliographyHelp" @click="showHelp('bibliography')">If you use someone else's stuff, give them credit </p>
+                        </div>
+                        <p class="help-icon-p" v-show="bibliographyHelp" @click="showHelp('bibliography')">If you use someone else's stuff, give them credit </p>
                         <textarea name="" lang="" placeholder="Always cite!" id="bibliographyEditor" cols="30" rows="10">{!! $bibliography !!}</textarea>
                     </div>
 
@@ -478,20 +484,20 @@
                             </h1>
                             <div class="help-icon" @click="showHelp('upvoteSystem')">
                                 <img src="{{ url('assets/img/help.png') }}" alt="">
-                        
+
                             </div>
                         </div>
                         <p class="help-icon-p" v-show="upvoteSystemHelp">Identify the essential elements that you think your
-                                        project highlights, so your peers can like/upvote your
-                                        wikiPBL </p>
+                            project highlights, so your peers can like/upvote your
+                            wikiPBL </p>
                         <div class="row">
                             @foreach(App\AssestmentPointType::get() as $point)
                             <div class="col-md-6 dflex-icon" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
 
-                                  <img src="{{ $point->icon }}" class="img-icon"></img>
+                                <img src="{{ $point->icon }}" class="img-icon"></img>
                                 <div class="form-check">
 
-                                    <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}" >
+                                    <input class="form-check-input" type="checkbox" value="" id="index-{{ $point->id }}">
                                     <label class="form-check-label" for="index-{{ $point->id }}" @click="addOrPopUpVoteSystems('{{ $point->id }}')">
                                         {{ $point->name }}
                                     </label>
@@ -507,16 +513,17 @@
         </div>
     </div>
     <footer class="footer-estyle">
-                <div class="footer container mt-5 text-center">
-              
-                    <p class="items-footer"> 
-                    <a data-toggle="modal" data-target="."> Terms and conditions</a> 
-                     <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
-                       <a data-toggle="modal" data-target=".faq-modal" >FAQ'S</a> 
-                     <a href="{{ url('/about') }}">About wikiPBL</a>  </p>
-                     <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
-                </div>
-            </footer>
+        <div class="footer container mt-5 text-center">
+
+            <p class="items-footer">
+                <a data-toggle="modal" data-target="."> Terms and conditions</a>
+                <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a>
+                <a data-toggle="modal" data-target=".faq-modal">FAQ'S</a>
+                <a href="{{ url('/about') }}">About wikiPBL</a>
+            </p>
+            <span class="copy-footer"> © 2021 Copyrights <strong>wikiPBL</strong> </span>
+        </div>
+    </footer>
 </div>
 </div>
 
@@ -537,9 +544,9 @@
                 subjectTitle: "{!! htmlspecialchars_decode($subjectTitle) !!}",
                 subject: "",
                 subjects: "",
-                drivingQuestion:"",
-                projectSumary:"",
-                publicProduct:"",
+                drivingQuestion: "",
+                projectSumary: "",
+                publicProduct: "",
                 timeFrameTitle: "{!! htmlspecialchars_decode($timeFrameTitle) !!}",
                 timeFrame: "{!! htmlspecialchars_decode($timeFrame) !!}",
                 publicProductTitle: "{!! htmlspecialchars_decode($publicProductTitle) !!}",
@@ -559,24 +566,24 @@
                 lastSave: "",
                 //private: JSON.parse('{!! $project[0]->is_private !!}'),
                 private: 0,
-                isIncubator:JSON.parse("{{ $project[0]->is_incubator }}"),
+                isIncubator: JSON.parse("{{ $project[0]->is_incubator }}"),
                 loading: false,
-                incubatorHelp:false,
-                drivingQuestionHelp:false,
-                subjectTitleHelp:false,
-                timeFrameHelp:false,
-                projectSummaryHelp:false,
-                upvoteSystemHelp:false,
-                levelTitleHelp:false,
-                hashtagHelp:false,
-                calendarHelp:false,
-                bibliographyHelp:false,
-                upvoteSystemHelp:false,
-                publicProductTitleHelp:false,
-                problemErrors:[],
-                problemEmail:"",
-                problemName:"{{ \Auth::check() ? \Auth::user()->name : '' }}",
-                problemDescription:""
+                incubatorHelp: false,
+                drivingQuestionHelp: false,
+                subjectTitleHelp: false,
+                timeFrameHelp: false,
+                projectSummaryHelp: false,
+                upvoteSystemHelp: false,
+                levelTitleHelp: false,
+                hashtagHelp: false,
+                calendarHelp: false,
+                bibliographyHelp: false,
+                upvoteSystemHelp: false,
+                publicProductTitleHelp: false,
+                problemErrors: [],
+                problemEmail: "",
+                problemName: "{{ \Auth::check() ? \Auth::user()->name : '' }}",
+                problemDescription: ""
             }
         },
         methods: {
@@ -804,11 +811,11 @@
             },
             validateLaunch() {
 
-                if(this.isIncubator == 1){
-                    if(CKEDITOR.instances.projectSummaryEditor.getData() == ""){
+                if (this.isIncubator == 1) {
+                    if (CKEDITOR.instances.projectSummaryEditor.getData() == "") {
                         swal({
                             text: "Project summary is required",
-                            icon:"error"
+                            icon: "error"
                         })
                         return false
                     }
@@ -953,18 +960,18 @@
                 $(".check-age").attr("checked", false)
 
             },
-            scrollTo(identifier){
+            scrollTo(identifier) {
 
-                let distance = $("#"+identifier).offset().top - 120
+                let distance = $("#" + identifier).offset().top - 120
 
                 $('html, body').animate({
                     scrollTop: distance
                 }, 50);
 
             },
-            showCKEditorAlert(){
+            showCKEditorAlert() {
 
-                if(window.localStorage.getItem("showCKEditorMsg") != null){
+                if (window.localStorage.getItem("showCKEditorMsg") != null) {
 
                     swal({
                         "text": window.localStorage.getItem("showCKEditorMsg"),
@@ -976,64 +983,66 @@
                 }
 
             },
-            testChange(){
-    
+            testChange() {
+
                 this.drivingQuestion = CKEDITOR.instances.drivingQuestionEditor.getData()
                 this.projectSumary = CKEDITOR.instances.projectSummaryEditor.getData()
                 this.publicProduct = CKEDITOR.instances.publicProductEditor.getData()
                 this.bibliography = CKEDITOR.instances.bibliographyEditor.getData()
 
             },
-            erase(){
+            erase() {
 
                 swal({
-                    title: "Are you sure?",
-                    text: "You will delete this project!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
+                        title: "Are you sure?",
+                        text: "You will delete this project!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
 
-                        axios.post("{{ url('/project/delete') }}", {id: this.projectId}).then(res => {
+                            axios.post("{{ url('/project/delete') }}", {
+                                id: this.projectId
+                            }).then(res => {
 
-                            if(res.data.success == true){
+                                if (res.data.success == true) {
 
-                                swal({
-                                    "text": res.data.msg,
-                                    "icon": "success"
-                                }).then(res => {
+                                    swal({
+                                        "text": res.data.msg,
+                                        "icon": "success"
+                                    }).then(res => {
 
-                                    window.location.href="{{ url('teacher/profile') }}"
+                                        window.location.href = "{{ url('teacher/profile') }}"
 
-                                })
+                                    })
 
-                            }else{
+                                } else {
 
-                                swal({
-                                    "text": res.data.msg,
-                                    "icon": "error"
-                                })
+                                    swal({
+                                        "text": res.data.msg,
+                                        "icon": "error"
+                                    })
 
-                            }
+                                }
 
-                        })
+                            })
 
-                    }
-                })
+                        }
+                    })
 
             },
-            showProjectPrivacyAlert(){
+            showProjectPrivacyAlert() {
 
                 window.setTimeout(() => {
 
-                    if(this.private == 0){
+                    if (this.private == 0) {
                         $("#privacyModalAlert").modal("show")
 
                         $("#shared-icon").css("fill", "#547EBD")
                         $("#private-icon").css("fill", "black")
-                    }else{
+                    } else {
 
                         $("#shared-icon").css("fill", "black")
                         $("#private-icon").css("fill", "#547EBD")
@@ -1043,115 +1052,98 @@
                 }, 500);
 
             },
-            showHelp(section){
+            showHelp(section) {
 
                 this.clearHelps(section)
 
-                if(section == "incubator"){
+                if (section == "incubator") {
                     this.incubatorHelp == true ? this.incubatorHelp = false : this.incubatorHelp = true
-                }
-
-                else if(section == "drivingQuestion"){
+                } else if (section == "drivingQuestion") {
                     this.drivingQuestionHelp == true ? this.drivingQuestionHelp = false : this.drivingQuestionHelp = true
-                }
+                } else if (section == "subjectTitle") {
 
-                else if(section == "subjectTitle"){
-       
                     this.subjectTitleHelp == true ? this.subjectTitleHelp = false : this.subjectTitleHelp = true
-                }
+                } else if (section == "timeFrame") {
 
-                else if(section == "timeFrame"){
-       
                     this.timeFrameHelp == true ? this.timeFrameHelp = false : this.timeFrameHelp = true
-                }
+                } else if (section == "projectSummary") {
 
-                else if(section == "projectSummary"){
-            
                     this.projectSummaryHelp == true ? this.projectSummaryHelp = false : this.projectSummaryHelp = true
-                }
+                } else if (section == "upvoteSystem") {
 
-                else if(section == "upvoteSystem"){
-              
                     this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
-                }
+                } else if (section == "levelTitle") {
 
-                else if(section == "levelTitle"){
-               
                     this.levelTitleHelp == true ? this.levelTitleHelp = false : this.levelTitleHelp = true
-                }
+                } else if (section == "hashtag") {
 
-                else if(section == "hashtag"){
-                  
                     this.hashtagHelp == true ? this.hashtagHelp = false : this.hashtagHelp = true
-                }
+                } else if (section == "calendar") {
 
-                else if(section == "calendar"){
-          
                     this.calendarHelp == true ? this.calendarHelp = false : this.calendarHelp = true
-                }
+                } else if (section == "bibliography") {
 
-                else if(section == "bibliography"){
-                    
                     this.bibliographyHelp == true ? this.bibliographyHelp = false : this.bibliographyHelp = true
-                }
+                } else if (section == "upvoteSystem") {
 
-                else if(section == "upvoteSystem"){
-              
                     this.upvoteSystemHelp == true ? this.upvoteSystemHelp = false : this.upvoteSystemHelp = true
-                }
-
-                else if(section == "publicProductTitle"){
+                } else if (section == "publicProductTitle") {
 
                     this.publicProductTitleHelp == true ? this.publicProductTitleHelp = false : this.publicProductTitleHelp = true
                 }
 
             },
-            clearHelps(section){
+            clearHelps(section) {
 
-                if(section != "incubator")
-                this.incubatorHelp = false
+                if (section != "incubator")
+                    this.incubatorHelp = false
 
-                if(section != "drivingQuestion")
-                this.drivingQuestionHelp = false
+                if (section != "drivingQuestion")
+                    this.drivingQuestionHelp = false
 
-                if(section != "subjectTitle")
-                this.subjectTitleHelp = false
+                if (section != "subjectTitle")
+                    this.subjectTitleHelp = false
 
-                if(section != "timeFrame")
-                this.timeFrameHelp = false
+                if (section != "timeFrame")
+                    this.timeFrameHelp = false
 
-                if(section != "projectSummary")
-                this.projectSummaryHelp = false
+                if (section != "projectSummary")
+                    this.projectSummaryHelp = false
 
-                if(section != "upvoteSystem")
-                this.upvoteSystemHelp = false
+                if (section != "upvoteSystem")
+                    this.upvoteSystemHelp = false
 
-                if(section != "levelTitle")
-                this.levelTitleHelp = false
+                if (section != "levelTitle")
+                    this.levelTitleHelp = false
 
-                if(section != "hashtag")
-                this.hashtagHelp = false
+                if (section != "hashtag")
+                    this.hashtagHelp = false
 
-                if(section != "calendar")
-                this.calendarHelp = false
+                if (section != "calendar")
+                    this.calendarHelp = false
 
-                if(section != "bibliography")
-                this.bibliographyHelp = false
+                if (section != "bibliography")
+                    this.bibliographyHelp = false
 
-                if(section != "upvoteSystem")
-                this.upvoteSystemHelp = false
+                if (section != "upvoteSystem")
+                    this.upvoteSystemHelp = false
 
-                if(section != "publicProductTitle")
-                this.publicProductTitleHelp = false
+                if (section != "publicProductTitle")
+                    this.publicProductTitleHelp = false
 
             },
-            reportProblem(){
+            reportProblem() {
 
                 this.loading = true
                 this.problemErrors = []
-                axios.post("{{ url('/problem-report') }}", {"email": this.problemEmail, "name": this.problemName, "description": this.problemDescription, "url": "{{ url()->current() }}"}).then(res =>{
+                axios.post("{{ url('/problem-report') }}", {
+                    "email": this.problemEmail,
+                    "name": this.problemName,
+                    "description": this.problemDescription,
+                    "url": "{{ url()->current() }}"
+                }).then(res => {
                     this.loading = false
-                    if(res.data.success == true){
+                    if (res.data.success == true) {
 
                         swal({
                             text: res.data.msg,
@@ -1160,12 +1152,12 @@
 
                         this.problemEmail = ""
                         this.problemName = ""
-                        this.problemDescription= ""
+                        this.problemDescription = ""
 
                         $(".problems-modal").modal("hide")
                         $('.modal-backdrop').remove();
 
-                    }else{
+                    } else {
 
                         swal({
                             text: res.data.msg,
@@ -1212,13 +1204,13 @@
 
             if ("{{ strlen($subjects) }}" > 0) {
                 this.subjects = ("{!! htmlspecialchars_decode($subjects) !!}").split(",")
-            }else{
+            } else {
                 this.subjects = []
             }
 
             if (("{{ $hashtag }}").length > 0) {
                 this.hashtags = ("{!! htmlspecialchars_decode($hashtag) !!}").split(",")
-            }else{
+            } else {
                 this.hashtags = []
             }
 
@@ -1248,8 +1240,8 @@
 
     })
 </script>
-   <!-- Modal FAQ -->
-   <div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Modal FAQ -->
+<div class="modal fade faq-modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -1260,63 +1252,69 @@
                         <h3>FAQ’S </h3>
                     </div>
                     <div class="mt-5 mb-5">
-                        <p><strong>Can i delete my projects once I have started the development project?</strong></p>
-                        <p>any project you develop lives initially in your personal folder. You can delete these projects at any time. However, once you have published your project for shared development and use by others it lives in two distinct and independent places : your personal folder and the public space. Once published to the public space. you will be unable to delete this version of the project. However, you can still delete the version of the project that lives in your personal folder. In other words, once you share a project, the shared version cannot be deleted.</p>
+                        <p>Q: Can I delete my wikiPBL once I have started the development process?</p>
+                        <p>A: Any wikiPBL you develop lives initially in your personal folder. You can delete this wikiPBL any time. However, once you have published your wikiPBLfor shared development and use by others, it lives in two distinct and independent places: your personal folder and the public space. Once published to the public space, you will be unable to delete this version of the wikiPBL. However, you can still delete the version of the wikiPBL that lives in your personal folder. In other words, once you share a wikiPBL, the shared version cannot be deleted.</p>
                     </div>
                     <div class="mt-5 mb-5">
-                        <p><strong>Will I retain ownership of my project once I publish it?</strong></p>
-                        <p>you will always be credited as the originator of any project you initiate or publish (including incubator projects). However, “open-source” and resource-sharing in education is a core philosophy at <strong>wikiPBL</strong> . As such, once a project is published (in any stage of compltion), it will become free to use and edit by our the <strong>wikiPBL</strong>  community..</p>
+                        <p>Q: Will I retain ownership of my wikiPBL once I publish it?</p>
+                        <p>A: You will always be credited as the Original Poster (OP) of any wikiPBL you initiate or publish (including incubator wikiPBLs.) Resource sharing is a core philosophy at wikiPBL. Once a wikiPBL is published (in any stage of completion), it will become free to use and edit by our wikiPBL community.</p>
+
                     </div>
                     <div class="mt-5 mb-5">
-                        <p><strong>Do i have to be associated with a school to use <strong>wikiPBL</strong> ? What if I am a freelance educator or private tutor?</strong></p>
-                        <p><strong>wikiPBL</strong>  is a closed community (for safety reasons) intended for educators. You don’t have to be a associated with a school so if you are an educator outside of a school please send us an email at <a href="mailto:info@wikipbl.org">info@wikipbl.org</a>.</p>
-                    </div>
-                    <div class="mt-5 mb-5">
-                        <p><strong>Can I share my <strong>wikiPBL</strong>  without letting people edit it?</strong></p>
-                        <p>In short, no (but with a caveat). The goal of wikiPBL is to encourage shared project development and open resource sharing. However, you will always have access to your original version of your project (which will live in your personal folder), which you can edit on your own. In this way, you can use the ideas others suggest for your project for your own personal version, which can remain unpublished (but we encourage you to share your genius with others as well).</p>
+                        <p> Q: Do I have to be associated with a school to use wikiPBL? What if I am a freelance educator or private tutor?</p>
+                        <p>A: wikiPBL is a closed community (for safety reasons) intended for educators. You don’t have to be a associated with a school so if you are an educator outside of a school please send us an email at info@wikipbl.org </p>
                     </div>
 
 
+
                     <div class="mt-5 mb-5">
-                        <p><strong>Why will my <strong>wikiPBL</strong>  make my projects better?</strong></p>
-                        <p>If by better you mean that your project ideas will benefit from the ideas and suggestions of millions of users around the world with varying levels of expertise, and a variety of experiences, then yes it will.</p>
+                        <p> Q: Can I share my wikiPBL without letting people edit it?</p>
+                        <p>A: Yes you can by selecting “view only,” however the goal of wikiPBL is to encourage shared project development and open resource sharing. You will always have access to the original version of your wikiPBL (which will live in your personal folder), and you can edit on your own. Remember you can always use the ideas others suggest for your project for your own personal version, which can remain unpublished, but we encourage you to share your genius with others as well.</p>
+
                     </div>
                     <div class="mt-5 mb-5">
-                        <p><strong>Can I have a private <strong>wikiPBL</strong>  that no one can see?</strong></p>
-                        <p>any project you develop lives initially in your personal folder. You can edit and delete these projects at any time..</p>
+                        <p> Q: Why will my wikiPBL make my projects better?</p>
+                        <p>A: Your project ideas will benefit from suggestions by users around the world with varying levels of expertise, and a variety of experiences.</p>
+
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <p>Q. Can I have a private wikiPBL that no one can see?</p>
+                        <p>A: Any wikiPBL you develop lives initially in your personal folder which only you can see. You can edit or delete this wikiPBL at any time.
+                        </p>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade tyc " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal -->
+<div class="modal fade tyc " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="text-center">
-                <h3>Terms & Conditions - Privacy Policy </h3>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
-            </div>
-            <div class="mt-5 mb-5">
-                <p><strong>Term 1</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="text-center">
+                    <h3>Terms & Conditions - Privacy Policy </h3>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
+                <div class="mt-5 mb-5">
+                    <p><strong>Term 1</strong></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa, pariatur ex a saepe voluptas perferendis, fuga adipisci placeat eligendi tenetur amet! Inventore recusandae tempora quibusdam cumque asperiores deserunt voluptas.</p>
+                </div>
             </div>
         </div>
-    </div>
-@endpush
+        @endpush
