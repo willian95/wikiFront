@@ -46,8 +46,9 @@
 
                     @if(\Auth::check())
                         <p class="text-right">
-                            <button class="btn btn-danger" @click="showDeleteConfirmation()">
+                            <button class="btn btn-danger nav-item" @click="showDeleteConfirmation()">
                                 <i class="fa fa-trash"></i>
+                                <span class="tooltip-nav">Delete account</span>
                             </button>
                         </p>
                     @endif

@@ -2158,6 +2158,7 @@ input:checked + .slider:before {
 }
 .img-icon {
     width: 30px;
+    margin-right: 20px;
 }
 .dflex-icon {
     display: -webkit-box;

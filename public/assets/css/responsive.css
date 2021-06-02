@@ -277,6 +277,11 @@
     }
     .flex-wee {
         margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: self-end;
+    padding: 0 2rem;
     }
     .main-creation p {
         font-size: 12px;
@@ -440,12 +445,13 @@
         margin-left: 0;
     }
     .button-launch{
-        font-size: .8rem;
-    width: 70px;
-    padding: 4px 0px;
-    margin-right: 12px;
-    margin-top: 17px;
-    display: block!important;
+        width: 70px;
+        margin-right: 12px;
+        margin-top: 20px;
+        display: block!important;
+        font-size: 11px;
+        right: 27px;
+        padding: 4px 6px;
     }
     .signin-btn svg {
       
@@ -455,6 +461,10 @@
      
         height: auto;
     }
+    .contente_item .card {
+
+    margin-top: 15px;
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
