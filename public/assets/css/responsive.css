@@ -465,6 +465,16 @@
 
     margin-top: 15px;
 }
+.btn-delete_lg{
+    display: none;
+}
+.btn-delete_xs{
+    display: block;
+   
+}
+.btn-delete_xs button{
+    width: 100%;
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

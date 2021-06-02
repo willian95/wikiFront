@@ -103,8 +103,12 @@
     justify-content: center;
     align-items: center;
 }
+.btn-delete_xs{
+    display: none;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
+  
     .last-menu {
         display: block;
     }
