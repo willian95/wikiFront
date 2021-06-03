@@ -544,7 +544,7 @@
 
     <!-- problems modal -->
     <div class="modal fade problems-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
 
 
@@ -557,31 +557,21 @@
                         </div>
                 
                         <div class="content-titulo mb-3">
-                            <p class="titulo m-0">Got problems?</p>
+                            <p class="titulo m-0 text-info">wikiPBL User Experience Feedback Form</p>
                         </div>
 
-
-                    
-
                         <div class="form-group">
-                            <label for="">Description</label>
+                            <label for="">Enter your comments on any aspect of your experience in the field below.</label>
                             <textarea name="" id="" class="form-control" cols="30" rows="6" v-model="problemDescription"></textarea>
                             <small style="color:red" v-if="problemErrors.hasOwnProperty('description')" v-cloak>@{{ problemErrors['description'][0] }}</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" v-model="problemEmail">
-                            <small style="color:red" v-if="problemErrors.hasOwnProperty('email')" v-cloak>@{{
-                                problemErrors['email'][0] }}</small>
                         </div>
 
                     </div>
                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" @click="reportProblem()">Report</button>
+                    <span class="mr-3">Thank you for your valuable feedback.</span>
+                    <button type="button" class="btn btn-primary" @click="reportProblem()">Submit</button>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ class ProblemReportController extends Controller
     function report(ProblemReportRequest $request){
 
         $name = \Auth::user()->name;
-        $email = $request->email ? $request->email : \Auth::user()->email;
+        $email = \Auth::user()->email;
         $url = $request->url;
         $description = $request->description;
 
