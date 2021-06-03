@@ -43,10 +43,12 @@ a {
 }
 html {
     scroll-behavior: smooth !important;
+    
 }
 body {
     font-family: "Inconsolata", monospace;
     font-family: "Montserrat", sans-serif;
+ 
 }
 
 .font-titulos {
@@ -2373,4 +2375,10 @@ input:checked + .slider:before {
 }
 .swal-text{
     text-align: center!important;
+}
+.problem-noness-lg{
+    display: none;
+}
+.trash-style span{
+    display: none;
 }

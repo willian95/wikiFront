@@ -76,7 +76,7 @@
                     </span>
                 </button>
                 @if(\Auth::check() && \Auth::user()->id)
-                <li class="nav-item  flex-main mr-0 new_wiki mr_ml-probelm">
+                <li class="nav-item  flex-main mr-0 new_wiki mr_ml-probelm problem-noness">
 
                 <!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
                     <button class='btn problem-btn' data-toggle="modal" data-target=".problems-modal">
@@ -173,7 +173,16 @@
                                                     </span>
                                                 </a>
                                             </li>
+                                            <li class="nav-item  flex-main mr-0 new_wiki mr_ml-probelm problem-noness-lg">
 
+<!-- <img alt='icon' class="login_icon" src="{{ url('assets/img/iconos/add-file.svg') }}">--->
+    <button class='btn problem-btn' data-toggle="modal" data-target=".problems-modal">
+
+      <p>    Problems with this page?</p>
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+
+    </button>
+</li>
                                             @endif
 
                                             <li class="nav-item  flex-main">

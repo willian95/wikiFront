@@ -216,11 +216,40 @@
     .brand img {
         width: 120px;
     }
-    .nav_menu1 {
+  /*  .nav_menu1 {
         top: 6px!important;
-    }
-    #own-template .nav_menu1 ,  #wiki-template .nav_menu1 {
+    }*/
+   /* #own-template .nav_menu1 ,  #wiki-template .nav_menu1 {
         top: 13px!important;
+    }*/
+    .problem-noness-lg{
+        display: block;
+    }
+    .problem-noness{
+        display: none;
+    }
+
+    .trash-style{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        background: #dc3545;
+        color: #fff;
+        font-size: 11px;
+        padding: 1px 18px;
+        border-radius: 8px;
+        justify-content: center;
+    }
+    .trash-style span{
+        display: block;
+    }
+    .trash-style svg{
+        width: 17px;
+        fill: #fff;
+        margin-right: 6px;
     }
    
 }
@@ -229,9 +258,9 @@
     /*#wiki-template,  #own-template {
         margin-top: 6rem;
     }*/
-    .nav_menu1 {
+   /* .nav_menu1 {
         top: 12px;
-    }
+    }*/
     .feactured-home .btn-custom {
         font-size: 0.6rem;
     }
@@ -250,9 +279,7 @@
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-    .p5 {
-        padding-top: 0rem;
-    }
+  
     .menu-template {
         left: 50px;
         width: 200px;
@@ -273,8 +300,14 @@
         padding-right: 30px;
     }
    #own-template{
-    margin-top: 7rem!important;
+    margin-top: 6rem!important;
    }
+   .mr_ml-probelm{
+    position: fixed;
+    right: 8px;
+    bottom: 20px;
+   }
+  
 }
 /*IPHONE x */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -336,6 +369,21 @@
     .header-icons .ml-5 {
         margin-left: 1.1rem!important;
     }
+    .mr_ml-probelm{
+        position: fixed;
+        bottom: 1px;
+        right: 19px;
+    }
+    .menu-botoom  .flex-main {
+        margin-right: 18px;
+    }
+    .menu-show_xs {
+        margin-right: 25px;
+
+    }
+    .main-template{
+        padding-top: 3rem;
+    }
 }
 /*ipad PRO*/
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
@@ -345,6 +393,7 @@
     .nav {
         left: -38px;
     }
+  
 }
 /*ipad*/
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
@@ -399,6 +448,7 @@
 
         font-size: 11px;
     }
+ 
 }
 @media only screen and (device-width: 1024px) and (device-height: 519px) {
     .instituto-icon {
@@ -413,8 +463,8 @@
     }
 
 }
-@media (min-width: 1200px) {
-.info-template{
+@media (max-width: 1200px) {
+/*.info-template{
     margin-top: 5rem;
-}
+}*/
 }

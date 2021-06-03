@@ -4,7 +4,7 @@
 
 
 <div class="categories-layout" id="elements">
-    <div class="text-center categories-layout_title">
+    <div class="text-center categories-layout_title mt-4 ">
         <h1>{{ $letter }}</h1>
     </div>
     <div class="row word">

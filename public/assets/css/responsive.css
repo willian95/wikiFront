@@ -211,11 +211,15 @@
         position: absolute;
         border-radius: 2px;
         display: inline-block;
-        height: 50px;
+       
         line-height: 0;
         width: auto;
         z-index: 9999;
         right: 2px;
+        height: 100%;
+        top: 0px;
+        align-items: center;
+    display: flex;
     }
     .menu-registro_xs {
         display: block;
@@ -313,6 +317,7 @@
     .menu-botoom {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 10%;
     }
     .none-no-desk {
         display: none;
@@ -435,7 +440,8 @@
     .button-launch {
         width: 70px;
         margin-right: 12px;
-        margin-top: 20px;
+        margin-top: 0px;
+        margin-bottom: 0;
         display: block !important;
         font-size: 11px;
         right: 27px;
@@ -483,6 +489,13 @@
         width: 100%!important;
         height: auto!important;
     }
+   
+    .problem-noness {
+        display: block;
+    }
+    .main-template{
+        padding-top: 3rem;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -507,6 +520,7 @@
         transition-duration: 0.3s;
         transition-property: left, visibility;
     }
+    
 }
 
 @media (min-width: 2560px) and (max-width: 2560px) {
@@ -542,9 +556,10 @@
     }
 }
 @media (device-width: 320px) and (max-width: 576px) {
-    .mr-probelm {
+   .mr-probelm {
         position: fixed;
         right: 0;
-        bottom: 15px;
+        bottom: 10%;
     }
+  
 }
