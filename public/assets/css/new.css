@@ -127,6 +127,9 @@
 .content--btns  .btn-custom{
     width: 150px;
 }
+.menu-style_new{
+    margin-top: 5rem;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
     #dropdownMenuButton{
@@ -199,9 +202,9 @@
     .feactured-one {
         overflow: hidden;
     }
-   /* #wiki-template,  #own-template {
-        margin-top: 6rem;
-    }*/
+ #wiki-template,  #own-template {
+        margin-top: 3rem;
+    }
     .last-style {
         display: none;
         margin-right: 5px;
