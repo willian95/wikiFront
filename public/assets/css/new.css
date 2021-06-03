@@ -199,9 +199,9 @@
     .feactured-one {
         overflow: hidden;
     }
-    #wiki-template,  #own-template {
+   /* #wiki-template,  #own-template {
         margin-top: 6rem;
-    }
+    }*/
     .last-style {
         display: none;
         margin-right: 5px;
@@ -223,9 +223,9 @@
 }
 /*tablet*/
 @media (max-width: 768px) {
-    #wiki-template,  #own-template {
+    /*#wiki-template,  #own-template {
         margin-top: 6rem;
-    }
+    }*/
     .nav_menu1 {
         top: 12px;
     }
@@ -247,6 +247,9 @@
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+    .p5 {
+        padding-top: 0rem;
+    }
     .menu-template {
         left: 50px;
         width: 200px;

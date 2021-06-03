@@ -28,8 +28,7 @@
         margin-top: 12px;
     }
     #driving {
-
-        overflow-x: scroll;
+        overflow-x: auto;
     }
     .home-present h1 {
         font-size: 21px;
