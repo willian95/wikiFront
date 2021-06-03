@@ -831,7 +831,7 @@
                     return false
                 } else if (this.drivingQuestionTitle == "") {
                     swal({
-                        text: "Driving question title is required",
+                        text: "Driving question is required",
                         icon: "error"
                     })
                     return false

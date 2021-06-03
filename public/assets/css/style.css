@@ -2356,6 +2356,7 @@ input:checked + .slider:before {
 }
 .problem-btn p {
     margin-bottom: 0;
+    font-family: 'Montserrat';
 }
 .problem-btn i {
     display: none !important;
@@ -2366,4 +2367,10 @@ input:checked + .slider:before {
 }
 .heith-input{
     height: 25vh;
+}
+.w-td_last{
+    width: 160px;
+}
+.swal-text{
+    text-align: center!important;
 }

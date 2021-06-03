@@ -106,6 +106,27 @@
 .btn-delete_xs{
     display: none;
 }
+.content--btns{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+.content--btns .btn-danger{
+    background: transparent;
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+    color: #dc3545;
+    width: 150px;
+}
+.btn-danger:hover {
+    background: #dc3545;
+    color: #fff;
+
+}
+.content--btns  .btn-custom{
+    width: 150px;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
     #dropdownMenuButton{
@@ -178,7 +199,7 @@
     .feactured-one {
         overflow: hidden;
     }
-    #wiki-template {
+    #wiki-template,  #own-template {
         margin-top: 6rem;
     }
     .last-style {
@@ -191,12 +212,23 @@
     }
     .brand img {
         width: 120px;
-
     }
-
+    .nav_menu1 {
+        top: 6px!important;
+    }
+    #own-template .nav_menu1 ,  #wiki-template .nav_menu1 {
+        top: 13px!important;
+    }
+   
 }
 /*tablet*/
 @media (max-width: 768px) {
+    #wiki-template,  #own-template {
+        margin-top: 6rem;
+    }
+    .nav_menu1 {
+        top: 12px;
+    }
     .feactured-home .btn-custom {
         font-size: 0.6rem;
     }
@@ -341,6 +373,9 @@
         position: fixed;
         right: 0;
         bottom: 15px;
+    }
+    .nav_menu1 {
+        top: 1px;
     }
 }
 @media (max-width: 992px) and (max-width: 1199px) {

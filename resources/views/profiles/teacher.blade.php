@@ -14,10 +14,10 @@
     <div class="main-profile">
         <div class="main-profile_content">
             <h1 class="text-center mt-4 mb-3">Educator profile</h1>
-            <div class="text-center mb-3 ">
+            <div class="text-center mb-3 content--btns ">
                 <button class="btn btn-custom" @click="update()">Update</button>
                 @if(\Auth::check())
-                        <p class=" btn-delete_xs" >
+                        <p class=" btn-delete" >
                             <button class="btn btn-danger " @click="showDeleteConfirmation()">
                                 
                             Delete account
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    @if(\Auth::check())
+                 <!----   @if(\Auth::check())
                         <p class="text-right btn-delete_lg">
                             <button class="btn btn-danger nav-item" @click="showDeleteConfirmation()">
                                 <i class="fa fa-trash"></i>
@@ -60,7 +60,7 @@
                             </button>
                         </p>
                     @endif
-
+--->
                     <h3> “Why do you educate?”</h3>
                     <textarea class="form-control" v-model="description"></textarea>
 
@@ -132,7 +132,7 @@
 
                                     <td style="cursor:pointer;" @click="orderByField('likes')">Likes <span v-if="orderByColumn == 'likes' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'likes' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <!--<td>Project Type</td>-->
-                                    <td style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
+                                    <td class="w-td_last" style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td style="cursor:pointer;" @click="orderByField('incubator')">Incubator <span v-if="orderByColumn == 'incubator' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'incubator' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td>Status</td>
                                 </tr>
