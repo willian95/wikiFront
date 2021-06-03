@@ -16,6 +16,14 @@
             <h1 class="text-center mt-4 mb-3">Educator profile</h1>
             <div class="text-center mb-3 ">
                 <button class="btn btn-custom" @click="update()">Update</button>
+                @if(\Auth::check())
+                        <p class=" btn-delete_xs" >
+                            <button class="btn btn-danger " @click="showDeleteConfirmation()">
+                                
+                            Delete account
+                            </button>
+                        </p>
+                    @endif
             </div>
         </div>
         <div class="main-profile_dates mt-5">
@@ -45,9 +53,10 @@
                 <div class="col-md-6">
 
                     @if(\Auth::check())
-                        <p class="text-right">
-                            <button class="btn btn-danger" @click="showDeleteConfirmation()">
+                        <p class="text-right btn-delete_lg">
+                            <button class="btn btn-danger nav-item" @click="showDeleteConfirmation()">
                                 <i class="fa fa-trash"></i>
+                                <span class="tooltip-nav">Delete account</span>
                             </button>
                         </p>
                     @endif

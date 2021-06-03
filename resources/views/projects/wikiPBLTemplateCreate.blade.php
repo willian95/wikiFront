@@ -23,7 +23,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" v-model="activityDescription">
+                        <textarea type="text" class="form-control heith-input" maxlength="500" v-model="activityDescription" name="" id="" cols="30" rows="10"></textarea>
+                        <!---<textarea type="text" class="form-control heith-input" maxlength="500" v-model="activityDescription">-->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>

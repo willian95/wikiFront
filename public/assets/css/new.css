@@ -103,8 +103,15 @@
     justify-content: center;
     align-items: center;
 }
+.btn-delete_xs{
+    display: none;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
+    #dropdownMenuButton{
+        padding: 0;
+        padding-right: 1px;
+    }
     .last-menu {
         display: block;
     }
@@ -182,6 +189,11 @@
     .save-option {
         margin-left: 0rem !important;
     }
+    .brand img {
+        width: 120px;
+
+    }
+
 }
 /*tablet*/
 @media (max-width: 768px) {
@@ -213,13 +225,18 @@
         align-items: center;
         justify-content: center;
     }
-    .nav {
-        top: 1px;
-    }
+
     .icon-calendar {
         width: 15px;
         margin-right: 1px;
     }
+    .last-style {
+
+        padding-right: 30px;
+    }
+   #own-template{
+    margin-top: 7rem!important;
+   }
 }
 /*IPHONE x */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -228,6 +245,9 @@
     }
 }
 @media (min-width: 769px) and (max-width: 991px) {
+    .p5 {
+        padding-top: 4rem;
+    }
     .brand {
         width: 31%;
     }
@@ -254,6 +274,30 @@
         margin-top: 17px;
         display: block !important;
     }
+    .menu-flex_1 .mr-4 {
+        margin-right: 0rem!important;
+    }
+    .new_wiki span{
+        display: none;
+    }
+    .last-style {
+
+        display: none;
+    }
+    .button-launch {
+        font-size: 0.8rem;
+        width: 70px;
+        padding: 6px 0px;
+        margin-right: 0;
+        margin-top: 0;
+        display: block !important;
+        font-size: 11px;
+        margin-left: 10px;
+    }
+
+    .header-icons .ml-5 {
+        margin-left: 1.1rem!important;
+    }
 }
 /*ipad PRO*/
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
@@ -275,6 +319,29 @@
     .brand img {
         width: 85px !important;
     }
+    #dropdownMenuButton{
+        padding: 0;
+    }
+    .icon-mas {
+        width: 25px !important;
+    }
+    .notificacion {
+        width: 22px!important;
+    }
+    .teacher-icon {
+        width: 20px!important;
+    }
+    .problem-btn {
+        width: auto;
+        margin-right: 11px;
+        padding: 5px 10px;
+    }
+
+    .mr-probelm{
+        position: fixed;
+        right: 0;
+        bottom: 15px;
+    }
 }
 @media (max-width: 992px) and (max-width: 1199px) {
     .navbar-nav {
@@ -285,6 +352,7 @@
     }
     .problem-btn {
         position: revert;
+     
     }
     .problem-btn p {
 
@@ -303,4 +371,9 @@
         top: 15%;
     }
 
+}
+@media (min-width: 1200px) {
+.info-template{
+    margin-top: 5rem;
+}
 }

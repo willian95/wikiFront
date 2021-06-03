@@ -81,25 +81,6 @@
         margin-right: 3px;
     }
 
-    /***************/
-    /* .navbar-nav {
-
-        flex-direction: initial;
-        padding-left: initial;
-        margin-bottom: 0;
-        padding-right: 0;
-        justify-content: center;
-    }
-    .offcanvas-collapse {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        overflow: hidden;
-        background-color: #f9f8f2;
-        transition: -webkit-transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-    }*/
     .like-xs {
         position: absolute;
         background: #4674b8;
@@ -134,7 +115,7 @@
         width: 100%;
     }
     .brand img {
-        width: 114px;
+        width: 145px;
         padding: 10px;
         object-fit: contain;
     }
@@ -220,7 +201,7 @@
         margin-right: 0;
     }
     .nav_menu1 {
-        top: 8px;
+        top: 12px;
         left: auto;
         background-color: transparent;
         position: absolute;
@@ -256,7 +237,7 @@
         font-size: 22px;
     }
     .p5 {
-        padding-top: 6rem;
+        padding-top: 3rem;
     }
     .main-creation {
         height: auto;
@@ -277,6 +258,11 @@
     }
     .flex-wee {
         margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: self-end;
+    padding: 0 2rem;
     }
     .main-creation p {
         font-size: 12px;
@@ -399,6 +385,7 @@
         padding-top: 10px;
         margin-right: 15px;
         margin-left: 13px;
+        display: none;
     }
     .drop-notificacion .dropdown-menu {
         width: 100%;
@@ -429,6 +416,7 @@
         background: #fff;*/
         width: auto;
         margin-right: 11px;
+        padding: 5px 10px;
     }
     
     .problem-btn i {
@@ -440,12 +428,13 @@
         margin-left: 0;
     }
     .button-launch{
-        font-size: .8rem;
-    width: 70px;
-    padding: 4px 0px;
-    margin-right: 12px;
-    margin-top: 17px;
-    display: block!important;
+        width: 70px;
+        margin-right: 12px;
+        margin-top: 20px;
+        display: block!important;
+        font-size: 11px;
+        right: 27px;
+        padding: 4px 6px;
     }
     .signin-btn svg {
       
@@ -455,6 +444,23 @@
      
         height: auto;
     }
+    .contente_item .card {
+
+    margin-top: 15px;
+}
+.btn-delete_lg{
+    display: none;
+}
+.btn-delete_xs{
+    display: block;
+   
+}
+.btn-delete_xs button{
+    width: 100%;
+}
+.header-icons .ml-5 {
+    margin-left: 2rem;
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -512,4 +518,11 @@
     .problem-btn:hover p {
         display: block;
     }
+}
+@media (device-width: 320px) and (max-width: 576px) {
+.mr-probelm{
+    position: fixed;
+    right: 0;
+    bottom: 15px;
+}
 }
