@@ -2382,3 +2382,15 @@ input:checked + .slider:before {
 .trash-style span{
     display: none;
 }
+.trash-style .tooltip-nav {
+    background-color: #9a9a9a;
+    color: #ffffff;
+    display: none;
+    left: -34px;
+    padding: 16px 11px;
+    position: absolute;
+    top: 55px;
+    font-size: 11px;
+    width: 100px;
+    border-radius: 5px;
+}
