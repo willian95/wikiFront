@@ -25,6 +25,11 @@
     }
     .card {
         margin-bottom: 10px;
+        margin-top: 12px;
+    }
+    #driving {
+
+        overflow-x: scroll;
     }
     .home-present h1 {
         font-size: 21px;
@@ -474,7 +479,10 @@
     }
     .dflex-icon .form-check {
         margin-left: 2px;
-    
+    }
+    .contente_item img{
+        width: 100%!important;
+        height: auto!important;
     }
 }
 
