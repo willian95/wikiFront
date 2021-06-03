@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/new.css') }}">
+ 
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
-
+    <link rel="stylesheet" href="{{ url('assets/css/new.css') }}">
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 

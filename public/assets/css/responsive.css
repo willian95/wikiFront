@@ -81,25 +81,6 @@
         margin-right: 3px;
     }
 
-    /***************/
-    /* .navbar-nav {
-
-        flex-direction: initial;
-        padding-left: initial;
-        margin-bottom: 0;
-        padding-right: 0;
-        justify-content: center;
-    }
-    .offcanvas-collapse {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        overflow: hidden;
-        background-color: #f9f8f2;
-        transition: -webkit-transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-    }*/
     .like-xs {
         position: absolute;
         background: #4674b8;
@@ -134,7 +115,7 @@
         width: 100%;
     }
     .brand img {
-        width: 114px;
+        width: 145px;
         padding: 10px;
         object-fit: contain;
     }
@@ -220,7 +201,7 @@
         margin-right: 0;
     }
     .nav_menu1 {
-        top: 8px;
+        top: 12px;
         left: auto;
         background-color: transparent;
         position: absolute;
@@ -256,7 +237,7 @@
         font-size: 22px;
     }
     .p5 {
-        padding-top: 6rem;
+        padding-top: 3rem;
     }
     .main-creation {
         height: auto;
@@ -404,6 +385,7 @@
         padding-top: 10px;
         margin-right: 15px;
         margin-left: 13px;
+        display: none;
     }
     .drop-notificacion .dropdown-menu {
         width: 100%;
@@ -434,6 +416,7 @@
         background: #fff;*/
         width: auto;
         margin-right: 11px;
+        padding: 5px 10px;
     }
     
     .problem-btn i {
@@ -474,6 +457,9 @@
 }
 .btn-delete_xs button{
     width: 100%;
+}
+.header-icons .ml-5 {
+    margin-left: 2rem;
 }
 }
 
@@ -532,4 +518,11 @@
     .problem-btn:hover p {
         display: block;
     }
+}
+@media (device-width: 320px) and (max-width: 576px) {
+.mr-probelm{
+    position: fixed;
+    right: 0;
+    bottom: 15px;
+}
 }
