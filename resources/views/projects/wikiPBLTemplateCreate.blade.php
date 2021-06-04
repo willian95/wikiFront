@@ -1046,7 +1046,7 @@
         </div>
         <footer class="footer-estyle">
                 <div class="footer container mt-5 text-center">
-                <a data-toggle="modal" data-target="."> Terms and conditions</a> 
+               
                     <p class="items-footer"> 
                     <a data-toggle="modal" data-target="."> Terms and conditions</a> 
                      <a data-toggle="modal" data-target=".privacypolicy">Privacy Policy </a> 
@@ -1328,7 +1328,7 @@
                     return false
                 } else if (this.drivingQuestionTitle == "") {
                     swal({
-                        text: "Driving question title is required",
+                        text: "Driving question is required",
                         icon: "error"
                     })
 
@@ -1341,7 +1341,7 @@
                         icon: "error"
                     })
 
-                    this.localErrors.push({"name": "driving question", "message": "Driving question title is required"})
+                    this.localErrors.push({"name": "driving question", "message": "Driving question is required"})
                     this.scrollTo('driving')
 
                     return false

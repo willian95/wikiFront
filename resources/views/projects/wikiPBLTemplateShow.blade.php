@@ -5,7 +5,7 @@
 <div id="own-template">
     @include("partials.projectShowHeader")
     <div class="container p5">
-        <div class="container  main-template mt-5" v-cloak>
+        <div class="container  main-template " v-cloak>
 
             <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

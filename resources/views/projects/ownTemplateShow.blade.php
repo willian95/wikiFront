@@ -5,7 +5,7 @@
 <div id="own-template">
     @include("partials.projectShowHeader")
     <div class="container p5">
-        <div class="container  main-template mt-5">
+        <div class="container  main-template">
 
             <div class="modal fade" id="calendarDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -54,8 +54,8 @@
 
             <div class="row" v-cloak>
                 <div class="col-md-3">
-                    <div class="menu-template menu-template--show">
-                        <p>Edit mode </p>
+                    <div class="menu-template menu-template--show menu-style_new">
+                       <!--- <p>Edit mode </p>--->
                         <div class="menu-template_option" style="overflow-y: auto; height: 360px;">
                             <ul>
                                 <p>Main info</p>

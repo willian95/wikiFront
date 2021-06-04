@@ -25,6 +25,10 @@
     }
     .card {
         margin-bottom: 10px;
+        margin-top: 12px;
+    }
+    #driving {
+        overflow-x: auto;
     }
     .home-present h1 {
         font-size: 21px;
@@ -201,17 +205,21 @@
         margin-right: 0;
     }
     .nav_menu1 {
-        top: 12px;
+       /* top: 12px;*/
         left: auto;
         background-color: transparent;
         position: absolute;
         border-radius: 2px;
         display: inline-block;
-        height: 50px;
+       
         line-height: 0;
         width: auto;
         z-index: 9999;
         right: 2px;
+        height: 100%;
+        top: 0px;
+        align-items: center;
+    display: flex;
     }
     .menu-registro_xs {
         display: block;
@@ -258,11 +266,11 @@
     }
     .flex-wee {
         margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    align-items: self-end;
-    padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        align-items: self-end;
+        padding: 0 2rem;
     }
     .main-creation p {
         font-size: 12px;
@@ -309,6 +317,7 @@
     .menu-botoom {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 10%;
     }
     .none-no-desk {
         display: none;
@@ -389,7 +398,8 @@
     }
     .drop-notificacion .dropdown-menu {
         width: 100%;
-        left: -40px;
+        left: -70px;
+        top: 42px;
     }
     .launch-xs {
         position: fixed;
@@ -406,7 +416,7 @@
         display: none;
     }
     .problem-btn {
-       /* width: 42px;
+        /* width: 42px;
         border: 1px solid #1b75bc;
         color: #277cc0;
         font-size: 14px;
@@ -418,7 +428,7 @@
         margin-right: 11px;
         padding: 5px 10px;
     }
-    
+
     .problem-btn i {
         display: block !important;
     }
@@ -427,40 +437,65 @@
         margin-top: 0.3rem;
         margin-left: 0;
     }
-    .button-launch{
+    .button-launch {
         width: 70px;
         margin-right: 12px;
-        margin-top: 20px;
-        display: block!important;
+        margin-top: 0px;
+        margin-bottom: 0;
+        display: block !important;
         font-size: 11px;
         right: 27px;
         padding: 4px 6px;
     }
     .signin-btn svg {
-      
         margin-right: 0;
     }
     .header-shadow {
-     
         height: auto;
     }
     .contente_item .card {
-
-    margin-top: 15px;
-}
-.btn-delete_lg{
-    display: none;
-}
-.btn-delete_xs{
-    display: block;
+        margin-top: 15px;
+    }
+    .btn-delete_lg {
+        display: none;
+    }
+    .btn-delete_xs {
+        display: block;
+    }
+    .btn-delete_xs button {
+        width: 100%;
+    }
+    .header-icons .ml-5 {
+        margin-left: 2rem;
+    }
+    .content--btns .btn-custom {
+        width: 120px !important;
+        font-size: 12px;
+    }
+    .content--btns .btn-danger {
+        width: 120px !important;
+        font-size: 12px;
+        margin-top: 9px;
+    }
+    .content--btns {
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+    .dflex-icon .form-check {
+        margin-left: 2px;
+    }
+    .contente_item img{
+        width: 100%!important;
+        height: auto!important;
+    }
    
-}
-.btn-delete_xs button{
-    width: 100%;
-}
-.header-icons .ml-5 {
-    margin-left: 2rem;
-}
+    .problem-noness {
+        display: block;
+    }
+    .main-template{
+        padding-top: 3rem;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -485,6 +520,7 @@
         transition-duration: 0.3s;
         transition-property: left, visibility;
     }
+    
 }
 
 @media (min-width: 2560px) and (max-width: 2560px) {
@@ -493,12 +529,12 @@
     .problem-btn {
         width: max-content;
         border: 1px solid #1b75bc;
-    
+
         font-size: 13px;
         position: absolute;
         top: -12px;
         right: 27px;
-       
+
         padding: 4px 6px;
     }
     .problem-btn p {
@@ -520,9 +556,10 @@
     }
 }
 @media (device-width: 320px) and (max-width: 576px) {
-.mr-probelm{
-    position: fixed;
-    right: 0;
-    bottom: 15px;
-}
+   .mr-probelm {
+        position: fixed;
+        right: 0;
+        bottom: 10%;
+    }
+  
 }

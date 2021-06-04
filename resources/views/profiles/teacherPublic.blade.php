@@ -126,7 +126,7 @@
                                     <td style="cursor:pointer;" @click="orderByField('incubator')">Incubator <span v-if="orderByColumn == 'incubator' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'incubator' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td style="cursor:pointer;" @click="orderByField('likes')">Likes <span v-if="orderByColumn == 'likes' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'likes' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <!--<td>Project Type</td>-->
-                                    <td style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
+                                    <td class="w-td_last" style="cursor:pointer;" @click="orderByField('update')">Last updated <span v-if="orderByColumn == 'update' && orderOrientation == 'desc'"><i class="fa fa-angle-down" aria-hidden="true"></i></span><span v-if="orderByColumn == 'update' && orderOrientation == 'asc'"><i class="fa fa-angle-up" aria-hidden="true"></i></span></td>
                                     <td>Status</td>
                                 </tr>
                             </thead>

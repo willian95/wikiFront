@@ -43,10 +43,12 @@ a {
 }
 html {
     scroll-behavior: smooth !important;
+    
 }
 body {
     font-family: "Inconsolata", monospace;
     font-family: "Montserrat", sans-serif;
+ 
 }
 
 .font-titulos {
@@ -1229,7 +1231,7 @@ input:checked + .slider:before {
     margin-right: 25px;
 }
 .p5 {
-    padding-top: 8rem;
+    padding-top: 5rem;
 }
 .w29 {
     width: 29px;
@@ -2356,6 +2358,7 @@ input:checked + .slider:before {
 }
 .problem-btn p {
     margin-bottom: 0;
+    font-family: 'Montserrat';
 }
 .problem-btn i {
     display: none !important;
@@ -2366,4 +2369,28 @@ input:checked + .slider:before {
 }
 .heith-input{
     height: 25vh;
+}
+.w-td_last{
+    width: 160px;
+}
+.swal-text{
+    text-align: center!important;
+}
+.problem-noness-lg{
+    display: none;
+}
+.trash-style span{
+    display: none;
+}
+.trash-style .tooltip-nav {
+    background-color: #9a9a9a;
+    color: #ffffff;
+    display: none;
+    left: -34px;
+    padding: 16px 11px;
+    position: absolute;
+    top: 55px;
+    font-size: 11px;
+    width: 100px;
+    border-radius: 5px;
 }

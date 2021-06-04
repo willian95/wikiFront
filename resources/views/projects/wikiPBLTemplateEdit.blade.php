@@ -1516,7 +1516,7 @@
                     return false
                 } else if (this.drivingQuestionTitle == "") {
                     swal({
-                        text: "Driving question title is required",
+                        text: "Driving question is required",
                         icon: "error"
                     })
                     return false
@@ -1526,7 +1526,7 @@
                         icon: "error"
                     })
 
-                    this.localErrors.push({"name": "driving question", "message": "Driving question title is required"})
+                    this.localErrors.push({"name": "driving question", "message": "Driving question is required"})
                     this.scrollTo('driving')
 
                     return false
