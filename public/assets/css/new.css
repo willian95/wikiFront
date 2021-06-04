@@ -230,26 +230,25 @@
     }
 
     .trash-style{
-        position: fixed;
+       /* position: fixed;
         bottom: 0;
         right: 0;
-        left: 20px;
+        left: 20px;*/
         display: flex;
-        align-items: center;
+      /*  align-items: center;
         background: #dc3545;
         color: #fff;
         font-size: 11px;
         padding: 1px 18px;
         border-radius: 8px;
-        justify-content: center;
+        justify-content: center;*/
     }
-    .trash-style span{
-        display: block;
-    }
+ 
     .trash-style svg{
-        width: 17px;
-        fill: #fff;
+        width: 29px;
+        /* fill: #fff; */
         margin-right: 6px;
+        margin-top: 3px;
     }
    
 }
@@ -307,7 +306,10 @@
     right: 8px;
     bottom: 20px;
    }
-  
+   .trash-style{
+    display: block;
+    margin-top: -4px;
+}
 }
 /*IPHONE x */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -383,6 +385,10 @@
     }
     .main-template{
         padding-top: 3rem;
+    }
+    .trash-style{
+        display: block;
+        margin-top: -4px;
     }
 }
 /*ipad PRO*/

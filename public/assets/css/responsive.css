@@ -2,6 +2,7 @@
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
+
     .menu-desk_registres span {
         display: none;
     }
@@ -87,7 +88,7 @@
 
     .like-xs {
         position: absolute;
-        background: #4674b8;
+        background: #1B75BC;
         border-radius: 50%;
         width: 20px;
         height: 20px;
@@ -438,14 +439,17 @@
         margin-left: 0;
     }
     .button-launch {
-        width: 70px;
-        margin-right: 12px;
+        width: 50%;
         margin-top: 0px;
         margin-bottom: 0;
         display: block !important;
         font-size: 11px;
-        right: 27px;
-        padding: 4px 6px;
+        padding: 6px 6px;
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
     }
     .signin-btn svg {
         margin-right: 0;
@@ -495,6 +499,10 @@
     }
     .main-template{
         padding-top: 3rem;
+    }
+    .trash-style{
+        display: block;
+        margin-top: -4px;
     }
 }
 
