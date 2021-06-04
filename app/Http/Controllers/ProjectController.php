@@ -505,14 +505,15 @@ class ProjectController extends Controller
                     "levelTitle" => $levelTitle,
                     "level" => $level,
                     "hashtag" => $hashtag,
-                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "calendarActivities" => json_decode(str_replace("'", "\'", $calendarActivities)),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
-                    "project" => $project
+                    "project" => $project,
+                    "numberOfWeeks" => $project->number_of_weeks
 
                 ]
             );
-            //
+            dd($product->number_of_weeks);
             return  $pdf->download($title.".pdf");
 
         }else{
@@ -554,7 +555,7 @@ class ProjectController extends Controller
                     "levelTitle" => $levelTitle,
                     "level" => $level,
                     "hashtag" => $hashtag,
-                    "calendarActivities" => str_replace("'", "\'", $calendarActivities),
+                    "calendarActivities" => json_decode(str_replace("'", "\'", $calendarActivities)),
                     "upvoteSystem" => $upvoteSystem,
                     "projectSumary" => $projectSumary,
                     "project" => $project,
@@ -571,11 +572,13 @@ class ProjectController extends Controller
                     "fieldWorkTitle" => $fieldWorkTitle,
                     "fieldWork" => $fieldWork,
                     "globalConnectionsTitle" => $globalConnectionsTitle,
-                    "globalConnections" => $globalConnections
+                    "globalConnections" => $globalConnections,
+                    "numberOfWeeks" => $project->number_of_weeks
                 ]
             );
 
-            return  $pdf->download($title.".pdf");
+            dd($product->number_of_weeks);
+            return  $pdf->stream($title.".pdf");
 
         }
 
