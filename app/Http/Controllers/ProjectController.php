@@ -513,7 +513,7 @@ class ProjectController extends Controller
 
                 ]
             );
-            dd($project->number_of_weeks);
+
             return  $pdf->download($title.".pdf");
 
         }else{
@@ -577,8 +577,8 @@ class ProjectController extends Controller
                 ]
             );
 
-            dd($project->number_of_weeks);
-            return  $pdf->stream($title.".pdf");
+ 
+            return  $pdf->download($title.".pdf");
 
         }
 
