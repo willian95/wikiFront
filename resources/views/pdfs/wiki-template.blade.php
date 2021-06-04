@@ -178,6 +178,44 @@
         
         {!! $mainInfo !!}
 
+        
+        <h3 class="titulo-templates">Calendar of activities</h3>
+        
+        <table style="width: 100%">
+            <thead>
+                <tr style="width: 100%">
+                    <th></th>
+                    <th>Day 1</th>
+                    <th>Day 2</th>
+                    <th>Day 3</th>
+                    <th>Day 4</th>
+                    <th>Day 5</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                
+                @for($week = 1; $week <= $numberOfWeeks; $week++)
+                    <tr style="width: 100%">
+                        <td>Week {{ $week }}</td>
+                        @for($day = 1; $day <= 5; $day++)
+                            <td>
+                                @foreach($calendarActivities as $activity)
+                                    @if($activity->week == $week && $activity->day == $day)
+                                        {{ $activity->description }}
+                                    @endif
+                                @endforeach
+                            </td>
+                        @endfor
+                    </tr>
+                @endfor
+            </tbody>
+        </table>
+
+       
+
+
+
         @if($fieldWork != "")
         <h3 class="titulo-templates">{!! htmlspecialchars_decode($fieldWorkTitle) !!}</h3>
         <div>{!! $fieldWork !!}</div>
