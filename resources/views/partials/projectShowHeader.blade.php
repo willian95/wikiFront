@@ -66,7 +66,7 @@
                         </li>
                     </ul>
                 </div>
-                <a class='brand ' href="{{ url('/front-test') }}">
+                <a class='brand ' href="{{ url('/') }}">
                     <img alt='logo wikipbl' src="{{ url('assets/img/logo.png') }}">
                 </a>
 

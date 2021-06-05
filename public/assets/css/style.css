@@ -407,6 +407,7 @@ img {
     background: #1B75BC;
     color: #fff;
     padding: 6px 30px;
+    width: 100%;
 }
 .btn-custom-green {
     background: #9ec54c;
@@ -1123,6 +1124,7 @@ input:checked + .slider:before {
 .menu-template_option ul {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 .menu-template_option p {
@@ -1849,6 +1851,7 @@ input:checked + .slider:before {
     -ms-flex-align: center;
     align-items: center;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 .hast-trash {
     width: 21px;
@@ -2301,7 +2304,7 @@ input:checked + .slider:before {
     border: 1px solid #1b75bc;
     color: #fff;
     font-size: 14px;
-    position: absolute;
+   /* position: absolute;*/
     top: -15px;
     right: 0;
     background-color: #1b75bc;
@@ -2397,4 +2400,13 @@ input:checked + .slider:before {
 .trash-style{
     margin-top: -7px;
     margin-right: 0!important;
+}
+.main-template{
+    margin-top: 4rem;
+}
+.incubator-top{
+    margin-top: 5rem;
+}
+.edit-top{
+    margin-top: 60px;
 }

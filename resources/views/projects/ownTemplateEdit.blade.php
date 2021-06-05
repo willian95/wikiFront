@@ -82,7 +82,7 @@
                 <ul class="content_template content_template-general">
 
                     @if(\Auth::user()->id == $project[0]->user_id)
-                    <li class="content_template-general-item">
+                    <li class="content_template-general-item incubator-top">
                         <h3 class="titulo-templates">Incubator Features</h3>
                         <div class="help-icon" @click="showHelp('incubator')">
                             <img src="{{ url('assets/img/help.png') }}" alt="">
@@ -109,7 +109,7 @@
                     </li>
                     @endif
 
-                    <li class="content_template-general-item" style="margin-top: 100px;" @mouseleave="testChange()">
+                    <li class="content_template-general-item edit-top" @mouseleave="testChange()">
                         <h3 class="titulo-templates">
 
                             <span id="title-p" v-if="editSection != 'title'" v-cloak>@{{ title }}</span>

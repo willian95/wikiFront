@@ -77,7 +77,7 @@
                 <!----------------info----------------->
                 <div class="col-md-12 col-lg-9 info-template">
                     <!--------------------general--------------------------->
-                    <ul class="content_template content_template-general">
+                    <ul class="content_template content_template-general contenido-m4">
                         <li class="content_template-general-item last-menu" id="title-p">
                             <div>
                                 <h3 class="titulo-templates">

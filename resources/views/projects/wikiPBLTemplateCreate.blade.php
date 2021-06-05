@@ -74,7 +74,7 @@
                 <!--------------------general--------------------------->
                 <ul style="list-style:none" class="content_template content_template-general">
 
-                    <li class="content_template-general-item" @mouseleave="testChange()">
+                    <li class="content_template-general-item incubator-top" @mouseleave="testChange()">
                     <div class="flex-edit">
                     <h3 class="titulo-templates">
                             Incubator Features

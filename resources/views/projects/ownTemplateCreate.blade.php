@@ -69,7 +69,7 @@
                     <!--------------------general--------------------------->
                     <ul class="content_template content_template-general">
 
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item incubator-top">
                             <h3 class="titulo-templates">
                                 Incubator Features
                                 <div class="help-icon" @click="showHelp('incubator')">
