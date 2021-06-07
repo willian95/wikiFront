@@ -1076,12 +1076,12 @@
                     <div class="content_template">
 
                         <div class="contente_item bibliography-ul">
-                            <div class="container-fluid mt-5">
-                                <div class="row">
-                                    <div class="col-md-9 pl-0">
+                            <div class="container-fluid mt-5 last-menu pl-0">
+                                
+                                    <div class=" pl-0">
                                         <h3 class="titulo-templates">Bibliography</h3>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="">
                                         <div class="mt--22" v-if="bibliographyHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
@@ -1147,7 +1147,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                              
                             </div>
 
                             {!! $bibliography !!}
