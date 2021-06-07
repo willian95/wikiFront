@@ -91,7 +91,7 @@
             <div class="feactured-one">
                 <p class="titulo">{{ $project->titles[0]->title }} <br> <span>by {{ $project->user->name }}</span> </p>
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-6 col-md-12 ov-auto">
                         <p>{!! $drivingQuestion->description !!}</p>
                     </div>
                     <div class="col-lg-3 col-md-12">
