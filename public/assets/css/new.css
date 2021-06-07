@@ -130,6 +130,9 @@
 .menu-style_new{
     margin-top: 3rem;
 }
+.modal-body{
+    word-wrap: anywhere;
+}
 /**mediasquery */
 @media only screen and (max-width: 600px) {
     #dropdownMenuButton{
