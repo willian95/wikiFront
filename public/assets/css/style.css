@@ -407,6 +407,10 @@ img {
     background: #1B75BC;
     color: #fff;
     padding: 6px 30px;
+
+}
+.menu-template .btn-custom {
+
     width: 100%;
 }
 .btn-custom-green {
@@ -2409,4 +2413,7 @@ input:checked + .slider:before {
 }
 .edit-top{
     margin-top: 60px;
+}
+.w-btns{
+    width: auto;
 }

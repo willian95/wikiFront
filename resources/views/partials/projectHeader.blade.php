@@ -83,9 +83,9 @@
                         </li>
                     </ul>
                 </div>
-                <a class='brand ' href="{{ url('/') }}">
-                    <img alt='redes' src="{{ url('assets/img/logo.png') }}">
-                </a>
+                <div class='brand ' href="">
+                <a href="{{ url('/') }}">    <img alt='redes' src="{{ url('assets/img/logo.png') }}"></a>
+                </div>
                 <button class='navbar-toggler p-2 border-0 hamburger hamburger--elastic d-none-lg' data-toggle='offcanvas' type='button'>
                     <span class='hamburger-box'>
                         <span class='hamburger-inner'></span>

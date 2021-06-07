@@ -1086,9 +1086,9 @@
                             <div class="">
 
                                 <li class="content_template-general-item last-menu" id="projectmiles">
-                                    <div class="row">
+                                    
 
-                                        <div class="col-md-9">
+                                        <div class="">
                                             <h3 class="titulo-templates">@{{ projectMilestoneTitle }}</h3>
 
                                             <div class="">
@@ -1103,7 +1103,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3">
+                                        <div class="">
                                             <div v-if="projectMilestoneHistory.length > 0">
                                                 <span class="last-meu_p">Last update</span>
                                                 <div class="calendario">
@@ -1169,7 +1169,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                  
 
 
 

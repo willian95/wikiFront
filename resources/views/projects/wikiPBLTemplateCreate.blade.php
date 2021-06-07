@@ -639,7 +639,8 @@
                             <li class="content_template-general-item content_template-general-item__shadow" v-show="showProjectMilestone">
                                 <div class="flex-edit">
                                     <h3 class="titulo-templates" v-if="editSection != 'projectMilestoneTitle'">@{{ projectMilestoneTitle }}</h3>
-                                    <input v-if="editSection == 'projectMilestoneTitle'" type="text" class="form-control" v-model="projectMilestoneTitle">
+                            
+                                    <input v-if="editSection == 'projectMilestoneTitle'" type="text" class="form-control" v-model="projectMilestoneTitle" placeholder="Title">
                                     
                                     <div class="help-icon" @click="showHelp('projectMilestone')">
                                         <img src="{{ url('assets/img/help.png') }}" alt="">
@@ -651,7 +652,8 @@
 </p>
                                 <!--<p class="subtitule_txt">(you can edit this for whatever Title)
                                 </p>-->
-                                <input type="text" class="form-control mb-2" v-model="milestoneTitle">
+                                <label for="">Title</label>
+                                <input type="text" class="form-control mb-2" v-model="milestoneTitle" placeholder="Title">
                                 <textarea cols="30" rows="10" id="projectMilestoneEditor"></textarea>
 
                                 <div v-if="localErrors.length > 0">
