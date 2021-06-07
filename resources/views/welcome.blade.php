@@ -91,15 +91,15 @@
             <div class="feactured-one">
                 <p class="titulo">{{ $project->titles[0]->title }} <br> <span>by {{ $project->user->name }}</span> </p>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-12">
                         <p>{!! $drivingQuestion->description !!}</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-12">
                         
                         {{ App\SubjectProject::where("project_id", $project->id)->with("subject")->first()->subject->name }}
                         <p>{{ $drivingQuestion->title }}</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-12">
                        <div class="hashtag-home mt-0 mb-5 pb-5">
                        @foreach(App\HashtagProject::where("project_id", $project->id)->with("hashtag")->get() as $hashtag)
                             <a href="{{ url('/hashtag/show/'.$hashtag->hashtag->id) }}"> <span>#{{ $hashtag->hashtag->name }}</span></a>
