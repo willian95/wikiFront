@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="main-profile">
+        <div class="main-profile mt-5">
             <div class="main-profile_content">
                 <!--<h1 class="text-center mt-4">Institution profile</h1><a href="#" @click="copyLink()">Share this profile</a>-->
                 <input type="text" style="display: none" value="{{ url()->current() }}" id="myInput">

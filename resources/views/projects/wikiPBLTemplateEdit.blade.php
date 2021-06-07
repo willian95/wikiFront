@@ -89,7 +89,7 @@
                     <ul class="content_template content_template-general">
 
                         @if(\Auth::user()->id == $project[0]->user_id)
-                        <li class="content_template-general-item">
+                        <li class="content_template-general-item incubator-top">
                             <div class="flex-edit">
                                 <h3 class="titulo-templates">
                                     Incubator Features
@@ -119,7 +119,7 @@
                         </li>
                         @endif
 
-                        <li class="content_template-general-item" style="margin-top: 100px;" id="title-p" @mouseleave="testChange()">
+                        <li class="content_template-general-item edit-top" id="title-p" @mouseleave="testChange()">
 
                             <h3 class="titulo-templates">
 
