@@ -914,8 +914,8 @@
                             <div class="col-12">
 
                                 <li class="content_template-general-item last-menu" id="leargoals">
-                                    <div class="row">
-                                        <div class="col-md-9">
+                                  
+                                        <div class="">
                                             <div>
                                                 <h3 class="titulo-templates">@{{ learningGoalsTitle }}</h3>
                                             </div>
@@ -931,7 +931,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="">
                                             <div v-if="learningGoalHistory.length > 0">
                                                 <span class="last-meu_p">Last update</span>
                                                 <div class="calendario">
@@ -997,10 +997,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
-
-
-
+                                  
                                 </li>
                             </div>
                         </div>
