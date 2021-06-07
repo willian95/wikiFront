@@ -1509,9 +1509,8 @@ input:checked + .slider:before {
     display: -webkit-box;
     display: -ms-flexbox;
     display: inline;
-    font-size: 13px;
     margin: 9px 0;
-    font-size: 11px;
+    font-size: 10px;
 }
 .user_last svg {
     width: 14px;
@@ -1977,6 +1976,9 @@ input:checked + .slider:before {
     padding: 12px;
 }
 .content_template-general-item__shadow .card-body {
+    margin-bottom: 20px;
+}
+.content_template-general-item .card-body {
     margin-bottom: 20px;
 }
 .flex-section {
