@@ -1606,7 +1606,7 @@
                         </div>
 
                         <div class="contente_item">
-                            <div class="container-fluid mt-5 last-menu pl-0">
+                            <div class="container-fluid mt-5 last-menu pl-0 pr-0">
                               
                                     <div class="pl-0">
                                         <h3 class="titulo-templates">Bibliography</h3>
