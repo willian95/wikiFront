@@ -407,6 +407,10 @@ img {
     background: #1B75BC;
     color: #fff;
     padding: 6px 30px;
+
+}
+.menu-template .btn-custom {
+
     width: 100%;
 }
 .btn-custom-green {
@@ -1504,13 +1508,12 @@ input:checked + .slider:before {
 .user_last {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
-    font-size: 13px;
+    display: inline;
     margin: 9px 0;
-    font-size: 11px;
+    font-size: 9px;
 }
 .user_last svg {
-    width: 14px;
+    width: 12px;
     margin-right: 3px;
     height: auto;
 }
@@ -1975,6 +1978,9 @@ input:checked + .slider:before {
 .content_template-general-item__shadow .card-body {
     margin-bottom: 20px;
 }
+.content_template-general-item .card-body {
+    margin-bottom: 20px;
+}
 .flex-section {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2409,4 +2415,11 @@ input:checked + .slider:before {
 }
 .edit-top{
     margin-top: 60px;
+}
+.w-btns{
+    width: auto;
+}
+.ov-auto{
+    
+    overflow: auto;
 }

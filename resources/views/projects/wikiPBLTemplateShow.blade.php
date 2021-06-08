@@ -821,8 +821,8 @@
                             <div class="col-12">
 
                                 <li class="content_template-general-item last-menu" id="toolstitle">
-                                    <div class="row">
-                                        <div class="col-md-9">
+                                    
+                                        <div class="">
                                             <div>
                                                 <h3 class="titulo-templates">@{{ toolsTitle }}</h3>
                                             </div>
@@ -837,7 +837,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="">
                                             <div v-if="toolHistory.length > 0">
                                                 <span class="last-meu_p">Last update</span>
                                                 <div class="calendario">
@@ -903,7 +903,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                             
 
 
                                 </li>
@@ -914,8 +914,8 @@
                             <div class="col-12">
 
                                 <li class="content_template-general-item last-menu" id="leargoals">
-                                    <div class="row">
-                                        <div class="col-md-9">
+                                  
+                                        <div class="">
                                             <div>
                                                 <h3 class="titulo-templates">@{{ learningGoalsTitle }}</h3>
                                             </div>
@@ -931,7 +931,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="">
                                             <div v-if="learningGoalHistory.length > 0">
                                                 <span class="last-meu_p">Last update</span>
                                                 <div class="calendario">
@@ -997,10 +997,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
-
-
-
+                                  
                                 </li>
                             </div>
                         </div>
@@ -1086,9 +1083,9 @@
                             <div class="">
 
                                 <li class="content_template-general-item last-menu" id="projectmiles">
-                                    <div class="row">
+                                    
 
-                                        <div class="col-md-9">
+                                        <div class="">
                                             <h3 class="titulo-templates">@{{ projectMilestoneTitle }}</h3>
 
                                             <div class="">
@@ -1103,7 +1100,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3">
+                                        <div class="">
                                             <div v-if="projectMilestoneHistory.length > 0">
                                                 <span class="last-meu_p">Last update</span>
                                                 <div class="calendario">
@@ -1169,7 +1166,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                  
 
 
 
@@ -1609,12 +1606,12 @@
                         </div>
 
                         <div class="contente_item">
-                            <div class="container-fluid mt-5">
-                                <div class="row">
-                                    <div class="col-md-9">
+                            <div class="container-fluid mt-5 last-menu pl-0">
+                              
+                                    <div class="pl-0">
                                         <h3 class="titulo-templates">Bibliography</h3>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="">
                                         <div class="mt--22" v-if="bibliographyHistory.length > 0">
                                             <span class="last-meu_p">Last update</span>
                                             <div class="calendario">
@@ -1680,7 +1677,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                              
                             </div>
 
                             {!! $bibliography !!}
