@@ -16,7 +16,7 @@ class ProblemReportController extends Controller
         $description = $request->description;
 
         $to_name = "Admin";
-        $to_email = "rodriguezwillian95@gmail.com";
+        $to_email = "info@wikipbl.org";
         $data = ["name" => $name, "email" => $email, "url" => $url, "description" => $description];
 
         \Mail::send("emails.problemReport", $data, function($message) use ($to_name, $to_email) {
