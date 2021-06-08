@@ -85,7 +85,7 @@
 
         @endphp
         
-        @if(App\Project::count() > 0)
+        {{--@if(App\Project::count() > 0)
         <div class="feactured-home">
             <h3 class="ml-3 mb-4 font-titulos text-center pt-4">Today’s featured wikiPBL!</h3>
             <div class="feactured-one">
@@ -115,7 +115,7 @@
                 </div>
             </div>
         </div>
-        @endif
+        @endif--}}
     </div>
 
     </section>
