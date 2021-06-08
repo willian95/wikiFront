@@ -848,7 +848,7 @@ input:checked + .slider:before {
 
 .nav {
     width: auto;
-    top: 8px;
+    top: 3px;
     left: -40px;
     background-color: transparent;
     position: absolute;
