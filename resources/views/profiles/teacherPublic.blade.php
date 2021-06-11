@@ -42,7 +42,7 @@
     <div class="main-profile">
         <div class="main-profile_content pb-3">
             <h1 class="text-center mt-4" v-cloak>@{{ name }}'s Educator profile</h1>
-            <p class="mb-0">Report</p>
+            
             @if(\Auth::check())
                 @if(\Auth::user()->id != $user->id)
                 <a class="nav-item" style="cursor:pointer;" @click="showReportConfirmation()">
