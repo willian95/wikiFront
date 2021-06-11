@@ -16,7 +16,7 @@
                        
                         
                             <p> Before registering, remember that your email address must be valid and approved by your
-                                Institution & the wikiPB Admin
+                                Institution & the wikiPBL Admin
                             </p>
                         </div>
                     </div>
