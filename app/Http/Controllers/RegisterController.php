@@ -120,7 +120,7 @@ class RegisterController extends Controller
             $user->email_verified_at = Carbon::now();
             $user->update();
             
-            return redirect()->to('/');
+            return redirect()->to('/front-test');
 
         }catch(\Exception $e){
             
